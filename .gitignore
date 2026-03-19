@@ -1,0 +1,5 @@
+.env
+posts/
+pending_notes/
+__pycache__/
+*.pyc

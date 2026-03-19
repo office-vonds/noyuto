@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "gmail": {
+      "type": "url",
+      "url": "https://gmail.mcp.claude.com/mcp"
+    }
+  }
+}
