@@ -34,7 +34,7 @@
 | 1 | オフィスVONDS | 会社経営 | skills/vonds.md |
 | 2 | RIWAY International | ディストリビューター | skills/riway.md |
 | 3 | antique合同会社 | 社長:阿部忍 / 絆からの引継ぎ / 2026年4月新設 | skills/antique.md |
-| 4 | 〇〇合同会社 | 社長:小沢 / ILアプリ開発 / 2026年4月新設 | skills/il-app.md |
+| 4 | UNLYUTO合同会社 | 社長:小沢 / ILアプリSaaS / 2026年4月新設 | skills/il-app.md |
 | 5 | noyuto | X・NOTE活動 | skills/noyuto-media.md |
 | 6 | THEパレッターズ | バンド・ドラム担当 | skills/palletters.md |
 
