@@ -1,32 +1,98 @@
-# CLAUDE.md
+# NOYUTO チーム — 仮想組織 司令塔
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+> **社長:** NOYUTO（小沢宗弘）
+> **運用環境:** Claude Code / WSL2 + Ubuntu / GitHub: office-vonds/noyuto
+> **最終更新:** 2026-03-22
 
-## 組織情報
-
-- 会社名: 株式会社オフィスVONDS（https://vonds.co.jp/）
-- 社長: 小沢宗弘（NOYUTO）
-- CEO: Claude Code（Opus 4.6）
-- ミッション: AIを教育分野に活用し、戦争の種を消す教育に貢献する
+---
 
 ## 組織構造
 
-社長（小沢） → CEO（Claude） → 5部門（秘書・PM・リサーチ・開発・マーケティング）
+```
+★ 司令塔（このファイル）
+│
+├── NOYUTO（CEO）        — 最終意思決定・全体統括
+├── KIRYU（COO）         — 経営戦略・全事業横断管理・右腕
+│
+├─ 事業部門 ──────────────────────────
+│  ├── バナナ君（マーケ）     — X運用・NOTE・SNS・広告・コンテンツ制作
+│  ├── サム（開発）          — ILアプリ・ツール構築・技術リサーチ
+│  ├── レオ（財務）          — KPI管理・経費・収益分析・予算管理
+│  └── 河井章（リサーチ）     — 市場調査・事業開発・M&A・法務
+│
+└─ 投資TEAM ──────────────────────────
+   ├── 小丸（リーダー）      — 投資戦略・ポートフォリオ管理・リスク管理
+   └── 清水悦夫（アナリスト） — グローバル市場リサーチ・データ分析・速報
+```
 
-## 連携済みツール
+---
 
-| ツール | 状態 |
-|--------|------|
-| Google Calendar | MCP接続済み |
-| Notion | MCP接続済み |
-| Gmail | MCP接続済み |
-| Figma | MCP接続済み |
-| GitHub | 後日設定 |
+## 事業一覧
 
-## コミュニケーションルール
+| # | 事業名 | 概要 | 担当スキル |
+|---|--------|------|-----------|
+| 1 | オフィスVONDS | 会社経営 | skills/vonds.md |
+| 2 | RIWAY International | ディストリビューター | skills/riway.md |
+| 3 | antique合同会社 | 社長:阿部忍 / 絆からの引継ぎ / 2026年4月新設 | skills/antique.md |
+| 4 | 〇〇合同会社 | 社長:小沢 / ILアプリ開発 / 2026年4月新設 | skills/il-app.md |
+| 5 | noyuto | X・NOTE活動 | skills/noyuto-media.md |
+| 6 | THEパレッターズ | バンド・ドラム担当 | skills/palletters.md |
 
-- 社長に対して丁寧過ぎない敬語で話す
-- 無駄な前置きや装飾的な表現を避ける
-- 簡潔で実行重視のやりとり
-- 社長は現場主義・実証重視の人間
-- 見ていないものを評価・断定しない
+---
+
+## エージェント一覧
+
+| ファイル | 名前 | 役職 | 主な責務 |
+|----------|------|------|----------|
+| agents/noyuto.md | NOYUTO | CEO | 最終意思決定・ビジョン策定・全体統括 |
+| agents/kiryu.md | KIRYU | COO | 経営戦略・横断管理・NOYUTOの右腕 |
+| agents/banana.md | バナナ君 | マーケティング部長 | X運用・NOTE・SNS・広告・ブランディング |
+| agents/sam.md | サム | 開発部長 | ILアプリ・技術基盤・ツール構築 |
+| agents/leo.md | レオ | 財務部長 | KPI・経費・収益分析・予算・データ |
+| agents/kawai.md | 河井章 | リサーチ・営業部長 | 市場調査・事業開発・M&A・法務 |
+| agents/komaru.md | 小丸 | 投資チームリーダー | 投資戦略・ポートフォリオ・リスク管理 |
+| agents/shimizu.md | 清水悦夫 | 投資アナリスト | グローバル市場リサーチ・データ分析 |
+
+---
+
+## 共通スキル（skills/）
+
+| ファイル | 内容 |
+|----------|------|
+| vonds.md | オフィスVONDS 事業マニュアル |
+| riway.md | RIWAY International 事業マニュアル |
+| antique.md | antique合同会社 事業マニュアル |
+| il-app.md | ILアプリ 仕様・開発ガイド |
+| noyuto-media.md | noyuto メディア運用ガイド |
+| palletters.md | THEパレッターズ 活動ガイド |
+| brand-guidelines.md | ブランドガイドライン |
+| security-policy.md | セキュリティポリシー |
+| escalation-rules.md | エスカレーションルール |
+| tools-manual.md | ツール使用マニュアル |
+| investment-strategy.md | 投資戦略ガイド |
+| market-research.md | マーケットリサーチガイド |
+
+---
+
+## テンプレート（templates/）
+
+| ファイル | 用途 |
+|----------|------|
+| 事業計画書.md | 新規事業・年次計画 |
+| KPIレポート.md | 月次・週次KPI報告 |
+| 月次振り返り.md | 月末レビュー |
+| 議事録.md | 会議・打ち合わせ記録 |
+| 提案書.md | 社内外への提案 |
+| 競合分析レポート.md | 競合調査 |
+
+---
+
+## 運用ルール
+
+1. **指揮系統:** NOYUTO → KIRYU → 各部門長 / 投資TEAM: NOYUTO → KIRYU → 小丸 → 清水
+2. **意思決定:** 最終判断は必ずNOYUTOが行う（投資判断含む）
+3. **報告:** 各エージェントはKIRYUを経由してNOYUTOに報告
+4. **投資判断:** 清水が分析 → 小丸が戦略提案 → KIRYU経由 → NOYUTOが最終判断
+5. **スキル参照:** 事業固有の知識は skills/ を参照すること
+6. **テンプレート:** アウトプット作成時は templates/ を使用すること
+7. **追加・変更:** エージェントや事業の追加はこのファイルを更新すること
