@@ -1,5 +1,10 @@
 .env
-posts/
-pending_notes/
 __pycache__/
 *.pyc
+debug_screenshot*.png
+note_*error*.png
+*.Zone.Identifier
+Your archive*
+assets/
+data/
+debug_note*.py
