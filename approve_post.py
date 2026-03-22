@@ -117,6 +117,23 @@ def thread_mode(posts: list[tuple[Path, dict]]):
     print(f"\nスレッド{len(posts)}件の投稿が完了しました。")
 
 
+def auto_mode(posts: list[tuple[Path, dict]], latest_only: bool = True):
+    """承認不要で自動投稿する。"""
+    targets = [posts[-1]] if latest_only else posts
+    client = get_x_client()
+
+    for filepath, data in targets:
+        print(f"自動投稿中: {data['text'][:50]}...")
+        try:
+            tweet_id = post_to_x(client, data["text"])
+            update_post_status(filepath, tweet_id)
+            print(f"投稿完了 (tweet_id: {tweet_id})")
+        except tweepy.TweepyException as e:
+            print(f"投稿失敗: {e}")
+
+    print(f"\n自動投稿 {len(targets)}件完了。")
+
+
 def interactive_mode(posts: list[tuple[Path, dict]]):
     """対話モードで番号選択→単発投稿。"""
     display_posts(posts)
@@ -157,6 +174,8 @@ def interactive_mode(posts: list[tuple[Path, dict]]):
 def main():
     parser = argparse.ArgumentParser(description="X投稿の承認・投稿")
     parser.add_argument("--thread", action="store_true", help="スレッドモード（全件をリプライチェーンで投稿）")
+    parser.add_argument("--auto", action="store_true", help="自動モード（最新1件を承認不要で即投稿）")
+    parser.add_argument("--auto-all", action="store_true", help="自動モード（pending全件を即投稿）")
     parser.add_argument("--dry-run", action="store_true", help="投稿せずに確認のみ")
     args = parser.parse_args()
 
@@ -171,7 +190,11 @@ def main():
         print("（dry-runモード: 投稿はしていません）")
         return
 
-    if args.thread:
+    if args.auto:
+        auto_mode(pending, latest_only=True)
+    elif args.auto_all:
+        auto_mode(pending, latest_only=False)
+    elif args.thread:
         thread_mode(pending)
     else:
         interactive_mode(pending)

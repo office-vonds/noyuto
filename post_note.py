@@ -4,8 +4,8 @@ import glob
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-PENDING_DIR  = Path.home() / "projects/vonds/pending_notes"
-SESSION_FILE = Path.home() / "projects/vonds/note_session.json"
+PENDING_DIR  = Path.home() / "projects/noyuto/pending_notes"
+SESSION_FILE = Path.home() / "projects/noyuto/note_session.json"
 
 async def close_dialog(page):
     selectors = [
