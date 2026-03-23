@@ -1,0 +1,84 @@
+{
+  "account": "thug_business",
+  "info": {
+    "name": "サグ",
+    "domain": "自己啓発・マインド",
+    "why_watch": "12.5Kフォロワー。ブクマ率18.3%。死に物狂い系の覚悟論。NOYUTOの行動至上主義と共鳴"
+  },
+  "analyzed_at": "2026-03-19T08:35:12.840623+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 534.0,
+    "avg_bookmarks": 69.6,
+    "avg_retweets": 37.1,
+    "avg_bookmark_ratio": 0.188,
+    "avg_chars": 100
+  },
+  "format_distribution": {
+    "dialogue": 31,
+    "standard": 18,
+    "bullet_list": 2,
+    "myth_busting": 2,
+    "comparison": 2,
+    "flow_arrow": 1
+  },
+  "hook_distribution": {
+    "dialogue_hook": 40,
+    "statement_hook": 7,
+    "short_impact_hook": 2,
+    "myth_bust_hook": 1
+  },
+  "high_bookmark_formats": {
+    "dialogue": 7,
+    "standard": 2,
+    "bullet_list": 1,
+    "myth_busting": 1
+  },
+  "top_posts": [
+    {
+      "text": "ワイ、ADHDなんだけど、ADHDが勝ち抜く戦略は、とにかく興味ある事片っ端からやりまくって、その中で「努力」と思わなくても比較的成果が出せて、かつ継続するのに労力を感じないものにエネルギーを全ツッパする事だと思う。ていうか、絶対にそう。ADHDは「選択」と「集中」を制したら無双できる。",
+      "bookmarks": 939,
+      "likes": 3478,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "24歳〜28歳の間に、「インスタのストーリーに日常をあげるのが恥ずかしくなってきた」みたいな夜が来るはずなんだけどな。 https://t.co/SHZ23zy3kx",
+      "bookmarks": 562,
+      "likes": 10165,
+      "formats": [
+        "standard"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "ADHDは「物欲がないくせに無駄に安いものを衝動的に買ってしまう」という特徴がある。だからこそ、極限までモノを減らした上で、身の回りで普段使うものは「高くて良い物」を買って、それを長く使うのが1番良い。ADHDを20数年生きてきたからこそ、これだけはマジ。",
+      "bookmarks": 350,
+      "likes": 2079,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "20代後半から30代にかけて「努力から逃げた人」はハッキリとわかるようになる。「あ、この人はもう無理だな」と。綺麗事抜きで20代後半までに努力と向き合わない選択を取った人の救済措置はほぼない。なので、努力からは逃げないようにしましょう。人生、苦しい選択をした方が、結果的に楽になるので。",
+      "bookmarks": 332,
+      "likes": 1395,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "管理職ってのは「確認お願いします」という言葉が引き起こすストレスに対していかに耐える事ができるかのお仕事です。異論は認めます。",
+      "bookmarks": 220,
+      "likes": 1810,
+      "formats": [
+        "standard"
+      ],
+      "hook": "dialogue_hook"
+    }
+  ]
+}

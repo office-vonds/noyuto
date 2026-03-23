@@ -1,0 +1,79 @@
+{
+  "account": "oshige_writing",
+  "info": {
+    "name": "おしげ（耕納茂彰）",
+    "domain": "メンタル・人間関係",
+    "why_watch": "61Kフォロワー。ブクマ率17.8%。信用・誠実さの切り口。NOYUTOの信頼経済と共鳴"
+  },
+  "analyzed_at": "2026-03-19T08:35:13.319065+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 40.0,
+    "avg_bookmarks": 6.1,
+    "avg_retweets": 4.7,
+    "avg_bookmark_ratio": 0.149,
+    "avg_chars": 86
+  },
+  "format_distribution": {
+    "standard": 44,
+    "bullet_list": 4,
+    "dialogue": 2
+  },
+  "hook_distribution": {
+    "statement_hook": 35,
+    "short_impact_hook": 9,
+    "dialogue_hook": 6
+  },
+  "high_bookmark_formats": {
+    "standard": 7,
+    "bullet_list": 2,
+    "dialogue": 1
+  },
+  "top_posts": [
+    {
+      "text": "ストレスになる原因ってコレ。 https://t.co/mjEwg9LR6W",
+      "bookmarks": 139,
+      "likes": 962,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "期待はしないことです。 https://t.co/WQB4l2459g",
+      "bookmarks": 36,
+      "likes": 367,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "なぜか運が悪い人を見て気づいた。\n\n❌運が逃げていく口癖\n・でも、だって、どうせ\n・疲れた\n・〜のせい\n・つまらない\n・やってもムダ\n・自分にはムリ\n・私は悪くない\n・アイツはダメ\n・お金がない\n・自分なんて\n・忙しい\n・めんどくさい\n・明日からやる\n\n⭕️運を引き寄せる口癖",
+      "bookmarks": 26,
+      "likes": 92,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "仕事が終わらなくて成果も出ない。\n完璧主義者のNGな特徴。\n\n5位\n余計なところにこだわる\n\n4位\n人に相談しない\n\n3位\nいつも期限ギリギリの提出\n\n2位\n加筆、修正を繰り返す\n\nマジで仕事が遅い1位は…",
+      "bookmarks": 24,
+      "likes": 80,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "悪口、陰口の代償ランキング\n\n5位\n悪いところしか見えなくなる\n\n4位\n周りが嫌な人ばかりになる\n\n3位\n他責思考になっていく\n\n２位\n自分のメンタルや脳が疲弊する\n\n取り戻しがきかない1位は…",
+      "bookmarks": 15,
+      "likes": 82,
+      "formats": [
+        "standard"
+      ],
+      "hook": "short_impact_hook"
+    }
+  ]
+}

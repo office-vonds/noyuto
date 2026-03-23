@@ -1,0 +1,84 @@
+{
+  "account": "naomicoach7",
+  "info": {
+    "name": "安保 奈緒美",
+    "domain": "経営コーチ・組織開発",
+    "why_watch": "37Kフォロワー。経営者伴走12年。幼少期の親子関係×対人関係の切り口。NOYUTOの父親論と接点あり"
+  },
+  "analyzed_at": "2026-03-19T08:35:14.224301+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 51.0,
+    "avg_bookmarks": 1.8,
+    "avg_retweets": 1.6,
+    "avg_bookmark_ratio": 0.026,
+    "avg_chars": 113
+  },
+  "format_distribution": {
+    "standard": 39,
+    "bullet_list": 4,
+    "myth_busting": 2,
+    "dialogue": 2,
+    "authority_cite": 2,
+    "comparison": 1
+  },
+  "hook_distribution": {
+    "statement_hook": 38,
+    "short_impact_hook": 6,
+    "dialogue_hook": 5,
+    "revelation_hook": 1
+  },
+  "high_bookmark_formats": {
+    "standard": 6,
+    "bullet_list": 2,
+    "comparison": 1,
+    "myth_busting": 1
+  },
+  "top_posts": [
+    {
+      "text": "人は人によって磨かれる。\n\n優秀な人材を育てる方法はシンプルです。\n\n・高い基準\n・本音の対話\n・厳しくて温かいフィードバック\n\n人は本気の人と出会ったときに成長する。\n\n強い組織とは人が人を磨く構造がある組織です。",
+      "bookmarks": 16,
+      "likes": 188,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "今、管理職になりたがらない人が増えているのは、単なる個人のやる気の問題ではありません。\n\n組織の構造的・心理的な理由が複合的に絡んでいます。\n\n■責任が増えるのにリターンが見合わない\n\n・業務量は増える\n・精神的負担も増える\n・でも給与差が小さい\n\nこの状態では",
+      "bookmarks": 14,
+      "likes": 126,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "人を責めるのは簡単。\nでもそれでは人は育たない。\n\n本当に強いリーダーは人格を否定せず、事実と向き合う。\n\n本当の厳しさとは相手を責めることではない。\n\n相手の可能性を信じて必要なことを逃げずに伝えること。\n\n責める厳しさは「怒り」から生まれ、\n責め心のない厳しさは「愛」から生まれる。",
+      "bookmarks": 10,
+      "likes": 170,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "人間関係において”近さ”は必ずしも強さではありません。\n\n近すぎる関係は遠慮をなくし、境界を曖昧にし、やがて相手への期待や支配、依存を生みます。\n\n一方で、適切な距離は相手への敬意を保ち、言葉を選び、関係を丁寧に扱わせます。\n\n本当に長く続く関係には、必ず“距離感の美しさ”があります。",
+      "bookmarks": 7,
+      "likes": 146,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "恋愛をはじめとする人間関係の悩みの多くは\n「今の問題」ではなく\n「過去のパターン」です。\n\n心理学では幼少期の親子関係が人の対人関係の土台を作ると言われています。\n\n愛されたい不安\n相手への依存\n距離の取り方\n自己価値感\n\nすべてここから始まる。",
+      "bookmarks": 6,
+      "likes": 85,
+      "formats": [
+        "comparison"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}

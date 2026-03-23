@@ -1,0 +1,82 @@
+{
+  "account": "chokki_hansei",
+  "info": {
+    "name": "チョッキ",
+    "domain": "AI×哲学・逆転起業",
+    "why_watch": "16.5Kフォロワー。ブクマ率25.3%。不要なものを手放す系の切り口。NOYUTOの執着論と共鳴"
+  },
+  "analyzed_at": "2026-03-19T08:35:12.442816+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 19.9,
+    "avg_bookmarks": 4.7,
+    "avg_retweets": 3.2,
+    "avg_bookmark_ratio": 0.166,
+    "avg_chars": 126
+  },
+  "format_distribution": {
+    "standard": 41,
+    "dialogue": 8,
+    "myth_busting": 2,
+    "bullet_list": 1,
+    "punchline_ending": 1
+  },
+  "hook_distribution": {
+    "dialogue_hook": 23,
+    "statement_hook": 18,
+    "short_impact_hook": 9
+  },
+  "high_bookmark_formats": {
+    "dialogue": 5,
+    "standard": 5,
+    "bullet_list": 1
+  },
+  "top_posts": [
+    {
+      "text": "これはマジ。ドーパミンは、快感・幸福・やる気ホルモン。上手に使えば「やりがいを感じる」「目標達成できる」「挫折から立ち上がれる」一方、刺激だけを追い求めると、依存・焦り・空虚感に呑まれる。幸せになるか不幸になるかは、ドーパミンの使い方次第。今のあなたは、どっちの使い方をしてる？ https://t.co/cIm78SoOWB",
+      "bookmarks": 62,
+      "likes": 243,
+      "formats": [
+        "bullet_list",
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これはマジ。幸せホルモン「セロトニン」は、心を落ち着かせ、前向きな気持ちを保つ大切なホルモン。十分に出ていると気持ちが安定し、コツコツ頑張れる。でも不足すると「イライラしやすい」「不安になりやすい」「疲れやすい」「諦めやすい」状態に。あなたは、セロトニンが多い人or不足している人？ https://t.co/QxywIomVTe",
+      "bookmarks": 47,
+      "likes": 179,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これマジ。月曜日を制する者が、1週間を制す。「月曜日がつらい」「週末の終わりが怖い」そんな思いを抱いたこと、誰にでもある。でも月曜日は、“戦う日”じゃなくて“整える日”。小さな習慣を作るだけで、心も仕事も、1週間が驚くほどラクになる。月曜日を“スタートダッシュの日”に変えるルーティンは↓ https://t.co/81XpYULqOf",
+      "bookmarks": 27,
+      "likes": 127,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これマジ。1日は24時間。時間もお金も体力も限りがある。だから足し算の前に引き算。まず「やりたいこと」を増やす前に「やめること」を決めよう。余白が生まれると本当にやりたいことに集中できる。役目を終えた習慣を手放すほど、明るい未来を引き寄せる。なりたい自分を叶える\"引き算のワーク\"は↓ https://t.co/1uW0BAkq0o",
+      "bookmarks": 26,
+      "likes": 101,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これはガチ。理想の自分に近づきたいのに、現実がなかなか変わらない…そんな時、努力不足じゃなくて“余計なもの”を抱え込んでいることが多い。無理に追い込み続けるより、不要な習慣や思い込みを手放すことで前に進める。9年2万件の対話から見えてきた『本気で変わりたい人が手放したいもの』は↓ https://t.co/K69x5XhPgu",
+      "bookmarks": 18,
+      "likes": 55,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}

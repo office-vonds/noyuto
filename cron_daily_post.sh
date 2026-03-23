@@ -1,38 +1,81 @@
 #!/bin/bash
-# 毎朝cronで実行: オリジナル投稿生成 + 引用リポスト候補検索 → Gmail1通で通知
+# 毎朝cronで実行: インフルエンサー分析 + オリジナル投稿生成 + 引用リポスト候補検索 → Gmail通知
 cd ~/projects/vonds
 
-/home/noyuto/.local/bin/claude --print "
-以下の手順をすべて実行し、最後にGmail1通にまとめて通知してください。
+LOGFILE=~/claude_cron_post.log
+OUTFILE=~/projects/vonds/daily_report.txt
+DATE=$(date +%Y/%m/%d)
 
-【ステップ1: オリジナル投稿生成】
+echo "=== $DATE 実行開始 ===" >> "$LOGFILE"
+
+# ステップ0: インフルエンサー構造分析（週1回: 月曜のみ）
+if [ "$(date +%u)" = "1" ]; then
+    python3 analyze_influencers.py --update-prompt >> "$LOGFILE" 2>&1
+fi
+
+# ステップ1: 引用リポスト候補検索（Python直接実行、MCP不要）
+QUOTES=$(python3 search_quotes.py --top 5 2>/dev/null)
+
+# ステップ2: Claude Codeで投稿文を生成（Gmail送信はしない）
+POST=$(/home/noyuto/.local/bin/claude --print "
+以下の手順を実行し、結果をテキストで出力してください。Gmailは送信しないでください。
+
+【ステップ1: オリジナル投稿生成（スレッド4本）】
 1. auto_generate.py を引数なしで実行してランダムなテーマを取得
-2. prompts/noyuto_persona.txt を読み、そのテーマでNOYUTOとしてX投稿文を生成
-3. generate_post.py --topic テーマ --text 生成文 で保存
-4. テーマ・投稿文・文字数を控えておく
+2. prompts/noyuto_persona.txt を読み、そのテーマでNOYUTOとしてXスレッド4本を生成
+   - 1本目: フック（断定・インパクトでスクロールを止める）
+   - 2本目: 煽り（反論を先回りして挑発する）
+   - 3本目: 根拠（体験・事実で証明する）
+   - 4本目: 着地（答えは出さず問いで終わる）
+3. prompts/learned_patterns.txt を読み、構造パターンを参考にする
+4. generate_post.py --topic テーマ --text 生成文 で保存
 
-【ステップ2: 引用リポスト候補検索】
-5. python3 search_quotes.py を実行して引用リポスト候補を取得
-6. 結果を控えておく
+以下のフォーマットで出力してください:
 
-【ステップ3: Gmail通知（1通にまとめる）】
-7. Gmailで office.vonds@gmail.com 宛に以下を送信：
-   件名: 【NOYUTO日報】本日の投稿案＋引用リポスト候補
-   本文:
+テーマ: （テーマ名）
+構造パターン: （使用した構造）
 
-   ━━━━━━━━━━━━━━━━━━
-   ■ 本日のオリジナル投稿案
-   ━━━━━━━━━━━━━━━━━━
-   テーマ: （選ばれたテーマ）
-   投稿文: （生成した投稿文）
-   文字数: （文字数）
-   ステータス: pending（承認待ち）
+【1/4 フック】
+（投稿文）
 
-   ━━━━━━━━━━━━━━━━━━
-   ■ 引用リポスト候補
-   ━━━━━━━━━━━━━━━━━━
-   （search_quotes.py の結果をそのまま貼り付け）
+【2/4 煽り】
+（投稿文）
 
-   ━━━━━━━━━━━━━━━━━━
-   承認する場合は approve_post.py を実行してください。
-" >> ~/claude_cron_post.log 2>&1
+【3/4 根拠】
+（投稿文）
+
+【4/4 着地】
+（投稿文）
+" 2>>"$LOGFILE")
+
+# ステップ3: レポートをファイルに保存
+cat > "$OUTFILE" << REPORT_EOF
+━━━━━━━━━━━━━━━━━━
+【NOYUTO日報】$DATE
+━━━━━━━━━━━━━━━━━━
+
+■ 本日のオリジナル投稿案（スレッド4本）
+━━━━━━━━━━━━━━━━━━
+$POST
+
+━━━━━━━━━━━━━━━━━━
+■ 引用リポスト候補 TOP5
+━━━━━━━━━━━━━━━━━━
+$QUOTES
+
+━━━━━━━━━━━━━━━━━━
+承認する場合は approve_post.py を実行してください。
+REPORT_EOF
+
+# ステップ4: Gmail送信（Python直接、MCP不要）
+python3 send_gmail.py \
+    --to office.vonds@gmail.com \
+    --subject "【NOYUTO日報】本日の投稿案＋引用リポスト候補（$DATE）" \
+    --body-file "$OUTFILE" >> "$LOGFILE" 2>&1
+
+# Gmail送信失敗時のフォールバック: ファイルは残るので手動確認可能
+if [ $? -ne 0 ]; then
+    echo "Gmail送信失敗。レポートは $OUTFILE に保存済み" >> "$LOGFILE"
+fi
+
+echo "=== $DATE 実行完了 ===" >> "$LOGFILE"

@@ -1,0 +1,192 @@
+[投稿開始] 評価基準は売上ではなく信用で決まる
+Traceback (most recent call last):
+  File "/home/noyuto/projects/vonds/post_note.py", line 91, in <module>
+    asyncio.run(post_to_note())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/noyuto/projects/vonds/post_note.py", line 45, in post_to_note
+    browser = await p.chromium.launch(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 14547, in launch
+    await self._impl_obj.launch(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 97, in launch
+    await self._channel.send(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=/tmp/playwright_chromiumdev_profile-QR1F64 --remote-debugging-pipe --no-startup-window
+  - <launched> pid=38828
+  - [pid=38828][err] [0320/091003.224214:WARNING:chrome/app/chrome_main_linux.cc:83] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=38828][err] [38828:38828:0320/091003.644556:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:256] Missing X server or $DISPLAY
+  - [pid=38828][err] [38828:38828:0320/091003.644595:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=38828] <gracefully close start>
+  - [pid=38828] <kill>
+  - [pid=38828] <will force kill>
+  - [pid=38828] <process did exit: exitCode=1, signal=null>
+  - [pid=38828] starting temporary directories cleanup
+  - [pid=38828] finished temporary directories cleanup
+  - [pid=38828] <gracefully close end>
+
+[投稿開始] 評価基準は売上ではなく信用で決まる
+Traceback (most recent call last):
+  File "/home/noyuto/projects/vonds/post_note.py", line 91, in <module>
+    asyncio.run(post_to_note())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/noyuto/projects/vonds/post_note.py", line 45, in post_to_note
+    browser = await p.chromium.launch(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 14547, in launch
+    await self._impl_obj.launch(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 97, in launch
+    await self._channel.send(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=/tmp/playwright_chromiumdev_profile-8wZxEV --remote-debugging-pipe --no-startup-window
+  - <launched> pid=62684
+  - [pid=62684][err] [0321/091002.620085:WARNING:chrome/app/chrome_main_linux.cc:83] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=62684][err] [62684:62684:0321/091003.074079:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:256] Missing X server or $DISPLAY
+  - [pid=62684][err] [62684:62684:0321/091003.074123:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=62684] <gracefully close start>
+  - [pid=62684] <kill>
+  - [pid=62684] <will force kill>
+  - [pid=62684] <process did exit: exitCode=1, signal=null>
+  - [pid=62684] starting temporary directories cleanup
+  - [pid=62684] finished temporary directories cleanup
+  - [pid=62684] <gracefully close end>
+
+[投稿開始] 評価基準は売上ではなく信用で決まる
+Traceback (most recent call last):
+  File "/home/noyuto/projects/vonds/post_note.py", line 91, in <module>
+    asyncio.run(post_to_note())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/noyuto/projects/vonds/post_note.py", line 45, in post_to_note
+    browser = await p.chromium.launch(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 14547, in launch
+    await self._impl_obj.launch(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 97, in launch
+    await self._channel.send(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=/tmp/playwright_chromiumdev_profile-6Ns6uS --remote-debugging-pipe --no-startup-window
+  - <launched> pid=89084
+  - [pid=89084][err] [0322/091003.054245:WARNING:chrome/app/chrome_main_linux.cc:83] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=89084][err] [89084:89084:0322/091003.461177:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:256] Missing X server or $DISPLAY
+  - [pid=89084][err] [89084:89084:0322/091003.461214:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=89084] <gracefully close start>
+  - [pid=89084] <kill>
+  - [pid=89084] <will force kill>
+  - [pid=89084] <process did exit: exitCode=1, signal=null>
+  - [pid=89084] starting temporary directories cleanup
+  - [pid=89084] finished temporary directories cleanup
+  - [pid=89084] <gracefully close end>
+
+[投稿開始] 評価基準は売上ではなく信用で決まる
+Traceback (most recent call last):
+  File "/home/noyuto/projects/vonds/post_note.py", line 91, in <module>
+    asyncio.run(post_to_note())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/noyuto/projects/vonds/post_note.py", line 45, in post_to_note
+    browser = await p.chromium.launch(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/async_api/_generated.py", line 14547, in launch
+    await self._impl_obj.launch(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_browser_type.py", line 97, in launch
+    await self._channel.send(
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/noyuto/.local/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: BrowserType.launch: Target page, context or browser has been closed
+Browser logs:
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════╗
+║ Looks like you launched a headed browser without having a XServer running.                     ║
+║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║
+║                                                                                                ║
+║ <3 Playwright Team                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════╝
+Call log:
+  - <launching> /opt/google/chrome/chrome --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,BoundaryEventDispatchTracksNodeRemoval,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,Translate,AutoDeElevate,RenderDocument,OptimizationHints --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --enable-automation --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --no-sandbox --disable-blink-features=AutomationControlled --user-data-dir=/tmp/playwright_chromiumdev_profile-T7FLeV --remote-debugging-pipe --no-startup-window
+  - <launched> pid=115269
+  - [pid=115269][err] [0323/091002.520627:WARNING:chrome/app/chrome_main_linux.cc:83] Read channel stable from /opt/google/chrome/CHROME_VERSION_EXTRA
+  - [pid=115269][err] [115269:115269:0323/091002.950013:ERROR:ui/ozone/platform/x11/ozone_platform_x11.cc:256] Missing X server or $DISPLAY
+  - [pid=115269][err] [115269:115269:0323/091002.950060:ERROR:ui/aura/env.cc:246] The platform failed to initialize.  Exiting.
+  - [pid=115269] <gracefully close start>
+  - [pid=115269] <kill>
+  - [pid=115269] <will force kill>
+  - [pid=115269] <process did exit: exitCode=1, signal=null>
+  - [pid=115269] starting temporary directories cleanup
+  - [pid=115269] finished temporary directories cleanup
+  - [pid=115269] <gracefully close end>
+

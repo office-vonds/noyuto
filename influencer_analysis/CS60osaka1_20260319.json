@@ -1,0 +1,92 @@
+{
+  "account": "CS60osaka1",
+  "info": {
+    "name": "東大阪健康サロン@健康オタク",
+    "domain": "健康・自然療法",
+    "why_watch": "10万フォロワー。ブクマ率24.8%。リスト型・常識破壊型の構造が秀逸"
+  },
+  "analyzed_at": "2026-03-19T08:35:11.640627+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 928.4,
+    "avg_bookmarks": 235.3,
+    "avg_retweets": 171.0,
+    "avg_bookmark_ratio": 0.243,
+    "avg_chars": 139
+  },
+  "format_distribution": {
+    "standard": 20,
+    "numbered_circle_list": 15,
+    "bullet_list": 10,
+    "punchline_ending": 10,
+    "myth_busting": 5,
+    "flow_arrow": 2,
+    "comparison": 2,
+    "authority_cite": 1
+  },
+  "hook_distribution": {
+    "short_impact_hook": 33,
+    "statement_hook": 14,
+    "dialogue_hook": 2,
+    "revelation_hook": 1
+  },
+  "high_bookmark_formats": {
+    "numbered_circle_list": 4,
+    "myth_busting": 3,
+    "punchline_ending": 3,
+    "standard": 3,
+    "bullet_list": 1,
+    "authority_cite": 1,
+    "flow_arrow": 1
+  },
+  "top_posts": [
+    {
+      "text": "ひまし油（キャスターオイル）は、高い保湿力・抗炎症・抗菌作用を持つ植物油\n\nひまし油の使い方色々\n\nひまし油湿布（エドガー・ケイシー療法）\n\n肝臓が悪い方\n腸が悪い方\n子宮筋腫など婦人科疾患がある方\n○○嚢胞など嚢胞がる方\nしこり\nがん\n変形性股関節症\n変形性膝関節症\nリウマチ https://t.co/xFilZRowtF",
+      "bookmarks": 1625,
+      "likes": 2297,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "虫歯になったら\n\n①クローブ（ハーブ）を噛む\n\nインド人はこれで虫歯を治す\n\n②重曹うがいを食後にする\n\nこれで虫歯が治った人が大勢いる\n\n歯医者に行けば歯を削られる、最悪は歯を抜かれる",
+      "bookmarks": 1497,
+      "likes": 3629,
+      "formats": [
+        "numbered_circle_list"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "船瀬さんが\n厚労省の技官に\n「抗がん剤でがんは治るのか？」と聞いたら\n「抗がん剤でがんを治せないのは常識！抗がん剤の猛毒で死ぬ人がほとんど」\n\nと答えたそうです\n\n世の中本当に恐ろしい https://t.co/gbdLmW2jsP",
+      "bookmarks": 1274,
+      "likes": 7471,
+      "formats": [
+        "myth_busting",
+        "authority_cite"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "腎臓を回復させるには\n\n①なた豆茶かクミスクチン茶かメヒシバ茶\n②神宝塩など天然塩の摂取\nカントン水（水1リットルに対して9gの天然塩を溶かして飲む）\n精製塩はNGだけど天然塩は摂った方が良い\n③にがり(マグネシウム)の摂取\n④重曹➕クエン酸水",
+      "bookmarks": 776,
+      "likes": 1087,
+      "formats": [
+        "numbered_circle_list"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "病院に行くと飛蚊症は治らないと言われる\n飛蚊症は治らないは嘘\n\n対策は\n①ひまし油点眼\n②ブロメライン\n③パイナップルを毎日100g以上摂る\n④グルテンフリー\n⑤乳製品やめる\n⑥植物油をやめる\nまだまだある\n\n西洋医学で治らないだけ\n医者が治せないだけで真実は治ってる人はたくさんいる\n騙されないで",
+      "bookmarks": 570,
+      "likes": 1497,
+      "formats": [
+        "numbered_circle_list",
+        "myth_busting",
+        "punchline_ending"
+      ],
+      "hook": "short_impact_hook"
+    }
+  ]
+}

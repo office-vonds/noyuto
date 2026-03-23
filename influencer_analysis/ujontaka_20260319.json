@@ -1,0 +1,84 @@
+{
+  "account": "ujontaka",
+  "info": {
+    "name": "うじょん",
+    "domain": "自己成長・図解",
+    "why_watch": "12Kフォロワー。ブクマ率35.9%（最高値）。シンプル図解×対比型の構造。三流vs一流フォーマット"
+  },
+  "analyzed_at": "2026-03-19T08:35:12.019638+00:00",
+  "total_posts_analyzed": 21,
+  "metrics": {
+    "avg_likes": 100.4,
+    "avg_bookmarks": 25.5,
+    "avg_retweets": 9.4,
+    "avg_bookmark_ratio": 0.232,
+    "avg_chars": 107
+  },
+  "format_distribution": {
+    "standard": 11,
+    "flow_arrow": 5,
+    "numbered_circle_list": 4,
+    "bullet_list": 4,
+    "numbered_list": 1
+  },
+  "hook_distribution": {
+    "short_impact_hook": 13,
+    "statement_hook": 7,
+    "dialogue_hook": 1
+  },
+  "high_bookmark_formats": {
+    "flow_arrow": 4,
+    "numbered_circle_list": 3,
+    "bullet_list": 3,
+    "standard": 2,
+    "numbered_list": 1
+  },
+  "top_posts": [
+    {
+      "text": "人生後悔しないための自己投資\n\n6位\n歯のメンテ\n→失ってからでは遅い\n\n5位\n心地よい寝具\n→人生の約３分の１は睡眠時間\n\n4位\n非日常体験\n→記憶は誰にも奪われない財産になる\n\n3位\n定期的な運動\n→最後の最後までつきあうのは体\n\n2位\n読書\n→コスパよく一生分の知恵を蓄積\n\n1位は...↓",
+      "bookmarks": 136,
+      "likes": 387,
+      "formats": [
+        "flow_arrow"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "これ見て。今日はこの習慣をコンプリートしてご機嫌。 https://t.co/98xBNhbqKD",
+      "bookmarks": 104,
+      "likes": 587,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "これマジ。休日にととのうと明日の活力につながる。 https://t.co/XgNFtjtecx",
+      "bookmarks": 56,
+      "likes": 287,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "人生を前向きにする魔法の数字10選\n\n① 0.1mmでも前に進む\n② 人生の3分の1は睡眠時間\n③ どうせ2割の人からは嫌われる\n④ 今日の思考の9割は昨日と同じ\n⑤ 人生時計50歳でもまだ12時\n⑥ 新スキルの取得には20時間だけ\n⑦ 21日続くと習慣化できる\n⑧ 1日経つと記憶は74％忘れる\n⑨ 集中力の限界は↓",
+      "bookmarks": 48,
+      "likes": 200,
+      "formats": [
+        "numbered_circle_list",
+        "numbered_list"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "【休日にゼッタイにやってはいけない習慣】  \n\n✖️\n① 昼過ぎまでの寝だめ\n② 目的のないSNSやテレビ \n③ 嫌な仕事や人のことを考える \n④ 前日の２次会までの深酒\n⑤ 予定をつめこみすぎる\n\n⭕️\nゼッタイ満足する休日の習慣は↓",
+      "bookmarks": 40,
+      "likes": 146,
+      "formats": [
+        "numbered_circle_list"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}
