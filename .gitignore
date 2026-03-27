@@ -8,3 +8,4 @@ Your archive*
 assets/
 data/
 debug_note*.py
+node_modules/
