@@ -10,6 +10,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).parent
 POSTS_DIR = BASE_DIR / "posts"
+WEIGHTS_FILE = BASE_DIR / "theme_weights.json"
 
 # テーマプール（断定型タイトル・不変テーマのみ）
 THEME_POOL = [
@@ -43,8 +44,22 @@ THEME_POOL = [
 PERSONA_FILE = BASE_DIR / "prompts" / "noyuto_persona.txt"
 
 
+def load_weights():
+    """テーマ重みを読み込む（バナナ君PDCAで自動更新される）"""
+    if WEIGHTS_FILE.exists():
+        try:
+            with open(WEIGHTS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            pass
+    return {}
+
+
 def pick_theme() -> str:
-    return random.choice(THEME_POOL)
+    """重み付きランダム選択。重みが高いテーマほど選ばれやすい"""
+    weights = load_weights()
+    theme_weights = [weights.get(t, 1.0) for t in THEME_POOL]
+    return random.choices(THEME_POOL, weights=theme_weights, k=1)[0]
 
 
 def save_post(text: str, topic: str) -> Path:
