@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山梨県のSEO対策・WEBマーケティングなら株式会社オフィスVONDS</title>
+  <meta name="description" content="山梨県甲府市のSEO対策・WEBマーケティング会社。全日本SEO協会認定コンサルタント（山梨県唯一）。上位表示達成率90%以上、20年以上の実績。ホームページ制作からSEO対策、Google広告運用まで集客をワンストップで支援。">
+  <meta name="keywords" content="山梨 SEO対策, 山梨 WEBマーケティング, 山梨 ホームページ制作, 甲府 SEO, 山梨 集客, SEOコンサルタント 山梨">
+  <link rel="canonical" href="https://vonds.co.jp/">
+  <meta property="og:title" content="山梨県のSEO対策・WEBマーケティングなら株式会社オフィスVONDS">
+  <meta property="og:description" content="山梨県唯一の全日本SEO協会認定コンサルタント。上位表示達成率90%以上。SEO対策・WEB集客のことならオフィスVONDSへ。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vonds.co.jp/">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <style>
+/* ========================================
+   VONDS Corporate Site - Stylesheet
+   ======================================== */
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #1a56db;
+  --primary-dark: #1242b0;
+  --primary-light: #e8effc;
+  --accent: #f59e0b;
+  --accent-dark: #d97706;
+  --dark: #111827;
+  --gray-900: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-300: #d1d5db;
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50: #f9fafb;
+  --white: #ffffff;
+  --red: #ef4444;
+  --green: #10b981;
+
+  --font-main: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04);
+  --transition: 0.3s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--gray-700);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sp-only { display: none; }
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  border-color: var(--primary);
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border-color: var(--white);
+}
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--primary);
+  border-color: var(--white);
+}
+.btn-white:hover {
+  background: var(--gray-50);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  color: var(--primary);
+}
+
+.btn-lg {
+  padding: 16px 40px;
+  font-size: 17px;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* --- Header --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--gray-200);
+  transition: box-shadow var(--transition);
+}
+
+.header.scrolled {
+  box-shadow: var(--shadow-md);
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.header-logo a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+
+.logo-sub {
+  font-size: 10px;
+  color: var(--gray-500);
+  letter-spacing: 0.5px;
+}
+
+.header-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
+
+.header-nav a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-700);
+  transition: color var(--transition);
+}
+.header-nav a:hover {
+  color: var(--primary);
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: var(--primary);
+  color: var(--white) !important;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--radius);
+  transition: all var(--transition);
+}
+.header-cta:hover {
+  background: var(--primary-dark);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+  height: 24px;
+  position: relative;
+}
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--gray-700);
+  position: absolute;
+  left: 0;
+  transition: all var(--transition);
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.hamburger span:nth-child(3) { bottom: 0; }
+
+.hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+/* --- Hero --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 24px 80px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 40%, #1a56db 100%);
+  z-index: 0;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 50px;
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+.hero-title {
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.4;
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.hero-accent {
+  color: var(--accent);
+  position: relative;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  line-height: 2;
+  margin-bottom: 40px;
+}
+
+.hero-subtitle strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* --- Numbers --- */
+.numbers {
+  background: var(--white);
+  padding: 60px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+
+.number-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number-value {
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.number-unit {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+.number-label {
+  font-size: 14px;
+  color: var(--gray-500);
+  margin-top: 8px;
+}
+
+/* --- Section Title --- */
+.section-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--dark);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.section-title .accent {
+  color: var(--primary);
+}
+
+.section-title--white {
+  color: var(--white);
+}
+
+.section-lead {
+  text-align: center;
+  font-size: 16px;
+  color: var(--gray-600);
+  margin-bottom: 48px;
+  line-height: 1.8;
+}
+
+.section-lead strong {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* --- Problems --- */
+.problems {
+  padding: 100px 0;
+  background: var(--gray-50);
+}
+
+.problems .section-title {
+  margin-bottom: 48px;
+}
+
+.problems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.problem-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid var(--gray-200);
+  transition: all var(--transition);
+}
+
+.problem-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.problem-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  color: var(--primary);
+}
+
+.problem-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.problem-card p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--gray-700);
+}
+
+.problem-card strong {
+  color: var(--dark);
+}
+
+.problems-cta {
+  text-align: center;
+}
+
+.problems-cta-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 24px;
+}
+
+.problems-cta-text strong {
+  color: var(--primary);
+}
+
+/* --- Service --- */
+.service {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.service-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 40px 28px 32px;
+  transition: all var(--transition);
+}
+
+.service-card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.service-card--featured {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 20px;
+  border-radius: 50px;
+}
+
+.service-number {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--gray-200);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--gray-600);
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+.service-list {
+  list-style: none;
+}
+
+.service-list li {
+  font-size: 14px;
+  color: var(--gray-700);
+  padding: 6px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.service-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+/* --- Results --- */
+.results {
+  padding: 100px 0;
+  background: var(--gray-50);
+}
+
+.results-table-wrapper {
+  overflow-x: auto;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.results-table thead {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.results-table th {
+  padding: 16px 24px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.results-table td {
+  padding: 16px 24px;
+  font-size: 15px;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.results-table tbody tr:hover {
+  background: var(--primary-light);
+}
+
+.results-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.rank {
+  font-weight: 900;
+  font-size: 20px;
+}
+
+.rank-1 {
+  color: var(--accent-dark);
+}
+
+.rank-3 {
+  color: var(--primary);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status-achieved {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--green);
+}
+
+.results-note {
+  text-align: center;
+  font-size: 13px;
+  color: var(--gray-500);
+  margin-top: 24px;
+}
+
+/* --- Reason --- */
+.reason {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.reason-list {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 48px;
+}
+
+.reason-item {
+  display: flex;
+  gap: 32px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.reason-item:last-child {
+  border-bottom: none;
+}
+
+.reason-num {
+  flex-shrink: 0;
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--primary);
+  line-height: 1;
+  opacity: 0.3;
+}
+
+.reason-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.reason-content p {
+  font-size: 15px;
+  color: var(--gray-600);
+  line-height: 1.8;
+}
+
+/* --- CTA Mid --- */
+.cta-mid {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #1a56db 0%, #1242b0 100%);
+  text-align: center;
+}
+
+.cta-mid h2 {
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.cta-mid h2 strong {
+  color: var(--accent);
+}
+
+.cta-mid p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 32px;
+  line-height: 1.8;
+}
+
+/* --- Flow --- */
+.flow {
+  padding: 100px 0;
+  background: var(--gray-50);
+}
+
+.flow-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin-top: 48px;
+}
+
+.flow-step {
+  text-align: center;
+  flex: 1;
+  max-width: 220px;
+  padding: 0 12px;
+}
+
+.flow-step-num {
+  display: inline-block;
+  padding: 6px 20px;
+  background: var(--primary);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 50px;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.flow-step h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.flow-step p {
+  font-size: 14px;
+  color: var(--gray-600);
+  line-height: 1.7;
+}
+
+.flow-arrow {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  color: var(--gray-400);
+  margin-top: 8px;
+}
+
+.flow-arrow svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* --- Company --- */
+.company {
+  padding: 100px 0;
+  background: var(--white);
+}
+
+.company-table-wrapper {
+  max-width: 800px;
+  margin: 32px auto 0;
+}
+
+.company-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.company-table th,
+.company-table td {
+  padding: 20px 24px;
+  font-size: 15px;
+  border-bottom: 1px solid var(--gray-200);
+  text-align: left;
+}
+
+.company-table th {
+  width: 160px;
+  font-weight: 600;
+  color: var(--dark);
+  background: var(--gray-50);
+}
+
+.company-table td {
+  color: var(--gray-700);
+}
+
+.company-table a {
+  color: var(--primary);
+}
+
+/* --- Contact --- */
+.contact {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+}
+
+.contact-lead {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 48px;
+  line-height: 1.8;
+}
+
+.contact-methods {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-phone {
+  text-align: center;
+  padding: 40px 24px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-phone-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 12px;
+}
+
+.contact-phone-number {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--white) !important;
+  letter-spacing: 1px;
+}
+
+.contact-phone-hours {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+}
+
+.contact-form-wrapper {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.contact-form-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+}
+
+.required {
+  display: inline-block;
+  background: var(--red);
+  color: var(--white);
+  font-size: 11px;
+  padding: 1px 8px;
+  border-radius: 3px;
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: var(--font-main);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--dark);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-submit {
+  margin-top: 24px;
+}
+
+/* --- Footer --- */
+.footer {
+  background: var(--dark);
+  padding: 60px 0 24px;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer .logo-text {
+  color: var(--white);
+}
+
+.footer .logo-sub {
+  color: var(--gray-400);
+}
+
+.footer-address,
+.footer-tel {
+  font-size: 13px;
+  color: var(--gray-400);
+  margin-top: 8px;
+}
+
+.footer-tel a {
+  color: var(--gray-400);
+}
+
+.footer-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-nav a {
+  font-size: 14px;
+  color: var(--gray-400);
+}
+
+.footer-nav a:hover {
+  color: var(--white);
+}
+
+.footer-copy {
+  text-align: center;
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-top: 24px;
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .numbers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sp-only { display: inline; }
+
+  /* Header */
+  .header-nav,
+  .header-cta {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .header-nav.active {
+    display: block;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--white);
+    padding: 32px 24px;
+    z-index: 999;
+  }
+
+  .header-nav.active ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .header-nav.active a {
+    display: block;
+    padding: 16px 0;
+    font-size: 18px;
+    border-bottom: 1px solid var(--gray-100);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding: 120px 24px 60px;
+  }
+
+  .hero-title {
+    font-size: 30px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+  }
+
+  .hero-badge {
+    font-size: 12px;
+    padding: 6px 16px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Numbers */
+  .numbers {
+    padding: 40px 0;
+  }
+
+  .number-value {
+    font-size: 40px;
+  }
+
+  /* Sections */
+  .problems,
+  .service,
+  .results,
+  .reason,
+  .flow,
+  .company,
+  .contact {
+    padding: 64px 0;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .section-lead {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  /* Problems */
+  .problems-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .problem-card {
+    padding: 24px 20px;
+  }
+
+  /* Results */
+  .results-table th,
+  .results-table td {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .rank {
+    font-size: 18px;
+  }
+
+  /* Reason */
+  .reason-item {
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px 0;
+  }
+
+  .reason-num {
+    font-size: 32px;
+  }
+
+  .reason-content h3 {
+    font-size: 18px;
+  }
+
+  /* CTA Mid */
+  .cta-mid h2 {
+    font-size: 24px;
+  }
+
+  /* Flow */
+  .flow-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .flow-arrow {
+    transform: rotate(90deg);
+    margin: 0;
+  }
+
+  .flow-step {
+    max-width: 100%;
+  }
+
+  /* Company */
+  .company-table th {
+    width: 100px;
+    font-size: 13px;
+  }
+
+  .company-table td {
+    font-size: 14px;
+  }
+
+  /* Contact */
+  .contact-methods {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-form-wrapper {
+    padding: 24px;
+  }
+
+  .contact-phone-number {
+    font-size: 24px;
+  }
+
+  /* Footer */
+  .footer-inner {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .footer-nav ul {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* --- Animations --- */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+</style>
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "株式会社オフィスVONDS",
+    "description": "山梨県甲府市のSEO対策・WEBマーケティング会社。全日本SEO協会認定コンサルタント。",
+    "url": "https://vonds.co.jp/",
+    "telephone": "055-269-7220",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "上石田4-17-7 コーポ河井202",
+      "addressLocality": "甲府市",
+      "addressRegion": "山梨県",
+      "postalCode": "400-0041",
+      "addressCountry": "JP"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "山梨県"
+    },
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "sameAs": []
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "株式会社オフィスVONDS SEOコンサルティング",
+    "description": "山梨県唯一の全日本SEO協会認定SEOコンサルタントによるSEO対策サービス",
+    "provider": {
+      "@type": "Organization",
+      "name": "株式会社オフィスVONDS"
+    },
+    "areaServed": "山梨県",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "SEO対策サービス",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEOコンサルティング" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WEBサイト制作" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google広告運用代行" } }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="/">
+          <span class="logo-text">VONDS</span>
+          <span class="logo-sub">株式会社オフィスVONDS</span>
+        </a>
+      </div>
+      <nav class="header-nav" id="nav">
+        <ul>
+          <li><a href="#service">サービス</a></li>
+          <li><a href="#results">実績</a></li>
+          <li><a href="#reason">選ばれる理由</a></li>
+          <li><a href="#flow">ご利用の流れ</a></li>
+          <li><a href="#company">会社概要</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="header-cta">無料相談はこちら</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-badge">山梨県唯一の全日本SEO協会認定コンサルタント</p>
+      <h1 class="hero-title">
+        山梨の集客を、<br>
+        <span class="hero-accent">SEOの力</span>で変える。
+      </h1>
+      <p class="hero-subtitle">
+        2004年からWEBマーケティングに従事。<br>
+        上位表示達成率<strong>90%以上</strong>の実績で、<br class="sp-only">御社のWEB集客を成功に導きます。
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary btn-lg">無料相談する</a>
+        <a href="#results" class="btn btn-outline btn-lg">実績を見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 数字で見る実績 -->
+  <section class="numbers">
+    <div class="container">
+      <div class="numbers-grid">
+        <div class="number-item">
+          <span class="number-value" data-target="20">0</span>
+          <span class="number-unit">年以上</span>
+          <span class="number-label">WEBマーケティング実績</span>
+        </div>
+        <div class="number-item">
+          <span class="number-value" data-target="90">0</span>
+          <span class="number-unit">%以上</span>
+          <span class="number-label">上位表示達成率</span>
+        </div>
+        <div class="number-item">
+          <span class="number-value" data-target="1">0</span>
+          <span class="number-unit">億円</span>
+          <span class="number-label">5年連続売上高</span>
+        </div>
+        <div class="number-item">
+          <span class="number-value" data-target="100">0</span>
+          <span class="number-unit">件以上</span>
+          <span class="number-label">SEO対策実績</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お悩みセクション -->
+  <section class="problems" id="problems">
+    <div class="container">
+      <h2 class="section-title">こんなお悩み、<br class="sp-only">ありませんか？</h2>
+      <div class="problems-grid">
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <p>ホームページを作ったのに<br><strong>全然アクセスが来ない</strong></p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+          </div>
+          <p>SEO対策をしたいが<br><strong>何から始めればいいかわからない</strong></p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <p>広告費をかけても<br><strong>費用対効果が合わない</strong></p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <p>SEO業者に頼んだが<br><strong>結果が出なかった</strong></p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <p>地域密着で相談できる<br><strong>WEBの専門家がいない</strong></p>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <p>ホームページが古くて<br><strong>リニューアルしたい</strong></p>
+        </div>
+      </div>
+      <div class="problems-cta">
+        <p class="problems-cta-text">そのお悩み、<strong>オフィスVONDS</strong>が解決します。</p>
+        <a href="#contact" class="btn btn-primary">まずは無料相談</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- サービスセクション -->
+  <section class="service" id="service">
+    <div class="container">
+      <h2 class="section-title">サービス</h2>
+      <p class="section-lead">集客の課題を根本から解決する<br class="sp-only">3つのサービス</p>
+      <div class="service-grid">
+
+        <div class="service-card">
+          <div class="service-number">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="20" cy="20" r="14"/><path d="M30 30L42 42" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>SEOコンサルティング</h3>
+          <p class="service-desc">全日本SEO協会認定コンサルタントが、最新のGoogleアルゴリズムに基づいた施策を実施。キーワード選定から内部対策・コンテンツ戦略まで、上位表示を実現します。</p>
+          <ul class="service-list">
+            <li>キーワード調査・競合分析</li>
+            <li>内部SEO対策（タグ最適化・構造化データ）</li>
+            <li>コンテンツSEO戦略立案</li>
+            <li>Googleアルゴリズム変動対応</li>
+            <li>月次レポート・改善提案</li>
+          </ul>
+        </div>
+
+        <div class="service-card service-card--featured">
+          <div class="service-badge">人気</div>
+          <div class="service-number">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="8" width="40" height="28" rx="2"/><path d="M4 16h40"/><circle cx="24" cy="28" r="4"/>
+            </svg>
+          </div>
+          <h3>WEBサイト制作</h3>
+          <p class="service-desc">SEOを前提に設計した「集客できるホームページ」を制作。デザインだけでなく、検索エンジンに評価されるサイト構造で、公開後すぐに集客力を発揮します。</p>
+          <ul class="service-list">
+            <li>SEO設計済みサイト構築</li>
+            <li>レスポンシブ対応（スマホ最適化）</li>
+            <li>WordPress構築・カスタマイズ</li>
+            <li>ランディングページ（LP）制作</li>
+            <li>サイト保守・運用サポート</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="service-number">03</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 38V14l18-8 18 8v24"/><path d="M6 14l18 8 18-8"/><path d="M24 22v16"/>
+            </svg>
+          </div>
+          <h3>Google広告運用代行</h3>
+          <p class="service-desc">SEOとの相乗効果を最大化するGoogle広告運用。費用対効果を徹底分析し、無駄のない広告戦略で見込み客を獲得します。</p>
+          <ul class="service-list">
+            <li>Google検索広告・ディスプレイ広告</li>
+            <li>キーワード設計・入札調整</li>
+            <li>LP最適化（CVR改善）</li>
+            <li>GTM設計・コンバージョン計測</li>
+            <li>月次レポート・PDCA運用</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 実績セクション -->
+  <section class="results" id="results">
+    <div class="container">
+      <h2 class="section-title">SEO対策 実績</h2>
+      <p class="section-lead">上位表示達成率<strong>90%以上</strong>。<br>実際の検索キーワードと順位をご紹介します。</p>
+      <div class="results-table-wrapper">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>対策キーワード</th>
+              <th>最高順位</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>お悔み</strong></td>
+              <td class="rank rank-1">1位</td>
+              <td><span class="status-badge status-achieved">達成</span></td>
+            </tr>
+            <tr>
+              <td><strong>ビニール加工</strong></td>
+              <td class="rank rank-1">1位</td>
+              <td><span class="status-badge status-achieved">達成</span></td>
+            </tr>
+            <tr>
+              <td><strong>モデル 募集</strong></td>
+              <td class="rank rank-1">1位</td>
+              <td><span class="status-badge status-achieved">達成</span></td>
+            </tr>
+            <tr>
+              <td><strong>山梨 不用品</strong></td>
+              <td class="rank rank-1">1位</td>
+              <td><span class="status-badge status-achieved">達成</span></td>
+            </tr>
+            <tr>
+              <td><strong>山梨 SEO対策</strong></td>
+              <td class="rank rank-1">1位</td>
+              <td><span class="status-badge status-achieved">達成</span></td>
+            </tr>
+            <tr>
+              <td><strong>千葉 葬儀</strong></td>
+              <td class="rank rank-3">3位</td>
+              <td><span class="status-badge status-achieved">達成</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="results-note">※上記は公開可能な実績の一部です。その他多数の実績がございます。</p>
+    </div>
+  </section>
+
+  <!-- 選ばれる理由 -->
+  <section class="reason" id="reason">
+    <div class="container">
+      <h2 class="section-title">選ばれる<span class="accent">5</span>つの理由</h2>
+      <div class="reason-list">
+
+        <div class="reason-item">
+          <div class="reason-num">01</div>
+          <div class="reason-content">
+            <h3>山梨県唯一の全日本SEO協会認定コンサルタント</h3>
+            <p>一般社団法人全日本SEO協会が認定するSEOコンサルタント資格を保有。山梨県では唯一の認定者です。常に最新のSEO情報をキャッチアップし、エビデンスに基づいた施策を提供します。</p>
+          </div>
+        </div>
+
+        <div class="reason-item">
+          <div class="reason-num">02</div>
+          <div class="reason-content">
+            <h3>20年以上のWEBマーケティング経験</h3>
+            <p>2004年からインターネットビジネスに従事。検索エンジンの変遷を全て経験してきたからこそ、一時的なテクニックではなく本質的なSEO対策を実施できます。</p>
+          </div>
+        </div>
+
+        <div class="reason-item">
+          <div class="reason-num">03</div>
+          <div class="reason-content">
+            <h3>上位表示達成率90%以上の実績</h3>
+            <p>「お悔み」「ビニール加工」「モデル 募集」など、競合の激しいキーワードで1位を獲得。地域キーワードから全国キーワードまで、幅広い対策実績があります。</p>
+          </div>
+        </div>
+
+        <div class="reason-item">
+          <div class="reason-num">04</div>
+          <div class="reason-content">
+            <h3>集客まで一気通貫のワンストップ対応</h3>
+            <p>SEO対策だけでなく、WEBサイト制作・Google広告運用・コンテンツ制作まで、WEB集客に必要な全てをワンストップで提供。複数の業者に依頼する手間とコストを削減します。</p>
+          </div>
+        </div>
+
+        <div class="reason-item">
+          <div class="reason-num">05</div>
+          <div class="reason-content">
+            <h3>地域密着だから対面で相談できる</h3>
+            <p>山梨県甲府市に拠点を構え、地域の事業者様と直接お会いして課題をヒアリング。電話やメールだけでは伝わらない課題も、対面で丁寧にサポートします。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA中間 -->
+  <section class="cta-mid">
+    <div class="container">
+      <h2>まずは<strong>無料相談</strong>から<br class="sp-only">始めてみませんか？</h2>
+      <p>SEO対策・WEB集客のお悩みをお聞かせください。<br>現状分析から改善提案まで、初回相談は無料です。</p>
+      <a href="#contact" class="btn btn-white btn-lg">無料で相談する</a>
+    </div>
+  </section>
+
+  <!-- ご利用の流れ -->
+  <section class="flow" id="flow">
+    <div class="container">
+      <h2 class="section-title">ご利用の流れ</h2>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-num">STEP 1</div>
+          <h3>お問い合わせ</h3>
+          <p>フォームまたはお電話にてお気軽にご連絡ください。</p>
+        </div>
+        <div class="flow-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">STEP 2</div>
+          <h3>無料ヒアリング</h3>
+          <p>現状の課題・目標をお伺いし、最適な施策をご提案します。</p>
+        </div>
+        <div class="flow-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">STEP 3</div>
+          <h3>ご提案・お見積り</h3>
+          <p>調査結果に基づき、具体的な施策内容と費用をご提案します。</p>
+        </div>
+        <div class="flow-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">STEP 4</div>
+          <h3>施策実行・運用</h3>
+          <p>SEO対策を実行し、月次レポートで成果を共有。PDCAを回します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社概要 -->
+  <section class="company" id="company">
+    <div class="container">
+      <h2 class="section-title">会社概要</h2>
+      <div class="company-table-wrapper">
+        <table class="company-table">
+          <tbody>
+            <tr><th>会社名</th><td>株式会社オフィスVONDS</td></tr>
+            <tr><th>代表取締役</th><td>小沢宗弘</td></tr>
+            <tr><th>所在地</th><td>〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</td></tr>
+            <tr><th>電話番号</th><td><a href="tel:055-269-7220">055-269-7220</a></td></tr>
+            <tr><th>FAX</th><td>055-269-8004</td></tr>
+            <tr><th>メール</th><td><a href="mailto:info@vonds.co.jp">info@vonds.co.jp</a></td></tr>
+            <tr><th>資本金</th><td>200万円</td></tr>
+            <tr><th>事業内容</th><td>SEOコンサルティング / WEBサイト制作 / Google広告運用代行 / WEBマーケティング全般</td></tr>
+            <tr><th>資格</th><td>一般社団法人全日本SEO協会認定SEOコンサルタント / 第一種電気工事士</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title section-title--white">お問い合わせ</h2>
+      <p class="contact-lead">SEO対策・WEB集客のご相談は無料です。<br>まずはお気軽にお問い合わせください。</p>
+
+      <div class="contact-methods">
+        <div class="contact-phone">
+          <p class="contact-phone-label">お電話でのお問い合わせ</p>
+          <a href="tel:055-269-7220" class="contact-phone-number">055-269-7220</a>
+          <p class="contact-phone-hours">受付時間：平日 9:00〜18:00</p>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <p class="contact-form-label">フォームでのお問い合わせ</p>
+          <form class="contact-form" id="contactForm" action="#" method="post">
+            <div class="form-group">
+              <label for="company-name">会社名・店舗名</label>
+              <input type="text" id="company-name" name="company" placeholder="例：株式会社サンプル">
+            </div>
+            <div class="form-group">
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" required placeholder="例：山田太郎">
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" required placeholder="例：info@example.com">
+            </div>
+            <div class="form-group">
+              <label for="phone">電話番号</label>
+              <input type="tel" id="phone" name="phone" placeholder="例：055-123-4567">
+            </div>
+            <div class="form-group">
+              <label for="inquiry-type">ご相談内容 <span class="required">必須</span></label>
+              <select id="inquiry-type" name="inquiry_type" required>
+                <option value="" disabled selected>選択してください</option>
+                <option value="seo">SEO対策について</option>
+                <option value="web">WEBサイト制作について</option>
+                <option value="ads">Google広告運用について</option>
+                <option value="consulting">WEBコンサルティングについて</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">お問い合わせ内容 <span class="required">必須</span></label>
+              <textarea id="message" name="message" rows="5" required placeholder="お気軽にご相談ください"></textarea>
+            </div>
+            <div class="form-submit">
+              <button type="submit" class="btn btn-primary btn-lg btn-full">送信する</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <div class="footer-logo">
+            <span class="logo-text">VONDS</span>
+            <span class="logo-sub">株式会社オフィスVONDS</span>
+          </div>
+          <p class="footer-address">〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</p>
+          <p class="footer-tel">TEL: <a href="tel:055-269-7220">055-269-7220</a></p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="#service">サービス</a></li>
+            <li><a href="#results">実績</a></li>
+            <li><a href="#reason">選ばれる理由</a></li>
+            <li><a href="#flow">ご利用の流れ</a></li>
+            <li><a href="#company">会社概要</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2024 株式会社オフィスVONDS All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+// ========================================
+// VONDS Corporate Site - JavaScript
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  // --- Header scroll effect ---
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', function () {
+    header.classList.toggle('scrolled', window.scrollY > 10);
+  });
+
+  // --- Hamburger menu ---
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('nav');
+
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('active');
+    nav.classList.toggle('active');
+    document.body.style.overflow = nav.classList.contains('active') ? 'hidden' : '';
+  });
+
+  // Close menu on nav link click
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      hamburger.classList.remove('active');
+      nav.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // --- Smooth scroll offset for fixed header ---
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (!target) return;
+      e.preventDefault();
+      var offset = 80;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  // --- Number counter animation ---
+  var numberValues = document.querySelectorAll('.number-value');
+  var numbersObserved = false;
+
+  function animateNumbers() {
+    if (numbersObserved) return;
+    numberValues.forEach(function (el) {
+      var target = parseInt(el.getAttribute('data-target'), 10);
+      var duration = 2000;
+      var start = 0;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target);
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target;
+        }
+      }
+
+      requestAnimationFrame(step);
+    });
+    numbersObserved = true;
+  }
+
+  // Intersection Observer for numbers
+  if (numberValues.length > 0) {
+    var numbersSection = document.querySelector('.numbers');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateNumbers();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(numbersSection);
+  }
+
+  // --- Fade-in animation on scroll ---
+  var fadeElements = document.querySelectorAll(
+    '.problem-card, .service-card, .reason-item, .flow-step, .results-table'
+  );
+
+  fadeElements.forEach(function (el) {
+    el.classList.add('fade-in');
+  });
+
+  var fadeObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  fadeElements.forEach(function (el) {
+    fadeObserver.observe(el);
+  });
+
+  // --- Contact form basic handling ---
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      btn.textContent = '送信中...';
+      btn.disabled = true;
+
+      // Simulate send (replace with actual form handler)
+      setTimeout(function () {
+        alert('お問い合わせありがとうございます。\n内容を確認の上、担当者よりご連絡いたします。');
+        form.reset();
+        btn.textContent = '送信する';
+        btn.disabled = false;
+      }, 1500);
+    });
+  }
+
+});
+
+</script>
+</body>
+</html>
