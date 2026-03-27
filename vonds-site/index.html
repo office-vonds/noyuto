@@ -17,6 +17,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    /* Image-specific overrides */
+    .hero { background: url('1600-900-1.jpg') center center / cover no-repeat; }
+    .hero-bg { background: rgba(15, 23, 42, 0.75); }
+    .hero-bg::after { display: none; }
+  </style>
+
   <!-- 構造化データ -->
   <script type="application/ld+json">
   {
@@ -73,8 +80,7 @@
     <div class="header-inner">
       <div class="header-logo">
         <a href="/">
-          <span class="logo-text">VONDS</span>
-          <span class="logo-sub">株式会社オフィスVONDS</span>
+          <img src="logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61">
         </a>
       </div>
       <nav class="header-nav" id="nav">
@@ -141,6 +147,29 @@
     </div>
   </section>
 
+  <!-- 代表メッセージ -->
+  <section class="message">
+    <div class="container">
+      <div class="message-inner">
+        <div class="message-text">
+          <h2 class="section-title" style="text-align:left;">代表メッセージ</h2>
+          <blockquote class="message-quote">
+            「お客様の成功＝我が社の成功を意味します。」
+          </blockquote>
+          <p>私の座右の銘は「天は乗り越えられない試練を人に与えない」です。<br>
+          私はこの会社をたった一人で起業しました。挑戦は続きます。<br>
+          私には特に特別な才能もなければ、優れた経歴などは一切ありません。<br>
+          一般的な凡人である私ではありますが、お客様の成功を願う情熱は誰にも負けません。<br>
+          お客様の皆さん。私と一緒に成功しましょう。</p>
+          <p class="message-sign">オフィスVONDS　代表　<strong>小沢宗弘</strong></p>
+        </div>
+        <div class="message-image">
+          <img src="550-825.png" alt="オフィスVONDS" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- お悩みセクション -->
   <section class="problems" id="problems">
     <div class="container">
@@ -198,12 +227,10 @@
       <div class="service-grid">
 
         <div class="service-card">
-          <div class="service-number">01</div>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="20" cy="20" r="14"/><path d="M30 30L42 42" stroke-width="4" stroke-linecap="round"/>
-            </svg>
+          <div class="service-card-img">
+            <img src="seo680-680.png" alt="SEO対策" loading="lazy">
           </div>
+          <div class="service-number">01</div>
           <h3>SEOコンサルティング</h3>
           <p class="service-desc">全日本SEO協会認定コンサルタントが、最新のGoogleアルゴリズムに基づいた施策を実施。キーワード選定から内部対策・コンテンツ戦略まで、上位表示を実現します。</p>
           <ul class="service-list">
@@ -217,12 +244,10 @@
 
         <div class="service-card service-card--featured">
           <div class="service-badge">人気</div>
-          <div class="service-number">02</div>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="4" y="8" width="40" height="28" rx="2"/><path d="M4 16h40"/><circle cx="24" cy="28" r="4"/>
-            </svg>
+          <div class="service-card-img">
+            <img src="web380-380.png" alt="WEBサイト制作" loading="lazy">
           </div>
+          <div class="service-number">02</div>
           <h3>WEBサイト制作</h3>
           <p class="service-desc">SEOを前提に設計した「集客できるホームページ」を制作。デザインだけでなく、検索エンジンに評価されるサイト構造で、公開後すぐに集客力を発揮します。</p>
           <ul class="service-list">
@@ -235,12 +260,10 @@
         </div>
 
         <div class="service-card">
-          <div class="service-number">03</div>
-          <div class="service-icon">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M6 38V14l18-8 18 8v24"/><path d="M6 14l18 8 18-8"/><path d="M24 22v16"/>
-            </svg>
+          <div class="service-card-img">
+            <img src="photo380-380.png" alt="写真撮影" loading="lazy">
           </div>
+          <div class="service-number">03</div>
           <h3>Google広告運用代行</h3>
           <p class="service-desc">SEOとの相乗効果を最大化するGoogle広告運用。費用対効果を徹底分析し、無駄のない広告戦略で見込み客を獲得します。</p>
           <ul class="service-list">
@@ -258,6 +281,9 @@
 
   <!-- 実績セクション -->
   <section class="results" id="results">
+    <div class="results-banner">
+      <img src="zisseki1600-605.png" alt="VONDS 実績紹介" loading="lazy">
+    </div>
     <div class="container">
       <h2 class="section-title">SEO対策 実績</h2>
       <p class="section-lead">上位表示達成率<strong>90%以上</strong>。<br>実際の検索キーワードと順位をご紹介します。</p>
@@ -489,8 +515,7 @@
       <div class="footer-inner">
         <div class="footer-info">
           <div class="footer-logo">
-            <span class="logo-text">VONDS</span>
-            <span class="logo-sub">株式会社オフィスVONDS</span>
+            <img src="logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61" style="filter: brightness(10);">
           </div>
           <p class="footer-address">〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</p>
           <p class="footer-tel">TEL: <a href="tel:055-269-7220">055-269-7220</a></p>
