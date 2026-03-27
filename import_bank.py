@@ -99,9 +99,26 @@ def load_rules():
     return DEFAULT_RULES
 
 
+def normalize(text):
+    """全角英数字・記号を半角に変換し、余分なスペースを除去"""
+    result = []
+    for ch in text:
+        code = ord(ch)
+        # 全角英数字（Ａ-Ｚ, ａ-ｚ, ０-９）→ 半角
+        if 0xFF01 <= code <= 0xFF5E:
+            result.append(chr(code - 0xFEE0))
+        # 全角スペース → 半角スペース
+        elif code == 0x3000:
+            result.append(' ')
+        else:
+            result.append(ch)
+    # 連続スペースを1つに
+    return ' '.join(''.join(result).split())
+
+
 def classify_transaction(description, amount_out, amount_in, rules):
     """取引を分類する"""
-    desc_upper = description.upper()
+    desc_upper = normalize(description).upper()
 
     # 無視するキーワード
     for kw in rules.get("ignore_keywords", []):
