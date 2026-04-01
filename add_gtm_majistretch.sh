@@ -20,7 +20,7 @@ cd "$WORK_DIR"
 
 # 1. 全HTMLファイルをダウンロード
 echo "[1/3] HTMLファイルをダウンロード中..."
-lftp -u "$FTP_USER","$FTP_PASS" -e "$FTP_OPTS; mirror --include='*.html' --include='*.php' $PUBLIC_HTML/ ./site/; quit" "$FTP_HOST"
+lftp -u "$FTP_USER","$FTP_PASS" -e "$FTP_OPTS; mirror -i '\.html$' -i '\.php$' $PUBLIC_HTML/ ./site/; quit" "$FTP_HOST"
 echo "  ダウンロード完了"
 echo "  ファイル一覧:"
 find ./site/ -name "*.html" -o -name "*.php" | sort
