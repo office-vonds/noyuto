@@ -18,6 +18,13 @@
     - OAuth認証設定（GCPプロジェクト: My Project）
     - WSL2環境でのkeyring backend=file設定
 
+  - VONDSヒアリングシート送信先設定
+    - FTPでWPXサーバー接続（sv1092.wpx.ne.jp）
+    - send_hearing.php作成（Gmail SMTP経由送信）
+    - 送信ボタンにJavaScript送信処理追加
+    - 送信先: office.vonds@gmail.com（受信トレイ着信確認済み）
+    - 自動返信メール機能付き
+
 - 現在の状態: 完了
 - 次にやること:
   - メインPCのcron設定確認・統合
