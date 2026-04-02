@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サービス一覧｜株式会社オフィスVONDS</title>
+  <meta name="description" content="オフィスVONDSのサービス一覧。SEO対策、WEBサイト制作、Google広告運用代行の3つのサービスで集客をワンストップ支援。">
+  <link rel="canonical" href="https://vonds.co.jp/works/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/noyuto/css/style.css">
+  <style>
+    .wk-hero {
+      background: linear-gradient(135deg, #1a56db 0%, #1242b0 100%);
+      padding: 120px 0 64px;
+      text-align: center;
+      color: #fff;
+    }
+    .wk-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 16px; }
+    .wk-hero p { font-size: 1.1rem; opacity: 0.8; }
+
+    .breadcrumb {
+      position: absolute; top: 80px; left: 0; right: 0; z-index: 10;
+      max-width: 1100px; margin: 0 auto; padding: 12px 24px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.6);
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.6); }
+
+    .wk-grid {
+      max-width: 1100px; margin: 0 auto;
+      padding: 64px 24px 80px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .wk-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+      transition: transform 0.4s, box-shadow 0.4s;
+      text-align: center;
+    }
+    .wk-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px rgba(0,0,0,0.1);
+    }
+    .wk-card__header {
+      padding: 48px 24px 32px;
+      color: #fff;
+    }
+    .wk-card:nth-child(1) .wk-card__header { background: linear-gradient(135deg, #1a56db, #3b82f6); }
+    .wk-card:nth-child(2) .wk-card__header { background: linear-gradient(135deg, #111827, #374151); }
+    .wk-card:nth-child(3) .wk-card__header { background: linear-gradient(135deg, #d97706, #f59e0b); }
+
+    .wk-card__num {
+      font-size: 3rem; font-weight: 900; opacity: 0.3; line-height: 1;
+    }
+    .wk-card__title {
+      font-size: 1.5rem; font-weight: 900; margin-top: 8px;
+    }
+    .wk-card__body {
+      padding: 32px 24px;
+    }
+    .wk-card__desc {
+      font-size: 0.9rem; color: #4b5563; line-height: 1.8; margin-bottom: 24px;
+    }
+    .wk-card__btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 32px; border-radius: 50px;
+      font-size: 0.9rem; font-weight: 700;
+      color: #fff; background: #1a56db;
+      transition: all 0.3s;
+    }
+    .wk-card:nth-child(3) .wk-card__btn { background: #d97706; }
+    .wk-card__btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); color: #fff; }
+
+    .wk-cta {
+      background: #f9fafb; text-align: center; padding: 64px 24px;
+    }
+    .wk-cta h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 24px; }
+
+    @media (max-width: 768px) {
+      .wk-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-logo"><a href="/noyuto/"><img src="/noyuto/logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61"></a></div>
+      <nav class="header-nav" id="nav">
+        <ul>
+          <li><a href="/noyuto/#service">サービス</a></li>
+          <li><a href="/noyuto/past_work/">実績</a></li>
+          <li><a href="/noyuto/#reason">選ばれる理由</a></li>
+          <li><a href="/noyuto/#flow">ご利用の流れ</a></li>
+          <li><a href="/noyuto/company/">会社概要</a></li>
+        </ul>
+      </nav>
+      <a href="/noyuto/#contact" class="header-cta">無料相談はこちら</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="breadcrumb"><a href="/noyuto/">ホーム</a> &nbsp;&gt;&nbsp; サービス一覧</div>
+
+  <section class="wk-hero">
+    <div class="container">
+      <h1>サービス一覧</h1>
+      <p>集客の課題を根本から解決する3つのサービス</p>
+    </div>
+  </section>
+
+  <div class="wk-grid">
+    <div class="wk-card">
+      <div class="wk-card__header">
+        <p class="wk-card__num">01</p>
+        <h2 class="wk-card__title">SEO対策</h2>
+      </div>
+      <div class="wk-card__body">
+        <p class="wk-card__desc">全日本SEO協会認定コンサルタントが、最新のGoogleアルゴリズムに基づいた施策を実施。上位表示達成率90%以上の実績。</p>
+        <a href="/noyuto/#service" class="wk-card__btn">詳しく見る →</a>
+      </div>
+    </div>
+
+    <div class="wk-card">
+      <div class="wk-card__header">
+        <p class="wk-card__num">02</p>
+        <h2 class="wk-card__title">WEBサイト制作</h2>
+      </div>
+      <div class="wk-card__body">
+        <p class="wk-card__desc">SEOを前提に設計した「集客できるホームページ」を制作。デザインだけでなく、検索エンジンに評価されるサイト構造で公開後すぐに集客力を発揮。</p>
+        <a href="/noyuto/#service" class="wk-card__btn">詳しく見る →</a>
+      </div>
+    </div>
+
+    <div class="wk-card">
+      <div class="wk-card__header">
+        <p class="wk-card__num">03</p>
+        <h2 class="wk-card__title">Google広告運用</h2>
+      </div>
+      <div class="wk-card__body">
+        <p class="wk-card__desc">SEOとの相乗効果を最大化するGoogle広告運用。費用対効果を徹底分析し、無駄のない広告戦略で見込み客を獲得します。</p>
+        <a href="/noyuto/works/ads/" class="wk-card__btn">詳しく見る →</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="wk-cta">
+    <div class="container">
+      <h2>どのサービスが最適かわからない方も、<br>まずはお気軽にご相談ください。</h2>
+      <a href="/noyuto/#contact" class="btn btn-primary btn-lg">無料相談はこちら</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <div class="footer-logo"><img src="/noyuto/logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61" style="filter:brightness(10);"></div>
+          <p class="footer-address">〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</p>
+          <p class="footer-tel">TEL: <a href="tel:055-269-7220">055-269-7220</a></p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="/noyuto/#service">サービス</a></li>
+            <li><a href="/noyuto/past_work/">実績</a></li>
+            <li><a href="/noyuto/#reason">選ばれる理由</a></li>
+            <li><a href="/noyuto/#flow">ご利用の流れ</a></li>
+            <li><a href="/noyuto/company/">会社概要</a></li>
+            <li><a href="/noyuto/#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2024 株式会社オフィスVONDS All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var hamburger = document.getElementById('hamburger');
+    var nav = document.getElementById('nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('is-active');
+        nav.classList.toggle('is-open');
+      });
+    }
+  });
+  </script>
+</body>
+</html>
