@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>会社概要｜株式会社オフィスVONDS</title>
+  <meta name="description" content="株式会社オフィスVONDSの会社概要。山梨県甲府市のSEO対策・WEBマーケティング会社。代表メッセージ、経営方針、会社情報。">
+  <link rel="canonical" href="https://vonds.co.jp/company/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .co-hero {
+      background: linear-gradient(135deg, var(--gray-900) 0%, var(--dark) 100%);
+      padding: 120px 0 64px;
+      text-align: center;
+      color: var(--white);
+    }
+    .co-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+    }
+    .co-hero p {
+      font-size: clamp(0.9rem, 2.5vw, 1.125rem);
+      opacity: 0.7;
+    }
+
+    .breadcrumb {
+      position: absolute;
+      top: 80px;
+      left: 0; right: 0;
+      z-index: 10;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.6); }
+    .breadcrumb a:hover { color: var(--white); }
+
+    /* About */
+    .co-about {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .co-about__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .co-about h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .co-about p {
+      font-size: 1rem;
+      line-height: 2;
+      color: var(--gray-700);
+      margin-bottom: 16px;
+    }
+
+    /* Message */
+    .co-message {
+      padding: 80px 0;
+      background: var(--gray-50);
+    }
+    .co-message__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    .co-message__text h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 24px;
+    }
+    .co-message__quote {
+      border-left: 4px solid var(--primary);
+      padding-left: 16px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 24px;
+    }
+    .co-message__text p {
+      font-size: 0.95rem;
+      line-height: 2;
+      color: var(--gray-700);
+      margin-bottom: 12px;
+    }
+    .co-message__sign {
+      margin-top: 24px;
+      font-size: 0.95rem;
+      color: var(--gray-600);
+    }
+    .co-message__sign strong {
+      font-size: 1.2rem;
+      color: var(--dark);
+    }
+    .co-message__img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .co-message__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 3/4;
+    }
+
+    /* Vision */
+    .co-vision {
+      padding: 80px 0;
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+    }
+    .co-vision h2 {
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+      font-weight: 500;
+      opacity: 0.6;
+      margin-bottom: 8px;
+      letter-spacing: 0.2em;
+    }
+    .co-vision h3 {
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: 900;
+      margin-bottom: 48px;
+    }
+    .co-vision__grid {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .co-vision__item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+    .co-vision__item p {
+      font-size: 0.875rem;
+      line-height: 1.8;
+      opacity: 0.8;
+    }
+
+    /* Info */
+    .co-info {
+      padding: 80px 0;
+      background: var(--white);
+    }
+    .co-info__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .co-info h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .co-info__sub {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      letter-spacing: 0.15em;
+      margin-bottom: 40px;
+    }
+    .co-info__table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .co-info__table tr {
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .co-info__table th {
+      padding: 16px 20px;
+      text-align: left;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--dark);
+      white-space: nowrap;
+      width: 140px;
+      vertical-align: top;
+      background: var(--gray-50);
+    }
+    .co-info__table td {
+      padding: 16px 20px;
+      font-size: 0.875rem;
+      color: var(--gray-700);
+      line-height: 1.8;
+    }
+    .co-info__table a {
+      color: var(--primary);
+    }
+
+    /* Map */
+    .co-map {
+      padding: 0 0 80px;
+      background: var(--white);
+    }
+    .co-map__inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .co-map iframe {
+      width: 100%;
+      height: 350px;
+      border: 0;
+      border-radius: var(--radius-lg);
+    }
+
+    /* CTA */
+    .co-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--white);
+    }
+    .co-cta h2 {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .co-cta .btn {
+      background: var(--white);
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .co-cta .btn:hover {
+      background: var(--gray-100);
+    }
+
+    @media (max-width: 640px) {
+      .co-message__inner { grid-template-columns: 1fr; }
+      .co-message__img { order: -1; }
+      .co-message__img img { aspect-ratio: 16/9; }
+      .co-vision__grid { grid-template-columns: 1fr; gap: 24px; }
+      .co-info__table th { display: block; width: 100%; padding-bottom: 4px; }
+      .co-info__table td { display: block; padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="/"><img src="../logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61"></a>
+      </div>
+      <nav class="header-nav" id="nav">
+        <ul>
+          <li><a href="/#service">サービス</a></li>
+          <li><a href="/past_work/">実績</a></li>
+          <li><a href="/#reason">選ばれる理由</a></li>
+          <li><a href="/#flow">ご利用の流れ</a></li>
+          <li><a href="/company/" style="color: var(--primary); font-weight: 700;">会社概要</a></li>
+        </ul>
+      </nav>
+      <a href="/#contact" class="header-cta">無料相談はこちら</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="breadcrumb"><a href="/">ホーム</a> &nbsp;&gt;&nbsp; 会社概要</div>
+
+  <section class="co-hero">
+    <div class="container">
+      <h1>会社概要</h1>
+      <p>COMPANY</p>
+    </div>
+  </section>
+
+  <!-- オフィスVONDSとは -->
+  <section class="co-about">
+    <div class="co-about__inner">
+      <h2>オフィスVONDSってどんな会社？</h2>
+      <p>「お客様の成功」＝「わたしたちの成功」だとわたしたちは考えております。</p>
+      <p>弊社の一番の特徴は「face to face」です。お客様とコミュニケートする際に、利便性の甘い、メール・FAXなどでやりとりするのではなく、実際にお客様のもとへ伺いface to faceで顔を合わせながらお打ち合わせをさせて頂きます。</p>
+      <p>弊社は山梨県で産声をあげた企業です。働いている社員や役員もみな山梨人です。<br>地域に定着した経営と顔と顔を合わせた信頼とお付き合いをさせていただくことを真上げております。</p>
+    </div>
+  </section>
+
+  <!-- 代表メッセージ -->
+  <section class="co-message">
+    <div class="co-message__inner">
+      <div class="co-message__text">
+        <h2>代表メッセージ</h2>
+        <p class="co-message__quote">「お客様の成功＝我が社の成功を意味します。」</p>
+        <p>「天は乗り越えられない試練を人に与えない」</p>
+        <p>これは私の座右の銘です。<br>私はこの会社をたった一人で起業しました。これからも挑戦は続きます。</p>
+        <p>私には特に特別な才能もなければ、優れた経歴など一切ありません。<br>しかし、一般的な凡人である私ではありますが、お客様の成功を願う情熱は誰にも負けません。</p>
+        <p>みなさんぜひ、私と一緒に成功しましょう。</p>
+        <p class="co-message__sign">オフィスVONDS 代表取締役社長<br><strong>小沢 宗弘</strong></p>
+      </div>
+      <div class="co-message__img">
+        <img src="../1600-900-1.jpg" alt="代表 小沢宗弘" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- 経営方針 VISION -->
+  <section class="co-vision">
+    <div class="container">
+      <h2>VISION</h2>
+      <h3>経営方針</h3>
+      <p style="max-width:700px;margin:0 auto 48px;opacity:0.7;line-height:1.8;">会社は全社員の全能と利益のお客・人格高揚・能力開発の場であり、全社員の精神的かつ物質的幸福さを目指し、全社員は共同して企業と個人の発展を目指す。</p>
+      <div class="co-vision__grid">
+        <div class="co-vision__item">
+          <h4>逆境を乗り越える<br>「人間力」を育てる会社に</h4>
+          <p>困難に立ち向かい、成長し続ける人材を育成する企業文化を大切にしています。</p>
+        </div>
+        <div class="co-vision__item">
+          <h4>信用してもらうことが<br>わたしたちの仕事です</h4>
+          <p>お客様との信頼関係こそが、すべてのビジネスの土台であると考えています。</p>
+        </div>
+        <div class="co-vision__item">
+          <h4>「世のため人のため」に<br>貢献すること</h4>
+          <p>事業を通じて社会に貢献し、地域とともに成長する企業を目指しています。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社案内 -->
+  <section class="co-info">
+    <div class="co-info__inner">
+      <h2>会社案内</h2>
+      <p class="co-info__sub">COMPANY</p>
+      <table class="co-info__table">
+        <tr><th>会社名</th><td>株式会社オフィスVONDS</td></tr>
+        <tr><th>設立</th><td>2007年</td></tr>
+        <tr><th>資本金</th><td>300万円</td></tr>
+        <tr><th>営業所</th><td>〒400-0041<br>山梨県甲府市上石田4-17-7 コーポ河井202</td></tr>
+        <tr><th>代表者</th><td>代表取締役社長 小沢 宗弘</td></tr>
+        <tr><th>メール</th><td><a href="mailto:info@vonds.co.jp">info@vonds.co.jp</a></td></tr>
+        <tr><th>TEL / FAX</th><td>055-269-7220 / 055-269-8304</td></tr>
+        <tr><th>事業内容</th><td>
+          SEOコンサルティング<br>
+          WEBサイト制作<br>
+          Google広告運用代行<br>
+          WEBマーケティング全般
+        </td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="co-map">
+    <div class="co-map__inner">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3245.5!2d138.575!3d35.665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z5bGx5qKo55yM55Sy5bqc5biC5LiK55-z55Sw!5e0!3m2!1sja!2sjp" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="co-cta">
+    <div class="container">
+      <h2>WEB集客のお悩み、まずはお気軽にご相談ください</h2>
+      <a href="/#contact" class="btn btn-lg">無料相談はこちら</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <div class="footer-logo"><img src="../logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61" style="filter: brightness(10);"></div>
+          <p class="footer-address">〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</p>
+          <p class="footer-tel">TEL: <a href="tel:055-269-7220">055-269-7220</a></p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="/#service">サービス</a></li>
+            <li><a href="/past_work/">実績</a></li>
+            <li><a href="/#reason">選ばれる理由</a></li>
+            <li><a href="/#flow">ご利用の流れ</a></li>
+            <li><a href="/company/">会社概要</a></li>
+            <li><a href="/#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2024 株式会社オフィスVONDS All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var hamburger = document.getElementById('hamburger');
+    var nav = document.getElementById('nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('is-active');
+        nav.classList.toggle('is-open');
+      });
+    }
+  });
+  </script>
+</body>
+</html>
