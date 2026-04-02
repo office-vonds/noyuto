@@ -1905,35 +1905,40 @@ a {
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.12);
     position: relative;
     z-index: 1;
+    overflow-x: hidden;
   }
 
   .l-header {
     max-width: 480px;
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
   }
 
   .p-fixed-banner {
     max-width: 480px;
+    width: 100%;
     left: 50%;
     transform: translateX(-50%);
+    right: auto;
   }
-}
 
-@media (min-width: 768px) and (max-width: 1099px) {
   .l-side-nav {
     display: none !important;
   }
 }
 
-/* =============================================
-   Animation — Scroll Fade In
-   ============================================= */
+@media (min-width: 1100px) {
+  .l-side-nav {
+    display: block !important;
+  }
+}
 
+/* アニメーション強化 */
 .js-fade-in {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .js-fade-in.is-visible {
@@ -1942,9 +1947,9 @@ a {
 }
 
 /* ディレイ付きバリエーション */
-.js-fade-in[data-delay="1"] { transition-delay: 0.1s; }
-.js-fade-in[data-delay="2"] { transition-delay: 0.2s; }
-.js-fade-in[data-delay="3"] { transition-delay: 0.3s; }
+.js-fade-in[data-delay="1"] { transition-delay: 0.15s; }
+.js-fade-in[data-delay="2"] { transition-delay: 0.3s; }
+.js-fade-in[data-delay="3"] { transition-delay: 0.45s; }
 
 /* =============================================
    Animation — CTA Pulse
@@ -1952,10 +1957,10 @@ a {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(236, 119, 171, 0.5);
+    box-shadow: 0 0 0 0 rgba(236, 119, 171, 0.6);
   }
-  70% {
-    box-shadow: 0 0 0 15px rgba(236, 119, 171, 0);
+  50% {
+    box-shadow: 0 0 0 20px rgba(236, 119, 171, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(236, 119, 171, 0);
@@ -1980,7 +1985,7 @@ a {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -1988,19 +1993,30 @@ a {
   }
 }
 
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .p-hero__overlay {
-  animation: fadeInUp 0.8s ease both;
+  animation: fadeInUp 1s ease both;
 }
 
 .p-hero__photo {
-  animation: fadeInUp 0.8s ease 0.3s both;
+  animation: fadeInUp 1s ease 0.4s both;
 }
 
 .p-hero__cta-area {
-  animation: fadeInUp 0.8s ease 0.5s both;
+  animation: fadeInUp 1s ease 0.7s both;
 }
 
 .p-hero__review {
-  animation: fadeInUp 0.6s ease 0.6s both;
+  animation: fadeInScale 0.8s ease 0.8s both;
 }
 
