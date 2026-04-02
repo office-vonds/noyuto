@@ -1,0 +1,101 @@
+[
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "amount": 2000,
+    "note": "Vデビット　Google ADS8549114235　1A007001",
+    "date": "2026-01-07",
+    "recorded_at": "2026-04-01T11:14:27.370536",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "amount": 10555,
+    "note": "振込 カ）ネクストエイド　．．．．．．．．．．．．．．．．ＮＴＴ",
+    "date": "2026-01-23",
+    "recorded_at": "2026-04-01T11:14:27.370974",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-01",
+    "amount": 874589,
+    "note": "振込 カ）　エ−トラツク",
+    "date": "2026-01-23",
+    "recorded_at": "2026-04-01T11:14:27.370982",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-02",
+    "amount": 4227,
+    "note": "振込 ２３ＳＯＭＰＯヒマワリセイメイホケン（カ",
+    "date": "2026-02-04",
+    "recorded_at": "2026-04-01T11:14:27.371388",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "amount": 70000,
+    "note": "振込 オザワ　ムネヒロ",
+    "date": "2026-02-19",
+    "recorded_at": "2026-04-01T11:14:27.371870",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "amount": 200,
+    "note": "Vデビット　GOOGLE*TEMPORARY HOLD　2A050001",
+    "date": "2026-02-19",
+    "recorded_at": "2026-04-01T11:14:27.371945",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "amount": 220000,
+    "note": "振込 サンケン（カ",
+    "date": "2026-02-24",
+    "recorded_at": "2026-04-01T11:14:27.371973",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "amount": 4664,
+    "note": "振込 カ）ネクストエイド　．．．．．．．．．．．．．．．．ＮＴＴ",
+    "date": "2026-02-25",
+    "recorded_at": "2026-04-01T11:14:27.372003",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-02",
+    "amount": 875054,
+    "note": "振込 カ）　エ−トラツク",
+    "date": "2026-02-25",
+    "recorded_at": "2026-04-01T11:14:27.372016",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "amount": 133951,
+    "note": "振込 サンケン．カ",
+    "date": "2026-02-27",
+    "recorded_at": "2026-04-01T11:14:27.372051",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "amount": 874486,
+    "note": "振込 カ）　エ−トラツク",
+    "date": "2026-03-25",
+    "recorded_at": "2026-04-01T11:14:27.372450",
+    "source": "paypay_bank"
+  }
+]

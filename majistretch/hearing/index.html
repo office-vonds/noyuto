@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WEB制作ヒアリングシート | 株式会社オフィスVONDS</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #1a56db;
+  --primary-dark: #1242b0;
+  --primary-light: #e8effc;
+  --accent: #f59e0b;
+  --gray-900: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #6b7280;
+  --gray-400: #9ca3af;
+  --gray-300: #d1d5db;
+  --gray-200: #e5e7eb;
+  --gray-100: #f3f4f6;
+  --gray-50: #f9fafb;
+  --white: #ffffff;
+  --error: #ef4444;
+  --success: #10b981;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+}
+
+body {
+  font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--gray-900);
+  background: var(--gray-50);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.header {
+  background: var(--white);
+  border-bottom: 3px solid var(--primary);
+  padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+.logo span {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray-500);
+  letter-spacing: 0;
+}
+.header-badge {
+  font-size: 12px;
+  color: var(--gray-500);
+  background: var(--gray-100);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
+  color: var(--white);
+  padding: 60px 20px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+.hero p {
+  font-size: 15px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Progress Bar */
+.progress-bar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px 10px;
+}
+.progress-steps {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  counter-reset: step;
+}
+.progress-steps::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 40px;
+  right: 40px;
+  height: 3px;
+  background: var(--gray-200);
+  z-index: 0;
+}
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+.step-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.step-label {
+  font-size: 11px;
+  color: var(--gray-400);
+  margin-top: 6px;
+  text-align: center;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+.progress-step.active .step-circle {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: 0 0 0 4px var(--primary-light);
+}
+.progress-step.active .step-label {
+  color: var(--primary);
+  font-weight: 600;
+}
+.progress-step.done .step-circle {
+  background: var(--success);
+  color: var(--white);
+}
+.progress-step.done .step-label {
+  color: var(--success);
+}
+
+/* Main */
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 20px 60px;
+}
+
+/* Section */
+.section {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  overflow: hidden;
+  display: none;
+}
+.section.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section-header {
+  background: var(--primary);
+  color: var(--white);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.section-header p {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+.section-body {
+  padding: 28px;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 24px;
+}
+.form-group:last-child {
+  margin-bottom: 0;
+}
+.form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 6px;
+}
+.form-label .required {
+  background: var(--error);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.form-label .optional {
+  background: var(--gray-300);
+  color: var(--gray-600);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+.form-hint {
+  font-size: 12px;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--gray-900);
+  background: var(--white);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+/* Checkbox & Radio */
+.check-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.check-item {
+  position: relative;
+}
+.check-item input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.check-item label {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.check-item label:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.check-item input:checked + label {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Radio Card */
+.radio-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+}
+.radio-card {
+  position: relative;
+}
+.radio-card input {
+  position: absolute;
+  opacity: 0;
+}
+.radio-card label {
+  display: block;
+  padding: 16px;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+.radio-card label:hover {
+  border-color: var(--primary);
+}
+.radio-card input:checked + label {
+  background: var(--primary-light);
+  border-color: var(--primary);
+}
+.radio-card label strong {
+  display: block;
+  font-size: 14px;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+.radio-card label span {
+  font-size: 12px;
+  color: var(--gray-500);
+}
+
+/* Two Column */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Navigation */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray-200);
+}
+.btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-prev {
+  background: var(--gray-100);
+  color: var(--gray-600);
+}
+.btn-prev:hover {
+  background: var(--gray-200);
+}
+.btn-next {
+  background: var(--primary);
+  color: var(--white);
+  margin-left: auto;
+}
+.btn-next:hover {
+  background: var(--primary-dark);
+  box-shadow: var(--shadow-md);
+}
+.btn-submit {
+  background: var(--accent);
+  color: var(--white);
+  margin-left: auto;
+  font-size: 16px;
+  padding: 14px 40px;
+}
+.btn-submit:hover {
+  background: var(--accent);
+  filter: brightness(1.1);
+  box-shadow: var(--shadow-md);
+}
+
+/* Confirm */
+.confirm-section {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  overflow: hidden;
+  display: none;
+}
+.confirm-section.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+.confirm-group {
+  padding: 16px 28px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.confirm-group:last-child {
+  border-bottom: none;
+}
+.confirm-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  margin-bottom: 4px;
+}
+.confirm-value {
+  font-size: 15px;
+  color: var(--gray-900);
+  white-space: pre-wrap;
+}
+.confirm-value:empty::after {
+  content: '（未入力）';
+  color: var(--gray-400);
+  font-style: italic;
+}
+
+/* Complete */
+.complete-section {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 60px 28px;
+  text-align: center;
+  display: none;
+}
+.complete-section.active {
+  display: block;
+  animation: fadeIn 0.4s ease;
+}
+.complete-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #d1fae5;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  margin: 0 auto 20px;
+}
+.complete-section h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.complete-section p {
+  color: var(--gray-600);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--gray-400);
+  font-size: 12px;
+}
+.footer a {
+  color: var(--gray-400);
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero { padding: 40px 20px; }
+  .hero h1 { font-size: 22px; }
+  .section-body { padding: 20px; }
+  .two-col { grid-template-columns: 1fr; }
+  .radio-cards { grid-template-columns: 1fr; }
+  .step-label { font-size: 9px; }
+  .btn { padding: 10px 20px; font-size: 14px; }
+  .nav-buttons { gap: 10px; }
+  .progress-steps::before { left: 20px; right: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="https://vonds.co.jp/" class="logo">VONDS<span>株式会社オフィスVONDS</span></a>
+    <span class="header-badge">ヒアリングシート</span>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>WEB制作 ヒアリングシート</h1>
+  <p>ご依頼内容を正確に把握するため、以下の項目にご回答ください。<br>ご記入いただいた内容をもとに最適なご提案をいたします。</p>
+</section>
+
+<!-- Progress -->
+<div class="progress-bar">
+  <div class="progress-steps">
+    <div class="progress-step active" data-step="1"><div class="step-circle">1</div><div class="step-label">基本情報</div></div>
+    <div class="progress-step" data-step="2"><div class="step-circle">2</div><div class="step-label">現状・課題</div></div>
+    <div class="progress-step" data-step="3"><div class="step-circle">3</div><div class="step-label">目的・KPI</div></div>
+    <div class="progress-step" data-step="4"><div class="step-circle">4</div><div class="step-label">ターゲット</div></div>
+    <div class="progress-step" data-step="5"><div class="step-circle">5</div><div class="step-label">デザイン</div></div>
+    <div class="progress-step" data-step="6"><div class="step-circle">6</div><div class="step-label">コンテンツ</div></div>
+  </div>
+</div>
+
+<main class="main">
+<form id="hearingForm" novalidate>
+
+<!-- Section 1: 基本情報 -->
+<div class="section active" data-section="1">
+  <div class="section-header">
+    <div class="section-number">1</div>
+    <div><h2>基本情報</h2><p>貴社・ご担当者様の情報をお聞かせください</p></div>
+  </div>
+  <div class="section-body">
+    <div class="two-col">
+      <div class="form-group">
+        <label class="form-label">会社名・屋号 <span class="required">必須</span></label>
+        <input type="text" name="company" placeholder="例：株式会社〇〇" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">ご担当者名 <span class="required">必須</span></label>
+        <input type="text" name="contact_name" placeholder="例：山田 太郎" required>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="form-group">
+        <label class="form-label">メールアドレス <span class="required">必須</span></label>
+        <input type="email" name="email" placeholder="例：info@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">電話番号 <span class="required">必須</span></label>
+        <input type="tel" name="phone" placeholder="例：055-123-4567" required>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">事業内容 <span class="required">必須</span></label>
+      <div class="form-hint">主な事業内容を簡潔にお教えください</div>
+      <textarea name="business_desc" rows="3" placeholder="例：飲食店経営（イタリアンレストラン2店舗）" required></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">現在のWebサイトURL <span class="optional">任意</span></label>
+      <input type="url" name="current_url" placeholder="https://">
+    </div>
+    <div class="form-group">
+      <label class="form-label">制作の種類 <span class="required">必須</span></label>
+      <div class="radio-cards">
+        <div class="radio-card">
+          <input type="radio" name="project_type" id="type_new" value="新規制作" required>
+          <label for="type_new"><strong>新規制作</strong><span>はじめてのサイト制作</span></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="project_type" id="type_renew" value="リニューアル">
+          <label for="type_renew"><strong>リニューアル</strong><span>既存サイトの作り直し</span></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="project_type" id="type_lp" value="LP制作">
+          <label for="type_lp"><strong>LP制作</strong><span>広告用ランディングページ</span></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="project_type" id="type_add" value="ページ追加">
+          <label for="type_add"><strong>ページ追加</strong><span>既存サイトへの追加</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-next" onclick="nextSection(1)">次へ進む →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Section 2: 現状・課題 -->
+<div class="section" data-section="2">
+  <div class="section-header">
+    <div class="section-number">2</div>
+    <div><h2>現状の課題</h2><p>今お困りのこと・改善したい点をお聞かせください</p></div>
+  </div>
+  <div class="section-body">
+    <div class="form-group">
+      <label class="form-label">現在のWebサイトに関するお悩み <span class="required">必須</span></label>
+      <div class="form-hint">当てはまるものをすべてお選びください</div>
+      <div class="check-group">
+        <div class="check-item"><input type="checkbox" name="issues" id="issue1" value="検索で見つからない"><label for="issue1">検索で見つからない</label></div>
+        <div class="check-item"><input type="checkbox" name="issues" id="issue2" value="問い合わせが少ない"><label for="issue2">問い合わせが少ない</label></div>
+        <div class="check-item"><input type="checkbox" name="issues" id="issue3" value="デザインが古い"><label for="issue3">デザインが古い</label></div>
+        <div class="check-item"><input type="checkbox" name="issues" id="issue4" value="スマホ対応していない"><label for="issue4">スマホ対応していない</label></div>
+        <div class="check-item"><input type="checkbox" name="issues" id="issue5" value="更新が難しい"><label for="issue5">更新が難しい</label></div>
+        <div class="check-item"><input type="checkbox" name="issues" id="issue6" value="競合に負けている"><label for="issue6">競合に負けている</label></div>
+        <div class="check-item"><input type="checkbox" name="issues" id="issue7" value="サイトがない"><label for="issue7">サイトがない</label></div>
+        <div class="check-item"><input type="checkbox" name="issues" id="issue8" value="その他"><label for="issue8">その他</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">具体的な課題の詳細 <span class="optional">任意</span></label>
+      <textarea name="issues_detail" rows="4" placeholder="上記以外にも具体的な課題やお悩みがあればご記入ください"></textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">現在の集客方法 <span class="optional">任意</span></label>
+      <div class="form-hint">当てはまるものをすべてお選びください</div>
+      <div class="check-group">
+        <div class="check-item"><input type="checkbox" name="marketing" id="mkt1" value="検索エンジン（SEO）"><label for="mkt1">検索エンジン（SEO）</label></div>
+        <div class="check-item"><input type="checkbox" name="marketing" id="mkt2" value="Google広告"><label for="mkt2">Google広告</label></div>
+        <div class="check-item"><input type="checkbox" name="marketing" id="mkt3" value="SNS運用"><label for="mkt3">SNS運用</label></div>
+        <div class="check-item"><input type="checkbox" name="marketing" id="mkt4" value="チラシ・DM"><label for="mkt4">チラシ・DM</label></div>
+        <div class="check-item"><input type="checkbox" name="marketing" id="mkt5" value="口コミ・紹介"><label for="mkt5">口コミ・紹介</label></div>
+        <div class="check-item"><input type="checkbox" name="marketing" id="mkt6" value="ポータルサイト"><label for="mkt6">ポータルサイト</label></div>
+        <div class="check-item"><input type="checkbox" name="marketing" id="mkt7" value="特になし"><label for="mkt7">特になし</label></div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-prev" onclick="prevSection(2)">← 戻る</button>
+      <button type="button" class="btn btn-next" onclick="nextSection(2)">次へ進む →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: 目的・KPI -->
+<div class="section" data-section="3">
+  <div class="section-header">
+    <div class="section-number">3</div>
+    <div><h2>制作の目的・KPI</h2><p>サイトで実現したいこと・数値目標をお聞かせください</p></div>
+  </div>
+  <div class="section-body">
+    <div class="form-group">
+      <label class="form-label">サイト制作の主な目的 <span class="required">必須</span></label>
+      <div class="check-group">
+        <div class="check-item"><input type="checkbox" name="goals" id="goal1" value="問い合わせ・予約を増やしたい"><label for="goal1">問い合わせ・予約を増やしたい</label></div>
+        <div class="check-item"><input type="checkbox" name="goals" id="goal2" value="ブランドイメージ向上"><label for="goal2">ブランドイメージ向上</label></div>
+        <div class="check-item"><input type="checkbox" name="goals" id="goal3" value="採用強化"><label for="goal3">採用強化</label></div>
+        <div class="check-item"><input type="checkbox" name="goals" id="goal4" value="EC・オンライン販売"><label for="goal4">EC・オンライン販売</label></div>
+        <div class="check-item"><input type="checkbox" name="goals" id="goal5" value="情報発信・認知拡大"><label for="goal5">情報発信・認知拡大</label></div>
+        <div class="check-item"><input type="checkbox" name="goals" id="goal6" value="名刺がわりのサイト"><label for="goal6">名刺がわりのサイト</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">サイトのゴール（CV）<span class="required">必須</span></label>
+      <div class="form-hint">ユーザーに最も期待するアクションを1つお選びください</div>
+      <div class="radio-cards">
+        <div class="radio-card">
+          <input type="radio" name="conversion" id="cv1" value="電話問い合わせ" required>
+          <label for="cv1"><strong>電話問い合わせ</strong></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="conversion" id="cv2" value="フォーム送信">
+          <label for="cv2"><strong>フォーム送信</strong></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="conversion" id="cv3" value="LINE登録">
+          <label for="cv3"><strong>LINE登録</strong></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="conversion" id="cv4" value="来店予約">
+          <label for="cv4"><strong>来店予約</strong></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="conversion" id="cv5" value="資料請求">
+          <label for="cv5"><strong>資料請求</strong></label>
+        </div>
+        <div class="radio-card">
+          <input type="radio" name="conversion" id="cv6" value="購入">
+          <label for="cv6"><strong>購入</strong></label>
+        </div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="form-group">
+        <label class="form-label">月間目標CV数 <span class="optional">任意</span></label>
+        <input type="text" name="target_cv" placeholder="例：月10件">
+      </div>
+      <div class="form-group">
+        <label class="form-label">希望公開日 <span class="optional">任意</span></label>
+        <input type="date" name="deadline">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">ご予算の目安 <span class="required">必須</span></label>
+      <select name="budget" required>
+        <option value="">選択してください</option>
+        <option value="〜30万円">〜30万円</option>
+        <option value="30〜50万円">30〜50万円</option>
+        <option value="50〜100万円">50〜100万円</option>
+        <option value="100〜200万円">100〜200万円</option>
+        <option value="200万円以上">200万円以上</option>
+        <option value="相談して決めたい">相談して決めたい</option>
+      </select>
+    </div>
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-prev" onclick="prevSection(3)">← 戻る</button>
+      <button type="button" class="btn btn-next" onclick="nextSection(3)">次へ進む →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: ターゲット・競合 -->
+<div class="section" data-section="4">
+  <div class="section-header">
+    <div class="section-number">4</div>
+    <div><h2>ターゲット・競合</h2><p>想定するお客様と競合の情報をお聞かせください</p></div>
+  </div>
+  <div class="section-body">
+    <div class="form-group">
+      <label class="form-label">メインターゲット <span class="required">必須</span></label>
+      <div class="form-hint">どんなお客様にサイトを見てほしいですか？</div>
+      <textarea name="target" rows="3" placeholder="例：甲府市周辺の30〜50代女性、肩こり・腰痛でお悩みの方" required></textarea>
+    </div>
+    <div class="two-col">
+      <div class="form-group">
+        <label class="form-label">対象エリア <span class="optional">任意</span></label>
+        <input type="text" name="target_area" placeholder="例：山梨県全域、甲府市中心">
+      </div>
+      <div class="form-group">
+        <label class="form-label">対象年齢層 <span class="optional">任意</span></label>
+        <div class="check-group">
+          <div class="check-item"><input type="checkbox" name="age" id="age1" value="10〜20代"><label for="age1">10〜20代</label></div>
+          <div class="check-item"><input type="checkbox" name="age" id="age2" value="30〜40代"><label for="age2">30〜40代</label></div>
+          <div class="check-item"><input type="checkbox" name="age" id="age3" value="50〜60代"><label for="age3">50〜60代</label></div>
+          <div class="check-item"><input type="checkbox" name="age" id="age4" value="全年齢"><label for="age4">全年齢</label></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">競合サイト <span class="optional">任意</span></label>
+      <div class="form-hint">参考にしている・意識している競合のURLがあれば（最大3つ）</div>
+      <input type="url" name="competitor1" placeholder="競合サイト1：https://" style="margin-bottom: 8px;">
+      <input type="url" name="competitor2" placeholder="競合サイト2：https://" style="margin-bottom: 8px;">
+      <input type="url" name="competitor3" placeholder="競合サイト3：https://">
+    </div>
+    <div class="form-group">
+      <label class="form-label">自社の強み・差別化ポイント <span class="required">必須</span></label>
+      <div class="form-hint">競合にはない御社ならではの強みは何ですか？</div>
+      <textarea name="strengths" rows="3" placeholder="例：施術歴20年以上のスタッフのみ在籍、完全個室、効果保証制度あり" required></textarea>
+    </div>
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-prev" onclick="prevSection(4)">← 戻る</button>
+      <button type="button" class="btn btn-next" onclick="nextSection(4)">次へ進む →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: デザイン -->
+<div class="section" data-section="5">
+  <div class="section-header">
+    <div class="section-number">5</div>
+    <div><h2>デザイン・イメージ</h2><p>ご希望のデザインの方向性をお聞かせください</p></div>
+  </div>
+  <div class="section-body">
+    <div class="form-group">
+      <label class="form-label">サイトの印象・雰囲気 <span class="required">必須</span></label>
+      <div class="form-hint">近いイメージをすべてお選びください</div>
+      <div class="check-group">
+        <div class="check-item"><input type="checkbox" name="impression" id="imp1" value="信頼感・安心感"><label for="imp1">信頼感・安心感</label></div>
+        <div class="check-item"><input type="checkbox" name="impression" id="imp2" value="高級感・上品"><label for="imp2">高級感・上品</label></div>
+        <div class="check-item"><input type="checkbox" name="impression" id="imp3" value="親しみやすい"><label for="imp3">親しみやすい</label></div>
+        <div class="check-item"><input type="checkbox" name="impression" id="imp4" value="スタイリッシュ"><label for="imp4">スタイリッシュ</label></div>
+        <div class="check-item"><input type="checkbox" name="impression" id="imp5" value="ナチュラル・やわらかい"><label for="imp5">ナチュラル・やわらかい</label></div>
+        <div class="check-item"><input type="checkbox" name="impression" id="imp6" value="力強い・インパクト"><label for="imp6">力強い・インパクト</label></div>
+        <div class="check-item"><input type="checkbox" name="impression" id="imp7" value="シンプル・ミニマル"><label for="imp7">シンプル・ミニマル</label></div>
+        <div class="check-item"><input type="checkbox" name="impression" id="imp8" value="ポップ・カラフル"><label for="imp8">ポップ・カラフル</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">参考サイト <span class="optional">任意</span></label>
+      <div class="form-hint">「このサイトの雰囲気が好き」というURLがあれば（最大3つ）</div>
+      <input type="url" name="ref_site1" placeholder="参考サイト1：https://" style="margin-bottom: 8px;">
+      <input type="url" name="ref_site2" placeholder="参考サイト2：https://" style="margin-bottom: 8px;">
+      <input type="url" name="ref_site3" placeholder="参考サイト3：https://">
+    </div>
+    <div class="form-group">
+      <label class="form-label">ブランドカラー <span class="optional">任意</span></label>
+      <div class="form-hint">企業カラーやご希望の色味があれば</div>
+      <input type="text" name="brand_color" placeholder="例：紺色と白がベース、ロゴの赤を使いたい">
+    </div>
+    <div class="form-group">
+      <label class="form-label">ロゴデータの有無 <span class="required">必須</span></label>
+      <div class="check-group">
+        <div class="check-item"><input type="radio" name="logo" id="logo1" value="あり（データ提供可能）" required><label for="logo1">あり（データ提供可能）</label></div>
+        <div class="check-item"><input type="radio" name="logo" id="logo2" value="あり（データ形式不明）"><label for="logo2">あり（データ形式不明）</label></div>
+        <div class="check-item"><input type="radio" name="logo" id="logo3" value="なし（作成も依頼したい）"><label for="logo3">なし（作成も依頼したい）</label></div>
+        <div class="check-item"><input type="radio" name="logo" id="logo4" value="なし（不要）"><label for="logo4">なし（不要）</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">写真素材について <span class="required">必須</span></label>
+      <div class="check-group">
+        <div class="check-item"><input type="radio" name="photos" id="photo1" value="自社で用意できる" required><label for="photo1">自社で用意できる</label></div>
+        <div class="check-item"><input type="radio" name="photos" id="photo2" value="撮影も依頼したい"><label for="photo2">撮影も依頼したい</label></div>
+        <div class="check-item"><input type="radio" name="photos" id="photo3" value="フリー素材でOK"><label for="photo3">フリー素材でOK</label></div>
+        <div class="check-item"><input type="radio" name="photos" id="photo4" value="相談したい"><label for="photo4">相談したい</label></div>
+      </div>
+    </div>
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-prev" onclick="prevSection(5)">← 戻る</button>
+      <button type="button" class="btn btn-next" onclick="nextSection(5)">次へ進む →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: コンテンツ・制約 -->
+<div class="section" data-section="6">
+  <div class="section-header">
+    <div class="section-number">6</div>
+    <div><h2>コンテンツ・制約条件</h2><p>掲載内容やサイト運用に関するご要望をお聞かせください</p></div>
+  </div>
+  <div class="section-body">
+    <div class="form-group">
+      <label class="form-label">必要なページ・機能 <span class="required">必須</span></label>
+      <div class="form-hint">必要と思われるものをすべてお選びください</div>
+      <div class="check-group">
+        <div class="check-item"><input type="checkbox" name="pages" id="page1" value="トップページ"><label for="page1">トップページ</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page2" value="サービス紹介"><label for="page2">サービス紹介</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page3" value="料金表"><label for="page3">料金表</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page4" value="会社概要"><label for="page4">会社概要</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page5" value="お問い合わせフォーム"><label for="page5">お問い合わせフォーム</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page6" value="お客様の声"><label for="page6">お客様の声</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page7" value="ブログ・お知らせ"><label for="page7">ブログ・お知らせ</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page8" value="アクセス・地図"><label for="page8">アクセス・地図</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page9" value="FAQ"><label for="page9">FAQ</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page10" value="採用情報"><label for="page10">採用情報</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page11" value="プライバシーポリシー"><label for="page11">プライバシーポリシー</label></div>
+        <div class="check-item"><input type="checkbox" name="pages" id="page12" value="予約システム"><label for="page12">予約システム</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">必要な外部連携 <span class="optional">任意</span></label>
+      <div class="check-group">
+        <div class="check-item"><input type="checkbox" name="integrations" id="int1" value="Googleマップ"><label for="int1">Googleマップ</label></div>
+        <div class="check-item"><input type="checkbox" name="integrations" id="int2" value="LINE公式"><label for="int2">LINE公式</label></div>
+        <div class="check-item"><input type="checkbox" name="integrations" id="int3" value="Instagram連携"><label for="int3">Instagram連携</label></div>
+        <div class="check-item"><input type="checkbox" name="integrations" id="int4" value="Googleアナリティクス"><label for="int4">Googleアナリティクス</label></div>
+        <div class="check-item"><input type="checkbox" name="integrations" id="int5" value="Google広告タグ"><label for="int5">Google広告タグ</label></div>
+        <div class="check-item"><input type="checkbox" name="integrations" id="int6" value="予約システム"><label for="int6">予約システム</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">サイト更新について <span class="required">必須</span></label>
+      <div class="check-group">
+        <div class="check-item"><input type="radio" name="update_plan" id="upd1" value="自分たちで更新したい" required><label for="upd1">自分たちで更新したい</label></div>
+        <div class="check-item"><input type="radio" name="update_plan" id="upd2" value="更新も任せたい"><label for="upd2">更新も任せたい</label></div>
+        <div class="check-item"><input type="radio" name="update_plan" id="upd3" value="まだ決めていない"><label for="upd3">まだ決めていない</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">ドメイン・サーバーについて <span class="required">必須</span></label>
+      <div class="check-group">
+        <div class="check-item"><input type="radio" name="domain" id="dom1" value="すでに取得済み" required><label for="dom1">すでに取得済み</label></div>
+        <div class="check-item"><input type="radio" name="domain" id="dom2" value="取得から依頼したい"><label for="dom2">取得から依頼したい</label></div>
+        <div class="check-item"><input type="radio" name="domain" id="dom3" value="わからない"><label for="dom3">わからない</label></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">SEO対策で狙いたいキーワード <span class="optional">任意</span></label>
+      <div class="form-hint">検索で上位表示したいキーワードがあれば</div>
+      <input type="text" name="seo_keywords" placeholder="例：甲府 整体、山梨 肩こり 改善">
+    </div>
+    <div class="form-group">
+      <label class="form-label">その他ご要望・備考 <span class="optional">任意</span></label>
+      <textarea name="remarks" rows="4" placeholder="その他、ご質問やご要望があればご自由にご記入ください"></textarea>
+    </div>
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-prev" onclick="prevSection(6)">← 戻る</button>
+      <button type="button" class="btn btn-next btn-submit" onclick="showConfirm()">入力内容を確認する →</button>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm Section -->
+<div class="confirm-section" id="confirmSection">
+  <div class="section-header" style="background: var(--gray-700);">
+    <div class="section-number">✓</div>
+    <div><h2>入力内容の確認</h2><p>以下の内容でお間違いないかご確認ください</p></div>
+  </div>
+  <div id="confirmBody"></div>
+  <div style="padding: 20px 28px;">
+    <div class="nav-buttons" style="border: none; margin: 0; padding: 0;">
+      <button type="button" class="btn btn-prev" onclick="backToEdit()">← 修正する</button>
+      <button type="submit" class="btn btn-next btn-submit">この内容で送信する</button>
+    </div>
+  </div>
+</div>
+
+<!-- Complete Section -->
+<div class="complete-section" id="completeSection">
+  <div class="complete-icon">✓</div>
+  <h2>送信が完了しました</h2>
+  <p>ヒアリングシートをお送りいただきありがとうございます。<br>内容を確認のうえ、2営業日以内にご連絡いたします。</p>
+  <p style="margin-top: 24px; font-size: 14px; color: var(--gray-500);">
+    株式会社オフィスVONDS<br>
+    TEL: 055-269-7220 / info@vonds.co.jp
+  </p>
+</div>
+
+</form>
+</main>
+
+<footer class="footer">
+  <p>&copy; 2026 <a href="https://vonds.co.jp/">株式会社オフィスVONDS</a> All Rights Reserved.</p>
+</footer>
+
+<script>
+let currentSection = 1;
+const totalSections = 6;
+
+function updateProgress() {
+  document.querySelectorAll('.progress-step').forEach(step => {
+    const s = parseInt(step.dataset.step);
+    step.classList.remove('active', 'done');
+    if (s === currentSection) step.classList.add('active');
+    else if (s < currentSection) step.classList.add('done');
+  });
+}
+
+function showSection(n) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`.section[data-section="${n}"]`);
+  if (target) target.classList.add('active');
+  document.getElementById('confirmSection').classList.remove('active');
+  document.getElementById('completeSection').classList.remove('active');
+  currentSection = n;
+  updateProgress();
+  window.scrollTo({ top: 200, behavior: 'smooth' });
+}
+
+function nextSection(from) {
+  const section = document.querySelector(`.section[data-section="${from}"]`);
+  const required = section.querySelectorAll('[required]');
+  let valid = true;
+
+  required.forEach(input => {
+    if (input.type === 'radio') {
+      const name = input.name;
+      const checked = section.querySelector(`input[name="${name}"]:checked`);
+      if (!checked) {
+        valid = false;
+        const group = input.closest('.form-group');
+        if (group) group.style.animation = 'shake 0.4s ease';
+        setTimeout(() => { if (group) group.style.animation = ''; }, 400);
+      }
+    } else if (!input.value.trim()) {
+      valid = false;
+      input.style.borderColor = 'var(--error)';
+      input.addEventListener('input', function handler() {
+        this.style.borderColor = '';
+        this.removeEventListener('input', handler);
+      });
+    }
+  });
+
+  if (!valid) return;
+  if (from < totalSections) showSection(from + 1);
+}
+
+function prevSection(from) {
+  if (from > 1) showSection(from - 1);
+}
+
+// Labels map for confirm
+const labelMap = {
+  company: '会社名・屋号', contact_name: 'ご担当者名', email: 'メールアドレス',
+  phone: '電話番号', business_desc: '事業内容', current_url: '現在のWebサイトURL',
+  project_type: '制作の種類', issues: '現在のお悩み', issues_detail: '課題の詳細',
+  marketing: '現在の集客方法', goals: '制作の目的', conversion: 'サイトのゴール（CV）',
+  target_cv: '月間目標CV数', deadline: '希望公開日', budget: '予算の目安',
+  target: 'メインターゲット', target_area: '対象エリア', age: '対象年齢層',
+  competitor1: '競合サイト1', competitor2: '競合サイト2', competitor3: '競合サイト3',
+  strengths: '自社の強み', impression: 'サイトの印象', ref_site1: '参考サイト1',
+  ref_site2: '参考サイト2', ref_site3: '参考サイト3', brand_color: 'ブランドカラー',
+  logo: 'ロゴデータ', photos: '写真素材', pages: '必要なページ・機能',
+  integrations: '外部連携', update_plan: 'サイト更新', domain: 'ドメイン・サーバー',
+  seo_keywords: 'SEOキーワード', remarks: 'その他ご要望'
+};
+
+function getFormData() {
+  const form = document.getElementById('hearingForm');
+  const data = {};
+  const seen = new Set();
+
+  form.querySelectorAll('input, select, textarea').forEach(el => {
+    const name = el.name;
+    if (!name || seen.has(name + '_done')) return;
+
+    if (el.type === 'checkbox') {
+      if (!seen.has(name)) {
+        const checked = form.querySelectorAll(`input[name="${name}"]:checked`);
+        data[name] = Array.from(checked).map(c => c.value).join('、');
+        seen.add(name);
+      }
+    } else if (el.type === 'radio') {
+      if (!seen.has(name)) {
+        const checked = form.querySelector(`input[name="${name}"]:checked`);
+        data[name] = checked ? checked.value : '';
+        seen.add(name);
+      }
+    } else {
+      data[name] = el.value;
+    }
+  });
+  return data;
+}
+
+function showConfirm() {
+  // Validate section 6
+  const section = document.querySelector('.section[data-section="6"]');
+  const required = section.querySelectorAll('[required]');
+  let valid = true;
+  required.forEach(input => {
+    if (input.type === 'radio') {
+      const checked = section.querySelector(`input[name="${input.name}"]:checked`);
+      if (!checked) valid = false;
+    } else if (!input.value.trim()) {
+      valid = false;
+      input.style.borderColor = 'var(--error)';
+    }
+  });
+  if (!valid) return;
+
+  const data = getFormData();
+  let html = '';
+  for (const [key, val] of Object.entries(data)) {
+    const label = labelMap[key] || key;
+    html += `<div class="confirm-group"><div class="confirm-label">${label}</div><div class="confirm-value">${val || ''}</div></div>`;
+  }
+
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.getElementById('confirmBody').innerHTML = html;
+  document.getElementById('confirmSection').classList.add('active');
+  document.querySelectorAll('.progress-step').forEach(s => s.classList.add('done'));
+  window.scrollTo({ top: 200, behavior: 'smooth' });
+}
+
+function backToEdit() {
+  document.getElementById('confirmSection').classList.remove('active');
+  showSection(6);
+}
+
+document.getElementById('hearingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const data = getFormData();
+
+  // Build email body
+  let body = 'WEB制作ヒアリングシート 送信内容\n\n';
+  for (const [key, val] of Object.entries(data)) {
+    const label = labelMap[key] || key;
+    body += `【${label}】\n${val || '（未入力）'}\n\n`;
+  }
+
+  // Send via mailto
+  const subject = encodeURIComponent(`【ヒアリングシート】${data.company || ''}様`);
+  const mailBody = encodeURIComponent(body);
+  window.location.href = `mailto:info@vonds.co.jp?subject=${subject}&body=${mailBody}`;
+
+  // Show complete
+  document.getElementById('confirmSection').classList.remove('active');
+  document.getElementById('completeSection').classList.add('active');
+  document.querySelectorAll('.progress-step').forEach(s => s.classList.add('done'));
+  window.scrollTo({ top: 200, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
