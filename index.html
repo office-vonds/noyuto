@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>山梨県のSEO対策・WEBマーケティングなら株式会社オフィスVONDS</title>
-  <meta name="description" content="山梨県甲府市のSEO対策・WEBマーケティング会社。全日本SEO協会認定コンサルタント（山梨県唯一）。上位表示達成率90%以上、20年以上の実績。ホームページ制作からSEO対策、Google広告運用まで集客をワンストップで支援。">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-NFRN79GB"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GT-NFRN79GB');</script>
+  <!-- Google Search Console -->
+  <meta name="google-site-verification" content="jYrwrlMXWshD3csIrSV5nwZIsc6AGJrXFNc0Vp5n9js">
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1853024193601363" crossorigin="anonymous"></script>
+  <!-- Facebook Pixel -->
+  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','336659113751733');fbq('track','PageView');</script>
+  <title>山梨県のSEO対策・ホームページ制作・WEBマーケティングなら株式会社オフィスVONDS</title>
+  <meta name="description" content="山梨県甲府市のSEO対策・WEBマーケティング会社。全日本SEO協会認定コンサルタント（山梨県唯一）。上位表示達成率90%以上、20年以上の実績。ホームページ制作からSEO対策、Google広告運用、AI活用支援まで集客をワンストップで支援。">
   <meta name="keywords" content="山梨 SEO対策, 山梨 WEBマーケティング, 山梨 ホームページ制作, 甲府 SEO, 山梨 集客, SEOコンサルタント 山梨">
   <link rel="canonical" href="https://vonds.co.jp/">
   <meta property="og:title" content="山梨県のSEO対策・WEBマーケティングなら株式会社オフィスVONDS">
@@ -491,7 +500,6 @@
           <li><a href="/noyuto/works/">サービス詳細</a></li>
           <li><a href="/noyuto/past_work/">実績</a></li>
           <li><a href="#reason">選ばれる理由</a></li>
-          <li><a href="#column">コラム</a></li>
           <li><a href="/noyuto/company/">会社概要</a></li>
         </ul>
       </nav>
@@ -1106,7 +1114,13 @@
 
         <div class="contact-form-wrapper">
           <p class="contact-form-label">フォームでのお問い合わせ</p>
-          <form class="contact-form" id="contactForm" action="#" method="post">
+          <form class="contact-form" id="contactForm" action="https://formsubmit.co/office.vonds@gmail.com" method="POST" accept-charset="UTF-8">
+            <input type="hidden" name="_subject" value="【VONDS公式サイト】新しいお問い合わせ">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://office-vonds.github.io/noyuto/?thanks=1">
+            <input type="text" name="_honey" style="display:none">
+            <input type="hidden" name="_autoresponse" value="お問い合わせありがとうございます。株式会社オフィスVONDSです。内容を確認の上、担当者よりご連絡いたします。">
             <div class="form-group">
               <label for="company-name">会社名・店舗名</label>
               <input type="text" id="company-name" name="company" placeholder="例：株式会社サンプル">
@@ -1165,8 +1179,6 @@
             <li><a href="/noyuto/works/">サービス詳細</a></li>
             <li><a href="/noyuto/past_work/">実績</a></li>
             <li><a href="#reason">選ばれる理由</a></li>
-            <li><a href="#column">コラム</a></li>
-            <li><a href="#flow">ご利用の流れ</a></li>
             <li><a href="/noyuto/company/">会社概要</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
           </ul>
@@ -1198,6 +1210,15 @@
       });
     });
   })();
+  </script>
+
+  <script>
+  // Override main.js form handler to allow FormSubmit submission
+  var form = document.getElementById('contactForm');
+  if (form) {
+    var newForm = form.cloneNode(true);
+    form.parentNode.replaceChild(newForm, form);
+  }
   </script>
 </body>
 </html>
