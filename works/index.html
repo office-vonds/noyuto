@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>サービス一覧｜株式会社オフィスVONDS</title>
-  <meta name="description" content="オフィスVONDSのサービス一覧。SEO対策、WEBサイト制作、Google広告運用代行の3つのサービスで集客をワンストップ支援。">
+  <meta name="description" content="オフィスVONDSのサービス一覧。SEO対策、WEBサイト制作、Google広告運用代行、AI活用支援の4つのサービスで集客・業務改善をワンストップ支援。">
   <link rel="canonical" href="https://vonds.co.jp/works/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
       max-width: 1100px; margin: 0 auto;
       padding: 64px 24px 80px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 32px;
     }
     .wk-card {
@@ -53,6 +53,7 @@
     .wk-card:nth-child(1) .wk-card__header { background: linear-gradient(135deg, #1a56db, #3b82f6); }
     .wk-card:nth-child(2) .wk-card__header { background: linear-gradient(135deg, #111827, #374151); }
     .wk-card:nth-child(3) .wk-card__header { background: linear-gradient(135deg, #d97706, #f59e0b); }
+    .wk-card:nth-child(4) .wk-card__header { background: linear-gradient(135deg, #7c3aed, #a78bfa); }
 
     .wk-card__num {
       font-size: 3rem; font-weight: 900; opacity: 0.3; line-height: 1;
@@ -81,7 +82,10 @@
     }
     .wk-cta h2 { font-size: 1.5rem; font-weight: 700; color: #111827; margin-bottom: 24px; }
 
-    @media (max-width: 768px) {
+    @media (max-width: 960px) {
+      .wk-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
       .wk-grid { grid-template-columns: 1fr; }
     }
   </style>
@@ -109,7 +113,7 @@
   <section class="wk-hero">
     <div class="container">
       <h1>サービス一覧</h1>
-      <p>集客の課題を根本から解決する3つのサービス</p>
+      <p>集客の課題を根本から解決する4つのサービス</p>
     </div>
   </section>
 
@@ -121,7 +125,7 @@
       </div>
       <div class="wk-card__body">
         <p class="wk-card__desc">全日本SEO協会認定コンサルタントが、最新のGoogleアルゴリズムに基づいた施策を実施。上位表示達成率90%以上の実績。</p>
-        <a href="/noyuto/#service" class="wk-card__btn">詳しく見る →</a>
+        <a href="/noyuto/works/seo/" class="wk-card__btn">詳しく見る →</a>
       </div>
     </div>
 
@@ -132,7 +136,7 @@
       </div>
       <div class="wk-card__body">
         <p class="wk-card__desc">SEOを前提に設計した「集客できるホームページ」を制作。デザインだけでなく、検索エンジンに評価されるサイト構造で公開後すぐに集客力を発揮。</p>
-        <a href="/noyuto/#service" class="wk-card__btn">詳しく見る →</a>
+        <a href="/noyuto/works/web/" class="wk-card__btn">詳しく見る →</a>
       </div>
     </div>
 
@@ -144,6 +148,17 @@
       <div class="wk-card__body">
         <p class="wk-card__desc">SEOとの相乗効果を最大化するGoogle広告運用。費用対効果を徹底分析し、無駄のない広告戦略で見込み客を獲得します。</p>
         <a href="/noyuto/works/ads/" class="wk-card__btn">詳しく見る →</a>
+      </div>
+    </div>
+
+    <div class="wk-card">
+      <div class="wk-card__header">
+        <p class="wk-card__num">04</p>
+        <h2 class="wk-card__title">AI活用支援</h2>
+      </div>
+      <div class="wk-card__body">
+        <p class="wk-card__desc">業務の自動化でコスト削減と生産性向上を同時に実現。業種別のカスタムアプリ開発にも対応し、中小企業のAI導入をワンストップで支援します。</p>
+        <a href="/noyuto/works/ai/" class="wk-card__btn">詳しく見る →</a>
       </div>
     </div>
   </div>

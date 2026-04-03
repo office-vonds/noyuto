@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI活用支援｜株式会社オフィスVONDS</title>
+  <meta name="description" content="業務の自動化でコスト削減と生産性向上を同時に実現。業種別カスタムアプリ開発にも対応。AIの専門知識不要、まずは無料相談から。">
+  <link rel="canonical" href="https://vonds.co.jp/works/ai/">
+  <meta property="og:title" content="AI活用支援｜株式会社オフィスVONDS">
+  <meta property="og:description" content="業務の自動化でコスト削減と生産性向上を同時に実現。業種別カスタムアプリ開発にも対応。まずは無料相談から。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vonds.co.jp/works/ai/">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/noyuto/css/style.css">
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "AI活用支援",
+    "description": "業務自動化コンサルティング、コスト削減支援、業種別カスタムアプリ開発を通じて、企業のAI活用を総合的にサポートするサービスです。",
+    "provider": {
+      "@type": "Organization",
+      "name": "株式会社オフィスVONDS",
+      "url": "https://vonds.co.jp/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "上石田4-17-7 コーポ河井202",
+        "addressLocality": "甲府市",
+        "addressRegion": "山梨県",
+        "postalCode": "400-0041",
+        "addressCountry": "JP"
+      },
+      "telephone": "055-269-7220"
+    },
+    "areaServed": "JP",
+    "serviceType": "AI活用支援・業務自動化"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://vonds.co.jp/" },
+      { "@type": "ListItem", "position": 2, "name": "サービス一覧", "item": "https://vonds.co.jp/#service" },
+      { "@type": "ListItem", "position": 3, "name": "AI活用支援", "item": "https://vonds.co.jp/works/ai/" }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "AIの知識がなくても大丈夫ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、AIの専門知識は一切不要です。導入から運用まで、わかりやすくサポートいたします。操作も簡単に設計しますのでご安心ください。" }
+      },
+      {
+        "@type": "Question",
+        "name": "どんな業種に対応していますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "飲食業、不動産、小売業、士業・コンサル、製造業など幅広い業種に対応しています。まずはお気軽にご相談ください。" }
+      },
+      {
+        "@type": "Question",
+        "name": "導入までの期間はどれくらいですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "規模や内容によりますが、小規模な自動化であれば数週間程度で導入可能です。大規模なシステムの場合は1〜3ヶ月が目安です。" }
+      },
+      {
+        "@type": "Question",
+        "name": "既存のシステムとの連携はできますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "はい、可能です。ヒアリングの際に現在お使いのシステムを確認し、最適な連携方法をご提案いたします。" }
+      },
+      {
+        "@type": "Question",
+        "name": "セキュリティ面は安全ですか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "データの取り扱いには万全の対策を講じています。お客様の業務データや個人情報の保護を最優先に、安全な環境で運用いたします。" }
+      },
+      {
+        "@type": "Question",
+        "name": "費用はどれくらいかかりますか？",
+        "acceptedAnswer": { "@type": "Answer", "text": "導入内容や規模によって異なります。まずは無料相談にてお話をお伺いし、最適なプランとお見積りをご提案いたします。" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ===== AI LP Styles ===== */
+
+    /* --- Hero --- */
+    .ai-hero {
+      position: relative;
+      padding: 160px 0 100px;
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 30%, #1a56db 70%, #1e40af 100%);
+      color: var(--white);
+      overflow: hidden;
+    }
+    .ai-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 20% 50%, rgba(124,58,237,0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(26,86,219,0.3) 0%, transparent 50%),
+        radial-gradient(circle at 60% 80%, rgba(91,33,182,0.2) 0%, transparent 40%);
+    }
+    .ai-hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='20' cy='20' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .ai-hero .container { position: relative; z-index: 1; }
+    .ai-hero__badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 8px 24px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .ai-hero h1 {
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+    .ai-hero h1 span {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      padding: 2px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .ai-hero__sub {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      opacity: 0.85;
+      line-height: 1.8;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .ai-hero__cta-group {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .ai-hero__stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      flex-wrap: wrap;
+    }
+    .ai-hero__stat { text-align: center; }
+    .ai-hero__stat-icon {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+    .ai-hero__stat-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      opacity: 0.9;
+    }
+    .ai-hero__stat-sub {
+      font-size: 0.75rem;
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+
+    /* --- Breadcrumb --- */
+    .ai-breadcrumb {
+      position: absolute; top: 84px; left: 0; right: 0; z-index: 10;
+      max-width: 1100px; margin: 0 auto; padding: 0 24px;
+      font-size: 0.8rem; color: rgba(255,255,255,0.6);
+    }
+    .ai-breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .ai-breadcrumb a:hover { color: var(--white); }
+
+    /* --- Section common --- */
+    .ai-section {
+      padding: 80px 0;
+    }
+    .ai-section--gray { background: var(--gray-50); }
+    .ai-section--dark {
+      background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
+      color: var(--white);
+    }
+    .ai-section--purple {
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 40%, #1a56db 100%);
+      color: var(--white);
+    }
+    .ai-section__head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .ai-section__label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 12px;
+    }
+    .ai-section--dark .ai-section__label,
+    .ai-section--purple .ai-section__label {
+      color: rgba(255,255,255,0.6);
+    }
+    .ai-section__title {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.4;
+    }
+    .ai-section--dark .ai-section__title,
+    .ai-section--purple .ai-section__title {
+      color: var(--white);
+    }
+    .ai-section__subtitle {
+      font-size: 1rem;
+      color: var(--gray-500);
+      margin-top: 12px;
+      line-height: 1.8;
+    }
+    .ai-section--dark .ai-section__subtitle,
+    .ai-section--purple .ai-section__subtitle {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* --- Pain points --- */
+    .pain-list {
+      max-width: 720px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+    .pain-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--gray-200);
+      font-size: 1.05rem;
+      color: var(--gray-700);
+      line-height: 1.7;
+    }
+    .pain-list li:last-child { border-bottom: none; }
+    .pain-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: #ede9fe;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      margin-top: 2px;
+    }
+
+    /* --- Pillar cards --- */
+    .ai-pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .ai-pillar-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid var(--gray-100);
+    }
+    .ai-pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+    .ai-pillar-card__icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, #ede9fe, #e8effc);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2rem;
+    }
+    .ai-pillar-card__num {
+      display: inline-block;
+      background: linear-gradient(135deg, #7c3aed, #1a56db);
+      color: var(--white);
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 28px;
+      margin-bottom: 12px;
+    }
+    .ai-pillar-card h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 14px;
+    }
+    .ai-pillar-card p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    /* --- Use case grid --- */
+    .ai-usecase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+    .ai-usecase-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      border: 1px solid var(--gray-100);
+    }
+    .ai-usecase-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .ai-usecase-card__icon {
+      width: 60px; height: 60px;
+      background: linear-gradient(135deg, #ede9fe, #e8effc);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.6rem;
+    }
+    .ai-usecase-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .ai-usecase-card p {
+      font-size: 0.85rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* --- Impact cards --- */
+    .ai-impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .ai-impact-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      border-top: 4px solid #7c3aed;
+    }
+    .ai-impact-card__num {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      background: linear-gradient(135deg, #7c3aed, #1a56db);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .ai-impact-card__label {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+    .ai-impact-card__text {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      line-height: 1.7;
+    }
+
+    /* --- Flow steps --- */
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+    .flow-step {
+      text-align: center;
+      position: relative;
+    }
+    .flow-step__num {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, #7c3aed, #1a56db);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 900;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step__title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .flow-step__text {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      line-height: 1.7;
+    }
+
+    /* --- Guarantee cards --- */
+    .guarantee-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .guarantee-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+    .guarantee-card__icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+    .guarantee-card__title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 12px;
+    }
+    .guarantee-card__text {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    /* --- FAQ --- */
+    .faq-list {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 22px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-main);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--dark);
+      text-align: left;
+      line-height: 1.6;
+      gap: 16px;
+    }
+    .faq-q::after {
+      content: '+';
+      flex-shrink: 0;
+      width: 32px; height: 32px;
+      background: var(--gray-100);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--gray-500);
+      transition: var(--transition);
+    }
+    .faq-item.is-open .faq-q::after {
+      content: '\2212';
+      background: linear-gradient(135deg, #7c3aed, #1a56db);
+      color: var(--white);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-item.is-open .faq-a {
+      max-height: 300px;
+      padding-bottom: 22px;
+    }
+    .faq-a p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+      padding-left: 4px;
+    }
+
+    /* --- Final CTA --- */
+    .ai-final-cta {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 40%, #1a56db 100%);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ai-final-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    }
+    .ai-final-cta .container { position: relative; z-index: 1; }
+    .ai-final-cta h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .ai-final-cta p {
+      font-size: 1rem;
+      opacity: 0.85;
+      margin-bottom: 32px;
+      line-height: 1.8;
+    }
+    .ai-final-cta__note {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin-top: 20px;
+    }
+
+    /* --- Buttons --- */
+    .btn { display: inline-block; font-weight: 700; text-decoration: none; border-radius: var(--radius); transition: var(--transition); text-align: center; cursor: pointer; }
+    .btn-lg { padding: 18px 40px; font-size: 1.05rem; }
+    .btn-white { background: var(--white); color: #7c3aed; }
+    .btn-white:hover { background: var(--gray-100); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-purple { background: linear-gradient(135deg, #7c3aed, #1a56db); color: var(--white); }
+    .btn-purple:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(124,58,237,0.35); }
+    .btn-outline-white { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,0.4); padding: 16px 36px; }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      .ai-hero { padding: 140px 0 64px; }
+      .ai-hero__stats { gap: 24px; }
+      .ai-pillar-grid { grid-template-columns: 1fr; gap: 20px; }
+      .ai-usecase-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+      .ai-impact-grid { grid-template-columns: 1fr; gap: 20px; }
+      .flow-steps { grid-template-columns: 1fr; gap: 32px; }
+      .guarantee-grid { grid-template-columns: 1fr; gap: 20px; }
+      .ai-section { padding: 56px 0; }
+      .ai-breadcrumb { top: 72px; font-size: 0.7rem; }
+    }
+    @media (max-width: 480px) {
+      .ai-usecase-grid { grid-template-columns: 1fr; }
+      .ai-hero__stats { flex-direction: column; gap: 20px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-logo"><a href="/noyuto/"><img src="/noyuto/logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61"></a></div>
+      <nav class="header-nav" id="nav">
+        <ul>
+          <li><a href="/noyuto/#service">サービス</a></li>
+          <li><a href="/noyuto/past_work/">実績</a></li>
+          <li><a href="/noyuto/#reason">選ばれる理由</a></li>
+          <li><a href="/noyuto/#flow">ご利用の流れ</a></li>
+          <li><a href="/noyuto/company/">会社概要</a></li>
+        </ul>
+      </nav>
+      <a href="/noyuto/#contact" class="header-cta">無料相談はこちら</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+
+  <!-- ========== Hero ========== -->
+  <section class="ai-hero">
+    <nav class="ai-breadcrumb" aria-label="パンくずリスト">
+      <a href="/noyuto/">ホーム</a> &gt; <a href="/noyuto/#service">サービス一覧</a> &gt; AI活用支援
+    </nav>
+    <div class="container">
+      <p class="ai-hero__badge">&#x2728; AI Business Solutions</p>
+      <h1>AIで業務を自動化。<br><span>コスト削減</span>と<span>生産性向上</span>を<br>同時に実現。</h1>
+      <p class="ai-hero__sub">定型業務の自動化から業種別カスタムアプリ開発まで。<br>AIの専門知識がなくても、御社の業務を最適化できます。</p>
+      <div class="ai-hero__cta-group">
+        <a href="/noyuto/#contact" class="btn btn-white btn-lg">無料相談はこちら &rarr;</a>
+        <a href="#ai-pillar" class="btn btn-outline-white btn-lg">サービス詳細を見る</a>
+      </div>
+      <div class="ai-hero__stats">
+        <div class="ai-hero__stat">
+          <p class="ai-hero__stat-icon" aria-hidden="true">&#x1F4C9;</p>
+          <p class="ai-hero__stat-label">コスト削減</p>
+          <p class="ai-hero__stat-sub">労務費・管理コストを大幅カット</p>
+        </div>
+        <div class="ai-hero__stat">
+          <p class="ai-hero__stat-icon" aria-hidden="true">&#x26A1;</p>
+          <p class="ai-hero__stat-label">業務効率化</p>
+          <p class="ai-hero__stat-sub">定型業務をAIで自動処理</p>
+        </div>
+        <div class="ai-hero__stat">
+          <p class="ai-hero__stat-icon" aria-hidden="true">&#x1F4F1;</p>
+          <p class="ai-hero__stat-label">カスタムアプリ開発</p>
+          <p class="ai-hero__stat-sub">業種別の簡単アプリを作成</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== お悩みセクション ========== -->
+  <section class="ai-section">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">Problems</p>
+        <h2 class="ai-section__title">こんなお悩みありませんか？</h2>
+        <p class="ai-section__subtitle">一つでも当てはまれば、AI活用で解決できる可能性があります。</p>
+      </div>
+      <ul class="pain-list">
+        <li>
+          <span class="pain-icon" aria-hidden="true">&#x1F625;</span>
+          <span>人手不足で業務が回らない。採用してもすぐに辞めてしまう。</span>
+        </li>
+        <li>
+          <span class="pain-icon" aria-hidden="true">&#x1F504;</span>
+          <span>同じ作業の繰り返しに時間を取られている。もっとクリエイティブな仕事に集中したい。</span>
+        </li>
+        <li>
+          <span class="pain-icon" aria-hidden="true">&#x1F914;</span>
+          <span>AIに興味はあるが、何から始めればいいかわからない。</span>
+        </li>
+        <li>
+          <span class="pain-icon" aria-hidden="true">&#x1F4BB;</span>
+          <span>ITに詳しいスタッフがいない。導入しても使いこなせるか不安。</span>
+        </li>
+        <li>
+          <span class="pain-icon" aria-hidden="true">&#x1F4B8;</span>
+          <span>業務用のシステムが高額で手が出ない。コストに見合う効果があるのか疑問。</span>
+        </li>
+      </ul>
+      <div style="text-align:center; margin-top:40px;">
+        <a href="/noyuto/#contact" class="btn btn-purple btn-lg">まずは無料で相談する &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== AI活用支援の3つの柱 ========== -->
+  <section class="ai-section ai-section--gray" id="ai-pillar">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">Services</p>
+        <h2 class="ai-section__title">AI活用支援の3つの柱</h2>
+        <p class="ai-section__subtitle">業務の自動化、コスト削減、アプリ開発を軸に御社のAI導入を支援します。</p>
+      </div>
+      <div class="ai-pillar-grid">
+        <div class="ai-pillar-card">
+          <div class="ai-pillar-card__icon" aria-hidden="true">&#x1F916;</div>
+          <p class="ai-pillar-card__num">1</p>
+          <h3>業務自動化<br>コンサルティング</h3>
+          <p>日報作成、データ入力、メール対応、請求書処理など、日々の定型業務をAIで自動化。人がやるべき仕事に集中できる環境をつくります。</p>
+        </div>
+        <div class="ai-pillar-card">
+          <div class="ai-pillar-card__icon" aria-hidden="true">&#x1F4B0;</div>
+          <p class="ai-pillar-card__num">2</p>
+          <h3>コスト削減の実現</h3>
+          <p>労務費・管理コストを大幅にカット。業務の自動化により、人件費の削減と同時に作業品質の向上を実現します。</p>
+        </div>
+        <div class="ai-pillar-card">
+          <div class="ai-pillar-card__icon" aria-hidden="true">&#x1F4F1;</div>
+          <p class="ai-pillar-card__num">3</p>
+          <h3>業種別<br>カスタムアプリ開発</h3>
+          <p>飲食店の予約管理、不動産の物件紹介、小売の在庫管理など、業種に合わせた簡単アプリを作成。複雑な操作は不要です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 活用シーン / 業種別事例 ========== -->
+  <section class="ai-section">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">Use Cases</p>
+        <h2 class="ai-section__title">業種別 AI活用シーン</h2>
+        <p class="ai-section__subtitle">さまざまな業種で、AIが日々の業務をサポートします。</p>
+      </div>
+      <div class="ai-usecase-grid">
+        <div class="ai-usecase-card">
+          <div class="ai-usecase-card__icon" aria-hidden="true">&#x1F37D;</div>
+          <h3>飲食業</h3>
+          <p>予約管理の自動化、AIによるメニュー提案、食材の発注最適化</p>
+        </div>
+        <div class="ai-usecase-card">
+          <div class="ai-usecase-card__icon" aria-hidden="true">&#x1F3E0;</div>
+          <h3>不動産</h3>
+          <p>物件マッチングAI、問い合わせへの自動応答、物件情報の自動更新</p>
+        </div>
+        <div class="ai-usecase-card">
+          <div class="ai-usecase-card__icon" aria-hidden="true">&#x1F6D2;</div>
+          <h3>小売業</h3>
+          <p>在庫管理の自動化、需要予測AI、発注タイミングの最適化</p>
+        </div>
+        <div class="ai-usecase-card">
+          <div class="ai-usecase-card__icon" aria-hidden="true">&#x1F4D1;</div>
+          <h3>士業・コンサル</h3>
+          <p>書類作成の自動化、リサーチ業務の効率化、顧客対応の自動化</p>
+        </div>
+        <div class="ai-usecase-card">
+          <div class="ai-usecase-card__icon" aria-hidden="true">&#x1F3ED;</div>
+          <h3>製造業</h3>
+          <p>品質管理の自動化、工程最適化AI、不良品検知の精度向上</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 導入効果の数値イメージ ========== -->
+  <section class="ai-section ai-section--gray">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">Impact</p>
+        <h2 class="ai-section__title">導入効果の数値イメージ</h2>
+        <p class="ai-section__subtitle">AI導入により期待できる効果の一例です。</p>
+      </div>
+      <div class="ai-impact-grid">
+        <div class="ai-impact-card">
+          <p class="ai-impact-card__num">最大70%</p>
+          <p class="ai-impact-card__label">作業時間の削減</p>
+          <p class="ai-impact-card__text">定型業務をAIに任せることで、従来の作業時間を大幅にカット。空いた時間を本業に集中できます。</p>
+        </div>
+        <div class="ai-impact-card">
+          <p class="ai-impact-card__num">年間数百万円</p>
+          <p class="ai-impact-card__label">人件費の削減効果</p>
+          <p class="ai-impact-card__text">労務費や管理コストを大幅に削減。自動化による人件費の最適化で、経営の余裕が生まれます。</p>
+        </div>
+        <div class="ai-impact-card">
+          <p class="ai-impact-card__num">ほぼゼロに</p>
+          <p class="ai-impact-card__label">ヒューマンエラー</p>
+          <p class="ai-impact-card__text">手作業で起きがちな入力ミスや確認漏れを、AIの正確な処理でほぼゼロに。業務品質が向上します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== ご利用の流れ ========== -->
+  <section class="ai-section ai-section--dark">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">Flow</p>
+        <h2 class="ai-section__title">ご利用の流れ</h2>
+        <p class="ai-section__subtitle">4つのステップで、無理なくAI導入を進められます。</p>
+      </div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step__num">1</div>
+          <h3 class="flow-step__title">無料相談</h3>
+          <p class="flow-step__text">現在の業務内容やお悩みをヒアリング。AIで解決できるポイントを一緒に整理します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step__num">2</div>
+          <h3 class="flow-step__title">業務分析</h3>
+          <p class="flow-step__text">自動化できる業務を洗い出し、優先順位と費用対効果を分析。最適なプランをご提案します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step__num">3</div>
+          <h3 class="flow-step__title">開発・導入</h3>
+          <p class="flow-step__text">AIツールやカスタムアプリを構築し、御社の業務環境に合わせて導入。操作説明もしっかり行います。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step__num">4</div>
+          <h3 class="flow-step__title">運用サポート</h3>
+          <p class="flow-step__text">導入後も継続的にサポート。改善点の提案や追加機能の開発など、長期的にお手伝いします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 安心ポイント ========== -->
+  <section class="ai-section ai-section--dark" style="padding-top:0;">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">Guarantee</p>
+        <h2 class="ai-section__title">安心の3つのポイント</h2>
+      </div>
+      <div class="guarantee-grid">
+        <div class="guarantee-card">
+          <p class="guarantee-card__icon" aria-hidden="true">&#x1F530;</p>
+          <h3 class="guarantee-card__title">専門知識不要</h3>
+          <p class="guarantee-card__text">AIやITの知識がなくても問題ありません。操作が簡単なツールを選定・開発し、わかりやすい研修も実施します。</p>
+        </div>
+        <div class="guarantee-card">
+          <p class="guarantee-card__icon" aria-hidden="true">&#x1F331;</p>
+          <h3 class="guarantee-card__title">スモールスタートOK</h3>
+          <p class="guarantee-card__text">まずは小さな業務から始めて、効果を確認しながら段階的に拡大。リスクを最小限に抑えて導入できます。</p>
+        </div>
+        <div class="guarantee-card">
+          <p class="guarantee-card__icon" aria-hidden="true">&#x1F91D;</p>
+          <h3 class="guarantee-card__title">導入後サポート充実</h3>
+          <p class="guarantee-card__text">導入して終わりではありません。運用中の疑問や改善要望にも迅速に対応。長期的なパートナーとしてサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FAQ ========== -->
+  <section class="ai-section">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">FAQ</p>
+        <h2 class="ai-section__title">よくあるご質問</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" type="button">AIの知識がなくても大丈夫ですか？</button>
+          <div class="faq-a">
+            <p>はい、AIの専門知識は一切不要です。導入から運用まで、わかりやすくサポートいたします。操作も簡単に設計しますのでご安心ください。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">どんな業種に対応していますか？</button>
+          <div class="faq-a">
+            <p>飲食業、不動産、小売業、士業・コンサル、製造業など幅広い業種に対応しています。まずはお気軽にご相談ください。業種特有の課題に合わせた最適な提案をいたします。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">導入までの期間はどれくらいですか？</button>
+          <div class="faq-a">
+            <p>規模や内容によりますが、小規模な自動化であれば数週間程度で導入可能です。大規模なシステムの場合は1〜3ヶ月が目安です。まずはご相談ください。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">既存のシステムとの連携はできますか？</button>
+          <div class="faq-a">
+            <p>はい、可能です。ヒアリングの際に現在お使いのシステムを確認し、最適な連携方法をご提案いたします。多くの主要システムとの連携実績があります。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">セキュリティ面は安全ですか？</button>
+          <div class="faq-a">
+            <p>データの取り扱いには万全の対策を講じています。お客様の業務データや個人情報の保護を最優先に、安全な環境で運用いたします。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" type="button">費用はどれくらいかかりますか？</button>
+          <div class="faq-a">
+            <p>導入内容や規模によって異なります。まずは無料相談にてお話をお伺いし、最適なプランとお見積りをご提案いたします。お気軽にお問い合わせください。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== Final CTA ========== -->
+  <section class="ai-final-cta">
+    <div class="container">
+      <h2>まずは無料相談。<br>AI活用の可能性を一緒に考えましょう。</h2>
+      <p>「何から始めればいいかわからない」で大丈夫です。<br>御社の業務内容をお聞きし、AIで解決できるポイントをご提案します。</p>
+      <a href="/noyuto/#contact" class="btn btn-white btn-lg">無料相談はこちら &rarr;</a>
+      <p class="ai-final-cta__note">お問い合わせ後の営業電話はいたしません。お気軽にどうぞ。</p>
+    </div>
+  </section>
+
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <div class="footer-logo"><img src="/noyuto/logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61" style="filter:brightness(10);"></div>
+          <p class="footer-address">〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</p>
+          <p class="footer-tel">TEL: <a href="tel:055-269-7220">055-269-7220</a></p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="/noyuto/#service">サービス</a></li>
+            <li><a href="/noyuto/past_work/">実績</a></li>
+            <li><a href="/noyuto/#reason">選ばれる理由</a></li>
+            <li><a href="/noyuto/#flow">ご利用の流れ</a></li>
+            <li><a href="/noyuto/company/">会社概要</a></li>
+            <li><a href="/noyuto/#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2024 株式会社オフィスVONDS All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ハンバーガーメニュー
+    var hamburger = document.getElementById('hamburger');
+    var nav = document.getElementById('nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('is-active');
+        nav.classList.toggle('is-open');
+      });
+    }
+
+    // FAQ アコーディオン
+    document.querySelectorAll('.faq-q').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.faq-item.is-open').forEach(function(openItem) {
+          openItem.classList.remove('is-open');
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+        }
+      });
+    });
+  });
+  </script>
+</body>
+</html>
