@@ -16,6 +16,9 @@ fi
 # ステップ1: 引用リポスト候補検索（Python直接実行、MCP不要）
 QUOTES=$(python3 search_quotes.py --top 5 2>/dev/null)
 
+# ステップ1.5: リプライ候補検索＋生成
+REPLIES=$(python3 search_reply_targets.py --section --no-email 2>/dev/null)
+
 # ステップ2: Claude Codeで投稿文を生成（Gmail送信はしない）
 POST=$(/home/noyuto/.local/bin/claude --print "
 以下の手順を実行し、結果をテキストで出力してください。Gmailは送信しないでください。
@@ -63,8 +66,14 @@ $POST
 ━━━━━━━━━━━━━━━━━━
 $QUOTES
 
+$REPLIES
+
 ━━━━━━━━━━━━━━━━━━
-承認する場合は approve_post.py を実行してください。
+■ 使い方
+━━━━━━━━━━━━━━━━━━
+【投稿】承認する場合は approve_post.py を実行
+【引用RT】URLを開いて引用リポスト
+【リプライ】URLを開いてパターンA or Bをコピペ→送信
 REPORT_EOF
 
 # ステップ4: Gmail送信（Python直接、MCP不要）
