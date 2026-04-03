@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ホームページ制作｜株式会社オフィスVONDS</title>
-  <meta name="description" content="山梨県のホームページ制作ならオフィスVONDS。SEO設計を標準装備した集客特化型WEBサイト制作。公開後の運用サポートも充実。まずは無料相談から。">
+  <title>山梨県のホームページ制作｜SEO設計で集客できるHP｜株式会社オフィスVONDS</title>
+  <meta name="description" content="山梨県のホームページ制作ならオフィスVONDS。SEO設計を標準装備した集客特化型のHP制作。レスポンシブ対応・CMS導入・アクセス解析まで一括対応。20年以上のWEB実績。まずは無料見積りから。">
   <link rel="canonical" href="https://vonds.co.jp/works/web/">
-  <meta property="og:title" content="ホームページ制作｜株式会社オフィスVONDS">
-  <meta property="og:description" content="SEOのプロが設計・制作する集客特化型ホームページ。検索で上位表示される構造設計が標準装備。まずは無料見積りから。">
+  <meta property="og:title" content="山梨県のホームページ制作｜SEO設計で集客できるHP｜株式会社オフィスVONDS">
+  <meta property="og:description" content="山梨県のホームページ制作ならオフィスVONDS。SEO設計を標準装備した集客特化型のHP制作。レスポンシブ対応・CMS導入・アクセス解析まで一括対応。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vonds.co.jp/works/web/">
   <meta property="og:locale" content="ja_JP">
@@ -21,8 +21,8 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "ホームページ制作",
-    "description": "SEO設計を標準装備した集客特化型ホームページ制作サービス。レスポンシブ対応・CMS導入・アクセス解析設置まで一括対応。",
+    "name": "山梨県のホームページ制作",
+    "description": "山梨県のホームページ制作ならオフィスVONDS。SEO設計を標準装備した集客特化型のHP制作。レスポンシブ対応・CMS導入・アクセス解析まで一括対応。",
     "provider": {
       "@type": "Organization",
       "name": "株式会社オフィスVONDS",
@@ -48,7 +48,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://vonds.co.jp/" },
       { "@type": "ListItem", "position": 2, "name": "サービス一覧", "item": "https://vonds.co.jp/works/" },
-      { "@type": "ListItem", "position": 3, "name": "ホームページ制作", "item": "https://vonds.co.jp/works/web/" }
+      { "@type": "ListItem", "position": 3, "name": "山梨県のホームページ制作", "item": "https://vonds.co.jp/works/web/" }
     ]
   }
   </script>
@@ -98,14 +98,14 @@
     .web-hero {
       position: relative;
       padding: 160px 0 100px;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
+      background: url('/noyuto/1600-900-2.jpg') center/cover no-repeat;
       color: var(--white);
       overflow: hidden;
     }
     .web-hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      background: linear-gradient(135deg, rgba(17,24,39,0.88) 0%, rgba(31,41,55,0.85) 100%);
     }
     .web-hero::after {
       content: '';
@@ -134,6 +134,7 @@
       font-weight: 900;
       line-height: 1.35;
       margin-bottom: 20px;
+      color: var(--white);
     }
     .web-hero h1 em {
       font-style: normal;
@@ -148,6 +149,7 @@
       line-height: 1.8;
       max-width: 640px;
       margin-bottom: 40px;
+      color: var(--white);
     }
     .web-hero__cta-group {
       display: flex;
@@ -175,6 +177,7 @@
       font-size: 0.8rem;
       opacity: 0.55;
       margin-top: 6px;
+      color: var(--white);
     }
 
     /* --- Breadcrumb --- */
@@ -236,6 +239,21 @@
       color: rgba(255,255,255,0.55);
     }
 
+    /* --- Dark section text contrast fix --- */
+    .web-section--dark h2,
+    .web-section--dark h3,
+    .web-section--dark p,
+    .web-section--dark li,
+    .web-section--dark span,
+    .web-section--dark td,
+    .web-section--dark th {
+      color: var(--white);
+    }
+    .web-section--dark .web-section__subtitle,
+    .web-section--dark .flow-step__text {
+      color: rgba(255,255,255,0.65);
+    }
+
     /* --- Pain points --- */
     .pain-list {
       max-width: 720px;
@@ -282,6 +300,14 @@
     .feature-card:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-xl);
+    }
+    .feature-card__img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      margin: 0 auto 20px;
+      border-radius: 12px;
+      display: block;
     }
     .feature-card__icon {
       width: 64px; height: 64px;
@@ -381,15 +407,17 @@
       font-weight: 900;
       position: relative;
       z-index: 1;
+      color: var(--white);
     }
     .flow-step__title {
       font-size: 1rem;
       font-weight: 700;
       margin-bottom: 8px;
+      color: var(--white);
     }
     .flow-step__text {
       font-size: 0.82rem;
-      opacity: 0.65;
+      color: rgba(255,255,255,0.65);
       line-height: 1.7;
     }
 
@@ -408,6 +436,7 @@
       text-align: left;
       font-size: 0.9rem;
       border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-700);
     }
     .compare-table thead th {
       background: var(--dark);
@@ -417,6 +446,7 @@
     }
     .compare-table thead th:last-child {
       background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: var(--white);
     }
     .compare-table tbody tr:last-child td { border-bottom: none; }
     .compare-table td:first-child {
@@ -477,6 +507,167 @@
       line-height: 1.8;
     }
 
+    /* --- Hearing CTA Banner --- */
+    .hearing-cta {
+      padding: 64px 0;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+      text-align: center;
+      color: var(--white);
+    }
+    .hearing-cta h2 {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 900;
+      margin-bottom: 16px;
+      color: var(--white);
+      line-height: 1.4;
+    }
+    .hearing-cta__text {
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      color: rgba(255,255,255,0.9);
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hearing-cta__btn {
+      display: inline-block;
+      background: var(--white);
+      color: #b45309;
+      font-size: 1.15rem;
+      font-weight: 700;
+      padding: 18px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hearing-cta__btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .hearing-cta__note {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* --- Message / Trust section --- */
+    .trust-section {
+      padding: 80px 0;
+      background: var(--gray-50);
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .trust-img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .trust-content h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .trust-content p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.9;
+      margin-bottom: 16px;
+    }
+    .trust-ceo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .trust-ceo__photo {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: var(--shadow-sm);
+    }
+    .trust-ceo__name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .trust-ceo__role {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+
+    /* --- Local context section --- */
+    .local-context {
+      padding: 64px 0;
+      background: var(--white);
+    }
+    .local-context__inner {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .local-context h2 {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 24px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .local-context p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+
+    /* --- WEB banner --- */
+    .web-banner {
+      display: block;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: auto;
+    }
+
+    /* --- Web icon visual --- */
+    .web-icon-visual {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px;
+      display: block;
+    }
+
+    /* --- Tablet BG section --- */
+    .tablet-bg-section {
+      position: relative;
+      padding: 80px 0;
+      background: url('/noyuto/1600-900-4.jpg') center/cover no-repeat;
+      text-align: center;
+    }
+    .tablet-bg-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(17,24,39,0.82);
+    }
+    .tablet-bg-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    .tablet-bg-section h2,
+    .tablet-bg-section p {
+      color: var(--white);
+    }
+
     /* --- Final CTA --- */
     .final-cta {
       text-align: center;
@@ -489,12 +680,14 @@
       font-weight: 900;
       margin-bottom: 16px;
       line-height: 1.4;
+      color: var(--white);
     }
     .final-cta p {
       font-size: 1rem;
       opacity: 0.85;
       margin-bottom: 32px;
       line-height: 1.8;
+      color: var(--white);
     }
     .final-cta .btn-white {
       font-size: 1.1rem;
@@ -504,6 +697,7 @@
       margin-top: 16px;
       font-size: 0.8rem;
       opacity: 0.55;
+      color: var(--white);
     }
 
     /* --- Responsive --- */
@@ -516,6 +710,7 @@
       .flow-steps::before { display: none; }
       .compare-table { font-size: 0.8rem; }
       .compare-table th, .compare-table td { padding: 12px 14px; }
+      .trust-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       .flow-steps { grid-template-columns: 1fr; }
@@ -530,7 +725,7 @@
   <header class="header" id="header">
     <div class="header-inner">
       <div class="header-logo"><a href="/noyuto/"><img src="/noyuto/logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61"></a></div>
-      <nav class="header-nav" id="nav">
+      <nav class="header-nav" id="nav" aria-label="メインナビゲーション">
         <ul>
           <li><a href="/noyuto/#service">サービス</a></li>
           <li><a href="/noyuto/past_work/">実績</a></li>
@@ -546,7 +741,7 @@
 
   <!-- パンくず -->
   <nav class="web-breadcrumb" aria-label="パンくずリスト">
-    <a href="/noyuto/">ホーム</a> &gt; <a href="/noyuto/works/">サービス一覧</a> &gt; ホームページ制作
+    <a href="/noyuto/">ホーム</a> &gt; <a href="/noyuto/works/">サービス一覧</a> &gt; 山梨県のホームページ制作
   </nav>
 
 
@@ -554,7 +749,7 @@
   <section class="web-hero">
     <div class="container">
       <p class="web-hero__badge">Web Design &amp; Development</p>
-      <h1><em>「集客できる」</em>ホームページを、<br>SEOのプロがつくる。</h1>
+      <h1>山梨県のホームページ制作 ― <br><em>SEOのプロ</em>が「集客できるHP」をつくる</h1>
       <p class="web-hero__sub">
         SEOを前提に設計した集客特化型WEBサイト制作。<br>
         見た目だけでなく「検索で見つかる・問い合わせが来る」を実現します。
@@ -581,12 +776,21 @@
   </section>
 
 
+  <!-- ========== WEB Banner ========== -->
+  <div style="padding: 32px 0; background: var(--white); text-align: center;">
+    <div class="container">
+      <img src="/noyuto/web1200-185.png" alt="山梨県のWEB制作・ホームページ制作メニュー" class="web-banner">
+    </div>
+  </div>
+
+
   <!-- ========== こんなお悩みありませんか ========== -->
   <section class="web-section">
     <div class="container">
       <div class="web-section__head">
+        <img src="/noyuto/web380-380.png" alt="山梨県のホームページ制作 WEBアイコン" class="web-icon-visual">
         <p class="web-section__label">Problem</p>
-        <h2 class="web-section__title">こんなお悩み、ありませんか？</h2>
+        <h2 class="web-section__title">山梨の企業が抱えるホームページのお悩み</h2>
       </div>
       <ul class="pain-list">
         <li>
@@ -623,23 +827,23 @@
     <div class="container">
       <div class="web-section__head">
         <p class="web-section__label">Reason</p>
-        <h2 class="web-section__title">VONDSのWEB制作が<br>選ばれる3つの理由</h2>
+        <h2 class="web-section__title">山梨でVONDSのホームページ制作が<br>選ばれる3つの理由</h2>
       </div>
       <div class="feature-grid">
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">&#x1F50D;</div>
+          <img src="/noyuto/reason1.png" alt="SEO設計が標準装備 - 山梨のホームページ制作" class="feature-card__img">
           <p class="feature-card__num">REASON 01</p>
           <h3 class="feature-card__title">SEO設計が標準装備</h3>
           <p class="feature-card__text">全日本SEO協会認定コンサルタントが、制作段階からSEO内部対策を組み込みます。公開直後から検索エンジンに評価されるサイト構造で、「作って終わり」にしません。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">&#x1F4BC;</div>
+          <img src="/noyuto/reason2.png" alt="経営戦略を理解した提案型制作" class="feature-card__img">
           <p class="feature-card__num">REASON 02</p>
           <h3 class="feature-card__title">経営戦略を理解した<br>提案型制作</h3>
           <p class="feature-card__text">20年以上のWEBマーケティング経験から、デザインだけでなく「誰に・何を・どう伝えるか」を経営視点で設計。ターゲットに刺さるサイト構成をご提案します。</p>
         </div>
         <div class="feature-card">
-          <div class="feature-card__icon" aria-hidden="true">&#x1F91D;</div>
+          <img src="/noyuto/reason3.png" alt="公開後の運用サポート" class="feature-card__img">
           <p class="feature-card__num">REASON 03</p>
           <h3 class="feature-card__title">公開後の<br>運用サポート</h3>
           <p class="feature-card__text">ホームページは公開してからが本番です。アクセス解析をもとにした改善提案、コンテンツ更新支援、保守メンテナンスまで、長期的な集客をサポートします。</p>
@@ -654,7 +858,7 @@
     <div class="container">
       <div class="web-section__head">
         <p class="web-section__label">Spec</p>
-        <h2 class="web-section__title">VONDSのホームページ制作に<br>含まれる標準仕様</h2>
+        <h2 class="web-section__title">ホームページ制作の特徴</h2>
         <p class="web-section__subtitle">すべてのサイトに、集客に必要な要素を標準装備しています。</p>
       </div>
       <div class="spec-grid">
@@ -710,7 +914,7 @@
     <div class="container">
       <div class="web-section__head">
         <p class="web-section__label">Flow</p>
-        <h2 class="web-section__title">制作の流れ</h2>
+        <h2 class="web-section__title">ホームページ制作の流れ</h2>
         <p class="web-section__subtitle">お問い合わせから公開まで、約1.5〜2ヶ月が目安です。</p>
       </div>
       <div class="flow-steps">
@@ -747,12 +951,23 @@
   </section>
 
 
+  <!-- ========== ヒアリングシートCTA ========== -->
+  <section class="hearing-cta">
+    <div class="container">
+      <h2>ホームページ制作をご検討の方へ</h2>
+      <p class="hearing-cta__text">まずはヒアリングシートにご記入ください。ご要望やお悩みを事前にお伺いすることで、最適なご提案が可能になります。</p>
+      <a href="https://vonds.co.jp/hearing/" class="hearing-cta__btn">ヒアリングシートに進む &rarr;</a>
+      <p class="hearing-cta__note">※ 所要時間は約5分です。お気軽にご記入ください。</p>
+    </div>
+  </section>
+
+
   <!-- ========== 他社比較 ========== -->
   <section class="web-section">
     <div class="container">
       <div class="web-section__head">
         <p class="web-section__label">Comparison</p>
-        <h2 class="web-section__title">一般的な制作会社との違い</h2>
+        <h2 class="web-section__title">一般的なWeb制作会社とVONDSの違い</h2>
       </div>
       <div style="overflow-x:auto;">
         <table class="compare-table">
@@ -801,12 +1016,59 @@
   </section>
 
 
+  <!-- ========== 代表メッセージ + Trust ========== -->
+  <section class="trust-section">
+    <div class="container">
+      <div class="trust-grid">
+        <div>
+          <img src="/noyuto/900-380.jpg" alt="オフィスVONDSのホームページ制作 - 集客性の高い意味のあるホームページを制作" class="trust-img">
+        </div>
+        <div class="trust-content">
+          <h3>代表からのメッセージ</h3>
+          <p>山梨県で事業を営むお客様に、「意味のあるホームページ」をお届けしたい。それが私たちVONDSの想いです。見た目だけでなく、検索で見つかり、問い合わせにつながるホームページ制作を20年以上続けてきました。</p>
+          <p>地域密着だからこそ理解できるお客様の課題があります。山梨で信頼されるWEBパートナーとして、お気軽にご相談ください。</p>
+          <div class="trust-ceo">
+            <img src="/noyuto/ceo-ozawa.jpg" alt="代表 小澤 - 株式会社オフィスVONDS" class="trust-ceo__photo">
+            <div>
+              <p class="trust-ceo__name">代表 小澤</p>
+              <p class="trust-ceo__role">株式会社オフィスVONDS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 山梨のホームページ制作ローカルコンテキスト ========== -->
+  <section class="local-context">
+    <div class="container">
+      <div class="local-context__inner">
+        <h2>山梨県の企業にホームページ制作が必要な理由</h2>
+        <p>山梨県は観光業・製造業・農業・飲食業など多様な産業が集積する地域です。近年、地元のお客様がサービスや商品を探す際に、まずインターネットで検索する行動が当たり前になっています。「山梨 ホームページ制作」「甲府 WEB制作」といったキーワードで検索される機会も増えており、ホームページの有無や品質がビジネスの成長を左右する時代です。</p>
+        <p>しかし、ホームページを持っていても「検索しても出てこない」「問い合わせにつながらない」という課題を抱える山梨県内の企業は少なくありません。SEOを前提に設計されていないホームページは、どれだけデザインが優れていても集客効果を発揮できません。</p>
+        <p>VONDSは山梨県甲府市に拠点を置き、地域の事業者様に寄り添ったホームページ制作を提供しています。地元企業のビジネスモデルを理解した上で、SEO内部対策・レスポンシブ対応・CMS導入を標準装備した「集客できるホームページ」をお届けします。</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== Tablet背景セクション ========== -->
+  <section class="tablet-bg-section">
+    <div class="container">
+      <h2 style="font-size:clamp(1.4rem, 3vw, 2rem); font-weight:900; margin-bottom:16px; line-height:1.4;">山梨のビジネスをWebの力で加速させる</h2>
+      <p style="font-size:1rem; line-height:1.8; max-width:640px; margin:0 auto 32px; opacity:0.85;">ホームページは24時間働く営業マン。SEO設計で検索上位を狙い、お問い合わせを自動で獲得する仕組みをご提案します。</p>
+      <a href="/noyuto/#contact" class="btn btn-primary btn-lg">無料相談はこちら &rarr;</a>
+    </div>
+  </section>
+
+
   <!-- ========== FAQ ========== -->
   <section class="web-section web-section--gray">
     <div class="container">
       <div class="web-section__head">
         <p class="web-section__label">FAQ</p>
-        <h2 class="web-section__title">よくある質問</h2>
+        <h2 class="web-section__title">ホームページ制作に関するよくある質問</h2>
       </div>
       <div class="faq-list">
         <div class="faq-item">
@@ -858,7 +1120,7 @@
           <p class="footer-address">〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</p>
           <p class="footer-tel">TEL: <a href="tel:055-269-7220">055-269-7220</a></p>
         </div>
-        <nav class="footer-nav">
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
           <ul>
             <li><a href="/noyuto/#service">サービス</a></li>
             <li><a href="/noyuto/past_work/">実績</a></li>
