@@ -1,0 +1,122 @@
+{
+  "site": {
+    "base_url": "https://office-vonds.github.io/noyuto",
+    "canonical_base": "https://vonds.co.jp",
+    "company_name": "株式会社オフィスVONDS",
+    "base_path": "/noyuto/"
+  },
+  "categories": {
+    "seo": { "label": "SEO対策", "bg": "#dcfce7", "color": "#166534" },
+    "web": { "label": "ホームページ制作", "bg": "#dbeafe", "color": "#1e40af" },
+    "marketing": { "label": "WEBマーケティング", "bg": "#fef3c7", "color": "#92400e" },
+    "local": { "label": "山梨ビジネス", "bg": "#f3e8ff", "color": "#6b21a8" },
+    "ai": { "label": "AI活用", "bg": "#e0e7ff", "color": "#3730a3" }
+  },
+  "topics": [
+    {
+      "slug": "yamanashi-seo-basics",
+      "title_hint": "山梨県の中小企業がSEO対策を始めるべき理由",
+      "category": "seo",
+      "keywords": ["山梨 SEO", "山梨 SEO対策", "中小企業 SEO 始め方"],
+      "status": "pending"
+    },
+    {
+      "slug": "homepage-cost-yamanashi",
+      "title_hint": "山梨県でホームページ制作を依頼する際の費用相場と選び方",
+      "category": "web",
+      "keywords": ["山梨 ホームページ制作 費用", "ホームページ制作 相場", "山梨 HP制作"],
+      "status": "pending"
+    },
+    {
+      "slug": "seo-vs-google-ads",
+      "title_hint": "SEO対策とGoogle広告はどちらが効果的？使い分けのポイント",
+      "category": "marketing",
+      "keywords": ["SEO Google広告 違い", "SEO対策 リスティング広告 比較", "集客方法 比較"],
+      "status": "pending"
+    },
+    {
+      "slug": "local-seo-yamanashi",
+      "title_hint": "山梨県の店舗集客に効くローカルSEO対策ガイド",
+      "category": "seo",
+      "keywords": ["ローカルSEO 山梨", "Googleマップ 上位表示", "MEO対策 山梨"],
+      "status": "pending"
+    },
+    {
+      "slug": "homepage-redesign-checklist",
+      "title_hint": "ホームページリニューアルで失敗しないためのチェックリスト",
+      "category": "web",
+      "keywords": ["ホームページ リニューアル チェックリスト", "HP刷新 注意点", "山梨 ホームページ制作"],
+      "status": "pending"
+    },
+    {
+      "slug": "ai-business-automation",
+      "title_hint": "中小企業が今すぐ始められるAI業務自動化の具体例",
+      "category": "ai",
+      "keywords": ["AI 業務自動化", "中小企業 AI活用", "業務効率化 AI"],
+      "status": "pending"
+    },
+    {
+      "slug": "seo-content-writing",
+      "title_hint": "検索上位を狙えるSEOコンテンツの書き方",
+      "category": "seo",
+      "keywords": ["SEO 記事 書き方", "SEOコンテンツ 作り方", "上位表示 コンテンツ"],
+      "status": "pending"
+    },
+    {
+      "slug": "yamanashi-web-marketing",
+      "title_hint": "山梨県の中小企業が取り組むべきWEBマーケティング戦略",
+      "category": "marketing",
+      "keywords": ["山梨 WEBマーケティング", "中小企業 集客 戦略", "デジタルマーケティング 山梨"],
+      "status": "pending"
+    },
+    {
+      "slug": "google-business-profile",
+      "title_hint": "Googleビジネスプロフィールの最適化で地域集客を倍増させる方法",
+      "category": "local",
+      "keywords": ["Googleビジネスプロフィール 最適化", "GBP 設定", "地域集客 Google"],
+      "status": "pending"
+    },
+    {
+      "slug": "website-speed-seo",
+      "title_hint": "サイト表示速度がSEOに与える影響と改善方法",
+      "category": "seo",
+      "keywords": ["サイト速度 SEO", "ページスピード 改善", "Core Web Vitals"],
+      "status": "pending"
+    },
+    {
+      "slug": "ssl-https-importance",
+      "title_hint": "SSL化（HTTPS）がSEOと信頼性に与える効果",
+      "category": "web",
+      "keywords": ["SSL SEO", "HTTPS 重要性", "ホームページ SSL化"],
+      "status": "pending"
+    },
+    {
+      "slug": "sns-seo-synergy",
+      "title_hint": "SNSとSEOの相乗効果を最大化する方法",
+      "category": "marketing",
+      "keywords": ["SNS SEO 連携", "SNS集客 SEO効果", "Instagram SEO"],
+      "status": "pending"
+    },
+    {
+      "slug": "yamanashi-tourism-web",
+      "title_hint": "山梨県の観光・飲食業がWEBで集客するためのポイント",
+      "category": "local",
+      "keywords": ["山梨 観光 集客", "飲食店 WEB集客", "山梨 インバウンド"],
+      "status": "pending"
+    },
+    {
+      "slug": "ai-chatbot-customer-support",
+      "title_hint": "AIチャットボットで顧客対応を自動化するメリットと導入手順",
+      "category": "ai",
+      "keywords": ["AIチャットボット 導入", "顧客対応 自動化", "カスタマーサポート AI"],
+      "status": "pending"
+    },
+    {
+      "slug": "internal-seo-checklist",
+      "title_hint": "内部SEO対策の完全チェックリスト",
+      "category": "seo",
+      "keywords": ["内部SEO チェックリスト", "内部対策 やり方", "テクニカルSEO"],
+      "status": "pending"
+    }
+  ]
+}

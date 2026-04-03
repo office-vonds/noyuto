@@ -1,0 +1,64 @@
+name: Auto Generate SEO Article
+
+on:
+  # Every Monday at 12:00 JST (03:00 UTC)
+  schedule:
+    - cron: '0 3 * * 1'
+
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      topic_slug:
+        description: 'Specific topic slug to generate (leave empty for next pending)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  generate-article:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Generate article
+        id: generate
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          TOPIC_SLUG: ${{ github.event.inputs.topic_slug }}
+        run: python scripts/generate_article.py
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected."
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changes detected!"
+          fi
+
+      - name: Commit and push
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add column/ scripts/article_config.json
+          TITLE="${{ steps.generate.outputs.article_title }}"
+          SLUG="${{ steps.generate.outputs.article_slug }}"
+          git commit -m "Add column article: ${TITLE:-new article} (${SLUG:-auto})"
+          git push origin gh-pages
