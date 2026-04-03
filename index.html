@@ -22,9 +22,354 @@
     .hero { background: url('1600-900-1.jpg') center center / cover no-repeat; }
     .hero-bg { background: rgba(15, 23, 42, 0.75); }
     .hero-bg::after { display: none; }
+
+    /* Service grid 4 columns */
+    .service-grid { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 1024px) {
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .service-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Service card link */
+    .service-card-link {
+      display: inline-block;
+      margin-top: auto;
+      padding-top: 1rem;
+      color: var(--primary, #1a56db);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .service-card-link:hover { color: var(--primary-dark, #1e40af); }
+    .service-card { display: flex; flex-direction: column; }
+
+    /* Section banner */
+    .section-banner {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .section-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .section-banner--narrow img {
+      max-height: 280px;
+    }
+
+    /* ============ Insider Section ============ */
+    .insider {
+      padding: 5rem 0;
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    }
+    .insider .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .insider-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .insider-image img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    .insider-content h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1e3a5f;
+      margin-bottom: 1.5rem;
+      line-height: 1.4;
+    }
+    .insider-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-left: 4px solid #1a56db;
+    }
+    .insider-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a56db;
+      margin-bottom: 0.5rem;
+    }
+    .insider-item p {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.7;
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      .insider-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .insider-image { text-align: center; }
+      .insider-image img { max-width: 260px; }
+    }
+
+    /* ============ Column Section ============ */
+    .column-section {
+      padding: 5rem 0;
+      background: #f1f5f9;
+    }
+    .column-section .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .column-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .column-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .column-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    }
+    .column-card-body {
+      padding: 1.25rem 1.5rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .column-card-cat {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.65rem;
+      border-radius: 4px;
+      margin-bottom: 0.75rem;
+      width: fit-content;
+    }
+    .column-card-cat--kokodake { background: #dbeafe; color: #1e40af; }
+    .column-card-cat--seo { background: #dcfce7; color: #166534; }
+    .column-card-cat--netbiz { background: #f3e8ff; color: #6b21a8; }
+    .column-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.6rem;
+      line-height: 1.5;
+    }
+    .column-card-excerpt {
+      font-size: 0.875rem;
+      color: #64748b;
+      line-height: 1.65;
+      margin: 0 0 1rem;
+      flex: 1;
+    }
+    .column-card-link {
+      font-size: 0.875rem;
+      color: var(--primary, #1a56db);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .column-card-link:hover { text-decoration: underline; }
+    @media (max-width: 1024px) {
+      .column-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .column-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ============ Compare Section ============ */
+    .compare {
+      padding: 5rem 0;
+      background: #fff;
+    }
+    .compare .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
+    }
+    .compare-table thead th {
+      padding: 1rem;
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .compare-table thead th:first-child {
+      text-align: left;
+      background: transparent;
+    }
+    .compare-table thead th:nth-child(2) {
+      background: #f1f5f9;
+      color: #64748b;
+    }
+    .compare-table thead th:nth-child(3) {
+      background: #1a56db;
+      color: #fff;
+      border-radius: 8px 8px 0 0;
+    }
+    .compare-table tbody td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .compare-table tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .compare-table tbody td:nth-child(2) {
+      background: #f8fafc;
+      color: #64748b;
+    }
+    .compare-table tbody td:nth-child(3) {
+      background: #eff6ff;
+      color: #1e40af;
+      font-weight: 600;
+    }
+    .compare-check { color: #16a34a; font-weight: 700; }
+    .compare-x { color: #dc2626; }
+    @media (max-width: 768px) {
+      .compare-table { font-size: 0.85rem; }
+      .compare-table thead th, .compare-table tbody td { padding: 0.7rem 0.5rem; }
+    }
+
+    /* ============ FAQ Section ============ */
+    .faq-section {
+      padding: 5rem 0;
+      background: #f8fafc;
+    }
+    .faq-section .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .faq-list {
+      margin-top: 2.5rem;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      overflow: hidden;
+    }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #1e293b;
+      border: none;
+      background: none;
+      width: 100%;
+      text-align: left;
+      line-height: 1.5;
+      transition: background 0.2s;
+    }
+    .faq-q:hover { background: #f8fafc; }
+    .faq-q::before {
+      content: 'Q';
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background: #1a56db;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    .faq-q::after {
+      content: '';
+      flex-shrink: 0;
+      margin-left: auto;
+      width: 0.6rem;
+      height: 0.6rem;
+      border-right: 2px solid #94a3b8;
+      border-bottom: 2px solid #94a3b8;
+      transform: rotate(45deg);
+      transition: transform 0.3s;
+    }
+    .faq-item.is-open .faq-q::after {
+      transform: rotate(-135deg);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+    }
+    .faq-a-inner {
+      padding: 0 1.5rem 1.25rem 4.5rem;
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.8;
+    }
+    .faq-item.is-open .faq-a {
+      max-height: 300px;
+    }
+
+    /* ============ Venn / supplement images ============ */
+    .service-supplement {
+      margin-top: 2.5rem;
+      text-align: center;
+    }
+    .service-supplement img {
+      max-width: 480px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* Utility for section titles in new sections */
+    .insider .section-title,
+    .column-section .section-title,
+    .compare .section-title,
+    .faq-section .section-title {
+      text-align: center;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 0.75rem;
+    }
+    .column-section .section-lead,
+    .compare .section-lead,
+    .faq-section .section-lead {
+      text-align: center;
+      color: #64748b;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
   </style>
 
-  <!-- 構造化データ -->
+  <!-- 構造化データ: LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,6 +395,8 @@
     "sameAs": []
   }
   </script>
+
+  <!-- 構造化データ: ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,9 +414,68 @@
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEOコンサルティング" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "WEBサイト制作" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google広告運用代行" } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google広告運用代行" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI活用支援" } }
       ]
     }
+  }
+  </script>
+
+  <!-- 構造化データ: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "SEO対策の効果が出るまでどのくらいかかりますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "通常3〜6ヶ月で効果が現れ始めます。キーワードの競合状況やサイトの現状によって異なりますが、継続的な施策により安定した上位表示を実現します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "他のSEO業者から乗り換えることは可能ですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、可能です。現在の施策内容を分析し、改善すべきポイントを明確にした上で、最適なプランをご提案いたします。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ホームページ制作とSEO対策をセットで依頼できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、ワンストップで対応可能です。SEOを前提に設計したホームページ制作により、公開直後から集客力のあるサイトを構築できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "山梨県外の企業でも依頼できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい、オンラインで全国対応しております。Zoom等を活用したお打ち合わせも可能です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "費用はどのくらいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "サービス内容に応じてお見積りいたします。まずは無料相談にて、ご要望と予算感をお聞かせください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "無料相談では何をしてもらえますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "現状のサイト分析、課題の洗い出し、改善の方向性のご提案を行います。具体的な施策内容と概算費用もお伝えいたします。"
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -78,17 +484,14 @@
   <!-- ヘッダー -->
   <header class="header" id="header">
     <div class="header-inner">
-      <div class="header-logo">
-        <a href="/">
-          <img src="logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61">
-        </a>
-      </div>
+      <div class="header-logo"><a href="/noyuto/"><img src="logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61"></a></div>
       <nav class="header-nav" id="nav">
         <ul>
           <li><a href="#service">サービス</a></li>
+          <li><a href="/noyuto/works/">サービス詳細</a></li>
           <li><a href="/noyuto/past_work/">実績</a></li>
           <li><a href="#reason">選ばれる理由</a></li>
-          <li><a href="#flow">ご利用の流れ</a></li>
+          <li><a href="#column">コラム</a></li>
           <li><a href="/noyuto/company/">会社概要</a></li>
         </ul>
       </nav>
@@ -223,7 +626,7 @@
   <section class="service" id="service">
     <div class="container">
       <h2 class="section-title">サービス</h2>
-      <p class="section-lead">集客の課題を根本から解決する<br class="sp-only">3つのサービス</p>
+      <p class="section-lead">集客の課題を根本から解決する<br class="sp-only">4つのサービス</p>
       <div class="service-grid">
 
         <div class="service-card">
@@ -240,6 +643,7 @@
             <li>Googleアルゴリズム変動対応</li>
             <li>月次レポート・改善提案</li>
           </ul>
+          <a href="/noyuto/works/seo/" class="service-card-link">詳しく見る →</a>
         </div>
 
         <div class="service-card service-card--featured">
@@ -257,6 +661,7 @@
             <li>ランディングページ（LP）制作</li>
             <li>サイト保守・運用サポート</li>
           </ul>
+          <a href="/noyuto/works/web/" class="service-card-link">詳しく見る →</a>
         </div>
 
         <div class="service-card">
@@ -273,8 +678,30 @@
             <li>GTM設計・コンバージョン計測</li>
             <li>月次レポート・PDCA運用</li>
           </ul>
+          <a href="/noyuto/works/ads/" class="service-card-link">詳しく見る →</a>
         </div>
 
+        <div class="service-card">
+          <div class="service-card-img">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#7c3aed 0%,#a78bfa 100%);display:flex;align-items:center;justify-content:center;"><span style="font-size:clamp(2.5rem,6vw,4rem);font-weight:900;color:#fff;letter-spacing:0.08em;font-family:'Noto Sans JP',sans-serif;">AI</span></div>
+          </div>
+          <div class="service-number">04</div>
+          <h3>AI活用支援</h3>
+          <p class="service-desc">最新のAI技術をビジネスに活用。ChatGPTをはじめとした生成AIの導入支援から、業務効率化・コンテンツ制作の自動化まで、AI時代のWEB戦略をサポートします。</p>
+          <ul class="service-list">
+            <li>生成AI導入コンサルティング</li>
+            <li>AIを活用したコンテンツ制作支援</li>
+            <li>業務プロセスのAI自動化</li>
+            <li>AIチャットボット導入</li>
+            <li>社内AI研修・トレーニング</li>
+          </ul>
+          <a href="/noyuto/works/ai/" class="service-card-link">詳しく見る →</a>
+        </div>
+
+      </div>
+
+      <div class="service-supplement">
+        <img src="550-466.png" alt="SEO・ユーザビリティ・デザイン性の3つの要素" loading="lazy">
       </div>
     </div>
   </section>
@@ -334,6 +761,11 @@
     </div>
   </section>
 
+  <!-- セクション区切り画像 -->
+  <div class="section-banner section-banner--narrow">
+    <img src="reason1600-600.png" alt="選ばれる理由" loading="lazy">
+  </div>
+
   <!-- 選ばれる理由 -->
   <section class="reason" id="reason">
     <div class="container">
@@ -384,12 +816,213 @@
     </div>
   </section>
 
+  <!-- ここだけの話セクション -->
+  <section class="insider" id="insider">
+    <div class="container">
+      <div class="insider-grid">
+        <div class="insider-image">
+          <img src="kokodake380-380.png" alt="ここだけのはなし" loading="lazy">
+        </div>
+        <div class="insider-content">
+          <h2>「ここだけの話」代表が伝えたいこと</h2>
+          <div class="insider-item">
+            <h3>「ファンを作ることが最大の資産」</h3>
+            <p>SNS時代、最終的な購買決定は"人"で決まります。テクニックだけでなく、信頼を積み重ねてファンを増やすことが、持続可能なビジネス成長の鍵です。</p>
+          </div>
+          <div class="insider-item">
+            <h3>「WEBに二匹目のドジョウはいない」</h3>
+            <p>大手と同じビッグキーワードで勝負しても勝てません。ニッチキーワード戦略で、コンバージョン率の高い見込み客を確実に獲得する発想が重要です。</p>
+          </div>
+          <div class="insider-item">
+            <h3>「継続は力なり」</h3>
+            <p>SEOは地道な努力の継続が成功の鍵。最初の1年をしっかり育成し、コツコツと積み上げた者だけが検索結果の上位を勝ち取れるのです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション区切り画像 -->
+  <div class="section-banner section-banner--narrow">
+    <img src="information1600-605.png" alt="インフォメーション" loading="lazy">
+  </div>
+
+  <!-- 代表コラムセクション -->
+  <section class="column-section" id="column">
+    <div class="container">
+      <h2 class="section-title">代表コラム</h2>
+      <p class="section-lead">代表・小沢が20年以上のWEBマーケティング経験から得た知見を発信</p>
+      <div class="column-grid">
+
+        <div class="column-card">
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--kokodake">ここだけの話</span>
+            <h3 class="column-card-title">ファンを作ることが資産となる時代が到来！？</h3>
+            <p class="column-card-excerpt">SNS時代において、ファンを作ることが最大のデジタル資産に。人的信頼の価値と持続可能な成功の秘訣。</p>
+            <a href="https://vonds.co.jp/kokodake/fan" class="column-card-link" target="_blank" rel="noopener">記事を読む →</a>
+          </div>
+        </div>
+
+        <div class="column-card">
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--kokodake">ここだけの話</span>
+            <h3 class="column-card-title">WEBにおいての成功の秘訣</h3>
+            <p class="column-card-excerpt">検索結果1ページ目に表示されないサイトは9割のユーザーを逃す。正しい情報収集が成功の第一歩。</p>
+            <a href="https://vonds.co.jp/kokodake/seikou" class="column-card-link" target="_blank" rel="noopener">記事を読む →</a>
+          </div>
+        </div>
+
+        <div class="column-card">
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--netbiz">ネットビジネス</span>
+            <h3 class="column-card-title">コロナウイルスの影響を受けない業種を考えてみた</h3>
+            <p class="column-card-excerpt">不確実な時代でも、正しい情報収集能力の習得が事業継続の鍵になる。</p>
+            <a href="https://vonds.co.jp/net_biz/corona" class="column-card-link" target="_blank" rel="noopener">記事を読む →</a>
+          </div>
+        </div>
+
+        <div class="column-card">
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--seo">SEO対策</span>
+            <h3 class="column-card-title">SEOに効果あり！セマンティック〇〇とは！？</h3>
+            <p class="column-card-excerpt">セマンティックコーディングでHTMLを最適化。クローラーの可読性と表示速度が劇的に向上する理由。</p>
+            <a href="https://vonds.co.jp/seo/semantic" class="column-card-link" target="_blank" rel="noopener">記事を読む →</a>
+          </div>
+        </div>
+
+        <div class="column-card">
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--kokodake">ここだけの話</span>
+            <h3 class="column-card-title">WEBに二匹目のドジョウはいない</h3>
+            <p class="column-card-excerpt">ビッグキーワードを追うな。ニッチキーワード戦略でコンバージョン率を最大化する発想法。</p>
+            <a href="https://vonds.co.jp/kokodake/report1-2" class="column-card-link" target="_blank" rel="noopener">記事を読む →</a>
+          </div>
+        </div>
+
+        <div class="column-card">
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--seo">SEO対策</span>
+            <h3 class="column-card-title">継続は力なり！</h3>
+            <p class="column-card-excerpt">SEO対策の成否はサイト育成の最初の1年で決まる。地道な努力を継続した者だけが勝つ。</p>
+            <a href="https://vonds.co.jp/seo/report1" class="column-card-link" target="_blank" rel="noopener">記事を読む →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 他社比較テーブル -->
+  <section class="compare" id="compare">
+    <div class="container">
+      <h2 class="section-title">一般的なSEO業者とVONDSの違い</h2>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>一般的なSEO業者</th>
+            <th>VONDS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>キーワード戦略</td>
+            <td>ビッグキーワード中心</td>
+            <td><span class="compare-check">&#10003;</span> ニッチ＋ロングテール戦略</td>
+          </tr>
+          <tr>
+            <td>レポーティング</td>
+            <td>自動レポートのみ</td>
+            <td><span class="compare-check">&#10003;</span> 対面での詳細分析・提案</td>
+          </tr>
+          <tr>
+            <td>対応範囲</td>
+            <td>SEOのみ</td>
+            <td><span class="compare-check">&#10003;</span> SEO+制作+広告+AIワンストップ</td>
+          </tr>
+          <tr>
+            <td>LP最適化</td>
+            <td>対応なし or 別料金</td>
+            <td><span class="compare-check">&#10003;</span> CVR改善まで一貫対応</td>
+          </tr>
+          <tr>
+            <td>資格・認定</td>
+            <td>特になし</td>
+            <td><span class="compare-check">&#10003;</span> 全日本SEO協会認定コンサルタント</td>
+          </tr>
+          <tr>
+            <td>契約期間</td>
+            <td>長期縛りあり</td>
+            <td><span class="compare-check">&#10003;</span> 柔軟な契約形態</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- セクション区切り画像 -->
+  <div class="section-banner section-banner--narrow">
+    <img src="800-223.png" alt="ミーティング風景" loading="lazy">
+  </div>
+
   <!-- CTA中間 -->
   <section class="cta-mid">
     <div class="container">
       <h2>まずは<strong>無料相談</strong>から<br class="sp-only">始めてみませんか？</h2>
       <p>SEO対策・WEB集客のお悩みをお聞かせください。<br>現状分析から改善提案まで、初回相談は無料です。</p>
       <a href="#contact" class="btn btn-white btn-lg">無料で相談する</a>
+    </div>
+  </section>
+
+  <!-- よくあるご質問 -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2 class="section-title">よくあるご質問</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">SEO対策の効果が出るまでどのくらいかかりますか？</button>
+          <div class="faq-a">
+            <div class="faq-a-inner">通常3〜6ヶ月で効果が現れ始めます。キーワードの競合状況やサイトの現状によって異なりますが、継続的な施策により安定した上位表示を実現します。短期的な成果を求める場合は、Google広告との併用もご提案いたします。</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">他のSEO業者から乗り換えることは可能ですか？</button>
+          <div class="faq-a">
+            <div class="faq-a-inner">はい、可能です。現在の施策内容を詳細に分析し、改善すべきポイントを明確にした上で、最適なプランをご提案いたします。これまでの施策で蓄積された資産を活かしながら、さらなる成果を目指します。</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">ホームページ制作とSEO対策をセットで依頼できますか？</button>
+          <div class="faq-a">
+            <div class="faq-a-inner">はい、ワンストップで対応可能です。SEOを前提としたサイト設計を行うため、公開直後から検索エンジンに評価されやすい構造のホームページを構築できます。制作と集客を別々の業者に依頼するよりも、効率的で効果的です。</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">山梨県外の企業でも依頼できますか？</button>
+          <div class="faq-a">
+            <div class="faq-a-inner">はい、オンラインで全国対応しております。Zoom等のビデオ会議ツールを活用したお打ち合わせも可能ですので、遠方のお客様でも安心してご依頼いただけます。</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">費用はどのくらいですか？</button>
+          <div class="faq-a">
+            <div class="faq-a-inner">サービス内容やサイトの規模に応じてお見積りいたします。まずは無料相談にて、ご要望と予算感をお聞かせください。お客様の状況に合わせた最適なプランをご提案いたします。</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" type="button">無料相談では何をしてもらえますか？</button>
+          <div class="faq-a">
+            <div class="faq-a-inner">現状のサイト分析、課題の洗い出し、改善の方向性のご提案を行います。具体的な施策内容と概算費用もお伝えいたしますので、ご検討の材料としてお役立てください。相談したからといって、必ず契約する必要はございません。</div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -431,6 +1064,11 @@
     </div>
   </section>
 
+  <!-- セクション区切り画像 -->
+  <div class="section-banner section-banner--narrow">
+    <img src="campany1600-605.png" alt="会社概要" loading="lazy">
+  </div>
+
   <!-- 会社概要 -->
   <section class="company" id="company">
     <div class="container">
@@ -445,7 +1083,7 @@
             <tr><th>FAX</th><td>055-269-8004</td></tr>
             <tr><th>メール</th><td><a href="mailto:info@vonds.co.jp">info@vonds.co.jp</a></td></tr>
             <tr><th>資本金</th><td>200万円</td></tr>
-            <tr><th>事業内容</th><td>SEOコンサルティング / WEBサイト制作 / Google広告運用代行 / WEBマーケティング全般</td></tr>
+            <tr><th>事業内容</th><td>SEOコンサルティング / WEBサイト制作 / Google広告運用代行 / AI活用支援 / WEBマーケティング全般</td></tr>
             <tr><th>資格</th><td>一般社団法人全日本SEO協会認定SEOコンサルタント / 第一種電気工事士</td></tr>
           </tbody>
         </table>
@@ -492,6 +1130,7 @@
                 <option value="seo">SEO対策について</option>
                 <option value="web">WEBサイト制作について</option>
                 <option value="ads">Google広告運用について</option>
+                <option value="ai">AI活用支援について</option>
                 <option value="consulting">WEBコンサルティングについて</option>
                 <option value="other">その他</option>
               </select>
@@ -523,8 +1162,10 @@
         <nav class="footer-nav">
           <ul>
             <li><a href="#service">サービス</a></li>
+            <li><a href="/noyuto/works/">サービス詳細</a></li>
             <li><a href="/noyuto/past_work/">実績</a></li>
             <li><a href="#reason">選ばれる理由</a></li>
+            <li><a href="#column">コラム</a></li>
             <li><a href="#flow">ご利用の流れ</a></li>
             <li><a href="/noyuto/company/">会社概要</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
@@ -536,5 +1177,27 @@
   </footer>
 
   <script src="js/main.js"></script>
+
+  <!-- FAQ アコーディオン -->
+  <script>
+  (function() {
+    var faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(function(item) {
+      var btn = item.querySelector('.faq-q');
+      if (!btn) return;
+      btn.addEventListener('click', function() {
+        var isOpen = item.classList.contains('is-open');
+        // Close all
+        faqItems.forEach(function(other) {
+          other.classList.remove('is-open');
+        });
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('is-open');
+        }
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
