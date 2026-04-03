@@ -1,9 +1,9 @@
 {
   "site": {
-    "base_url": "https://office-vonds.github.io/noyuto",
+    "base_url": "https://vonds.co.jp",
     "canonical_base": "https://vonds.co.jp",
     "company_name": "株式会社オフィスVONDS",
-    "base_path": "/noyuto/"
+    "base_path": "/"
   },
   "categories": {
     "seo": { "label": "SEO対策", "bg": "#dcfce7", "color": "#166534" },
