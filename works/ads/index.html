@@ -40,11 +40,18 @@
     .ads-hero {
       position: relative;
       padding: 160px 0 100px;
-      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 50%, #fbbf24 100%);
+      background-image: url('/noyuto/1600-900-6.jpg');
+      background-size: cover;
+      background-position: center;
       color: var(--white);
       overflow: hidden;
     }
     .ads-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(217, 119, 6, 0.85);
+    }
+    .ads-hero::after {
       content: '';
       position: absolute; inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
@@ -60,12 +67,14 @@
       font-weight: 600;
       margin-bottom: 24px;
       letter-spacing: 0.5px;
+      color: var(--white);
     }
     .ads-hero h1 {
       font-size: clamp(1.8rem, 5vw, 3.2rem);
       font-weight: 900;
       line-height: 1.3;
       margin-bottom: 20px;
+      color: var(--white);
     }
     .ads-hero h1 span {
       display: inline-block;
@@ -76,10 +85,11 @@
     }
     .ads-hero__sub {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
-      opacity: 0.9;
+      opacity: 0.95;
       line-height: 1.8;
       max-width: 640px;
       margin-bottom: 40px;
+      color: var(--white);
     }
     .ads-hero__cta-group {
       display: flex;
@@ -98,10 +108,14 @@
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 900;
       line-height: 1;
+      color: var(--white);
+    }
+    .ads-hero__stat-num small {
+      color: var(--white);
     }
     .ads-hero__stat-label {
       font-size: 0.8rem;
-      opacity: 0.75;
+      color: rgba(255,255,255,0.85);
       margin-top: 6px;
     }
 
@@ -120,6 +134,7 @@
     }
     .ads-section--gray { background: var(--gray-50); }
     .ads-section--dark {
+      position: relative;
       background: linear-gradient(135deg, var(--dark) 0%, var(--gray-900) 100%);
       color: var(--white);
     }
@@ -161,7 +176,23 @@
       line-height: 1.8;
     }
     .ads-section--dark .ads-section__subtitle {
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* --- Dark section: force ALL child text to white/light --- */
+    .ads-section--dark h2,
+    .ads-section--dark h3,
+    .ads-section--dark p,
+    .ads-section--dark li,
+    .ads-section--dark span,
+    .ads-section--dark td,
+    .ads-section--dark th {
+      color: var(--white);
+    }
+    .ads-section--dark .ads-section__subtitle,
+    .ads-section--dark .flow-step__text,
+    .ads-section--dark .guarantee-card__text {
+      color: rgba(255,255,255,0.75);
     }
 
     /* --- Pain points --- */
@@ -329,7 +360,39 @@
       flex-shrink: 0;
     }
 
-    /* --- Flow / Steps --- */
+    /* --- Flow / Steps (dark section with bg image) --- */
+    .ads-section--flow-bg {
+      position: relative;
+      background-image: url('/noyuto/1600-900-2.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+    }
+    .ads-section--flow-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(17, 24, 39, 0.88);
+    }
+    .ads-section--flow-bg .container {
+      position: relative;
+      z-index: 1;
+    }
+    .ads-section--flow-bg h2,
+    .ads-section--flow-bg h3,
+    .ads-section--flow-bg p,
+    .ads-section--flow-bg li,
+    .ads-section--flow-bg span,
+    .ads-section--flow-bg .ads-section__label {
+      color: var(--white);
+    }
+    .ads-section--flow-bg .ads-section__label {
+      color: rgba(255,255,255,0.6);
+    }
+    .ads-section--flow-bg .ads-section__subtitle,
+    .ads-section--flow-bg .flow-step__text {
+      color: rgba(255,255,255,0.75);
+    }
+
     .flow-steps {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -358,6 +421,7 @@
       justify-content: center;
       font-size: 1.2rem;
       font-weight: 900;
+      color: var(--white);
       position: relative;
       z-index: 1;
     }
@@ -365,10 +429,11 @@
       font-size: 1rem;
       font-weight: 700;
       margin-bottom: 8px;
+      color: var(--white);
     }
     .flow-step__text {
       font-size: 0.85rem;
-      opacity: 0.7;
+      color: rgba(255,255,255,0.75);
       line-height: 1.7;
     }
 
@@ -387,6 +452,7 @@
       text-align: left;
       font-size: 0.9rem;
       border-bottom: 1px solid var(--gray-200);
+      color: var(--gray-700);
     }
     .compare-table thead th {
       background: var(--dark);
@@ -396,6 +462,7 @@
     }
     .compare-table thead th:last-child {
       background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+      color: var(--white);
     }
     .compare-table tbody tr:last-child td { border-bottom: none; }
     .compare-table td:first-child {
@@ -426,11 +493,55 @@
       font-size: 1.05rem;
       font-weight: 700;
       margin-bottom: 10px;
+      color: var(--white);
     }
     .guarantee-card__text {
       font-size: 0.85rem;
-      opacity: 0.7;
+      color: rgba(255,255,255,0.75);
       line-height: 1.7;
+    }
+
+    /* --- CEO / Trust section --- */
+    .ceo-trust {
+      padding: 64px 0;
+      background: var(--gray-50);
+    }
+    .ceo-trust__inner {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      max-width: 720px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      box-shadow: var(--shadow-md);
+    }
+    .ceo-trust__photo {
+      flex-shrink: 0;
+    }
+    .ceo-trust__body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .ceo-trust__body p {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+    .ceo-trust__name {
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      margin-top: 12px;
+    }
+    @media (max-width: 600px) {
+      .ceo-trust__inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 32px 24px;
+      }
     }
 
     /* --- FAQ --- */
@@ -486,20 +597,33 @@
 
     /* --- Final CTA --- */
     .final-cta {
+      position: relative;
       text-align: center;
       padding: 80px 0;
-      background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
+      background-image: url('/noyuto/1600-900-1.jpg');
+      background-size: cover;
+      background-position: center;
       color: var(--white);
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(217, 119, 6, 0.85);
+    }
+    .final-cta .container {
+      position: relative;
+      z-index: 1;
     }
     .final-cta h2 {
       font-size: clamp(1.5rem, 3.5vw, 2.2rem);
       font-weight: 900;
       margin-bottom: 16px;
       line-height: 1.4;
+      color: var(--white);
     }
     .final-cta p {
       font-size: 1rem;
-      opacity: 0.85;
+      color: rgba(255,255,255,0.9);
       margin-bottom: 32px;
       line-height: 1.8;
     }
@@ -510,7 +634,7 @@
     .final-cta__note {
       margin-top: 16px;
       font-size: 0.8rem;
-      opacity: 0.6;
+      color: rgba(255,255,255,0.6);
     }
 
     /* --- Responsive --- */
@@ -717,6 +841,10 @@
           <p class="feature-card__text">一度サイトを訪れたユーザーに再度広告を表示。検討中のお客様を逃さず、コンバージョン率を大幅に向上させます。</p>
         </div>
       </div>
+      <!-- kokodake visual element -->
+      <div style="text-align:center; margin-top:48px;">
+        <img src="/noyuto/kokodake380-380.png" alt="ここだけの特別サービス" style="width:180px; height:auto; opacity:0.9;">
+      </div>
     </div>
   </section>
 
@@ -776,7 +904,7 @@
 
 
   <!-- ========== ご利用の流れ ========== -->
-  <section class="ads-section ads-section--dark">
+  <section class="ads-section ads-section--dark ads-section--flow-bg">
     <div class="container">
       <div class="ads-section__head">
         <p class="ads-section__label">Flow</p>
@@ -831,6 +959,23 @@
           <p class="guarantee-card__icon" aria-hidden="true">&#x1F511;</p>
           <h3 class="guarantee-card__title">アカウント所有権はお客様</h3>
           <p class="guarantee-card__text">広告アカウントの所有権はお客様に帰属。解約後もデータはそのままお手元に残ります。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== 代表メッセージ (CEO Trust) ========== -->
+  <section class="ceo-trust">
+    <div class="container">
+      <div class="ceo-trust__inner">
+        <div class="ceo-trust__photo">
+          <img src="/noyuto/ceo-ozawa.jpg" alt="株式会社オフィスVONDS 代表" style="width:100px;height:100px;border-radius:50%;object-fit:cover;">
+        </div>
+        <div class="ceo-trust__body">
+          <h3>代表からのメッセージ</h3>
+          <p>20年以上にわたりWEBマーケティングの現場に立ち続けてきました。広告費を「投資」として確実に成果に変える運用を、お約束いたします。SEOの知見を最大限に活かした広告運用で、貴社のビジネス成長をサポートします。</p>
+          <p class="ceo-trust__name">株式会社オフィスVONDS 代表</p>
         </div>
       </div>
     </div>

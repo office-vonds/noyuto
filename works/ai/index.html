@@ -98,9 +98,15 @@
     .ai-hero {
       position: relative;
       padding: 160px 0 100px;
-      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 30%, #1a56db 70%, #1e40af 100%);
+      background: url('/noyuto/1600-900-4.jpg') center center / cover no-repeat;
       color: var(--white);
       overflow: hidden;
+    }
+    .ai-hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(124, 58, 237, 0.8);
+      z-index: 0;
     }
     .ai-hero::before {
       content: '';
@@ -109,13 +115,15 @@
         radial-gradient(circle at 20% 50%, rgba(124,58,237,0.3) 0%, transparent 50%),
         radial-gradient(circle at 80% 20%, rgba(26,86,219,0.3) 0%, transparent 50%),
         radial-gradient(circle at 60% 80%, rgba(91,33,182,0.2) 0%, transparent 40%);
+      z-index: 1;
     }
     .ai-hero::after {
       content: '';
       position: absolute; inset: 0;
       background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='20' cy='20' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+      z-index: 1;
     }
-    .ai-hero .container { position: relative; z-index: 1; }
+    .ai-hero .container { position: relative; z-index: 2; }
     .ai-hero__badge {
       display: inline-block;
       background: rgba(255,255,255,0.15);
@@ -127,12 +135,14 @@
       margin-bottom: 24px;
       letter-spacing: 1px;
       border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
     }
     .ai-hero h1 {
       font-size: clamp(1.8rem, 5vw, 3.2rem);
       font-weight: 900;
       line-height: 1.35;
       margin-bottom: 20px;
+      color: var(--white);
     }
     .ai-hero h1 span {
       display: inline-block;
@@ -140,6 +150,7 @@
       padding: 2px 14px;
       border-radius: 6px;
       border: 1px solid rgba(255,255,255,0.2);
+      color: var(--white);
     }
     .ai-hero__sub {
       font-size: clamp(1rem, 2.5vw, 1.2rem);
@@ -147,6 +158,7 @@
       line-height: 1.8;
       max-width: 640px;
       margin-bottom: 40px;
+      color: var(--white);
     }
     .ai-hero__cta-group {
       display: flex;
@@ -170,11 +182,13 @@
       font-size: 0.85rem;
       font-weight: 700;
       opacity: 0.9;
+      color: var(--white);
     }
     .ai-hero__stat-sub {
       font-size: 0.75rem;
       opacity: 0.6;
       margin-top: 4px;
+      color: var(--white);
     }
 
     /* --- Breadcrumb --- */
@@ -234,7 +248,31 @@
     }
     .ai-section--dark .ai-section__subtitle,
     .ai-section--purple .ai-section__subtitle {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* --- Dark section: force ALL child text to light colors --- */
+    .ai-section--dark h2,
+    .ai-section--dark h3,
+    .ai-section--dark p,
+    .ai-section--dark li,
+    .ai-section--dark span {
+      color: var(--white);
+    }
+    .ai-section--dark .ai-section__subtitle,
+    .ai-section--dark .flow-step__text {
+      color: rgba(255,255,255,0.7);
+    }
+    .ai-section--dark .ai-section__label {
       color: rgba(255,255,255,0.6);
+    }
+    /* Guarantee cards inside dark sections keep dark text on white bg */
+    .ai-section--dark .guarantee-card h3,
+    .ai-section--dark .guarantee-card p {
+      color: var(--dark);
+    }
+    .ai-section--dark .guarantee-card__text {
+      color: var(--gray-600);
     }
 
     /* --- Pain points --- */
@@ -396,6 +434,22 @@
       line-height: 1.7;
     }
 
+    /* --- Flow section with background image --- */
+    .ai-section--flow {
+      position: relative;
+      background: url('/noyuto/1600-900-2.jpg') center center / cover no-repeat;
+    }
+    .ai-section--flow .ai-section--flow-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(17, 24, 39, 0.9);
+      z-index: 0;
+    }
+    .ai-section--flow > .container {
+      position: relative;
+      z-index: 1;
+    }
+
     /* --- Flow steps --- */
     .flow-steps {
       display: grid;
@@ -425,10 +479,11 @@
       font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 10px;
+      color: var(--white);
     }
     .flow-step__text {
       font-size: 0.9rem;
-      opacity: 0.7;
+      color: rgba(255,255,255,0.7);
       line-height: 1.7;
     }
 
@@ -459,6 +514,46 @@
       font-size: 0.9rem;
       color: var(--gray-600);
       line-height: 1.8;
+    }
+
+    /* --- CEO message section --- */
+    .ceo-message {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+    }
+    .ceo-message__photo {
+      flex-shrink: 0;
+    }
+    .ceo-message__body h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .ceo-message__body .ceo-name {
+      font-size: 0.9rem;
+      color: var(--gray-500);
+      margin-bottom: 16px;
+    }
+    .ceo-message__body p {
+      font-size: 0.95rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+    @media (max-width: 768px) {
+      .ceo-message {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+        padding: 32px 24px;
+      }
     }
 
     /* --- FAQ --- */
@@ -521,14 +616,20 @@
       padding-left: 4px;
     }
 
-    /* --- Final CTA --- */
+    /* --- Final CTA with background image --- */
     .ai-final-cta {
       padding: 80px 0;
-      background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 40%, #1a56db 100%);
+      background: url('/noyuto/1600-900-6.jpg') center center / cover no-repeat;
       color: var(--white);
       text-align: center;
       position: relative;
       overflow: hidden;
+    }
+    .ai-final-cta__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(124, 58, 237, 0.85);
+      z-index: 0;
     }
     .ai-final-cta::before {
       content: '';
@@ -536,24 +637,28 @@
       background:
         radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 50%),
         radial-gradient(circle at 70% 60%, rgba(255,255,255,0.05) 0%, transparent 50%);
+      z-index: 1;
     }
-    .ai-final-cta .container { position: relative; z-index: 1; }
+    .ai-final-cta .container { position: relative; z-index: 2; }
     .ai-final-cta h2 {
       font-size: clamp(1.5rem, 3.5vw, 2.2rem);
       font-weight: 900;
       line-height: 1.5;
       margin-bottom: 20px;
+      color: var(--white);
     }
     .ai-final-cta p {
       font-size: 1rem;
       opacity: 0.85;
       margin-bottom: 32px;
       line-height: 1.8;
+      color: var(--white);
     }
     .ai-final-cta__note {
       font-size: 0.85rem;
       opacity: 0.6;
       margin-top: 20px;
+      color: var(--white);
     }
 
     /* --- Buttons --- */
@@ -607,6 +712,7 @@
 
   <!-- ========== Hero ========== -->
   <section class="ai-hero">
+    <div class="ai-hero__overlay"></div>
     <nav class="ai-breadcrumb" aria-label="パンくずリスト">
       <a href="/noyuto/">ホーム</a> &gt; <a href="/noyuto/#service">サービス一覧</a> &gt; AI活用支援
     </nav>
@@ -777,7 +883,8 @@
 
 
   <!-- ========== ご利用の流れ ========== -->
-  <section class="ai-section ai-section--dark">
+  <section class="ai-section ai-section--dark ai-section--flow">
+    <div class="ai-section--flow-overlay"></div>
     <div class="container">
       <div class="ai-section__head">
         <p class="ai-section__label">Flow</p>
@@ -838,8 +945,29 @@
   </section>
 
 
-  <!-- ========== FAQ ========== -->
+  <!-- ========== 代表からのメッセージ ========== -->
   <section class="ai-section">
+    <div class="container">
+      <div class="ai-section__head">
+        <p class="ai-section__label">Message</p>
+        <h2 class="ai-section__title">代表からのメッセージ</h2>
+      </div>
+      <div class="ceo-message">
+        <div class="ceo-message__photo">
+          <img src="/noyuto/ceo-ozawa.jpg" alt="株式会社オフィスVONDS 代表" style="width:120px;height:120px;border-radius:50%;object-fit:cover;">
+        </div>
+        <div class="ceo-message__body">
+          <h3>お客様の業務改善に全力で向き合います</h3>
+          <p class="ceo-name">株式会社オフィスVONDS 代表</p>
+          <p>AIは難しいものではなく、日々の業務をもっと楽に、もっと効率的にするためのツールです。「何から始めればいいかわからない」という方こそ、ぜひ一度ご相談ください。御社の業務を丁寧にお聞きし、最適なAI活用プランをご提案いたします。導入後も責任を持ってサポートいたしますので、安心してお任せください。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========== FAQ ========== -->
+  <section class="ai-section ai-section--gray">
     <div class="container">
       <div class="ai-section__head">
         <p class="ai-section__label">FAQ</p>
@@ -889,6 +1017,7 @@
 
   <!-- ========== Final CTA ========== -->
   <section class="ai-final-cta">
+    <div class="ai-final-cta__overlay"></div>
     <div class="container">
       <h2>まずは無料相談。<br>AI活用の可能性を一緒に考えましょう。</h2>
       <p>「何から始めればいいかわからない」で大丈夫です。<br>御社の業務内容をお聞きし、AIで解決できるポイントをご提案します。</p>
