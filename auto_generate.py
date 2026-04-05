@@ -43,6 +43,9 @@ THEME_POOL = [
 # noyuto_persona.txt を読み込み（Claude Code実行時のプロンプト参照用）
 PERSONA_FILE = BASE_DIR / "prompts" / "noyuto_persona.txt"
 
+# スレッド4本のラベル（毒→反論→体験→問い）
+THREAD_LABELS = ["スレッド1/4：毒で切り込む", "スレッド2/4：反論を編む", "スレッド3/4：体験・数字で黙らせる", "スレッド4/4：問いで着地"]
+
 
 def load_weights():
     """テーマ重みを読み込む（バナナ君PDCAで自動更新される）"""
@@ -83,7 +86,48 @@ def save_post(text: str, topic: str) -> Path:
     return filepath
 
 
+def determine_post_count():
+    """前日エンゲージメントに基づいて本日の投稿本数を決定する。
+    スコア < 10 → 1本、スコア >= 10 → 2本、データなし → 1本
+    """
+    from generate_post import get_engagement_summary
+    from datetime import datetime, timedelta
+
+    yesterday = (datetime.now() - timedelta(days=1)).strftime("%Y%m%d")
+    scores = []
+
+    for filepath in sorted(POSTS_DIR.glob("*.json")):
+        try:
+            with open(filepath, "r", encoding="utf-8") as f:
+                data = json.load(f)
+        except (json.JSONDecodeError, ValueError):
+            continue
+
+        eng = data.get("engagement")
+        if not eng:
+            continue
+
+        posted_at = data.get("posted_at", "")
+        if not posted_at or not posted_at.startswith(
+            (datetime.now() - timedelta(days=1)).strftime("%Y-%m-%d")
+        ):
+            continue
+
+        score = (eng.get("likes", 0) + eng.get("retweets", 0) * 2
+                 + eng.get("replies", 0) * 3 + eng.get("bookmarks", 0) * 3)
+        scores.append(score)
+
+    if not scores:
+        return 1  # デフォルト
+
+    avg_score = sum(scores) / len(scores)
+    return 2 if avg_score >= 10 else 1
+
+
 def main():
+    post_count = determine_post_count()
+    print(f"POST_COUNT:{post_count}")
+
     theme = sys.argv[1] if len(sys.argv) > 1 else pick_theme()
 
     # Claude Codeから--textで投稿文を受け取る
@@ -94,8 +138,13 @@ def main():
             break
 
     if not text:
-        # テーマだけ出力してClaude Codeに生成を委譲
+        # エンゲージメント要約をプロンプト参照用に出力
+        from generate_post import get_engagement_summary
+        eng_summary = get_engagement_summary()
+
         print(f"THEME:{theme}")
+        if eng_summary:
+            print(f"\n{eng_summary}\n")
         print("投稿文を--textで渡してください。")
         sys.exit(0)
 
