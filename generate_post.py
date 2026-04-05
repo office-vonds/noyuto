@@ -21,20 +21,187 @@ BASE_DIR = Path(__file__).parent
 POSTS_DIR = BASE_DIR / "posts"
 NOTES_DIR = BASE_DIR / "pending_notes"
 ENGAGEMENT_DIR = BASE_DIR / "engagement"
+HISTORY_FILE = Path.home() / "projects" / "noyuto" / "post_history.jsonl"
+REJECTED_LOG = BASE_DIR / "rejected_posts.log"
+
+SIMILARITY_THRESHOLD = 0.85
 
 THREAD_LABELS = ["スレッド1/4：毒で切り込む", "スレッド2/4：反論を編む", "スレッド3/4：体験・数字で黙らせる", "スレッド4/4：問いで着地"]
 
+# テーマツリー定義（auto_generate.pyからも参照される）
+THEME_TREE = {
+    "思考法": [
+        "考えすぎる人間は行動する人間に一生勝てない",
+        "完璧主義が人間を一番壊す",
+        "矛盾を隠す人間ほど脆く壊れる",
+    ],
+    "経営哲学": [
+        "売上を追う会社は必ず信用を失う",
+        "評価基準を売上にした瞬間、組織は腐る",
+        "志のない成功は最も醜い失敗だ",
+    ],
+    "AI活用": [
+        "AIに仕事を奪われるのではない。判断を手放した人間が淘汰される",
+        "AIを恐れる人間は自分の思考を信じていない",
+    ],
+    "現場主義": [
+        "医者に従う人間ほど自分の身体を知らない",
+        "薬を捨てた日から人生が始まった",
+        "健康は管理するものではなく取り戻すものだ",
+    ],
+    "信頼と組織": [
+        "信頼は通貨より重い",
+        "裏切られても信じる人間だけが本物の仲間を得る",
+        "金の奴隷は一生金に困る",
+    ],
+    "挑戦と失敗": [
+        "常識を捨てた人間だけが常識を変えられる",
+        "孤独を選べない人間に覚悟はない",
+        "夢を語れない人間に人はついてこない",
+        "志の質だけは絶対に負けてはならない",
+        "貧しさは美しい。心が貧しい方がよほど醜い",
+    ],
+}
 
-def save_post(text: str, topic: str | None = None) -> Path:
+# カテゴリ逆引き辞書
+THEME_TO_CATEGORY = {}
+for _cat, _themes in THEME_TREE.items():
+    for _t in _themes:
+        THEME_TO_CATEGORY[_t] = _cat
+
+
+# ============================================================
+# 類似度チェック
+# ============================================================
+
+def _char_bigrams(text: str) -> set[str]:
+    """テキストから文字バイグラムの集合を返す"""
+    text = text.replace(" ", "").replace("\n", "")
+    return {text[i:i + 2] for i in range(len(text) - 1)} if len(text) >= 2 else {text}
+
+
+def calc_similarity(a: str, b: str) -> float:
+    """2つのテキストの類似度をSørensen-Dice係数で算出する（0.0〜1.0）"""
+    bg_a = _char_bigrams(a)
+    bg_b = _char_bigrams(b)
+    if not bg_a or not bg_b:
+        return 0.0
+    return 2 * len(bg_a & bg_b) / (len(bg_a) + len(bg_b))
+
+
+def load_history(limit=100) -> list[dict]:
+    """post_history.jsonlから直近N件の履歴を読み込む"""
+    if not HISTORY_FILE.exists():
+        return []
+    lines = HISTORY_FILE.read_text(encoding="utf-8").strip().splitlines()
+    entries = []
+    for line in lines[-limit:]:
+        try:
+            entries.append(json.loads(line))
+        except json.JSONDecodeError:
+            continue
+    return entries
+
+
+def append_history(text: str, topic: str | None, category: str | None):
+    """post_history.jsonlに履歴を追記する"""
+    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    entry = {
+        "timestamp": datetime.now().isoformat(),
+        "text": text,
+        "topic": topic,
+        "category": category or THEME_TO_CATEGORY.get(topic, "不明"),
+    }
+    with open(HISTORY_FILE, "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+
+def check_similarity(text: str) -> tuple[bool, float, str]:
+    """過去100件との類似度チェック。
+    Returns: (is_rejected, max_similarity, most_similar_text)
+    """
+    history = load_history(limit=100)
+    if not history:
+        return False, 0.0, ""
+
+    max_sim = 0.0
+    most_similar = ""
+    for entry in history:
+        sim = calc_similarity(text, entry.get("text", ""))
+        if sim > max_sim:
+            max_sim = sim
+            most_similar = entry.get("text", "")[:80]
+
+    rejected = max_sim >= SIMILARITY_THRESHOLD
+    if rejected:
+        with open(REJECTED_LOG, "a", encoding="utf-8") as f:
+            f.write(f"[{datetime.now().isoformat()}] REJECTED (sim={max_sim:.3f})\n")
+            f.write(f"  新規: {text[:80]}\n")
+            f.write(f"  類似: {most_similar}\n\n")
+        print(f"[REJECTED] 類似度 {max_sim:.3f} >= {SIMILARITY_THRESHOLD} — 過去投稿と酷似のため棄却")
+
+    return rejected, max_sim, most_similar
+
+
+# ============================================================
+# テーマローテーション
+# ============================================================
+
+def get_recent_categories(n=3) -> list[str]:
+    """直近N件で使用したテーマカテゴリを返す"""
+    history = load_history(limit=n)
+    return [e.get("category", "") for e in history if e.get("category")]
+
+
+def pick_rotated_theme() -> tuple[str, str]:
+    """直近3件で使ったカテゴリを回避してテーマを選択する。
+    Returns: (theme, category)
+    """
+    from auto_generate import load_weights
+
+    recent_cats = get_recent_categories(n=3)
+    weights = load_weights()
+
+    # カテゴリを回避してテーマ候補を絞る
+    available = []
+    available_weights = []
+    for cat, themes in THEME_TREE.items():
+        if cat in recent_cats:
+            continue
+        for t in themes:
+            available.append((t, cat))
+            available_weights.append(weights.get(t, 1.0))
+
+    # 全カテゴリが直近で使われている場合はフォールバック（最も古いカテゴリを許可）
+    if not available:
+        fallback_cat = recent_cats[0] if recent_cats else list(THEME_TREE.keys())[0]
+        for t in THEME_TREE[fallback_cat]:
+            available.append((t, fallback_cat))
+            available_weights.append(weights.get(t, 1.0))
+
+    import random
+    chosen = random.choices(available, weights=available_weights, k=1)[0]
+    return chosen
+
+
+def save_post(text: str, topic: str | None = None, skip_similarity=False) -> Path | None:
+    """投稿を保存する。類似度チェックに引っかかった場合はNoneを返す。"""
+    if not skip_similarity:
+        rejected, sim, _ = check_similarity(text)
+        if rejected:
+            return None
+
     POSTS_DIR.mkdir(exist_ok=True)
     now = datetime.now()
     filename = now.strftime("%Y%m%d_%H%M%S") + ".json"
     filepath = POSTS_DIR / filename
 
+    category = THEME_TO_CATEGORY.get(topic, "不明") if topic else "不明"
     data = {
         "timestamp": now.isoformat(),
         "text": text,
         "topic": topic,
+        "category": category,
         "status": "pending",
         "posted_at": None,
         "tweet_id": None,
@@ -42,6 +209,9 @@ def save_post(text: str, topic: str | None = None) -> Path:
 
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+
+    # 履歴に追記
+    append_history(text, topic, category)
 
     return filepath
 
@@ -291,6 +461,10 @@ def main():
         print("状態: pending（承認待ち）")
     else:
         filepath = save_post(text, args.topic)
+        if filepath is None:
+            print("--- 投稿文は類似度チェックで棄却されました ---")
+            print("別の内容で再生成してください。")
+            sys.exit(1)
         print(f"--- 保存された投稿文 ---")
         print(text)
         print(f"--- ({len(text)}文字) ---")

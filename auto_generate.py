@@ -12,33 +12,13 @@ BASE_DIR = Path(__file__).parent
 POSTS_DIR = BASE_DIR / "posts"
 WEIGHTS_FILE = BASE_DIR / "theme_weights.json"
 
-# テーマプール（断定型タイトル・不変テーマのみ）
-THEME_POOL = [
-    # 健康
-    "医者に従う人間ほど自分の身体を知らない",
-    "薬を捨てた日から人生が始まった",
-    "健康は管理するものではなく取り戻すものだ",
-    # お金
-    "金の奴隷は一生金に困る",
-    "売上を追う会社は必ず信用を失う",
-    # 信頼
-    "信頼は通貨より重い",
-    "裏切られても信じる人間だけが本物の仲間を得る",
-    "評価基準を売上にした瞬間、組織は腐る",
-    # 志
-    "志のない成功は最も醜い失敗だ",
-    "夢を語れない人間に人はついてこない",
-    "志の質だけは絶対に負けてはならない",
-    # 矛盾
-    "矛盾を隠す人間ほど脆く壊れる",
-    "完璧主義が人間を一番壊す",
-    # 人間性
-    "貧しさは美しい。心が貧しい方がよほど醜い",
-    "考えすぎる人間は行動する人間に一生勝てない",
-    # 覚悟
-    "常識を捨てた人間だけが常識を変えられる",
-    "孤独を選べない人間に覚悟はない",
-]
+# テーマプールはgenerate_post.pyのTHEME_TREEに統合済み
+# 後方互換のためフラットなリストも維持
+from generate_post import THEME_TREE, THEME_TO_CATEGORY, pick_rotated_theme
+
+THEME_POOL = []
+for _themes in THEME_TREE.values():
+    THEME_POOL.extend(_themes)
 
 # noyuto_persona.txt を読み込み（Claude Code実行時のプロンプト参照用）
 PERSONA_FILE = BASE_DIR / "prompts" / "noyuto_persona.txt"
@@ -59,10 +39,10 @@ def load_weights():
 
 
 def pick_theme() -> str:
-    """重み付きランダム選択。重みが高いテーマほど選ばれやすい"""
-    weights = load_weights()
-    theme_weights = [weights.get(t, 1.0) for t in THEME_POOL]
-    return random.choices(THEME_POOL, weights=theme_weights, k=1)[0]
+    """テーマツリーローテーション付きの選択。直近3件のカテゴリを回避する"""
+    theme, category = pick_rotated_theme()
+    print(f"CATEGORY:{category}")
+    return theme
 
 
 def save_post(text: str, topic: str) -> Path:
