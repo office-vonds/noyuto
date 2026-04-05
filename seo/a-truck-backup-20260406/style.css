@@ -1,0 +1,343 @@
+/*
+Theme Name: AGENT
+Theme URI:
+Description:WordPressテーマ「AGENT」
+Author:Design Plus
+Author URI:http://design-plus1.com/tcd-w/
+Version:3.1.1
+*/
+
+/* --------------------------------------------------------------------------------
+ web fonts　ウェブフォントファイルを変更した場合はv=1.0の数字を変更（キャッシュ対策）
+-------------------------------------------------------------------------------- */
+@font-face {
+    font-family: 'design_plus';
+    src: url('fonts/design_plus.eot?v=1.1');
+    src: url('fonts/design_plus.eot?v=1.0#iefix') format('embedded-opentype'),
+         url('fonts/design_plus.woff?v=1.1') format('woff'),
+         url('fonts/design_plus.ttf?v=1.1') format('truetype'),
+         url('fonts/design_plus.svg?v=1.1#design_plus') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* アイコンフォント */
+.icon-arrow-right:before {
+  content: "\e910";
+}
+
+.icon-file-text:before {
+  content: "\f15c";
+}
+
+.icon-share-alt:before {
+  content: "\f1e0";
+}
+
+.icon-phone:before {
+  content: "\f095";
+}
+
+.icon-envelope:before {
+  content: "\f0e0";
+}
+
+.icon-tag:before {
+  content: "\f02b";
+}
+
+.icon-pencil:before {
+  content: "\f040";
+}
+
+.icon-close:before {
+  content: "\e91a";
+}
+
+
+
+
+/* This is a small security for too long strings titles */
+body {
+	word-wrap: break-word;
+}
+
+/* Alignment */
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin: 0 auto;
+}
+
+
+/* Images and wp-captions should always fit and be responsive */
+img {
+	display: inline-block;
+	height: auto;
+	max-width: 100%;
+}
+img[class*="wp-image-"] {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.wp-caption {
+	border: 1px solid #ccc;
+	margin-bottom: 10px;
+	max-width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 0 10px;
+}
+.wp-caption.aligncenter {
+	margin-bottom: 10px;
+}
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+}
+.wp-caption .wp-caption-text {
+	text-align: center;
+	margin-top: 10px;
+}
+
+/* WP Gallery */
+.gallery {
+	margin-bottom: 1.5em;
+}
+.gallery a img {
+	border: none;
+	height: auto;
+	max-width: 90%;
+}
+.gallery dd {
+	margin: 0;
+}
+.gallery-caption {
+	display: block;
+}
+
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+}
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+
+/* Content */
+.main-content-inner {
+	padding-bottom: 1.5em;
+}
+.hentry {
+	margin: 0 0 1.5em;
+}
+.sticky {
+	display: block;
+}
+.bypostauthor {
+	display: block;
+}
+
+
+/* Clearing */
+.clear {
+	clear: both;
+}
+
+/* Navigation */
+
+.dropdown-submenu{position:relative;}
+.dropdown-submenu>.dropdown-menu{top:0;left:100%;-webkit-border-radius:0 6px 6px 6px;-moz-border-radius:0 6px 6px 6px;border-radius:0 6px 6px 6px;}
+.dropdown-submenu:active>.dropdown-menu, .dropdown-submenu:hover>.dropdown-menu {
+display: block;
+}
+.dropdown-submenu>a:after{display:block;content:" ";float:right;width:0;height:0;border-color:transparent;border-style:solid;border-width:5px 0 5px 5px;border-left-color:#cccccc;margin-top:5px;margin-right:-10px;}
+.dropdown-submenu:active>a:after{border-left-color:#ffffff;}
+.dropdown-submenu.pull-left{float:none;}.dropdown-submenu.pull-left>.dropdown-menu{left:-100%;margin-left:10px;-webkit-border-radius:6px 0 6px 6px;-moz-border-radius:6px 0 6px 6px;border-radius:6px 0 6px 6px;}
+
+
+/* Here some needed widget styles
+ * Most widgets are adapted in the file bootstrap-wp.js - and REALLY easy to modify! ;) */
+.widget { margin-bottom: 2em; }
+.widget_nav_menu ul.sub-menu li, .widget_pages ul.children li { padding-left: 15px; }
+
+/* Hiding the search widget's button in widgets. thats just too old-skool. :) but if you want it back, just delete the next line.
+ * Note: you can change the whole appearance of the search_form() function in our searchform.php */
+.widget_search .search-form input[type="submit"] { display: none; }
+
+/* Make sure select elements fit in widgets */
+.widget select {
+	max-width: 100%;
+}
+
+/* Nested comments? They are threaded and nested already, you just need to add your own styling to finalize!
+ * For example with some margin, like the line below ;) Delete, modify, change classes in HTML if you desire another style */
+ .comment .children { margin-left: 1.5em; }
+
+/**
+* Some WP Theme Repository requirements
+*/
+
+.sticky {
+}
+
+.gallery-caption {
+
+}
+
+.bypostauthor {
+
+}
+
+.entry-meta {
+	clear: both;
+}
+
+/* パンくずリンク */
+#bread_crumb { padding:0 0 20px; margin:20px auto 0; }
+#bread_crumb li.home a {
+  float:left; height:15px; width:0px; line-height:15px; display:block; position:relative;
+  -moz-box-sizing:border-box; -webkit-box-sizing:border-box; -o-box-sizing:border-box; -ms-box-sizing:border-box; box-sizing:border-box;
+}
+#bread_crumb li.home a span { text-indent:100%; white-space:nowrap; overflow:hidden; display:block; }
+#bread_crumb li.home a:before {
+  font-family:'design_plus'; color:#888; font-size:14px; display:block; position:absolute; top:2px; left:0px;
+  width:17px; height:17px; line-height:17px;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+#bread_crumb li.home:after { display:none; }
+#bread_crumb li.home a:before { content:'\e90c'; }
+#bread_crumb li.home a:hover:before { color:#fff; }
+#bread_crumb li { color:#aaa; font-size:12px; display:inline; padding:0 15px 0 0; margin:0 0 0 15px; line-height:160%; position:relative; }
+#bread_crumb li:after {
+  font-family:'design_plus'; content:'\e910'; color:#aaa; font-size:9px; display:block; position:absolute; left:-20px; top:-1px;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
+#bread_crumb li a { color:#888; }
+.pc .no_side #bread_crumb, .pc .error404 #bread_crumb { width:900px; }
+
+
+
+/* ----------------------------------------------------------------------
+ WordPress プリセットスタイル
+---------------------------------------------------------------------- */
+/* alignment */
+.entry-content .alignright { float:right; }
+.entry-content .alignleft { float:left; }
+.entry-content .aligncenter { display:block; margin-left:auto; margin-right:auto; margin-bottom:7px; }
+.entry-content blockquote.alignleft, .entry-content img.alignleft { margin:7px 24px 7px 0; }
+.entry-content .wp-caption.alignleft { margin:7px 14px 7px 0; }
+.entry-content blockquote.alignright, .entry-content img.alignright { margin:7px 0 7px 24px; }
+.entry-content .wp-caption.alignright { margin:7px 0 7px 14px; }
+.entry-content blockquote.aligncenter, .entry-content img.aligncenter, .entry-content .wp-caption.aligncenter { margin-top:7px; margin-bottom:7px; }
+
+
+/* text and headline */
+.entry-content p { line-height:2; margin:0 0 2em 0; }
+.entry-content blockquote p { line-height:2; margin:0 0 2em 0; }
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6 { clear:both; line-height:1.2; font-weight:600; margin:0 0 10px 0; padding:10px 0 0 0; }
+.entry-content h1 { font-size:150%; }
+.entry-content h2 { font-size:140%; }
+.entry-content h3 { font-size:130%; }
+.entry-content h4 { font-size:120%; }
+.entry-content h5 { font-size:110%; }
+.entry-content h6 { font-size:100%; }
+
+
+/* image */
+.entry-content img[class*="align"], .entry-content img[class*="wp-image-"], .entry-content img[class*="attachment-"], .entry-content img.size-full, .entry-content img.size-large, .entry-content .wp-post-image, .entry-content img
+ { height:auto; max-width:100%; }
+
+
+/* list */
+.entry-content li, .entry-content dt, .entry-content dd { line-height:2.2; }
+.entry-content ul, .entry-content ol, .entry-content dl { margin-bottom:24px; padding:0; }
+.entry-content ol { list-style:decimal outside none; margin-left:1.5em; }
+.entry-content ul { list-style:circle outside none; margin-left:1.3em; }
+.entry-content li > ul, .entry-content li > ol { margin-bottom:0; }
+.entry-content dt { font-weight:bold; }
+.entry-content dd { margin-bottom:1em; }
+
+
+/* table */
+.entry-content table { margin:0 0 24px 0; }
+.entry-content td, .entry-content th { border:1px solid #bbb; padding:10px 15px 7px; line-height:2.2; background:#fff; }
+.entry-content th { background:#ddd; font-weight:normal; }
+
+
+/* block quote */
+.entry-content blockquote { margin:0 0 25px 0; padding:27px 30px 0; border:1px solid #ccc; box-shadow:0px 4px 0px 0px #f2f2f2; position:relative; }
+.entry-content blockquote:before { content: '"'; font-style:italic; font-size:30px; font-weight:normal; line-height:40px; width:30px; height:30px; position:absolute; top:5px; left:10px; color:#5cbcd7; }
+.entry-content blockquote:after { content: '"'; font-style:italic; font-size:30px; font-weight:normal; text-align:left; line-height:60px; width:30px; height:30px; position:absolute; bottom:7px; right:-2px; color:#5cbcd7; }
+.entry-content blockquote cite { border-top:1px dotted #aaa; display:block; padding:20px 0 0 0; font-style:italic; text-align:right; font-size:90%; }
+
+/* captions */
+.entry-content .wp-caption { margin-bottom:24px; background:#fff; border:1px solid #ccc; padding:5px; max-width:100%; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; -webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
+.entry-content .wp-caption-text { text-align:center; font-size:12px; font-style:italic; line-height:1.5; margin:9px auto; }
+.entry-content .wp-caption img[class*="wp-image-"] { display:block; margin:0 auto; }
+
+
+/* gallery */
+.gallery { margin-bottom:20px; }
+.gallery a img { border: 0 !important; }
+.gallery-item { float:left; margin:0 4px 4px 0; overflow:hidden; position:relative; }
+.gallery-columns-1 .gallery-item { max-width:100%; }
+.gallery-columns-2 .gallery-item { max-width:48%; max-width:-webkit-calc(50% - 4px); max-width:calc(50% - 4px); }
+.gallery-columns-3 .gallery-item { max-width:32%; max-width:-webkit-calc(33.3% - 4px); max-width:calc(33.3% - 4px); }
+.gallery-columns-4 .gallery-item { max-width:23%; max-width:-webkit-calc(25% - 4px); max-width:calc(25% - 4px); }
+.gallery-columns-5 .gallery-item { max-width:19%; max-width:-webkit-calc(20% - 4px); max-width:calc(20% - 4px); }
+.gallery-columns-6 .gallery-item { max-width:15%; max-width:-webkit-calc(16.7% - 4px); max-width:calc(16.7% - 4px); }
+.gallery-columns-7 .gallery-item { max-width:13%; max-width:-webkit-calc(14.28% - 4px);	max-width:calc(14.28% - 4px); }
+.gallery-columns-8 .gallery-item { max-width:11%; max-width:-webkit-calc(12.5% - 4px); max-width:calc(12.5% - 4px); }
+.gallery-columns-9 .gallery-item { max-width: 9%; max-width:-webkit-calc(11.1% - 4px); max-width:calc(11.1% - 4px); }
+.gallery-columns-10 .gallery-item { max-width: 7%; max-width:-webkit-calc(9.4% - 0px); max-width:calc(9.4% - 0px); }
+.gallery-columns-1 .gallery-item:nth-of-type(1n), .gallery-columns-2 .gallery-item:nth-of-type(2n), .gallery-columns-3 .gallery-item:nth-of-type(3n), .gallery-columns-4 .gallery-item:nth-of-type(4n), .gallery-columns-5 .gallery-item:nth-of-type(5n), .gallery-columns-6 .gallery-item:nth-of-type(6n), .gallery-columns-7 .gallery-item:nth-of-type(7n), .gallery-columns-8 .gallery-item:nth-of-type(8n), .gallery-columns-9 .gallery-item:nth-of-type(9n), .gallery-columns-10 .gallery-item:nth-of-type(10n) { margin-right:0; }
+.gallery-caption { background-color:rgba(0, 0, 0, 0.7);	-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; color:#fff; font-size:12px; line-height:1.5; margin:0; max-height:50%; opacity:0; padding:6px 8px; position:absolute; bottom:0; left:0; text-align:left; width:100%; }
+.gallery-caption:before { content: ""; height:100%; min-height:49px; position:absolute; top:0; left:0; width:100%; }
+.gallery-item:hover .gallery-caption { opacity: 1; }
+.gallery-columns-7 .gallery-caption, .gallery-columns-8 .gallery-caption, .gallery-columns-9 .gallery-caption, .gallery-columns-10 .gallery-caption { display: none; }
+
+
+/* etc */
+.entry-content .wp-smiley { border:0; margin-bottom:0; margin-top:0; padding:0; }
+.entry-content address { margin:0 0 24px 0; line-height:2.2; }
+.entry-content pre { border-left:5px solid #7fc120; font-size:12px; margin:0 0 27px 0; line-height:25px; background:url(img/common/pre.gif) repeat left top; padding:0 17px; overflow:auto; }
+.entry-content .sticky { }
+.entry-content .mejs-container { margin: 12px 0 25px; }
