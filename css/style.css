@@ -487,6 +487,8 @@ img {
   width: 100%;
   height: auto;
   display: block;
+  max-height: 400px;
+  object-fit: cover;
 }
 
 /* --- Problems --- */
@@ -742,20 +744,20 @@ img {
 
 /* --- Reason --- */
 .reason {
-  padding: 100px 0;
+  padding: 64px 0;
   background: var(--pure-white);
 }
 
 .reason-list {
   max-width: 800px;
   margin: 0 auto;
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
 .reason-item {
   display: flex;
-  gap: 32px;
-  padding: 40px 0;
+  gap: 24px;
+  padding: 24px 0;
   border-bottom: 1px solid var(--gray-200);
 }
 
