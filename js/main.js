@@ -108,22 +108,13 @@ document.addEventListener('DOMContentLoaded', function () {
     fadeObserver.observe(el);
   });
 
-  // --- Contact form basic handling ---
+  // --- Contact form handling (FormSubmit.co) ---
   var form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
+    form.addEventListener('submit', function () {
       var btn = form.querySelector('button[type="submit"]');
       btn.textContent = '送信中...';
       btn.disabled = true;
-
-      // Simulate send (replace with actual form handler)
-      setTimeout(function () {
-        alert('お問い合わせありがとうございます。\n内容を確認の上、担当者よりご連絡いたします。');
-        form.reset();
-        btn.textContent = '送信する';
-        btn.disabled = false;
-      }, 1500);
     });
   }
 
