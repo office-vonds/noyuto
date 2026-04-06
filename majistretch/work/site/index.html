@@ -241,7 +241,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: #1A1A1A;
     }
 
-    /* レスポンシブ */
+    /* レスポンシブ SP */
     @media (max-width: 480px) {
       .p-reservation__form {
         padding: 24px 16px;
@@ -251,6 +251,102 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .p-reservation__date-row .p-reservation__select {
         flex: 1 1 100%;
+      }
+    }
+
+    /* ===== PC版レイアウト（768px以上） ===== */
+    @media (min-width: 768px) {
+      body { background: #f0f0f0 !important; margin: 0 !important; }
+      .l-side-nav { display: none !important; }
+      main {
+        width: 800px !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
+        background: #fff !important;
+        box-shadow: 0 0 40px rgba(0,0,0,0.12) !important;
+      }
+      .l-header {
+        width: 800px !important;
+        max-width: 800px !important;
+        position: fixed !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 100 !important;
+        background: #fff !important;
+      }
+      .l-header__inner {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+      .p-hero__visual { width: 100% !important; max-width: 100% !important; position: relative !important; }
+      .p-hero__img { width: 100% !important; height: auto !important; display: block !important; }
+      .p-hero__content { padding-top: 80px !important; }
+      .p-hero__logo-mark { margin-top: 30px !important; margin-bottom: 20px !important; }
+
+      /* 口コミバッジ：FV画像内に大きく配置 */
+      .p-hero__review {
+        position: absolute !important;
+        bottom: 180px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        display: flex !important;
+        align-items: center !important;
+        background: rgba(255,255,255,0.97) !important;
+        border-radius: 20px !important;
+        padding: 28px 36px !important;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.22) !important;
+        z-index: 30 !important;
+        width: 580px !important;
+        max-width: 85% !important;
+      }
+      .p-hero__review-inner {
+        display: flex !important;
+        align-items: center !important;
+        gap: 20px !important;
+        width: 100% !important;
+      }
+      .p-hero__review-icon {
+        width: 76px !important;
+        height: 76px !important;
+        border-radius: 50% !important;
+        flex-shrink: 0 !important;
+      }
+      .p-hero__review-title {
+        font-weight: 900 !important;
+        font-size: 28px !important;
+        color: #E8527A !important;
+        margin: 0 0 6px !important;
+      }
+      .p-hero__review-text {
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        color: #222 !important;
+        margin: 0 !important;
+      }
+
+      .p-hero__photo { margin-top: -2px !important; }
+
+      /* 固定バナー：PC非表示 */
+      .p-fixed-banner,
+      .p-fixed-banner--dual {
+        display: none !important;
+      }
+
+      /* セクション内幅 */
+      .p-qualify__inner, .p-program__inner, .p-price__inner,
+      .p-guarantee__inner, .p-faq__inner, .p-results__inner,
+      .p-shop__inner, .p-shop-map__inner, .p-symptoms__inner,
+      .p-chain__overlay, .p-benefits__inner, .p-compare__inner,
+      .p-cta2__inner, .p-final-cta__content,
+      .p-reservation__inner {
+        max-width: 100% !important; width: 100% !important;
+      }
+      .l-footer {
+        width: 800px !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
       }
     }
   </style>
