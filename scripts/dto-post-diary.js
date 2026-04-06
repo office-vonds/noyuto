@@ -10,7 +10,7 @@ const fs = require('fs');
 const SHOP_ID = '21720';
 const BASE = `https://admin.dto.jp/shop-admin/${SHOP_ID}`;
 const STATE_FILE = path.join(__dirname, 'dto-diary-state.json');
-const VARIATIONS_DIR = path.join(__dirname, 'dto-variations');
+const INPUT_DIR = path.join(__dirname, 'input'); // 元写真: input/キャスト名/*.jpg
 
 // キャスト情報（出勤キャスト）
 const CASTS = {
@@ -416,13 +416,34 @@ function saveState(state) {
 }
 
 function getNextImage(castName, state) {
-  const files = fs.readdirSync(VARIATIONS_DIR)
-    .filter(f => f.startsWith(castName) && f.endsWith('.jpg'))
+  const castDir = path.join(INPUT_DIR, castName);
+  if (!fs.existsSync(castDir)) return null;
+
+  const files = fs.readdirSync(castDir)
+    .filter(f => /\.(jpg|jpeg|png|gif)$/i.test(f))
     .sort();
   if (files.length === 0) return null;
-  const nextIdx = (state.lastImageIndex + 1) % files.length;
-  state.lastImageIndex = nextIdx;
-  return path.join(VARIATIONS_DIR, files[nextIdx]);
+
+  // 使用済み画像を記録し、未使用を優先
+  const usedImages = (state.usedImages || {})[castName] || [];
+  const unused = files.filter(f => !usedImages.includes(f));
+  let selected;
+
+  if (unused.length > 0) {
+    selected = unused[0];
+  } else {
+    // 全部使い切ったらリセットして先頭から
+    if (!state.usedImages) state.usedImages = {};
+    state.usedImages[castName] = [];
+    selected = files[0];
+  }
+
+  // 使用済みに追加
+  if (!state.usedImages) state.usedImages = {};
+  if (!state.usedImages[castName]) state.usedImages[castName] = [];
+  state.usedImages[castName].push(selected);
+
+  return path.join(castDir, selected);
 }
 
 function getNextTemplate(state) {
