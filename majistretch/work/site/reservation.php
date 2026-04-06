@@ -1,9 +1,13 @@
 <?php
 // ===== 予約フォーム処理 =====
-// 送信先: info@majistretch.com
+// 送信先: info@majistretch.com + yuki.nakagomi@sanken-gr.com
 // 自動返信メール付き
 
 header('Content-Type: application/json; charset=UTF-8');
+
+// 日本語メール設定（文字化け防止）
+mb_language('ja');
+mb_internal_encoding('UTF-8');
 
 // POST以外は拒否
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -62,16 +66,18 @@ $wish1 = "{$date1} {$time1}";
 $wish2 = ($date2 && $time2) ? "{$date2} {$time2}" : '未選択';
 $wish3 = ($date3 && $time3) ? "{$date3} {$time3}" : '未選択';
 
-// --- 店舗宛メール ---
-$to_shop   = 'info@majistretch.com';
-$subject_shop = "【WEB予約】{$name} 様よりご予約リクエスト";
+// --- 店舗宛メール（info + 転送先にも直接送信） ---
+$to_shop = 'info@majistretch.com, yuki.nakagomi@sanken-gr.com';
 $headers_shop = implode("\r\n", [
     'From: info@majistretch.com',
     'Reply-To: ' . $email,
-    'Content-Type: text/plain; charset=UTF-8',
+    'Return-Path: info@majistretch.com',
+    'X-Mailer: MajiStretch-Reservation',
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=ISO-2022-JP',
 ]);
 
-$body_shop = <<<EOT
+$body_shop_text = <<<EOT
 ━━━━━━━━━━━━━━━━━━━━━━━━
   WEB予約リクエスト
 ━━━━━━━━━━━━━━━━━━━━━━━━
@@ -93,14 +99,20 @@ $body_shop = <<<EOT
 ━━━━━━━━━━━━━━━━━━━━━━━━
 EOT;
 
+// ISO-2022-JPに変換（文字化け防止・迷惑メール対策）
+$body_shop = mb_convert_encoding($body_shop_text, 'ISO-2022-JP', 'UTF-8');
+$subject_shop = mb_encode_mimeheader("【WEB予約】{$name} 様よりご予約リクエスト", 'ISO-2022-JP', 'B');
+
 // --- 顧客宛 自動返信メール ---
-$subject_auto = '【本気ストレッチ】ご予約リクエストを受け付けました';
 $headers_auto = implode("\r\n", [
-    'From: info@majistretch.com',
-    'Content-Type: text/plain; charset=UTF-8',
+    'From: =?ISO-2022-JP?B?' . base64_encode(mb_convert_encoding('本気ストレッチ', 'ISO-2022-JP', 'UTF-8')) . '?= <info@majistretch.com>',
+    'Return-Path: info@majistretch.com',
+    'X-Mailer: MajiStretch-Reservation',
+    'MIME-Version: 1.0',
+    'Content-Type: text/plain; charset=ISO-2022-JP',
 ]);
 
-$body_auto = <<<EOT
+$body_auto_text = <<<EOT
 {$name} 様
 
 この度は、ストレッチゼロ/本気ストレッチへご予約のリクエストをいただき、誠にありがとうございます。
@@ -141,9 +153,12 @@ MAIL: info@majistretch.com
 ━━━━━━━━━━━━━━━━━━━━━━━━
 EOT;
 
-// --- メール送信 ---
-$sent_shop = mb_send_mail($to_shop, $subject_shop, $body_shop, $headers_shop);
-$sent_auto = mb_send_mail($email, $subject_auto, $body_auto, $headers_auto);
+$body_auto = mb_convert_encoding($body_auto_text, 'ISO-2022-JP', 'UTF-8');
+$subject_auto = mb_encode_mimeheader('【本気ストレッチ】ご予約リクエストを受け付けました', 'ISO-2022-JP', 'B');
+
+// --- メール送信（mail関数 + ISO-2022-JP で送信） ---
+$sent_shop = mail($to_shop, $subject_shop, $body_shop, $headers_shop);
+$sent_auto = mail($email, $subject_auto, $body_auto, $headers_auto);
 
 if ($sent_shop) {
     echo json_encode(['success' => true, 'message' => '予約リクエストを送信しました。']);
