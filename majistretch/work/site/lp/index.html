@@ -35,6 +35,225 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- CSS -->
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- 予約フォーム用スタイル -->
+  <style>
+    /* ===== 予約フォームセクション ===== */
+    .p-reservation {
+      background: #FFF5F8;
+      padding: 60px 20px 80px;
+    }
+    .p-reservation__inner {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .p-reservation__heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-align: center;
+      color: #1A1A1A;
+      margin-bottom: 8px;
+    }
+    .p-reservation__sub {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 32px;
+    }
+    .p-reservation__form {
+      background: #fff;
+      border-radius: 12px;
+      padding: 32px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .p-reservation__group {
+      margin-bottom: 24px;
+    }
+    .p-reservation__label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin-bottom: 6px;
+    }
+    .p-reservation__required {
+      display: inline-block;
+      background: #E51F5E;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .p-reservation__optional {
+      display: inline-block;
+      background: #999;
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    .p-reservation__input,
+    .p-reservation__select,
+    .p-reservation__textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      background: #FAFAFA;
+      transition: border-color .2s;
+      box-sizing: border-box;
+    }
+    .p-reservation__input:focus,
+    .p-reservation__select:focus,
+    .p-reservation__textarea:focus {
+      outline: none;
+      border-color: #E51F5E;
+      background: #fff;
+    }
+    .p-reservation__textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .p-reservation__date-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .p-reservation__date-row .p-reservation__input {
+      flex: 1;
+    }
+    .p-reservation__date-row .p-reservation__select {
+      flex: 0 0 120px;
+    }
+    .p-reservation__wish-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #E51F5E;
+      min-width: 56px;
+    }
+    .p-reservation__submit-area {
+      text-align: center;
+      margin-top: 32px;
+    }
+    .p-reservation__submit {
+      display: inline-block;
+      width: 100%;
+      max-width: 360px;
+      padding: 18px 24px;
+      background: #E51F5E;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      box-shadow: 0 4px 12px rgba(229,31,94,.3);
+    }
+    .p-reservation__submit:hover {
+      background: #C91850;
+      transform: translateY(-1px);
+    }
+    .p-reservation__submit:active {
+      transform: translateY(0);
+    }
+    .p-reservation__submit:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+    .p-reservation__note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #999;
+      margin-top: 12px;
+    }
+    .p-reservation__result {
+      text-align: center;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 16px;
+      font-weight: 700;
+      display: none;
+    }
+    .p-reservation__result--success {
+      background: #E8F5E9;
+      color: #2E7D32;
+      display: block;
+    }
+    .p-reservation__result--error {
+      background: #FFEBEE;
+      color: #C62828;
+      display: block;
+    }
+
+    /* WEB予約ボタン */
+    .c-btn--web {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      max-width: 340px;
+      padding: 16px 24px;
+      background: #E51F5E;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      text-decoration: none;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(229,31,94,.3);
+      transition: background .2s, transform .1s;
+      margin-top: 8px;
+    }
+    .c-btn--web:hover {
+      background: #C91850;
+      transform: translateY(-1px);
+    }
+    .c-btn--web svg {
+      flex-shrink: 0;
+    }
+
+    /* SP固定バナー2カラム */
+    .p-fixed-banner--dual {
+      display: flex;
+      gap: 0;
+    }
+    .p-fixed-banner--dual .p-fixed-banner__btn {
+      flex: 1;
+    }
+    .p-fixed-banner--dual .p-fixed-banner__btn--web {
+      background: #E51F5E;
+    }
+    .p-fixed-banner--dual .p-fixed-banner__btn--tel {
+      background: #1A1A1A;
+    }
+
+    /* レスポンシブ */
+    @media (max-width: 480px) {
+      .p-reservation__form {
+        padding: 24px 16px;
+      }
+      .p-reservation__date-row {
+        flex-wrap: wrap;
+      }
+      .p-reservation__date-row .p-reservation__select {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -102,6 +321,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="p-hero__booking">精密姿勢診断 予約受付中！</p>
         <div class="p-hero__cta">
           <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-fv" data-gtm-tel="fv">精密姿勢診断を予約する</a>
+          <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-fv">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            WEB予約する
+          </a>
           <p class="c-btn__note">毎月限定12名様</p>
         </div>
       </div>
@@ -340,6 +563,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="p-cta2__deco p-cta2__deco--right" aria-hidden="true">/</span>
           </div>
           <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-guarantee" data-gtm-tel="guarantee">精密姿勢診断を予約する</a>
+          <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-guarantee">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            WEB予約する
+          </a>
         </div>
       </div>
     </section>
@@ -487,6 +714,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="p-final-cta__btn-sub">毎月12名様限定！</span>
               <span class="p-final-cta__btn-main">精密姿勢診断を予約する</span>
             </a>
+            <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-final" style="margin-top:12px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              WEB予約する
+            </a>
           </div>
         </div>
       </div>
@@ -512,6 +743,177 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </li>
         </ul>
         <p class="p-qualify__note">※1回のみのリラクゼーション目的の方は<br>ご期待に沿えない可能性があります。</p>
+      </div>
+    </section>
+
+    <!-- ===== WEB予約フォーム ===== -->
+    <section class="p-reservation" id="reservation">
+      <div class="p-reservation__inner">
+        <h2 class="p-reservation__heading">WEB予約フォーム</h2>
+        <p class="p-reservation__sub">下記フォームからご予約リクエストを送信できます</p>
+
+        <form class="p-reservation__form" id="reservationForm" action="reservation.php" method="POST" novalidate>
+
+          <!-- 氏名 -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label" for="rsv-name">氏名（漢字）<span class="p-reservation__required">必須</span></label>
+            <input type="text" id="rsv-name" name="name" class="p-reservation__input" placeholder="例：山田 太郎" required autocomplete="name">
+          </div>
+
+          <!-- フリガナ -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label" for="rsv-furigana">フリガナ<span class="p-reservation__required">必須</span></label>
+            <input type="text" id="rsv-furigana" name="furigana" class="p-reservation__input" placeholder="例：ヤマダ タロウ" required>
+          </div>
+
+          <!-- 電話番号 -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label" for="rsv-tel">電話番号<span class="p-reservation__required">必須</span></label>
+            <input type="tel" id="rsv-tel" name="tel" class="p-reservation__input" placeholder="例：090-1234-5678" required autocomplete="tel">
+          </div>
+
+          <!-- メールアドレス -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label" for="rsv-email">メールアドレス<span class="p-reservation__required">必須</span></label>
+            <input type="email" id="rsv-email" name="email" class="p-reservation__input" placeholder="例：yamada@example.com" required autocomplete="email">
+          </div>
+
+          <!-- メールアドレス（確認） -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label" for="rsv-email-confirm">メールアドレス（確認）<span class="p-reservation__required">必須</span></label>
+            <input type="email" id="rsv-email-confirm" name="email_confirm" class="p-reservation__input" placeholder="もう一度ご入力ください" required>
+          </div>
+
+          <!-- ご希望日時 -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label">ご希望日時</label>
+
+            <!-- 第1希望 -->
+            <div class="p-reservation__date-row">
+              <span class="p-reservation__wish-label">第1希望<span class="p-reservation__required">必須</span></span>
+              <input type="date" name="date1" class="p-reservation__input" required>
+              <select name="time1" class="p-reservation__select" required>
+                <option value="">時間</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+              </select>
+            </div>
+
+            <!-- 第2希望 -->
+            <div class="p-reservation__date-row">
+              <span class="p-reservation__wish-label">第2希望<span class="p-reservation__optional">任意</span></span>
+              <input type="date" name="date2" class="p-reservation__input">
+              <select name="time2" class="p-reservation__select">
+                <option value="">時間</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+              </select>
+            </div>
+
+            <!-- 第3希望 -->
+            <div class="p-reservation__date-row">
+              <span class="p-reservation__wish-label">第3希望<span class="p-reservation__optional">任意</span></span>
+              <input type="date" name="date3" class="p-reservation__input">
+              <select name="time3" class="p-reservation__select">
+                <option value="">時間</option>
+                <option value="09:00">09:00</option>
+                <option value="09:30">09:30</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option>
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option>
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- ご希望コース -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label" for="rsv-course">ご希望コース<span class="p-reservation__required">必須</span></label>
+            <select id="rsv-course" name="course" class="p-reservation__select" required>
+              <option value="">選択してください</option>
+              <option value="60分コース">60分コース</option>
+              <option value="90分コース">90分コース</option>
+              <option value="120分コース">120分コース</option>
+              <option value="当日相談する">当日相談する</option>
+            </select>
+          </div>
+
+          <!-- お身体のお悩み・備考 -->
+          <div class="p-reservation__group">
+            <label class="p-reservation__label" for="rsv-body">お身体のお悩み・備考<span class="p-reservation__optional">任意</span></label>
+            <textarea id="rsv-body" name="body" class="p-reservation__textarea" placeholder="肩こりがひどい、腰痛が慢性的にある、等"></textarea>
+          </div>
+
+          <!-- 送信 -->
+          <div class="p-reservation__submit-area">
+            <button type="submit" class="p-reservation__submit" id="reservationSubmit">予約リクエストを送信する</button>
+            <p class="p-reservation__note">※本フォームは仮予約です。店舗より確定のご連絡をいたします。</p>
+          </div>
+
+          <div class="p-reservation__result" id="reservationResult"></div>
+        </form>
+
+        <!-- 電話予約の導線 -->
+        <div style="text-align:center; margin-top:24px;">
+          <p style="font-size:0.85rem; color:#666; margin-bottom:8px;">お電話でのご予約はこちら</p>
+          <a href="tel:05088848993" style="font-size:1.2rem; font-weight:700; color:#E51F5E; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E51F5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            050-8884-8993
+          </a>
+        </div>
       </div>
     </section>
 
@@ -634,14 +1036,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- ===== SP固定バナー ===== -->
-  <div class="p-fixed-banner">
-    <a href="tel:05088848993" class="p-fixed-banner__btn" data-gtm-click="cta-fixed-sp" data-gtm-tel="fixed-sp">
-      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      診断を予約する
+  <div class="p-fixed-banner p-fixed-banner--dual">
+    <a href="tel:05088848993" class="p-fixed-banner__btn p-fixed-banner__btn--tel" data-gtm-click="cta-fixed-sp" data-gtm-tel="fixed-sp">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      電話予約
+    </a>
+    <a href="#reservation" class="p-fixed-banner__btn p-fixed-banner__btn--web" data-gtm-click="cta-fixed-sp-web">
+      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      WEB予約する
     </a>
   </div>
 
   <!-- JS -->
   <script src="js/main.js"></script>
+
+  <!-- 予約フォーム送信処理 -->
+  <script>
+  (function() {
+    var form = document.getElementById('reservationForm');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var btn = document.getElementById('reservationSubmit');
+      var result = document.getElementById('reservationResult');
+      var email = form.querySelector('[name="email"]').value;
+      var emailConfirm = form.querySelector('[name="email_confirm"]').value;
+
+      // メールアドレス一致チェック
+      if (email !== emailConfirm) {
+        result.className = 'p-reservation__result p-reservation__result--error';
+        result.textContent = 'メールアドレスが一致しません。';
+        result.style.display = 'block';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '送信中...';
+      result.style.display = 'none';
+
+      var formData = new FormData(form);
+
+      fetch('reservation.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.success) {
+          result.className = 'p-reservation__result p-reservation__result--success';
+          result.textContent = '予約リクエストを送信しました。確認メールをお送りしましたのでご確認ください。';
+          form.reset();
+          // GTM イベント
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'reservation_submit', reservation_status: 'success' });
+          }
+        } else {
+          result.className = 'p-reservation__result p-reservation__result--error';
+          result.textContent = data.message || '送信に失敗しました。';
+        }
+        result.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = '予約リクエストを送信する';
+      })
+      .catch(function() {
+        result.className = 'p-reservation__result p-reservation__result--error';
+        result.textContent = '通信エラーが発生しました。お手数ですがお電話（050-8884-8993）にてご予約ください。';
+        result.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = '予約リクエストを送信する';
+      });
+    });
+
+    // 過去の日付を選択不可にする
+    var today = new Date().toISOString().split('T')[0];
+    var dateInputs = form.querySelectorAll('input[type="date"]');
+    for (var i = 0; i < dateInputs.length; i++) {
+      dateInputs[i].setAttribute('min', today);
+    }
+  })();
+  </script>
 </body>
 </html>
