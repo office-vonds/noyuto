@@ -256,7 +256,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     /* ===== PC版レイアウト（768px以上） ===== */
     @media (min-width: 768px) {
-      body { background: #f0f0f0 !important; margin: 0 !important; }
+      body {
+        background: #f0f0f0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-shadow: none !important;
+      }
       .l-side-nav { display: none !important; }
       main {
         width: 800px !important;
