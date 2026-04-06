@@ -17,6 +17,17 @@ const CONFIG = {
 
 const LOG_FILE = path.join(__dirname, 'vanilla-cron.log');
 const STATE_FILE = path.join(__dirname, 'vanilla-daily-state.json');
+const IMAGES_DIR = path.join(__dirname, 'images');
+
+// テーマインデックス→画像テーマ名のマッピング
+const THEME_IMAGES = ['salary', 'privacy', 'beginner', 'qa', 'dekasegi', 'benefits', 'seasonal'];
+
+function getImagePath(themeIndex) {
+  const themeName = THEME_IMAGES[themeIndex % THEME_IMAGES.length];
+  const variant = Math.floor(Date.now() / 86400000) % 3; // 日替わりバリエーション
+  const imgPath = path.join(IMAGES_DIR, `vanilla_${themeName}_${variant}.jpg`);
+  return fs.existsSync(imgPath) ? imgPath : null;
+}
 
 function log(msg) {
   const ts = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
@@ -437,6 +448,17 @@ async function post() {
       { timeout: 10000 }
     );
     await page.evaluate((html) => CKEDITOR.instances.editor1.setData(html), article.body);
+
+    // 画像アップロード
+    const imgPath = getImagePath(nextIndex);
+    if (imgPath) {
+      const fileInput = await page.$('input[name="image"][type="file"]');
+      if (fileInput) {
+        await fileInput.setInputFiles(imgPath);
+        log(`画像: ${path.basename(imgPath)}`);
+      }
+    }
+
     log(`入力完了: ${article.title} (${article.body.length}文字)`);
 
     // 確認
