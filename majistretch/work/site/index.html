@@ -291,10 +291,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       .p-hero__content { padding-top: 80px !important; }
       .p-hero__logo-mark { margin-top: 30px !important; margin-bottom: 20px !important; }
 
-      /* 口コミバッジ：FV画像内に大きく配置 */
+      /* 口コミバッジ：FV画像上部に大きく配置 */
+      .p-hero__photo {
+        position: relative !important;
+      }
       .p-hero__review {
         position: absolute !important;
-        bottom: 180px !important;
+        top: -80px !important;
+        bottom: auto !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
         display: flex !important;
