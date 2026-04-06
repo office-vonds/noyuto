@@ -242,7 +242,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
 
     /* レスポンシブ SP */
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
+      .p-hero__review {
+        position: static !important;
+        transform: none !important;
+        width: auto !important;
+        max-width: 100% !important;
+      }
       .p-reservation__form {
         padding: 24px 16px;
       }
@@ -297,7 +303,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .p-hero__review {
         position: absolute !important;
-        top: -80px !important;
+        top: -200px !important;
         bottom: auto !important;
         left: 50% !important;
         transform: translateX(-50%) !important;
