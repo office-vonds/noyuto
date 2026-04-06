@@ -17,6 +17,16 @@ const CONFIG = {
 };
 
 const STATE_FILE = path.join(__dirname, 'gh-daily-state.json');
+const IMAGES_DIR = path.join(__dirname, 'images');
+
+const THEME_IMAGES = ['salary', 'privacy', 'beginner', 'qa', 'dekasegi', 'benefits', 'seasonal'];
+
+function getImagePath(themeIndex) {
+  const themeName = THEME_IMAGES[themeIndex % THEME_IMAGES.length];
+  const variant = Math.floor(Date.now() / 86400000) % 3;
+  const imgPath = path.join(IMAGES_DIR, `gh_${themeName}_${variant}.jpg`);
+  return fs.existsSync(imgPath) ? imgPath : null;
+}
 
 function log(msg) {
   const ts = new Date().toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' });
@@ -439,6 +449,16 @@ async function post() {
     } else {
       // プレーンtextarea
       await page.fill('#MpContent', article.body);
+    }
+
+    // 画像アップロード
+    const imgPath = getImagePath(nextIndex);
+    if (imgPath) {
+      const fileInput = await page.$('input[name="upload_pic_pc"][type="file"]');
+      if (fileInput) {
+        await fileInput.setInputFiles(imgPath);
+        log(`画像: ${path.basename(imgPath)}`);
+      }
     }
 
     // 公開設定
