@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>A-TRUCK エリアLP導線デモ｜VONDS テスト</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#053980;--red:#e8302a;--gold:#FDD65F;--g50:#f8f9fc;--g100:#eef1f6;--g200:#d9dee8;--g600:#6b7280;--g800:#1f2937;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--g800);line-height:1.8;font-size:15px;background:#f0f2f5}
+a{color:var(--navy);text-decoration:none}
+.top-bar{background:var(--navy);color:var(--w);text-align:center;padding:12px;font-size:13px;font-weight:500}
+.top-bar span{background:var(--gold);color:var(--navy);padding:2px 10px;border-radius:12px;font-size:11px;font-weight:700;margin-right:8px}
+.container{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* FLOW DIAGRAM */
+.flow-section{padding:48px 0}
+.flow-title{font-size:24px;font-weight:900;color:var(--navy);text-align:center;margin-bottom:8px}
+.flow-subtitle{text-align:center;color:var(--g600);font-size:14px;margin-bottom:40px}
+
+.flow-diagram{display:flex;align-items:flex-start;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.flow-box{background:var(--w);border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06);min-width:180px;max-width:220px;position:relative}
+.flow-box.current{border:3px solid var(--navy);box-shadow:0 4px 20px rgba(5,57,128,.15)}
+.flow-box.new{border:3px solid var(--red);box-shadow:0 4px 20px rgba(232,48,42,.15)}
+.flow-box .label{font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;display:inline-block;margin-bottom:8px}
+.flow-box .label.existing{background:var(--g100);color:var(--g600)}
+.flow-box .label.new-label{background:#ffe0e0;color:var(--red)}
+.flow-box h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.flow-box p{font-size:11px;color:var(--g600)}
+.flow-arrow{font-size:28px;color:var(--g200);align-self:center;flex-shrink:0}
+.flow-branch{display:flex;flex-direction:column;gap:8px;align-items:center}
+.flow-branch .flow-box{min-width:160px}
+
+/* SIMULATED SITE */
+.site-frame{background:var(--w);border-radius:16px;box-shadow:0 8px 40px rgba(0,0,0,.1);overflow:hidden;margin:32px 0}
+.frame-header{background:var(--g800);color:var(--w);padding:8px 16px;display:flex;align-items:center;gap:8px;font-size:12px}
+.frame-dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.frame-dot.r{background:#ff5f57}.frame-dot.y{background:#febc2e}.frame-dot.g{background:#28c840}
+.frame-url{background:rgba(255,255,255,.1);padding:4px 12px;border-radius:6px;flex:1;font-family:monospace;font-size:11px;color:rgba(255,255,255,.7)}
+.frame-label{background:var(--red);color:var(--w);padding:2px 10px;border-radius:10px;font-size:10px;font-weight:700}
+
+/* SIMULATED TOP PAGE */
+.sim-header{background:var(--navy);padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+.sim-header img{height:24px}
+.sim-nav{display:flex;gap:4px}
+.sim-nav a{color:var(--w);font-size:12px;padding:6px 12px;border-radius:6px;transition:background .2s}
+.sim-nav a:hover{background:rgba(255,255,255,.15)}
+.sim-nav a.highlight{background:var(--red);font-weight:700}
+
+.sim-hero{background:linear-gradient(135deg,var(--navy) 0%,#0a5bc4 60%,#1e88e5 100%);color:var(--w);padding:40px 24px;text-align:center}
+.sim-hero h2{font-size:22px;font-weight:900;margin-bottom:8px}
+.sim-hero p{font-size:13px;opacity:.8;margin-bottom:20px}
+
+.area-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;padding:24px}
+.area-card{border:2px solid var(--g200);border-radius:10px;padding:16px;text-align:center;transition:all .2s;cursor:pointer;display:block;color:var(--g800)}
+.area-card:hover{border-color:var(--navy);background:rgba(5,57,128,.03);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.area-card .area-name{font-size:16px;font-weight:700;color:var(--navy)}
+.area-card .area-office{font-size:11px;color:var(--g600);margin-top:2px}
+.area-card .area-tel{font-size:13px;color:var(--red);font-weight:700;margin-top:6px}
+.area-card .area-tag{display:inline-block;background:var(--g50);font-size:10px;padding:2px 8px;border-radius:8px;color:var(--g600);margin-top:6px}
+
+/* EXPLANATION BOXES */
+.explain{padding:32px 0}
+.explain-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.explain-card{background:var(--w);border-radius:12px;padding:24px;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.explain-card h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.explain-card h3 .num{background:var(--navy);color:var(--w);width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.explain-card p{font-size:13px;color:var(--g600)}
+.explain-card ul{font-size:13px;color:var(--g600);padding-left:20px;margin-top:8px}
+.explain-card ul li{margin-bottom:4px}
+
+.sim-section{padding:24px;border-top:1px solid var(--g100)}
+.sim-section h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:12px}
+.sim-link-row{display:flex;gap:8px;flex-wrap:wrap}
+.sim-link-row a{display:inline-block;padding:6px 14px;background:var(--g50);border:1px solid var(--g200);border-radius:6px;font-size:12px;color:var(--navy);font-weight:500;transition:all .2s}
+.sim-link-row a:hover{background:var(--navy);color:var(--w)}
+
+.section-divider{text-align:center;padding:32px 0;color:var(--g600);font-size:13px}
+.section-divider::before,.section-divider::after{content:'';display:inline-block;width:60px;height:1px;background:var(--g200);vertical-align:middle;margin:0 12px}
+
+@media(max-width:768px){
+  .flow-diagram{flex-direction:column;align-items:center}
+  .flow-arrow{transform:rotate(90deg)}
+  .explain-grid{grid-template-columns:1fr}
+  .sim-nav{display:none}
+  .area-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>DEMO</span> A-TRUCK エリアLP 導線デモ — 実際のユーザー体験をシミュレーション
+</div>
+
+<!-- ==================== FLOW DIAGRAM ==================== -->
+<div class="flow-section">
+  <div class="container">
+    <h1 class="flow-title">ユーザー導線フロー</h1>
+    <p class="flow-subtitle">Google検索 → エリアLP → コンバージョン の流れ</p>
+
+    <div class="flow-diagram">
+      <div class="flow-box">
+        <span class="label existing">入口1</span>
+        <h3>🔍 Google検索</h3>
+        <p>「トラック レンタル 千葉」<br>「冷凍車 レンタル 大阪」</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box new">
+        <span class="label new-label">NEW</span>
+        <h3>📄 エリアLP</h3>
+        <p>地域×サービス特化の<br>ランディングページ</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-branch">
+        <div class="flow-box current">
+          <span class="label existing">既存</span>
+          <h3>📞 電話問合せ</h3>
+          <p>各営業所直通</p>
+        </div>
+        <div class="flow-box current">
+          <span class="label existing">既存</span>
+          <h3>📋 Webフォーム</h3>
+          <p>/contact/</p>
+        </div>
+        <div class="flow-box current">
+          <span class="label existing">既存</span>
+          <h3>🚛 車両一覧</h3>
+          <p>/rental/list/</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flow-diagram">
+      <div class="flow-box">
+        <span class="label existing">入口2</span>
+        <h3>🌐 TOP / レンタルページ</h3>
+        <p>既存サイトの<br>トップページ</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box new">
+        <span class="label new-label">NEW</span>
+        <h3>🗺️ エリア選択</h3>
+        <p>フッター等から<br>地域を選択</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box new">
+        <span class="label new-label">NEW</span>
+        <h3>📄 エリアLP</h3>
+        <p>地域密着の<br>詳細情報</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box current">
+        <span class="label existing">既存</span>
+        <h3>📞📋🚛 CV</h3>
+        <p>電話/フォーム/<br>車両一覧</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider">以下、実際のサイト内でのイメージ</div>
+
+<!-- ==================== SIMULATED TOP PAGE ==================== -->
+<div class="container">
+  <div class="site-frame">
+    <div class="frame-header">
+      <span class="frame-dot r"></span><span class="frame-dot y"></span><span class="frame-dot g"></span>
+      <div class="frame-url">https://www.a-truck.jp/</div>
+      <span class="frame-label">TOPページ（イメージ）</span>
+    </div>
+
+    <div class="sim-header">
+      <img src="https://www.a-truck.jp/wp/wp-content/themes/fcvanilla/img/common/header_logo.png" alt="A-TRUCK" height="24">
+      <div class="sim-nav">
+        <a href="truck-rental-chiba.html">レンタル</a>
+        <a href="#">中古車</a>
+        <a href="#">鈑金塗装</a>
+        <a href="#">営業所一覧</a>
+        <a href="https://www.a-truck.jp/contact/" class="highlight">お問合せ</a>
+      </div>
+    </div>
+
+    <div class="sim-hero">
+      <h2>冷凍車・物流トラックのレンタル<br>リース・売買・修理のA-TRUCK</h2>
+      <p>全国11拠点から24時間対応｜土日祝営業</p>
+    </div>
+
+    <!-- NEW: Area Navigation Section -->
+    <div class="sim-section" style="background:#f0f4ff;border-left:4px solid var(--red);">
+      <h3 style="display:flex;align-items:center;gap:8px;">
+        <span style="background:var(--red);color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;">NEW</span>
+        お近くの営業所からトラックをレンタル
+      </h3>
+      <p style="font-size:13px;color:var(--g600);margin-bottom:16px">ご希望のエリアをお選びください。各営業所の詳細・料金・対応車種をご確認いただけます。</p>
+      <div class="area-grid">
+        <a href="truck-rental-sendai.html" class="area-card">
+          <div class="area-name">仙台・宮城</div>
+          <div class="area-office">サテライト東北</div>
+          <div class="area-tel">022-369-3995</div>
+          <div class="area-tag">東北エリア</div>
+        </a>
+        <a href="truck-rental-niigata.html" class="area-card">
+          <div class="area-name">長岡・新潟</div>
+          <div class="area-office">サテライト長岡</div>
+          <div class="area-tel">0258-23-2600</div>
+          <div class="area-tag">甲信越エリア</div>
+        </a>
+        <a href="truck-rental-chiba.html" class="area-card" style="border-color:var(--navy);background:rgba(5,57,128,.03)">
+          <div class="area-name">千葉・船橋</div>
+          <div class="area-office">首都圏支店（本社）</div>
+          <div class="area-tel">047-407-1552</div>
+          <div class="area-tag">首都圏エリア</div>
+        </a>
+        <a href="truck-rental-saitama.html" class="area-card">
+          <div class="area-name">埼玉・所沢</div>
+          <div class="area-office">北関東支店</div>
+          <div class="area-tel">04-2946-9830</div>
+          <div class="area-tag">首都圏エリア</div>
+        </a>
+        <a href="truck-rental-kanagawa.html" class="area-card">
+          <div class="area-name">神奈川・相模原</div>
+          <div class="area-office">神奈川支店</div>
+          <div class="area-tel">042-711-9682</div>
+          <div class="area-tag">首都圏エリア</div>
+        </a>
+        <a href="truck-rental-nagoya.html" class="area-card">
+          <div class="area-name">名古屋・愛知</div>
+          <div class="area-office">名古屋支店</div>
+          <div class="area-tel">0567-68-1970</div>
+          <div class="area-tag">中部エリア</div>
+        </a>
+        <a href="truck-rental-osaka.html" class="area-card">
+          <div class="area-name">大阪・門真</div>
+          <div class="area-office">大阪支店</div>
+          <div class="area-tel">072-886-1301</div>
+          <div class="area-tag">関西エリア</div>
+        </a>
+        <a href="truck-rental-kitakyushu.html" class="area-card">
+          <div class="area-name">北九州・福岡</div>
+          <div class="area-office">九州支店</div>
+          <div class="area-tel">093-482-2091</div>
+          <div class="area-tag">九州エリア</div>
+        </a>
+        <a href="truck-rental-okinawa.html" class="area-card">
+          <div class="area-name">沖縄・糸満</div>
+          <div class="area-office">沖縄支店</div>
+          <div class="area-tel">098-851-7810</div>
+          <div class="area-tag">沖縄エリア</div>
+        </a>
+        <a href="truck-rental-ichikawa.html" class="area-card">
+          <div class="area-name">市川・千葉</div>
+          <div class="area-office">市川R&Cセンター</div>
+          <div class="area-tel">047-303-3902</div>
+          <div class="area-tag">首都圏エリア</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="sim-section">
+      <h3>冷凍車レンタル（エリア別）</h3>
+      <div class="sim-link-row">
+        <a href="freezer-rental-chiba.html">千葉</a>
+        <a href="freezer-rental-saitama.html">埼玉</a>
+        <a href="freezer-rental-kanagawa.html">神奈川</a>
+        <a href="freezer-rental-nagoya.html">名古屋</a>
+        <a href="freezer-rental-osaka.html">大阪</a>
+        <a href="freezer-rental-kitakyushu.html">北九州</a>
+        <a href="freezer-rental-okinawa.html">沖縄</a>
+        <a href="freezer-rental-sendai.html">仙台</a>
+        <a href="freezer-rental-niigata.html">新潟</a>
+        <a href="freezer-rental-ichikawa.html">市川</a>
+      </div>
+    </div>
+
+    <div class="sim-section">
+      <h3>よくあるご質問</h3>
+      <div class="sim-link-row">
+        <a href="faq.html">FAQ一覧ページ →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-divider">導線の設計意図</div>
+
+<!-- ==================== EXPLANATION ==================== -->
+<div class="explain">
+  <div class="container">
+    <div class="explain-grid">
+      <div class="explain-card">
+        <h3><span class="num">1</span>Google検索からの直接流入</h3>
+        <p>「トラック レンタル 千葉」で検索したユーザーが、千葉のエリアLPに直接ランディング。</p>
+        <ul>
+          <li>地域名がtitle・h1・description全てに含まれる</li>
+          <li>その営業所の電話番号・住所が明記</li>
+          <li>FAQ構造化データでリッチリザルト表示</li>
+          <li>LocalBusinessスキーマでローカルパック対応</li>
+        </ul>
+      </div>
+      <div class="explain-card">
+        <h3><span class="num">2</span>既存サイトからの回遊</h3>
+        <p>TOPページ・レンタルページに「エリア選択セクション」を追加し、各エリアLPへ誘導。</p>
+        <ul>
+          <li>TOPページのフッター上にエリア一覧を配置</li>
+          <li>営業所一覧ページからもリンク</li>
+          <li>内部リンクの強化でSEO効果も向上</li>
+        </ul>
+      </div>
+      <div class="explain-card">
+        <h3><span class="num">3</span>エリアLP内のCV導線</h3>
+        <p>各エリアLPは1ページ完結型。スクロールだけで電話・フォーム送信に到達。</p>
+        <ul>
+          <li>ヒーロー: 電話ボタン+Webフォームリンク</li>
+          <li>中間CTA: 料金表の直下に電話番号</li>
+          <li>下部CTA: 最終アクション誘導</li>
+          <li>モバイル固定バー: 常時「電話」「問合せ」表示</li>
+        </ul>
+      </div>
+      <div class="explain-card">
+        <h3><span class="num">4</span>ページ構成（全22ページ）</h3>
+        <p>エリア×サービスのマトリクスで面を取る戦略。</p>
+        <ul>
+          <li><strong>トラックレンタル × 10拠点</strong> = 10ページ</li>
+          <li><strong>冷凍車レンタル × 10拠点</strong> = 10ページ</li>
+          <li><strong>FAQ専用ページ</strong> = 1ページ</li>
+          <li><strong>管理用インデックス</strong> = 1ページ</li>
+          <li>本番はWordPress固定ページとして実装</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background:var(--navy);color:var(--w);text-align:center;padding:24px;font-size:13px;margin-top:32px">
+  <p>A-TRUCK エリアLP導線デモ｜VONDS テスト用（非公開）</p>
+  <p style="opacity:.5;margin-top:4px;font-size:11px">※千葉版（truck-rental-chiba.html）のみv2テンプレート適用済み。他は旧版。</p>
+</div>
+
+</body>
+</html>
