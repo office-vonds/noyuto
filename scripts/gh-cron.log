@@ -1,0 +1,6 @@
+[2026/4/6 21:00:01] 記事選択: [2] 【未経験の方へ】入店初日の流れを完全公開！
+[2026/4/6 21:00:01] 予約投稿: 2026/04/07 22:00
+[2026/4/6 21:00:31] エラー: page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://manager.girlsheaven-job.net/", waiting until "networkidle"
+

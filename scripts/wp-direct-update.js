@@ -92,7 +92,7 @@ const I = {
 
 // ===== コンポーネント =====
 function toc(items) { return `<div class="ar-toc"><h2>この記事の内容</h2><ol>${items.map((t,i)=>`<li><a href="#sec${i+1}">${t}</a></li>`).join('')}</ol></div>`; }
-function miniCta(text, sub) { return `<a href="/contact/" class="ar-mini-cta"><div class="ar-mc-txt"><strong>${text}</strong><span>${sub||'初回体験コース受付中'}</span></div><div class="ar-mc-arrow">→</div></a>`; }
+function miniCta(text, sub) { return `<a href="/contact/" class="ar-mini-cta"><span class="ar-mc-txt"><span class="ar-mc-title">${text}</span><span class="ar-mc-sub">${sub||'初回体験コース受付中'}</span></span><span class="ar-mc-arrow">→</span></a>`; }
 function fullCta(title, desc) { return `<div class="ar-cta"><h3>${title}</h3><p>${desc}</p><a href="/contact/" class="ar-cta-btn">無料カウンセリング予約 →</a></div>`; }
 function storeCards() { return `<div class="ar-stores"><a href="/shop/shop-kofu/" class="ar-store"><img src="${I.kofu}" alt="甲府上石田店" loading="lazy"><span>甲府上石田店</span></a><a href="/shop/shop-minami-alps/" class="ar-store"><img src="${I.alps}" alt="南アルプス店" loading="lazy"><span>南アルプス店</span></a><a href="/shop/shop-nirasaki/" class="ar-store"><img src="${I.nira}" alt="韮崎店" loading="lazy"><span>韮崎店</span></a><a href="/shop/shop-kai-hibikigaoka/" class="ar-store"><img src="${I.kai}" alt="甲斐響が丘店" loading="lazy"><span>甲斐響が丘店</span></a></div>`; }
 function relatedArticles(ex) {
