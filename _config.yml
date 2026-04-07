@@ -1,0 +1,18 @@
+exclude:
+  - scripts/
+  - auto-repair/
+  - seo/
+  - theme/
+  - skills/
+  - hearing/
+  - "*.py"
+  - "*.js"
+  - "*.json"
+  - "*.log"
+  - "*.sh"
+  - node_modules/
+  - __pycache__/
+  - .env
+  - .env.local
+  - CLAUDE.md
+  - kizuna-job
