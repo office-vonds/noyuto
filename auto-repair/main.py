@@ -49,14 +49,15 @@ def main():
             # Claude Code実行
             result = execute.run(req)
 
-            # エラー判定
+            # エラー判定（情報不足はreport.py側で判定するのでここではエラーのみ）
+            result_status = result.get("status", "").strip()
             is_error = (
                 "エラー" in result.get("summary", "")
                 or "タイムアウト" in result.get("summary", "")
                 or "見つかりません" in result.get("summary", "")
-            )
+            ) and "情報不足" not in result_status
 
-            # レポート + 通知
+            # レポート + 通知（情報不足/完了/エラーの振り分けはreport.run内で実施）
             report.run(req, result, is_error=is_error)
 
             status = "エラー" if is_error else "完了"

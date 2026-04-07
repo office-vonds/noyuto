@@ -130,17 +130,75 @@ MAIL: office.vonds@gmail.com
 </html>"""
 
 
+def build_inquiry_email_html(request_data, result):
+    """情報不足時の確認依頼メールHTML本文を生成"""
+    missing_info = result.get("missing_info", "")
+    notes = result.get("notes", "")
+
+    return f"""<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family:'Hiragino Sans','Noto Sans JP',sans-serif;color:#333;line-height:1.8;max-width:600px;margin:0 auto;padding:20px;">
+
+<div style="background:#F59E0B;color:#fff;padding:16px 24px;border-radius:8px 8px 0 0;">
+  <h2 style="margin:0;font-size:18px;">改修依頼の確認をお願いいたします</h2>
+</div>
+
+<div style="background:#fff;border:1px solid #ddd;border-top:none;padding:24px;border-radius:0 0 8px 8px;">
+
+<p>いつもお世話になっております。<br>
+ご依頼いただきました改修について、<strong>情報が不足しているため対応を保留</strong>しております。<br>
+お手数ですが、以下の情報をご確認のうえ、改修依頼フォームより再度ご連絡ください。</p>
+
+<h3 style="color:#F59E0B;border-bottom:2px solid #F59E0B;padding-bottom:4px;font-size:15px;">ご依頼内容</h3>
+<p style="background:#f9f9f9;padding:12px;border-radius:4px;">{request_data.get('request_content', '')}</p>
+
+<h3 style="color:#F59E0B;border-bottom:2px solid #F59E0B;padding-bottom:4px;font-size:15px;">不足している情報</h3>
+<p style="background:#FEF3C7;padding:12px;border-radius:4px;white-space:pre-wrap;">{missing_info}</p>
+
+{"<h3 style='color:#F59E0B;border-bottom:2px solid #F59E0B;padding-bottom:4px;font-size:15px;'>確認事項</h3><p style='background:#FEF3C7;padding:12px;border-radius:4px;white-space:pre-wrap;'>" + notes + "</p>" if notes else ""}
+
+<hr style="border:none;border-top:1px solid #eee;margin:24px 0;">
+<p>上記の情報を添えて、改修依頼フォームより再度ご依頼ください。<br>
+ご不明点がございましたら、お電話でもお気軽にご連絡ください。</p>
+
+<p style="color:#888;font-size:13px;margin-top:24px;">
+株式会社オフィスVONDS<br>
+TEL: 050-8884-8993<br>
+MAIL: office.vonds@gmail.com
+</p>
+
+</div>
+</body>
+</html>"""
+
+
 def run(request_data, result, is_error=False):
     """メイン処理: Notion書き戻し + Gmail通知"""
     page_id = request_data["page_id"]
     site_name = request_data.get("site_name", "")
     request_content = request_data.get("request_content", "")
 
-    status = "エラー" if is_error else "完了"
+    # ステータス判定: 情報不足 / エラー / 完了
+    result_status = result.get("status", "").strip()
+    is_missing_info = "情報不足" in result_status or "情報不足" in result.get("summary", "")
+
+    if is_missing_info:
+        status = "確認待ち"
+    elif is_error:
+        status = "エラー"
+    else:
+        status = "完了"
 
     # Notion書き戻し
     try:
-        update_notion(page_id, result, status)
+        # 情報不足時はsummaryに不足情報を含める
+        if is_missing_info:
+            result_for_notion = dict(result)
+            result_for_notion["summary"] = f"【情報不足】\n{result.get('missing_info', '')}\n\n{result.get('notes', '')}"
+        else:
+            result_for_notion = result
+        update_notion(page_id, result_for_notion, status)
     except Exception as e:
         logger.error(f"Notion書き戻し失敗: {e}")
 
@@ -150,10 +208,15 @@ def run(request_data, result, is_error=False):
     if client_email:
         to_list.insert(0, client_email)
 
-    subject_prefix = "【改修完了】" if not is_error else "【改修エラー】"
-    subject = f"{subject_prefix}{site_name} - {request_content[:30]}"
-
-    html_body = build_email_html(request_data, result)
+    if is_missing_info:
+        subject = f"【確認依頼】{site_name} - {request_content[:30]}"
+        html_body = build_inquiry_email_html(request_data, result)
+    elif is_error:
+        subject = f"【改修エラー】{site_name} - {request_content[:30]}"
+        html_body = build_email_html(request_data, result)
+    else:
+        subject = f"【改修完了】{site_name} - {request_content[:30]}"
+        html_body = build_email_html(request_data, result)
 
     try:
         send_gmail(to_list, subject, html_body)
