@@ -1,9 +1,18 @@
 <?php
-// ===== 予約フォーム処理 =====
-// 送信先: info@majistretch.com
+// ===== 予約フォーム処理（PHPMailer + Google Workspace SMTP） =====
+// 送信先: info@majistretch.com + yuki.nakagomi@sanken-gr.com
 // 自動返信メール付き
 
 header('Content-Type: application/json; charset=UTF-8');
+
+// PHPMailer読み込み
+require_once __DIR__ . '/phpmailer/Exception.php';
+require_once __DIR__ . '/phpmailer/PHPMailer.php';
+require_once __DIR__ . '/phpmailer/SMTP.php';
+require_once __DIR__ . '/mail-config.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 // POST以外は拒否
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -62,18 +71,23 @@ $wish1 = "{$date1} {$time1}";
 $wish2 = ($date2 && $time2) ? "{$date2} {$time2}" : '未選択';
 $wish3 = ($date3 && $time3) ? "{$date3} {$time3}" : '未選択';
 
-// --- 店舗宛メール（info + 転送先にも直接送信） ---
-$to_shop   = 'info@majistretch.com, yuki.nakagomi@sanken-gr.com';
-$subject_shop = "【WEB予約】{$name} 様よりご予約リクエスト";
-$headers_shop = implode("\r\n", [
-    'From: info@majistretch.com',
-    'Reply-To: ' . $email,
-    'Return-Path: info@majistretch.com',
-    'X-Mailer: MajiStretch-Reservation',
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-]);
+// --- SMTP共通設定関数 ---
+function createMailer() {
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+    $mail->Host       = SMTP_HOST;
+    $mail->SMTPAuth   = true;
+    $mail->Username   = SMTP_USER;
+    $mail->Password   = SMTP_PASS;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = SMTP_PORT;
+    $mail->CharSet    = 'UTF-8';
+    $mail->Encoding   = 'base64';
+    $mail->setFrom(SMTP_FROM_EMAIL, SMTP_FROM_NAME);
+    return $mail;
+}
 
+// --- 店舗宛メール ---
 $body_shop = <<<EOT
 ━━━━━━━━━━━━━━━━━━━━━━━━
   WEB予約リクエスト
@@ -97,15 +111,6 @@ $body_shop = <<<EOT
 EOT;
 
 // --- 顧客宛 自動返信メール ---
-$subject_auto = '【ストレッチゼロ】ご予約リクエストを受け付けました';
-$headers_auto = implode("\r\n", [
-    'From: info@majistretch.com',
-    'Return-Path: info@majistretch.com',
-    'X-Mailer: MajiStretch-Reservation',
-    'MIME-Version: 1.0',
-    'Content-Type: text/plain; charset=UTF-8',
-]);
-
 $body_auto = <<<EOT
 {$name} 様
 
@@ -169,12 +174,27 @@ MAIL: info@majistretch.com
 EOT;
 
 // --- メール送信 ---
-$sent_shop = mb_send_mail($to_shop, $subject_shop, $body_shop, $headers_shop, '-f info@majistretch.com');
-$sent_auto = mb_send_mail($email, $subject_auto, $body_auto, $headers_auto, '-f info@majistretch.com');
+try {
+    // 店舗宛
+    $mail_shop = createMailer();
+    $mail_shop->addAddress(MAIL_TO_SHOP);
+    $mail_shop->addAddress(MAIL_TO_FORWARD);
+    $mail_shop->addReplyTo($email, $name);
+    $mail_shop->Subject = "【WEB予約】{$name} 様よりご予約リクエスト";
+    $mail_shop->Body = $body_shop;
+    $mail_shop->send();
 
-if ($sent_shop) {
+    // 顧客宛自動返信
+    $mail_auto = createMailer();
+    $mail_auto->addAddress($email, $name);
+    $mail_auto->Subject = '【ストレッチゼロ】ご予約リクエストを受け付けました';
+    $mail_auto->Body = $body_auto;
+    $mail_auto->send();
+
     echo json_encode(['success' => true, 'message' => '予約リクエストを送信しました。']);
-} else {
+
+} catch (Exception $e) {
+    error_log('MajiStretch mail error: ' . $e->getMessage());
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => '送信に失敗しました。お手数ですがお電話にてご予約ください。']);
+    echo json_encode(['success' => false, 'message' => '送信に失敗しました。お手数ですがお電話（050-8884-8993）にてご予約ください。']);
 }
