@@ -1205,13 +1205,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .then(function(res) { return res.json(); })
       .then(function(data) {
         if (data.success) {
-          result.className = 'p-reservation__result p-reservation__result--success';
-          result.textContent = '予約リクエストを送信しました。確認メールをお送りしましたのでご確認ください。';
-          form.reset();
-          // GTM イベント
-          if (window.dataLayer) {
-            window.dataLayer.push({ event: 'reservation_submit', reservation_status: 'success' });
-          }
+          // サンクスページへリダイレクト
+          window.location.href = 'lp/thanks.html';
+          return;
         } else {
           result.className = 'p-reservation__result p-reservation__result--error';
           result.textContent = data.message || '送信に失敗しました。';
