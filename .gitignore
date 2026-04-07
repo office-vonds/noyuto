@@ -2,3 +2,4 @@
 **/mail-config.php
 auto-repair/.env
 .env.local
+scripts/node_modules/
