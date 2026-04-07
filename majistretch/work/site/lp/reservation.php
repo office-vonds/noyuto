@@ -62,12 +62,15 @@ $wish1 = "{$date1} {$time1}";
 $wish2 = ($date2 && $time2) ? "{$date2} {$time2}" : '未選択';
 $wish3 = ($date3 && $time3) ? "{$date3} {$time3}" : '未選択';
 
-// --- 店舗宛メール ---
-$to_shop   = 'info@majistretch.com';
+// --- 店舗宛メール（info + 転送先にも直接送信） ---
+$to_shop   = 'info@majistretch.com, yuki.nakagomi@sanken-gr.com';
 $subject_shop = "【WEB予約】{$name} 様よりご予約リクエスト";
 $headers_shop = implode("\r\n", [
     'From: info@majistretch.com',
     'Reply-To: ' . $email,
+    'Return-Path: info@majistretch.com',
+    'X-Mailer: MajiStretch-Reservation',
+    'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
 ]);
 
@@ -94,21 +97,45 @@ $body_shop = <<<EOT
 EOT;
 
 // --- 顧客宛 自動返信メール ---
-$subject_auto = '【本気ストレッチ】ご予約リクエストを受け付けました';
+$subject_auto = '【ストレッチゼロ】ご予約リクエストを受け付けました';
 $headers_auto = implode("\r\n", [
     'From: info@majistretch.com',
+    'Return-Path: info@majistretch.com',
+    'X-Mailer: MajiStretch-Reservation',
+    'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
 ]);
 
 $body_auto = <<<EOT
 {$name} 様
 
-この度は、ストレッチゼロ/本気ストレッチへご予約のリクエストをいただき、誠にありがとうございます。
+この度は、ストレッチゼロへご予約のリクエストをいただき、誠にありがとうございます。
 
-【重要】本メールは『仮予約』となります。
+━━━━━━━━━━━━━━━━━━━━━━━━
+  ★ 本メールは『仮予約』となります ★
+━━━━━━━━━━━━━━━━━━━━━━━━
 
-スタッフが空き状況を確認し、店舗からの『予約確定メール』または『お電話』をもって予約完了となります。
-ホットペッパー等のリアルタイム予約とタイムラグがあるため、ご希望に添えない場合がございます。あらかじめご了承下さい。
+スタッフが空き状況を確認し、店舗からの
+『予約確定メール』または『お電話』をもって
+予約完了となります。
+
+ホットペッパー等のリアルタイム予約と
+タイムラグがあるため、ご希望に添えない場合が
+ございます。あらかじめご了承下さい。
+
+━━━━━━━━━━━━━━━━━━━━━━━━
+  ■ 重要：お電話番号について
+━━━━━━━━━━━━━━━━━━━━━━━━
+
+以下の電話番号からおかけいたします。
+
+【TEL: 050-8884-8993】
+
+※知らない番号からの着信を警戒される方が
+増えております。恐れ入りますが、
+スムーズにご連絡できるよう、
+上記番号からの着信に出られるよう
+お願いいたします。
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
   ご予約リクエスト内容
@@ -133,7 +160,7 @@ $body_auto = <<<EOT
 お問い合わせ・ご不明点がございましたら
 お気軽にご連絡ください。
 
-本気ストレッチ 甲府上阿原店
+ストレッチゼロ 甲府上阿原店
 TEL: 050-8884-8993
 MAIL: info@majistretch.com
 営業時間: 9:00〜22:00（完全予約制）
@@ -142,8 +169,8 @@ MAIL: info@majistretch.com
 EOT;
 
 // --- メール送信 ---
-$sent_shop = mb_send_mail($to_shop, $subject_shop, $body_shop, $headers_shop);
-$sent_auto = mb_send_mail($email, $subject_auto, $body_auto, $headers_auto);
+$sent_shop = mb_send_mail($to_shop, $subject_shop, $body_shop, $headers_shop, '-f info@majistretch.com');
+$sent_auto = mb_send_mail($email, $subject_auto, $body_auto, $headers_auto, '-f info@majistretch.com');
 
 if ($sent_shop) {
     echo json_encode(['success' => true, 'message' => '予約リクエストを送信しました。']);
