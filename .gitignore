@@ -1,2 +1,4 @@
 # SMTP認証情報（パスワード含むためgit管理対象外）
 **/mail-config.php
+auto-repair/.env
+.env.local
