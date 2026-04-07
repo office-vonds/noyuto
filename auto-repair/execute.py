@@ -27,7 +27,22 @@ def build_prompt(request_data):
 対象ページ: {request_data['target_url']}
 
 上記の改修を実施してください。
-作業完了後、以下のフォーマットで報告してください：
+
+【重要】依頼内容の情報が不足していて改修を実行できない場合は、改修を行わず、以下のフォーマットで報告してください：
+
+## ステータス
+情報不足
+
+## 不足情報
+（改修に必要だが依頼に含まれていない情報を具体的に列挙）
+
+## 確認事項
+（クライアントへの質問事項）
+
+改修を実行できる場合は、実施後に以下のフォーマットで報告してください：
+
+## ステータス
+完了
 
 ## 実施内容サマリ
 （何をどう変更したか）
@@ -43,15 +58,19 @@ def build_prompt(request_data):
 def parse_result(stdout):
     """Claude Codeの出力から結果を構造化"""
     result = {
+        "status": "",
         "summary": "",
         "changed_files": "",
+        "missing_info": "",
         "notes": "",
         "raw_output": stdout,
     }
 
     sections = {
+        "## ステータス": "status",
         "## 実施内容サマリ": "summary",
         "## 変更ファイル一覧": "changed_files",
+        "## 不足情報": "missing_info",
         "## 確認事項": "notes",
     }
 
