@@ -122,16 +122,7 @@ def select_keyword(keywords_data: dict, state: dict) -> tuple:
 # 記事生成 (Claude API)
 # ==============================================================================
 def generate_article_content(keyword_entry: dict, category: dict) -> str:
-    """Claude APIで記事本文HTMLを生成"""
-    try:
-        import anthropic
-    except ImportError:
-        logger.error("anthropic SDKがインストールされていません: pip install anthropic")
-        sys.exit(1)
-
-    api_key = get_api_key()
-    client = anthropic.Anthropic(api_key=api_key)
-
+    """claude --print でヘッドレス実行して記事本文HTMLを生成"""
     keyword = keyword_entry["keyword"]
     title = keyword_entry["title"]
     cat_label = category["label"]
@@ -186,22 +177,26 @@ def generate_article_content(keyword_entry: dict, category: dict) -> str:
 - VONDSの宣伝は入れない（CTAは記事外に別途あるため）
 
 【出力形式】
-- HTML本文のみを出力（<article>タグ、<html>タグは不要）
+- HTML本文のみを出力（article/htmlタグは不要）
 - 最初にリード文をp要素で記述し、その後h2から開始
-- ```html や ``` は付けない
+- コードブロック記法は付けない
 - 純粋なHTML本文のみ"""
 
-    logger.info(f"Claude API呼び出し開始: {keyword}")
+    logger.info(f"claude --print 実行開始: {keyword}")
 
     try:
-        message = client.messages.create(
-            model="claude-sonnet-4-20250514",
-            max_tokens=8192,
-            timeout=120.0,
-            messages=[{"role": "user", "content": prompt}],
+        result = subprocess.run(
+            ["claude", "--print", "-p", prompt],
+            capture_output=True,
+            text=True,
+            timeout=600,
         )
 
-        content = message.content[0].text
+        if result.returncode != 0:
+            logger.error(f"claude --print 失敗: {result.stderr[:500]}")
+            sys.exit(1)
+
+        content = result.stdout.strip()
         # コードブロック記法の除去
         content = re.sub(r"^```html\s*\n?", "", content)
         content = re.sub(r"\n?```\s*$", "", content)
@@ -211,8 +206,14 @@ def generate_article_content(keyword_entry: dict, category: dict) -> str:
         logger.info(f"記事生成完了: {char_count}文字")
 
         return content
+    except subprocess.TimeoutExpired:
+        logger.error("claude --print タイムアウト（600秒）")
+        sys.exit(1)
+    except FileNotFoundError:
+        logger.error("claudeコマンドが見つかりません")
+        sys.exit(1)
     except Exception as e:
-        logger.error(f"Claude API エラー: {e}")
+        logger.error(f"記事生成エラー: {e}")
         sys.exit(1)
 
 
