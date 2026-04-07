@@ -40,8 +40,10 @@ def fetch_new_requests():
     url = f"{NOTION_API_URL}/databases/{NOTION_DB_ID}/query"
     payload = {
         "filter": {
-            "property": "ステータス",
-            "select": {"equals": "新規"},
+            "or": [
+                {"property": "ステータス", "select": {"equals": "新規"}},
+                {"property": "ステータス", "select": {"is_empty": True}},
+            ]
         },
         "sorts": [
             {"property": "依頼日時", "direction": "ascending"}
