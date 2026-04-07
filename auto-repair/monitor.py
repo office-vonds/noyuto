@@ -87,10 +87,21 @@ def extract_request_data(page):
         prop = props.get(prop_name, {})
         return prop.get("email", "") or ""
 
+    def get_title(prop_name):
+        prop = props.get(prop_name, {})
+        texts = prop.get("title", [])
+        return "".join(t.get("plain_text", "") for t in texts)
+
+    # サイト名: selectプロパティから取得、なければtitleから
+    site_name = get_select("サイト名") or get_title("サイト名 (1)") or get_title("サイト名")
+
+    # 依頼内容: 複数候補対応
+    request_content = get_rich_text("依頼内容") or get_rich_text("依頼内容 (1)")
+
     return {
         "page_id": page["id"],
-        "site_name": get_select("サイト名"),
-        "request_content": get_rich_text("依頼内容"),
+        "site_name": site_name,
+        "request_content": request_content,
         "target_url": get_url("対象ページURL"),
         "priority": get_select("優先度"),
         "client_email": get_email("クライアントメール"),
