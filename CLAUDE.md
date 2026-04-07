@@ -89,3 +89,4 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 - antique/ — antique合同会社・引継ぎ後の関係
 - palletters/ — バンド活動・メンバー構成
 - client-web/ — クライアントWeb案件（SANKEN等）
+- design-system/ — デザインシステム（UIスタイル・カラーパレット・フォント・コンポーネント設計）
