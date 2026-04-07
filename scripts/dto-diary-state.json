@@ -1,6 +1,6 @@
 {
   "lastImageIndex": 1,
-  "lastTemplateIndex": 1,
+  "lastTemplateIndex": 2,
   "history": [
     {
       "cast": "きみ",
@@ -13,6 +13,17 @@
       "title": "ありがとう💕",
       "image": "きみ_0_contrast_hi.jpg",
       "postedAt": "2026-04-06T08:50:37.340Z"
+    },
+    {
+      "cast": "なみ",
+      "title": "甘えたい気分♡",
+      "image": "S__24903776_0.jpg",
+      "postedAt": "2026-04-07T10:15:44.146Z"
     }
-  ]
+  ],
+  "usedImages": {
+    "なみ": [
+      "S__24903776_0.jpg"
+    ]
+  }
 }

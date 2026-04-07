@@ -24,6 +24,7 @@ const CASTS = {
   'ひいら': { id: '3538242', char: 'クール・ギャップ' },
   'なおみ': { id: '5041113', char: '包容力・人妻感' },
   'けいか': { id: '4138474', char: '妖艶・大人の色気' },
+  'なみ':   { id: '5219440', char: 'セクシー・小悪魔' },
 };
 
 // ── 全国ランキング分析に基づくテンプレート ──
@@ -559,6 +560,7 @@ async function postDiary(castName, dryRun) {
 // 引数
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
-const castName = 'きみ'; // デフォルト
+const castNameArg = args.find(a => !a.startsWith('--'));
+const castName = castNameArg || 'きみ';
 
 postDiary(castName, dryRun);
