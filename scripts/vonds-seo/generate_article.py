@@ -29,6 +29,7 @@ STATE_PATH = BASE_DIR / "state.json"
 LOG_DIR = BASE_DIR / "logs"
 LOG_PATH = LOG_DIR / "generate.log"
 
+PATTERNS_PATH = BASE_DIR / "learned_patterns.json"
 SITE_URL = "https://vonds.co.jp"
 OG_IMAGE = f"{SITE_URL}/1600-900-1.jpg"
 JST = timezone(timedelta(hours=9))
@@ -121,14 +122,59 @@ def select_keyword(keywords_data: dict, state: dict) -> tuple:
 # ==============================================================================
 # 記事生成 (Claude API)
 # ==============================================================================
+def load_learned_patterns() -> str:
+    """learned_patterns.jsonから学習済みパターンをプロンプト用テキストに変換"""
+    if not PATTERNS_PATH.exists():
+        return ""
+
+    try:
+        patterns = json.loads(PATTERNS_PATH.read_text(encoding="utf-8"))
+    except Exception:
+        return ""
+
+    sections = []
+
+    # 品質ルール
+    rules = patterns.get("quality_rules", [])
+    if rules:
+        sections.append("【過去の学習から得た品質ルール】\n" + "\n".join(f"- {r}" for r in rules))
+
+    # スタイルパターン
+    style = patterns.get("style_patterns", [])
+    if style:
+        sections.append("【文体ルール】\n" + "\n".join(f"- {s}" for s in style))
+
+    # 構造パターン
+    structure = patterns.get("structure_patterns", [])
+    if structure:
+        sections.append("【構造ルール】\n" + "\n".join(f"- {s}" for s in structure))
+
+    # 勝ちパターン
+    top = patterns.get("top_performing_patterns", [])
+    if top:
+        sections.append("【高評価記事のパターン（参考にすること）】\n" + "\n".join(f"- {t}" for t in top[:5]))
+
+    # 避けるべきパターン
+    avoided = patterns.get("avoided_patterns", [])
+    if avoided:
+        sections.append("【避けるべきパターン（絶対にやらないこと）】\n" + "\n".join(f"- {a}" for a in avoided))
+
+    return "\n\n".join(sections)
+
+
 def generate_article_content(keyword_entry: dict, category: dict) -> str:
-    """claude --print でヘッドレス実行して記事本文HTMLを生成"""
+    """claude --print でヘッドレス実行して記事本文HTMLを生成（品質チェック付き・最大2回再生成）"""
+    from quality_checker import check_article
+
     keyword = keyword_entry["keyword"]
     title = keyword_entry["title"]
     cat_label = category["label"]
+    learned = load_learned_patterns()
 
     prompt = f"""あなたは日本のWEBマーケティング・SEO対策の専門家です。
 株式会社オフィスVONDS（山梨県甲府市）のコラム記事として、以下の要件で記事本文HTMLを生成してください。
+
+{learned}
 
 【記事情報】
 - キーワード: {keyword}
@@ -182,34 +228,57 @@ def generate_article_content(keyword_entry: dict, category: dict) -> str:
 - コードブロック記法は付けない
 - 純粋なHTML本文のみ"""
 
-    logger.info(f"claude --print 実行開始: {keyword}")
+    MAX_RETRIES = 2
+    content = None
 
-    try:
-        result = subprocess.run(
-            ["claude", "--print", "-p", prompt],
-            capture_output=True,
-            text=True,
-            timeout=600,
-        )
+    for attempt in range(1, MAX_RETRIES + 2):
+        current_prompt = prompt if attempt == 1 else prompt + "\n\n" + retry_instruction
+        logger.info(f"claude --print 実行 (試行{attempt}/{MAX_RETRIES+1}): {keyword}")
 
-        if result.returncode != 0:
-            logger.error(f"claude --print 失敗: {result.stderr[:500]}")
+        try:
+            result = subprocess.run(
+                ["claude", "--print", "-p", current_prompt],
+                capture_output=True,
+                text=True,
+                timeout=600,
+            )
+
+            if result.returncode != 0:
+                logger.error(f"claude --print 失敗: {result.stderr[:500]}")
+                sys.exit(1)
+
+            content = result.stdout.strip()
+            content = re.sub(r"^```html\s*\n?", "", content)
+            content = re.sub(r"\n?```\s*$", "", content)
+            content = content.strip()
+
+            char_count = count_chars(content)
+            logger.info(f"記事生成完了: {char_count}文字")
+
+            # 品質チェック
+            check = check_article(content)
+            logger.info(f"品質スコア: {check['score']}点 ({'合格' if check['passed'] else '不合格'})")
+
+            if check["passed"]:
+                logger.info(f"品質基準クリア（{check['score']}点）")
+                return content
+
+            if attempt <= MAX_RETRIES:
+                issues_text = "\n".join(f"- {i}" for i in check["issues"])
+                retry_instruction = f"""
+【品質チェック結果: {check['score']}点で不合格。以下を改善して再生成してください】
+{issues_text}
+
+必ず上記の全問題を解消した記事本文HTMLを出力してください。"""
+                logger.info(f"品質不合格（{check['score']}点）→ 再生成します")
+            else:
+                logger.warning(f"最終試行も{check['score']}点。そのまま採用します")
+                return content
+
+        except subprocess.TimeoutExpired:
+            logger.error("claude --print タイムアウト（600秒）")
             sys.exit(1)
-
-        content = result.stdout.strip()
-        # コードブロック記法の除去
-        content = re.sub(r"^```html\s*\n?", "", content)
-        content = re.sub(r"\n?```\s*$", "", content)
-        content = content.strip()
-
-        char_count = count_chars(content)
-        logger.info(f"記事生成完了: {char_count}文字")
-
-        return content
-    except subprocess.TimeoutExpired:
-        logger.error("claude --print タイムアウト（600秒）")
-        sys.exit(1)
-    except FileNotFoundError:
+        except FileNotFoundError:
         logger.error("claudeコマンドが見つかりません")
         sys.exit(1)
     except Exception as e:
@@ -666,6 +735,17 @@ def main():
     logger.info(f"URL: {SITE_URL}/column/{slug}/")
     logger.info(f"文字数: {char_count}文字")
     logger.info("=" * 60)
+
+    # 10. 学習分析（毎回実行。公開済み記事の品質パターンを更新）
+    try:
+        from learn import analyze_all_articles, update_learned_patterns
+        logger.info("学習分析を実行中...")
+        results = analyze_all_articles()
+        if results:
+            update_learned_patterns(results)
+            logger.info("学習パターン更新完了 → 次回の記事生成に反映されます")
+    except Exception as e:
+        logger.warning(f"学習分析スキップ: {e}")
 
 
 if __name__ == "__main__":
