@@ -6,170 +6,136 @@
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GT-NFRN79GB"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GT-NFRN79GB');</script>
-  <!-- Google Search Console -->
   <meta name="google-site-verification" content="jYrwrlMXWshD3csIrSV5nwZIsc6AGJrXFNc0Vp5n9js">
-  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1853024193601363" crossorigin="anonymous"></script>
-  <!-- Facebook Pixel -->
-  <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','336659113751733');fbq('track','PageView');</script>
-  <title>コラム一覧 | オフィスVONDS 山梨</title>
-  <meta name="description" content="山梨県のSEO対策・WEBマーケティング会社オフィスVONDSのコラム一覧。SEO対策、ホームページ制作、WEBマーケティング、AI活用に関する専門知識を発信。">
+  <title>コラム | 株式会社オフィスVONDS</title>
+  <meta name="description" content="SEO対策・ホームページ制作・WEBマーケティング・AI活用に関するコラム記事一覧。中小企業のデジタル戦略に役立つ情報を発信しています。">
   <link rel="canonical" href="https://vonds.co.jp/column/">
-  <meta property="og:title" content="コラム一覧｜株式会社オフィスVONDS">
-  <meta property="og:description" content="SEO対策・WEBマーケティングの専門知識を発信するコラム一覧。">
+  <meta property="og:title" content="コラム | 株式会社オフィスVONDS">
+  <meta property="og:description" content="SEO対策・ホームページ制作・WEBマーケティング・AI活用に関するコラム記事一覧。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://vonds.co.jp/column/">
   <meta property="og:image" content="https://vonds.co.jp/1600-900-1.jpg">
-  <meta property="og:locale" content="ja_JP">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="コラム一覧｜株式会社オフィスVONDS">
-  <meta name="twitter:description" content="SEO対策・WEBマーケティングの専門知識を発信するコラム一覧。">
-  <meta name="twitter:image" content="https://vonds.co.jp/1600-900-1.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
-
-  <!-- 構造化データ: BreadcrumbList -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://vonds.co.jp/" },
-      { "@type": "ListItem", "position": 2, "name": "コラム" }
-    ]
+    "@type": "CollectionPage",
+    "name": "コラム",
+    "description": "SEO対策・ホームページ制作・WEBマーケティングに関するコラム記事一覧",
+    "url": "https://vonds.co.jp/column/"
   }
   </script>
-
   <style>
-    .col-hero {
+    .column-hero {
       background: linear-gradient(135deg, #1a56db 0%, #1242b0 100%);
-      padding: 120px 0 64px;
-      text-align: center;
+      padding: 120px 0 48px;
       color: #fff;
+      text-align: center;
     }
-    .col-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 16px; }
-    .col-hero p { font-size: 1.1rem; opacity: 0.8; }
-
-    .breadcrumb-bar {
-      position: absolute; top: 80px; left: 0; right: 0; z-index: 10;
-      max-width: 1100px; margin: 0 auto; padding: 12px 24px;
-      font-size: 0.8rem; color: rgba(255,255,255,0.6);
+    .column-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 900;
+      margin-bottom: 12px;
     }
-    .breadcrumb-bar a { color: rgba(255,255,255,0.6); }
-
-    .col-content {
-      max-width: 1100px;
+    .column-hero p {
+      opacity: 0.8;
+      font-size: 1rem;
+    }
+    .column-count {
+      text-align: center;
+      padding: 24px 24px 0;
+      color: #6b7280;
+      font-size: 0.9rem;
+    }
+    .column-filter {
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 64px 24px 80px;
+      padding: 24px 24px 0;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
     }
-
+    .filter-btn {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: #1a56db;
+      color: #fff;
+      border-color: #1a56db;
+    }
     .column-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
     }
     .column-card {
-      background: #fff;
-      border-radius: 10px;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
+      transition: box-shadow 0.2s, transform 0.2s;
     }
     .column-card:hover {
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
-    .column-card-body {
-      padding: 1.25rem 1.5rem 1.5rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
+    .column-card a {
+      display: block;
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
     }
     .column-card-cat {
-      display: inline-block;
       font-size: 0.75rem;
-      font-weight: 600;
-      padding: 0.2rem 0.65rem;
-      border-radius: 4px;
-      margin-bottom: 0.5rem;
-      width: fit-content;
-    }
-    .column-card-date {
-      font-size: 0.75rem;
-      color: #9ca3af;
-      margin-bottom: 0.6rem;
+      font-weight: 700;
+      color: #1a56db;
+      margin-bottom: 8px;
     }
     .column-card-title {
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 0.6rem;
+      color: #111827;
       line-height: 1.5;
+      margin: 0 0 12px;
     }
-    .column-card-excerpt {
-      font-size: 0.875rem;
-      color: #64748b;
-      line-height: 1.65;
-      margin: 0 0 1rem;
-      flex: 1;
-    }
-    .column-card-link {
-      font-size: 0.875rem;
-      color: #1a56db;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .column-card-link:hover { text-decoration: underline; }
-
-    .col-empty {
-      text-align: center;
-      padding: 80px 24px;
+    .column-card-desc {
+      font-size: 0.85rem;
       color: #6b7280;
+      line-height: 1.6;
+      margin: 0 0 12px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
-    .col-empty p { font-size: 1.1rem; margin-bottom: 24px; }
-
-    @media (max-width: 1024px) {
-      .column-grid { grid-template-columns: repeat(2, 1fr); }
+    .column-card-date {
+      font-size: 0.8rem;
+      color: #9ca3af;
     }
-    @media (max-width: 768px) {
-      .column-grid { grid-template-columns: 1fr; }
+    .no-articles {
+      grid-column: 1 / -1;
+      text-align: center;
+      color: #6b7280;
+      padding: 48px 0;
     }
+    .column-card.hidden { display: none; }
   </style>
-  <!-- LocalBusiness JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://vonds.co.jp/#localbusiness",
-    "name": "株式会社オフィスVONDS",
-    "alternateName": "Office VONDS",
-    "description": "山梨県甲府市のSEO対策・Webマーケティング会社。データドリブンな施策で地域ビジネスの集客と売上アップを実現。",
-    "url": "https://vonds.co.jp/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "甲府市",
-      "addressRegion": "山梨県",
-      "addressCountry": "JP"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 35.6642,
-      "longitude": 138.5684
-    },
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "山梨県"
-    },
-    "priceRange": "$$"
-  }
-  </script>
 </head>
 <body>
-
   <header class="header" id="header">
     <div class="header-inner">
       <div class="header-logo"><a href="/"><img src="/logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61"></a></div>
@@ -187,24 +153,29 @@
     </div>
   </header>
 
-  <div class="breadcrumb-bar"><a href="/">ホーム</a> &nbsp;&gt;&nbsp; コラム一覧</div>
-
-  <section class="col-hero">
+  <section class="column-hero">
     <div class="container">
       <h1>コラム</h1>
-      <p>SEO・WEBマーケティングの専門知識をわかりやすく発信</p>
+      <p>SEO・Web制作・マーケティング・AI活用の最新ナレッジをお届けします</p>
     </div>
   </section>
 
-  <div class="col-content">
-    <div class="column-grid">
-<!-- NEW_ARTICLE_HERE -->
-    </div>
+  <p class="column-count">全 1 記事</p>
 
-    <div class="col-empty" id="emptyMessage">
-      <p>コラム記事は近日公開予定です。</p>
-      <a href="/" class="btn btn-primary">トップページへ戻る</a>
-    </div>
+  <div class="column-filter">
+      <button class="filter-btn active" data-cat="all">すべて</button>
+      <button class="filter-btn" data-cat="seo">SEO対策</button>
+  </div>
+
+  <div class="column-grid">
+      <article class="column-card" data-cat="seo">
+        <a href="/column/seo-howto-guide/">
+          <div class="column-card-cat">SEO対策</div>
+          <h2 class="column-card-title">【2026年最新】SEO対策の正しいやり方｜初心者でもわかる完全ガイド</h2>
+          <p class="column-card-desc">SEO対策の基本から実践的なやり方まで徹底解説。検索順位を上げるための具体的な手順を初心者にもわかりやすく紹介します。</p>
+          <time class="column-card-date" datetime="2026-04-08">2026年4月8日</time>
+        </a>
+      </article>
   </div>
 
   <footer class="footer">
@@ -232,11 +203,21 @@
 
   <script src="/js/main.js"></script>
   <script>
-    // Hide empty message if articles exist
-    var cards = document.querySelectorAll('.column-card');
-    if (cards.length > 0) {
-      document.getElementById('emptyMessage').style.display = 'none';
-    }
+    // カテゴリフィルタ
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var cat = this.getAttribute('data-cat');
+        document.querySelectorAll('.column-card').forEach(function(card) {
+          if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
