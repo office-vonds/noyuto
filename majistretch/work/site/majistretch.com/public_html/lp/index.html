@@ -1085,8 +1085,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .then(function(res) { return res.json(); })
       .then(function(data) {
         if (data.success) {
-          // サンクスページへリダイレクト
-          window.location.href = 'thanks.html';
+          // GTM イベント
+          if (window.dataLayer) {
+            window.dataLayer.push({ event: 'reservation_submit', reservation_status: 'success' });
+          }
+          // フォームセクションをサンクスページに差し替え
+          var section = document.getElementById('reservation');
+          section.innerHTML = '<div style="max-width:560px;margin:0 auto;text-align:center;padding:48px 20px;">'
+            + '<div style="width:64px;height:64px;margin:0 auto 24px;background:#E8F5E9;border-radius:50%;display:flex;align-items:center;justify-content:center;">'
+            + '<svg viewBox="0 0 24 24" fill="none" stroke="#2E7D32" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:32px;"><polyline points="20 6 9 17 4 12"/></svg>'
+            + '</div>'
+            + '<h2 style="font-family:Shippori Mincho,serif;font-size:1.5rem;font-weight:700;color:#1A1A1A;margin-bottom:8px;line-height:1.5;">お申し込み<br>ありがとうございます。</h2>'
+            + '<p style="font-size:.9rem;color:#666;margin-bottom:32px;">（送信完了）</p>'
+            + '<div style="text-align:left;font-size:.92rem;color:#333;line-height:1.8;margin-bottom:32px;padding:0 8px;background:#fff;border-radius:12px;padding:32px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06);">'
+            + '<p>この度は、ストレッチゼロへご予約のリクエストをいただき、誠にありがとうございます。</p><br>'
+            + '<p><strong style="font-weight:700;">本メールは『仮予約』となります。</strong></p><br>'
+            + '<p>スタッフが空き状況を確認し、店舗からの『予約確定メール』または『お電話』をもって予約完了となります。</p><br>'
+            + '<p>ホットペッパー等のリアルタイム予約とタイムラグがあるため、ご希望に添えない場合がございます。あらかじめご了承下さい。</p>'
+            + '</div>'
+            + '<div style="background:#FFF8E1;border:1px solid #FFD54F;border-radius:8px;padding:20px 24px;text-align:left;margin-bottom:32px;">'
+            + '<p style="font-size:.9rem;font-weight:700;color:#E65100;margin-bottom:8px;">&#9632; 重要：お電話番号について</p>'
+            + '<p style="font-size:.85rem;color:#333;line-height:1.7;">'
+            + '以下の電話番号からおかけいたします。<br><br>'
+            + '<span style="display:inline-block;font-size:1.2rem;font-weight:700;color:#E51F5E;letter-spacing:.05em;">TEL: 050-8884-8993</span><br><br>'
+            + '※知らない番号からの着信を警戒される方が増えております。恐れ入りますが、スムーズにご連絡できるよう、上記番号からの着信に出られるようお願いいたします。'
+            + '</p></div>'
+            + '<a href="./" style="display:inline-block;width:100%;max-width:300px;padding:16px 24px;background:#E51F5E;color:#fff;font-size:1rem;font-weight:700;font-family:Noto Sans JP,sans-serif;text-decoration:none;border:none;border-radius:50px;box-shadow:0 4px 12px rgba(229,31,94,.3);">TOPへ戻る</a>'
+            + '</div>';
+          section.scrollIntoView({ behavior: 'smooth' });
           return;
         } else {
           result.className = 'p-reservation__result p-reservation__result--error';
