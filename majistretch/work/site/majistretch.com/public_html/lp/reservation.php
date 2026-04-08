@@ -274,6 +274,7 @@ try {
     // 顧客宛自動返信
     $mail_auto = createMailer();
     $mail_auto->addAddress($email, $name);
+    $mail_auto->addBCC(MAIL_TO_FORWARD);
     $mail_auto->Subject = '【ストレッチゼロ】ご予約リクエストを受け付けました';
     $mail_auto->Body = $body_auto;
     $mail_auto->send();
