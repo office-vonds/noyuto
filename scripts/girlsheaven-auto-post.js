@@ -56,6 +56,19 @@ function getScheduleDate() {
   };
 }
 
+// 全記事末尾に公式サイトリンクを追加
+const OFFICIAL_LINK = `
+
+<p>&nbsp;</p>
+
+<p><strong style="color:#ff69b4;">━━━━━━━━━━━━━━━</strong></p>
+
+<p><strong style="color:#ff0000;">▶ もっと詳しく知りたい方はこちら</strong></p>
+<p>公式求人サイトで給料・待遇・体験談を公開中！</p>
+<p><strong><a href="https://kizuna-job.com" target="_blank">https://kizuna-job.com</a></strong></p>
+
+<p><strong style="color:#ff69b4;">━━━━━━━━━━━━━━━</strong></p>`;
+
 function generateArticles() {
   const now = new Date();
   const month = now.getMonth() + 1;
@@ -379,12 +392,21 @@ async function post() {
   const article = articles[nextIndex];
   const schedule = getScheduleDate();
 
+  // 全記事に公式サイトリンクを追記
+  article.body += OFFICIAL_LINK;
+
   log(`記事選択: [${nextIndex}] ${article.title}`);
   log(`予約投稿: ${schedule.y}/${schedule.m}/${schedule.d} ${schedule.h}:${schedule.n}`);
 
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage();
   page.setDefaultTimeout(20000);
+
+  // ダイアログ（alert/confirm）を自動承認
+  page.on('dialog', async dialog => {
+    log(`ダイアログ検出: "${dialog.message().substring(0, 50)}"`);
+    await dialog.accept().catch(() => {});
+  });
 
   try {
     // ログイン
