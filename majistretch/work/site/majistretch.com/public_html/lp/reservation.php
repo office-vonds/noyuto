@@ -114,7 +114,7 @@ EOT;
 $body_auto = <<<EOT
 {$name} 様
 
-この度は、ストレッチゼロへご予約のリクエストをいただき、誠にありがとうございます。
+この度は、本気ストレッチへご予約のリクエストをいただき、誠にありがとうございます。
 
 ━━━━━━━━━━━━━━━━━━━━━━━━
   ★ 本メールは『仮予約』となります ★
@@ -165,7 +165,7 @@ $body_auto = <<<EOT
 お問い合わせ・ご不明点がございましたら
 お気軽にご連絡ください。
 
-ストレッチゼロ 甲府上阿原店
+本気ストレッチ 甲府上阿原店
 TEL: 050-8884-8993
 MAIL: info@majistretch.com
 営業時間: 9:00〜22:00（完全予約制）
@@ -188,7 +188,7 @@ try {
     $mail_auto = createMailer();
     $mail_auto->addAddress($email, $name);
     $mail_auto->addBCC(MAIL_TO_FORWARD);
-    $mail_auto->Subject = '【ストレッチゼロ】ご予約リクエストを受け付けました';
+    $mail_auto->Subject = '【本気ストレッチ】ご予約リクエストを受け付けました';
     $mail_auto->Body = $body_auto;
     $mail_auto->send();
 
