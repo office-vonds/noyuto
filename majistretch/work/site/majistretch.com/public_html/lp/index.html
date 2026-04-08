@@ -197,49 +197,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: block;
     }
 
-    /* WEB予約ボタン */
-    .c-btn--web {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      max-width: 340px;
-      padding: 16px 24px;
-      background: #E51F5E;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 700;
-      font-family: 'Noto Sans JP', sans-serif;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 4px 12px rgba(229,31,94,.3);
-      transition: background .2s, transform .1s;
-      margin-top: 8px;
-    }
-    .c-btn--web:hover {
-      background: #C91850;
-      transform: translateY(-1px);
-    }
-    .c-btn--web svg {
-      flex-shrink: 0;
-    }
-
-    /* SP固定バナー2カラム */
-    .p-fixed-banner--dual {
-      display: flex;
-      gap: 0;
-    }
-    .p-fixed-banner--dual .p-fixed-banner__btn {
-      flex: 1;
-    }
-    .p-fixed-banner--dual .p-fixed-banner__btn--web {
-      background: #E51F5E;
-    }
-    .p-fixed-banner--dual .p-fixed-banner__btn--tel {
-      background: #1A1A1A;
-    }
-
     /* レスポンシブ */
     @media (max-width: 480px) {
       .p-reservation__form {
@@ -319,11 +276,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="p-hero__answer">状態、原因を数値化</p>
         <p class="p-hero__booking">精密姿勢診断 予約受付中！</p>
         <div class="p-hero__cta">
-          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-fv" data-gtm-tel="fv">精密姿勢診断を予約する</a>
-          <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-fv">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            WEB予約する
-          </a>
+          <a href="#reservation" class="c-btn c-btn--primary" data-gtm-click="cta-fv">お問い合わせはこちら</a>
           <p class="c-btn__note">毎月限定12名様</p>
         </div>
       </div>
@@ -561,11 +514,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <span class="p-cta2__deco p-cta2__deco--right" aria-hidden="true">/</span>
           </div>
-          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-guarantee" data-gtm-tel="guarantee">精密姿勢診断を予約する</a>
-          <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-guarantee">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            WEB予約する
-          </a>
+          <a href="#reservation" class="c-btn c-btn--primary" data-gtm-click="cta-guarantee">お問い合わせはこちら</a>
         </div>
       </div>
     </section>
@@ -709,9 +658,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img src="images/bg_g_02.webp" alt="女性トレーナー" class="p-final-cta__photo p-final-cta__photo--right" width="200" height="400" loading="lazy">
           <div class="p-final-cta__content">
             <p class="p-final-cta__message"><em class="p-final-cta__em">本気</em>で<br>身体を変えたい<br>方のための枠だけを<br><em class="p-final-cta__accent">毎月12名様限定</em>で<br>確保しています。</p>
-            <a href="tel:05088848993" class="c-btn c-btn--primary p-final-cta__btn" data-gtm-click="cta-final" data-gtm-tel="final">
+            <a href="#reservation" class="c-btn c-btn--primary p-final-cta__btn" data-gtm-click="cta-final">
               <span class="p-final-cta__btn-sub">毎月12名様限定！</span>
-              <span class="p-final-cta__btn-main">精密姿勢診断を予約する</span>
+              <span class="p-final-cta__btn-main">お問い合わせはこちら</span>
             </a>
           </div>
         </div>
@@ -1030,17 +979,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- ===== SP固定バナー ===== -->
-  <div class="p-fixed-banner p-fixed-banner--dual">
-    <a href="tel:05088848993" class="p-fixed-banner__btn p-fixed-banner__btn--tel" data-gtm-click="cta-fixed-sp" data-gtm-tel="fixed-sp">
-      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      電話予約
-    </a>
-    <a href="#reservation" class="p-fixed-banner__btn p-fixed-banner__btn--web" data-gtm-click="cta-fixed-sp-web">
-      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      WEB予約する
-    </a>
-  </div>
 
   <!-- JS -->
   <script src="js/main.js"></script>
@@ -1166,7 +1104,7 @@ main {
 /* 口コミバッジ：FV画像の中央上寄りに配置・大きく */
 .p-hero__review {
   position: absolute !important;
-  bottom: 180px !important;
+  bottom: 380px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   display: flex !important;
@@ -1205,11 +1143,6 @@ main {
 }
 
 .p-hero__photo { margin-top: -2px !important; }
-.p-fixed-banner, .p-fixed-sp {
-  width: 800px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-}
 .p-qualify__inner, .p-program__inner, .p-price__inner,
 .p-guarantee__inner, .p-faq__inner, .p-results__inner,
 .p-shop__inner, .p-shop-map__inner, .p-symptoms__inner,
