@@ -619,11 +619,15 @@ def generate_column_index(state: dict, keywords_data: dict):
 def git_push(slug: str):
     """git add, commit, push (gh-pages)"""
     try:
-        # 追加対象ファイル
+        # 追加対象ファイル（記事+副産物）
         targets = [
             f"column/{slug}/index.html",
             "column/index.html",
+            "column/",
+            "sitemap.xml",
+            "robots.txt",
             os.path.relpath(STATE_PATH, PROJECT_DIR),
+            os.path.relpath(PATTERNS_PATH, PROJECT_DIR),
         ]
 
         for t in targets:
@@ -726,7 +730,22 @@ def main():
     # 8. コラム一覧ページ更新
     generate_column_index(state, keywords_data)
 
-    # 9. git push
+    # 9. 副産物生成（sitemap/SNS素材/内部リンク/GBP投稿/検索エンジンping）
+    try:
+        from byproducts import run_all as generate_byproducts
+        generate_byproducts(
+            article_data={
+                "slug": slug,
+                "title": keyword_entry["title"],
+                "keyword": keyword_entry["keyword"],
+                "category_label": category["label"],
+            },
+            article_body=article_body,
+        )
+    except Exception as e:
+        logger.warning(f"副産物生成スキップ: {e}")
+
+    # 10. git push（記事+sitemap+内部リンク+robots.txtを一括デプロイ）
     git_push(slug)
 
     char_count = count_chars(article_body)
@@ -736,7 +755,7 @@ def main():
     logger.info(f"文字数: {char_count}文字")
     logger.info("=" * 60)
 
-    # 10. 学習分析（毎回実行。公開済み記事の品質パターンを更新）
+    # 11. 学習分析（毎回実行。公開済み記事の品質パターンを更新）
     try:
         from learn import analyze_all_articles, update_learned_patterns
         logger.info("学習分析を実行中...")
