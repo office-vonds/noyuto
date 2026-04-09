@@ -134,6 +134,80 @@ def auto_mode(posts: list[tuple[Path, dict]], latest_only: bool = True):
     print(f"\n自動投稿 {len(targets)}件完了。")
 
 
+def is_rate_limit_error(error: tweepy.TweepyException) -> bool:
+    """403 spend cap や 429 rate limit など、リトライ不能なAPIエラーを判定。"""
+    error_str = str(error)
+    return "403" in error_str or "429" in error_str or "spend cap" in error_str.lower()
+
+
+def skip_old_pending(posts: list[tuple[Path, dict]], max_age_days: int = 3):
+    """古すぎるpendingをskippedに変更して溜まり続けるのを防ぐ。"""
+    from datetime import datetime, timedelta
+    cutoff = datetime.now() - timedelta(days=max_age_days)
+    skipped = 0
+    for filepath, data in posts:
+        ts = data.get("timestamp", "")
+        if ts:
+            post_time = datetime.fromisoformat(ts)
+            if post_time < cutoff and data.get("status") == "pending":
+                data["status"] = "skipped"
+                data["skipped_reason"] = "too_old_pending"
+                with open(filepath, "w", encoding="utf-8") as f:
+                    json.dump(data, f, ensure_ascii=False, indent=2)
+                skipped += 1
+    if skipped:
+        print(f"  古いpending {skipped}件をskippedに変更しました（{max_age_days}日以上前）")
+
+
+def auto_thread_mode(posts: list[tuple[Path, dict]]):
+    """最新のスレッド（同一テーマの連続pending）をリプライチェーンで自動投稿する。"""
+    if not posts:
+        return
+
+    # 古いpendingを整理（3日以上前のものはskip）
+    skip_old_pending(posts)
+
+    # pending再取得（skipped分を除外）
+    posts = [(fp, d) for fp, d in posts if d.get("status") == "pending"]
+    if not posts:
+        print("承認待ちの投稿はありません。")
+        return
+
+    # 最新の投稿のテーマを基準に、同一テーマの連続pendingをグループ化
+    latest_topic_base = (posts[-1][1].get("topic") or "").split("（")[0].strip()
+    thread_posts = []
+    for filepath, data in posts:
+        topic_base = (data.get("topic") or "").split("（")[0].strip()
+        if topic_base == latest_topic_base:
+            thread_posts.append((filepath, data))
+
+    if len(thread_posts) < 2:
+        # スレッドではない場合は通常のautoモードにフォールバック
+        auto_mode(posts, latest_only=True)
+        return
+
+    client = get_x_client()
+    prev_tweet_id = None
+
+    print(f"スレッド自動投稿: {len(thread_posts)}件（テーマ: {latest_topic_base}）")
+    for i, (filepath, data) in enumerate(thread_posts, 1):
+        print(f"  [{i}/{len(thread_posts)}] 投稿中: {data['text'][:50]}...")
+        try:
+            tweet_id = post_to_x(client, data["text"], reply_to=prev_tweet_id)
+            update_post_status(filepath, tweet_id)
+            prev_tweet_id = tweet_id
+            print(f"  投稿完了 (tweet_id: {tweet_id})")
+        except tweepy.TweepyException as e:
+            print(f"  投稿失敗: {e}")
+            if is_rate_limit_error(e):
+                print("  APIリミットエラー。残りのpendingは次回実行時に再試行します。")
+            else:
+                print("  スレッド投稿を中断します。")
+            return
+
+    print(f"\nスレッド{len(thread_posts)}件の自動投稿が完了しました。")
+
+
 def interactive_mode(posts: list[tuple[Path, dict]]):
     """対話モードで番号選択→単発投稿。"""
     display_posts(posts)
@@ -175,6 +249,7 @@ def main():
     parser = argparse.ArgumentParser(description="X投稿の承認・投稿")
     parser.add_argument("--thread", action="store_true", help="スレッドモード（全件をリプライチェーンで投稿）")
     parser.add_argument("--auto", action="store_true", help="自動モード（最新1件を承認不要で即投稿）")
+    parser.add_argument("--auto-thread", action="store_true", help="自動スレッドモード（最新テーマの全件をリプライチェーンで投稿）")
     parser.add_argument("--auto-all", action="store_true", help="自動モード（pending全件を即投稿）")
     parser.add_argument("--dry-run", action="store_true", help="投稿せずに確認のみ")
     args = parser.parse_args()
@@ -192,6 +267,8 @@ def main():
 
     if args.auto:
         auto_mode(pending, latest_only=True)
+    elif args.auto_thread:
+        auto_thread_mode(pending)
     elif args.auto_all:
         auto_mode(pending, latest_only=False)
     elif args.thread:

@@ -1,0 +1,82 @@
+{
+  "account": "naomicoach7",
+  "info": {
+    "name": "安保 奈緒美",
+    "domain": "経営コーチ・組織開発",
+    "why_watch": "37Kフォロワー。経営者伴走12年。幼少期の親子関係×対人関係の切り口。NOYUTOの父親論と接点あり"
+  },
+  "analyzed_at": "2026-03-30T00:05:05.714536+00:00",
+  "total_posts_analyzed": 48,
+  "metrics": {
+    "avg_likes": 52.6,
+    "avg_bookmarks": 0.8,
+    "avg_retweets": 1.2,
+    "avg_bookmark_ratio": 0.017,
+    "avg_chars": 103
+  },
+  "format_distribution": {
+    "standard": 42,
+    "bullet_list": 3,
+    "authority_cite": 1,
+    "punchline_ending": 1,
+    "myth_busting": 1
+  },
+  "hook_distribution": {
+    "statement_hook": 38,
+    "short_impact_hook": 8,
+    "dialogue_hook": 1,
+    "revelation_hook": 1
+  },
+  "high_bookmark_formats": {
+    "standard": 8,
+    "authority_cite": 1,
+    "bullet_list": 1
+  },
+  "top_posts": [
+    {
+      "text": "約6年ほど前から多くの企業で幹部育成に携わらせて頂いて来ましたが（現在も数社で進行中）幹部育成で大切なことは、業務ができる人を増やすことではなく、経営視点で意思決定できる人を育てることだと思っています。\n\n現場で成果を出す優秀な人がそのまま幹部として機能するとは限りません。",
+      "bookmarks": 11,
+      "likes": 93,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "20代の頃、3年間だけ大手派遣会社でキャリアアドバイザーをやっていて、一人で月平均25～30人くらい新規登録者を稼働させていました。\nまぁまぁ会社に貢献していたのかも。",
+      "bookmarks": 4,
+      "likes": 109,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "SNSの使い方で相談を受けることが多いので、この10年間を振り返って感じたことを綴ります。\n(X7年、その他SNS3年ほぼ毎日発信)\n\nまず、最初に。\nSNSで堂々として見える人が内面まで安定しているとは限りません。",
+      "bookmarks": 3,
+      "likes": 36,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "私は職業柄なのか、プライベートでもふとした瞬間に弱音を吐いたり、もっと会社をこうしたいんだと熱く語る方が人間らしくて好きです。とにかく熱い人が好き。それは昔から変わらない。",
+      "bookmarks": 3,
+      "likes": 106,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "来月から大学3年生。就活もう始まりますよね。\n爪はもう切りなさいよ。と言いたい気持ちをグッと堪える母でした。\nギャルの写真は角度のこだわりが半端なく細かいことを改めて知りました笑 https://t.co/w4JeVJWe6a",
+      "bookmarks": 3,
+      "likes": 162,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}

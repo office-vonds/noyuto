@@ -1,0 +1,80 @@
+{
+  "account": "oshige_writing",
+  "info": {
+    "name": "おしげ（耕納茂彰）",
+    "domain": "メンタル・人間関係",
+    "why_watch": "61Kフォロワー。ブクマ率17.8%。信用・誠実さの切り口。NOYUTOの信頼経済と共鳴"
+  },
+  "analyzed_at": "2026-03-30T00:05:04.842005+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 31.6,
+    "avg_bookmarks": 4.2,
+    "avg_retweets": 4.1,
+    "avg_bookmark_ratio": 0.133,
+    "avg_chars": 88
+  },
+  "format_distribution": {
+    "standard": 40,
+    "dialogue": 6,
+    "bullet_list": 4,
+    "punchline_ending": 1
+  },
+  "hook_distribution": {
+    "statement_hook": 27,
+    "dialogue_hook": 15,
+    "short_impact_hook": 8
+  },
+  "high_bookmark_formats": {
+    "standard": 6,
+    "dialogue": 2,
+    "bullet_list": 2
+  },
+  "top_posts": [
+    {
+      "text": "過去の自分に伝えたいこと第1位。 https://t.co/19y5mhgsu8",
+      "bookmarks": 48,
+      "likes": 477,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "「言いやすい人にだけ当たる人」っているけど、強い相手には絶対に同じことをしないよね。わかってやっているからマジでタチが悪い。僕もよく当たられる方ですが、いい人を装うのは得意なので、まずは「キチガイ」と思ってさらりと受け流します。その後そいつに対して関わろうとすることはないし、他の",
+      "bookmarks": 40,
+      "likes": 260,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "「鬱になる人」に当てはまってた\n僕のメンタル対策\n\n❌鬱になる人の特徴\n\n・完璧主義\n・弱音を吐かない\n・なかなか休まない\n・他人の目を気にしすぎ\n・睡眠時間が短い\n・強すぎる自責\n・なんでも真に受ける\n・どこまでも自分を認められない\n・「大丈夫」が口癖\n・働きすぎ\n・金がない\n\n⭕️やってる対策",
+      "bookmarks": 20,
+      "likes": 77,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "何をやってもうまくいかない\n「他責思考」な人の特徴\n\n5位\n人に厳しく、自分に甘い\n\n4位\n言い訳が多い\n\n3位\n「どうすればいいですか？」と人任せ\n\n2位\n他人や会社の文句ばかり\n\nどうしょうもない1位は…",
+      "bookmarks": 19,
+      "likes": 119,
+      "formats": [
+        "standard"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "・7時間睡眠\n・「まぁいっか」の精神\n・適度にサボる\n・週1でラン→サウナ\n・信頼できる人と月1相談\n・朝日を浴びる\n・朝夜の瞑想\n・15分昼寝\n・嫌いな人とは関わらない\n・気分に合う音楽を聴く\n・お金に余裕を持たせる\n・おいしいものを食べる\n・気の合う友人と話す\n・1日1笑い\n\n絶対やってほしいのは",
+      "bookmarks": 16,
+      "likes": 47,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "short_impact_hook"
+    }
+  ]
+}

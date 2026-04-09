@@ -1,0 +1,81 @@
+{
+  "account": "naomicoach7",
+  "info": {
+    "name": "安保 奈緒美",
+    "domain": "経営コーチ・組織開発",
+    "why_watch": "37Kフォロワー。経営者伴走12年。幼少期の親子関係×対人関係の切り口。NOYUTOの父親論と接点あり"
+  },
+  "analyzed_at": "2026-04-06T00:05:07.143827+00:00",
+  "total_posts_analyzed": 49,
+  "metrics": {
+    "avg_likes": 52.8,
+    "avg_bookmarks": 1.1,
+    "avg_retweets": 1.1,
+    "avg_bookmark_ratio": 0.042,
+    "avg_chars": 122
+  },
+  "format_distribution": {
+    "standard": 39,
+    "bullet_list": 5,
+    "myth_busting": 2,
+    "authority_cite": 2,
+    "dialogue": 1
+  },
+  "hook_distribution": {
+    "statement_hook": 41,
+    "short_impact_hook": 5,
+    "dialogue_hook": 3
+  },
+  "high_bookmark_formats": {
+    "standard": 6,
+    "myth_busting": 2,
+    "bullet_list": 2
+  },
+  "top_posts": [
+    {
+      "text": "組織開発の現場で感じるのは、人が定着する組織には、必ず帰属意識を育てる関わりがあるということです。\n\n帰属意識とは単に在籍している感覚ではありません。\n\nこの組織に自分の役割がある\n自分の存在が認められている\nここで働くことに意味がある\n\nそんな実感です。\n\n人は正しさだけでは動きません。",
+      "bookmarks": 11,
+      "likes": 109,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "自己理解が浅いままパフォーマンスを上げようとするのは無理があります。\n\nなぜなら、自分を知らない人は戦い方を間違えるからです。\n\n本当は向いていない土俵で消耗し、本来は人に任せるべきことを抱え込み、\n感情に引っ張られて判断を誤る。\n\nこれでは、結果が安定するはずがない。",
+      "bookmarks": 8,
+      "likes": 131,
+      "formats": [
+        "myth_busting"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "人は自分の変化や挑戦や可能性を見てもらえたときにもう一段大きく伸びていきます。\n\n数字は結果です。\nけれど、未来をつくるのは人です。\n\n・自分で考える力が育つ\n・視座が上がる\n・対話の質が変わる\n・責任の引き受け方が変わる\n・周囲との信頼関係が深まる",
+      "bookmarks": 5,
+      "likes": 116,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "アイコンとリアルが結びつかない人っているから、Xって本当に面白いなぁって思った昨日のオフ会。\n\n一番結びつかなかったのはゆうさん。 https://t.co/dwW86EgsDD",
+      "bookmarks": 3,
+      "likes": 95,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "人は線を引かれただけでは深くは育ちません。\n\n何を求められているかが明確でも、自分で考える力がなければ結局は「言われたことをこなす人」で止まります。\n\n幹部に必要なスキルとは従う力ではない。\n\n・考える力\n・引き受ける力\n・対話する力\n\nそこを育てる学問がコーチングです。",
+      "bookmarks": 3,
+      "likes": 83,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}

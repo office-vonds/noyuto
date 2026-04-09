@@ -1,0 +1,80 @@
+{
+  "account": "fit_masa110",
+  "info": {
+    "name": "筋トレ作家 正人",
+    "domain": "覚悟・孤独・習慣",
+    "why_watch": "3.4Kフォロワーだが平均いいね292と異常に高い。ブクマ率7.6%。リスト型×自己責任論。NOYUTOの覚悟論と共鳴"
+  },
+  "analyzed_at": "2026-04-06T00:05:06.672309+00:00",
+  "total_posts_analyzed": 49,
+  "metrics": {
+    "avg_likes": 307.2,
+    "avg_bookmarks": 21.9,
+    "avg_retweets": 16.6,
+    "avg_bookmark_ratio": 0.072,
+    "avg_chars": 122
+  },
+  "format_distribution": {
+    "standard": 31,
+    "bullet_list": 17,
+    "comparison": 3,
+    "dialogue": 1
+  },
+  "hook_distribution": {
+    "statement_hook": 28,
+    "short_impact_hook": 18,
+    "dialogue_hook": 3
+  },
+  "high_bookmark_formats": {
+    "standard": 7,
+    "bullet_list": 3,
+    "comparison": 1
+  },
+  "top_posts": [
+    {
+      "text": "飯食うのもトレーニングだとはわかってますが、本当に胃腸が弱く(山根くんなみに)1日6食に分けて工夫して食べてます！(プロテインは飲みません)\n\n去年も胃カメラに大腸カメラとコンプリートしました(逆流性食道炎 過敏性腸症候群) https://t.co/HJUhlD7OSU",
+      "bookmarks": 43,
+      "likes": 335,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "停滞は衰退とほぼ同じことです！なんとなくこのままでもいいと過ごしてる人より、新しいものを探してる人の方が私は好きです！ https://t.co/T4latTctug",
+      "bookmarks": 37,
+      "likes": 321,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "どれだけ成功しても1つのミスや過ちで社会から攻撃され、指摘される世の中です。\n\nしかし、世の中には必ず、1度も失敗したことがない人間がいます。それは 【何も挑戦しなかった人】です！ https://t.co/qBizn7gRPA",
+      "bookmarks": 37,
+      "likes": 306,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "私がやらなくても誰も困りません。しかし私がやることやらないと私が困ります。\n\nだから今日もやり続けます。才能ないからこそ、平凡な人間と理解してるからこそやる。\n\n才能なく生まれたことにより、努力と継続を覚えました。学びました。習慣にできました。\n\n神様ありがとう。 https://t.co/EBxVzOAaKW",
+      "bookmarks": 35,
+      "likes": 334,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "77.5kg 5×5 クリアしました！\n\nついに次回80kg！怪我から本当に長かったです。諦めなくて本当に良かった！素直に嬉しいです。しゃーーーーーーー！！！！ https://t.co/YdjRFTFgdP https://t.co/rsGDpZ1TXQ",
+      "bookmarks": 33,
+      "likes": 333,
+      "formats": [
+        "standard"
+      ],
+      "hook": "short_impact_hook"
+    }
+  ]
+}

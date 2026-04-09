@@ -1,0 +1,83 @@
+{
+  "account": "chokki_hansei",
+  "info": {
+    "name": "チョッキ",
+    "domain": "AI×哲学・逆転起業",
+    "why_watch": "16.5Kフォロワー。ブクマ率25.3%。不要なものを手放す系の切り口。NOYUTOの執着論と共鳴"
+  },
+  "analyzed_at": "2026-04-06T00:05:05.378210+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 51.2,
+    "avg_bookmarks": 12.6,
+    "avg_retweets": 10.5,
+    "avg_bookmark_ratio": 0.144,
+    "avg_chars": 134
+  },
+  "format_distribution": {
+    "standard": 26,
+    "bullet_list": 16,
+    "dialogue": 5,
+    "myth_busting": 4,
+    "flow_arrow": 3
+  },
+  "hook_distribution": {
+    "dialogue_hook": 23,
+    "short_impact_hook": 14,
+    "statement_hook": 12,
+    "revelation_hook": 1
+  },
+  "high_bookmark_formats": {
+    "standard": 3,
+    "dialogue": 3,
+    "myth_busting": 2,
+    "bullet_list": 2
+  },
+  "top_posts": [
+    {
+      "text": "これはマジ。何気なく続けているその習慣、気づかないうちに大切なものを奪っているかも。いつか「失う」前に気づきたいクセは↓ https://t.co/KI9pbS63ho",
+      "bookmarks": 327,
+      "likes": 1208,
+      "formats": [
+        "standard"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これはマジ。できる人は“ここ”が違う。一流・二流・三流の差、実はコレ。人生が好転する習慣は↓ https://t.co/UJ2Iba5AfQ",
+      "bookmarks": 114,
+      "likes": 388,
+      "formats": [
+        "myth_busting"
+      ],
+      "hook": "revelation_hook"
+    },
+    {
+      "text": "これはマジ。「謙虚さ」がなくなると、傲慢や横柄な態度に見えて、気づかないうちに人が離れていく。他人を見下したり、人によって態度が変わったり、感謝や謝罪を言わなくなる。そんな小さな変化が、少しずつ信頼を削っていく。気をつけたい「謙虚さ」がなくなっているサインは↓ https://t.co/L6ZcbUKr0Y",
+      "bookmarks": 77,
+      "likes": 331,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これはマジ。やりたいことや叶えたい未来は、「どんな自分でありたいか」を具体的に思い描くことから始まる。そのために、まず“やめる習慣”と“始める習慣”を整えること。小さな選択でも、その積み重ねが自然に“なりたい自分”へと近づいていく。未来の自分に感謝されるために。知っておきたい\"習慣\"は↓ https://t.co/Y2tRiblC88",
+      "bookmarks": 29,
+      "likes": 121,
+      "formats": [
+        "standard"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これはマジ。小さな習慣の積み重ねは、脳の負担を減らして、自然と行動を習慣化させる。その結果、人生は少しずつ好転していく。最初から、大きく変えようとしなくていい。小さな行動からでいい。それだけで、運も、環境も、未来も変わる。人生を好転させる人の習慣は↓ https://t.co/7Q1wPFXK7X",
+      "bookmarks": 28,
+      "likes": 149,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}

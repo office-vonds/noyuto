@@ -1,0 +1,86 @@
+{
+  "account": "ujontaka",
+  "info": {
+    "name": "うじょん",
+    "domain": "自己成長・図解",
+    "why_watch": "12Kフォロワー。ブクマ率35.9%（最高値）。シンプル図解×対比型の構造。三流vs一流フォーマット"
+  },
+  "analyzed_at": "2026-03-30T00:05:03.496727+00:00",
+  "total_posts_analyzed": 28,
+  "metrics": {
+    "avg_likes": 132.2,
+    "avg_bookmarks": 48.6,
+    "avg_retweets": 13.9,
+    "avg_bookmark_ratio": 0.177,
+    "avg_chars": 95
+  },
+  "format_distribution": {
+    "standard": 14,
+    "bullet_list": 6,
+    "flow_arrow": 5,
+    "myth_busting": 4,
+    "numbered_circle_list": 3,
+    "dialogue": 2
+  },
+  "hook_distribution": {
+    "statement_hook": 15,
+    "short_impact_hook": 6,
+    "dialogue_hook": 6,
+    "revelation_hook": 1
+  },
+  "high_bookmark_formats": {
+    "bullet_list": 5,
+    "flow_arrow": 4,
+    "standard": 3,
+    "myth_busting": 2
+  },
+  "top_posts": [
+    {
+      "text": "これマジ。\n夢中になると幸せ爆増。\n今日はこれで幸せ不足を解消しよう。 https://t.co/Mcb1Xi6No9",
+      "bookmarks": 1014,
+      "likes": 2439,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "１on１の正しいやり方\n\n❌ 三流\n・対面で座る\n→圧を与えて本音を言えない\n\n・自分が７割話す\n→説教や自慢話で時間をうばう\n\n・あの仕事どう？\n→仕事の進捗だけで心に目を向けない\n\n・すぐ解決しようとする\n→共感ゼロで心が離れる\n\n・気が向いたときにやる\n→不定期で信頼関係ゼロ\n\n⭕️ 一流 ↓",
+      "bookmarks": 79,
+      "likes": 196,
+      "formats": [
+        "bullet_list",
+        "flow_arrow"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "⭕️ 一流\n・ナナメに座る\n→圧を消して心理的安全性を確保\n\n・７割だまって傾聴\n→主役は部下。ひたすら耳を傾ける\n\n・心を開く\n→仕事より気持ちにフォーカス\n\n・困りごとに共感\n→解決より「わかるよ」が信頼に\n\n・２週間に１度の定期開催\n→最後に「何かできることは？」で締める",
+      "bookmarks": 78,
+      "likes": 102,
+      "formats": [
+        "bullet_list",
+        "flow_arrow"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "40代で分かったけど、本当はもっと早く知りたかった。 https://t.co/RBx83fhIue",
+      "bookmarks": 69,
+      "likes": 368,
+      "formats": [
+        "myth_busting"
+      ],
+      "hook": "revelation_hook"
+    },
+    {
+      "text": "これマジ。一流は睡眠の質にこだわる。 https://t.co/BMpMySiBKw",
+      "bookmarks": 57,
+      "likes": 248,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}

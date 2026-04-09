@@ -1,0 +1,87 @@
+{
+  "account": "thug_business",
+  "info": {
+    "name": "サグ",
+    "domain": "自己啓発・マインド",
+    "why_watch": "12.5Kフォロワー。ブクマ率18.3%。死に物狂い系の覚悟論。NOYUTOの行動至上主義と共鳴"
+  },
+  "analyzed_at": "2026-03-30T00:05:04.370903+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 171.6,
+    "avg_bookmarks": 23.8,
+    "avg_retweets": 18.4,
+    "avg_bookmark_ratio": 0.138,
+    "avg_chars": 110
+  },
+  "format_distribution": {
+    "dialogue": 28,
+    "standard": 16,
+    "bullet_list": 5,
+    "myth_busting": 4,
+    "punchline_ending": 1,
+    "numbered_circle_list": 1,
+    "comparison": 1
+  },
+  "hook_distribution": {
+    "dialogue_hook": 40,
+    "statement_hook": 6,
+    "short_impact_hook": 3,
+    "myth_bust_hook": 1
+  },
+  "high_bookmark_formats": {
+    "dialogue": 5,
+    "standard": 3,
+    "bullet_list": 2,
+    "punchline_ending": 1,
+    "myth_busting": 1
+  },
+  "top_posts": [
+    {
+      "text": "幸せに生きてる人の大多数は\n\n・いちいち気にしない\n・いちいち相手にしない\n・いちいち関わらない\n\nこの３つを徹底しているだけなんだよね。",
+      "bookmarks": 164,
+      "likes": 1435,
+      "formats": [
+        "bullet_list",
+        "punchline_ending"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "この世界は「頭が良い人」よりも「度胸がある人」の方が成功しやすい。これはマジ。",
+      "bookmarks": 129,
+      "likes": 1241,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "ありがちな話ですが、成功してる人は例外なく「見えないところで死ぬほど努力している」「めちゃくちゃ残業している」「最後まで徹底してやり抜いている」という共通点があります。これはマジです。",
+      "bookmarks": 85,
+      "likes": 537,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "男なら最低でも月50万は稼がないとダメですよ。月100万200万とか稼げるのがそりゃ理想ですが、まずは月50万です。頑張って月50万を稼いだ経験がある人からしたらそのお金の重みと自由度が上がる感覚はわかるはずです。もう一度いいます。男なら\"最低でも月50万\"をまずは稼ぎましょう。",
+      "bookmarks": 82,
+      "likes": 683,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "人生を好転させるコツって\n\n・言わなくていいことは言わない\n・今考えなくていいことは考えない\n・一緒にいなくていい人とは居ない\n\nシンプルにこの3つを守ることだと思う。",
+      "bookmarks": 68,
+      "likes": 425,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "short_impact_hook"
+    }
+  ]
+}

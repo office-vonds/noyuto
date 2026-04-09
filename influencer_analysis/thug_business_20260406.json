@@ -1,0 +1,84 @@
+{
+  "account": "thug_business",
+  "info": {
+    "name": "サグ",
+    "domain": "自己啓発・マインド",
+    "why_watch": "12.5Kフォロワー。ブクマ率18.3%。死に物狂い系の覚悟論。NOYUTOの行動至上主義と共鳴"
+  },
+  "analyzed_at": "2026-04-06T00:05:05.794559+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 993.3,
+    "avg_bookmarks": 122.0,
+    "avg_retweets": 69.8,
+    "avg_bookmark_ratio": 0.148,
+    "avg_chars": 113
+  },
+  "format_distribution": {
+    "dialogue": 31,
+    "standard": 13,
+    "comparison": 3,
+    "bullet_list": 3,
+    "numbered_list": 2,
+    "myth_busting": 1
+  },
+  "hook_distribution": {
+    "dialogue_hook": 44,
+    "statement_hook": 3,
+    "short_impact_hook": 3
+  },
+  "high_bookmark_formats": {
+    "dialogue": 5,
+    "standard": 3,
+    "numbered_list": 2,
+    "comparison": 1
+  },
+  "top_posts": [
+    {
+      "text": "新卒が怒られる理由のほとんどは「おどおどしている」からなんよ。これはマジ。",
+      "bookmarks": 2171,
+      "likes": 20784,
+      "formats": [
+        "standard"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "新入社員が知っておくべき思考、マジでコレ。 https://t.co/PNqQ9dzn7C",
+      "bookmarks": 1634,
+      "likes": 14206,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "賢い飲み会参加の立ち回り(新入社員編)\n\n1.入社して3ヶ月以内の飲み会は全部参加\n2.それ以降の飲み会はまず「感謝＆参加意思」を伝える\n3.その後すぐ「確認したら予定があった」と断る\n\nこの立ち回りをすれば「参加したいけど参加できない奴」という印象で終わるので、自分の評価を下げずに済むよ。",
+      "bookmarks": 329,
+      "likes": 1442,
+      "formats": [
+        "numbered_list"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "オードリー若林も「ネガティブを消すのはポジティブじゃなくて没頭」って言ってたように、悩みがあったり、クヨクヨしてる人は暇すぎるんよ。そんなことより「そんなの気にしてる暇がない」ってぐらい何かに没頭すれば良い。悩みを解決する方法なんて大抵「悩んでる暇がないぐらい動く」これだけやで。",
+      "bookmarks": 267,
+      "likes": 1467,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "「先延ばし癖」と「完璧主義」が原因でなかなか行動できない人にオススメなのが「極端に低い目標を設定」して「まずは2分行動」を心掛けるという事。余裕でクリアできる目標に対して、とりあえず2分行動すれば、自然と世界は変わっていくから。成功する人の人生なんて、この繰り返しやで。これはマジ。",
+      "bookmarks": 259,
+      "likes": 1087,
+      "formats": [
+        "dialogue",
+        "comparison"
+      ],
+      "hook": "dialogue_hook"
+    }
+  ]
+}

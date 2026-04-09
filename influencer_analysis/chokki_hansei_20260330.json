@@ -1,0 +1,85 @@
+{
+  "account": "chokki_hansei",
+  "info": {
+    "name": "チョッキ",
+    "domain": "AI×哲学・逆転起業",
+    "why_watch": "16.5Kフォロワー。ブクマ率25.3%。不要なものを手放す系の切り口。NOYUTOの執着論と共鳴"
+  },
+  "analyzed_at": "2026-03-30T00:05:03.939466+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 14.5,
+    "avg_bookmarks": 3.8,
+    "avg_retweets": 2.1,
+    "avg_bookmark_ratio": 0.215,
+    "avg_chars": 131
+  },
+  "format_distribution": {
+    "standard": 25,
+    "dialogue": 11,
+    "myth_busting": 9,
+    "bullet_list": 5,
+    "comparison": 1,
+    "numbered_circle_list": 1,
+    "flow_arrow": 1
+  },
+  "hook_distribution": {
+    "dialogue_hook": 20,
+    "short_impact_hook": 16,
+    "statement_hook": 14
+  },
+  "high_bookmark_formats": {
+    "dialogue": 4,
+    "standard": 3,
+    "bullet_list": 2,
+    "myth_busting": 2,
+    "comparison": 1
+  },
+  "top_posts": [
+    {
+      "text": "これはマジ。世の中には、自分で変えられないことがある。そこに執着すると、苦しくなる。でも、変えられるものもある。それは「自分の選択や行動」と「考え方」。過去や他人は変えられなくても、捉え方が変わると、未来は動き出す。知っておきたい『自分でコントロールできること・できないこと』は↓ https://t.co/rV0Z0xscuv",
+      "bookmarks": 37,
+      "likes": 125,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これマジ。良い習慣で、なりたい自分はつくれる。一気に変わろうとするから、続かない。必要なのは“仕組み”。時間・場所・内容・量。コレを決めて、少しずつ生活の一部を変えていくことが、結果として大きな変化を生み、確実に長続きする道。知っておきたい『良い習慣を身につける仕組み化のコツ』は↓ https://t.co/vyjD8IywpV",
+      "bookmarks": 33,
+      "likes": 96,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "もうすぐ4月。人生を動かす\"スタートライン\"。出会いも環境も変わる今こそチャンス。「なりたい自分」を思い浮かべたら、大切なのは、具体的な行動計画と期限を決めること。あとは、小さくても「今できること」から始めるだけ。それが、夢を現実に変える最短ルート。『なりたい自分を叶える方法』は↓ https://t.co/nJjfsUUKpX",
+      "bookmarks": 29,
+      "likes": 117,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これはマジ。同じ出来事でも、「どう考えるか」で人生の見え方は大きく変わる。物事を「0か100」で決めつけると、うまくいかない瞬間に一気に苦しくなる。でも、物事にグラデーションを持たせて「まぁいいか」「これも途中」と捉えられる人は、軽やかに進める。今のあなたは、どっちの見方をしてる？ https://t.co/ZBpZHPA3cc",
+      "bookmarks": 24,
+      "likes": 103,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    },
+    {
+      "text": "これはマジです。「時間の使い方」が、未来をつくる。何となく過ぎていく毎日も、積み重なれば想像以上の差になる。「変わりたい」気持ちがあるなら、「今」を少しずつ動かすこと。“いつか”じゃなく、“今日の選択”が1年後を決める。9年2万アポで見えてきた『1年後、劇的に変わる“時間の使い方”』は↓ https://t.co/CNrZL4DdQj",
+      "bookmarks": 17,
+      "likes": 41,
+      "formats": [
+        "dialogue"
+      ],
+      "hook": "dialogue_hook"
+    }
+  ]
+}

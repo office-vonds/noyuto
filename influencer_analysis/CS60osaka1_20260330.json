@@ -1,0 +1,82 @@
+{
+  "account": "CS60osaka1",
+  "info": {
+    "name": "東大阪健康サロン@健康オタク",
+    "domain": "健康・自然療法",
+    "why_watch": "10万フォロワー。ブクマ率24.8%。リスト型・常識破壊型の構造が秀逸"
+  },
+  "analyzed_at": "2026-03-30T00:05:03.094793+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 1376.5,
+    "avg_bookmarks": 348.4,
+    "avg_retweets": 237.7,
+    "avg_bookmark_ratio": 0.171,
+    "avg_chars": 139
+  },
+  "format_distribution": {
+    "standard": 32,
+    "numbered_circle_list": 6,
+    "bullet_list": 6,
+    "authority_cite": 2,
+    "comparison": 2,
+    "punchline_ending": 2,
+    "myth_busting": 1
+  },
+  "hook_distribution": {
+    "statement_hook": 26,
+    "short_impact_hook": 23,
+    "dialogue_hook": 1
+  },
+  "high_bookmark_formats": {
+    "standard": 9,
+    "numbered_circle_list": 1
+  },
+  "top_posts": [
+    {
+      "text": "利権によって潰されてしまったＳＴＡＰ細胞\n\n免疫力が上がって、身体がめちゃくちゃ健康になってしまうSTAP細胞は、ほとんどお金をかけずに誰でも簡単に作れてしまう‼️\n\nＳＴＡＰ細胞は、もともと熊本大学で研究され、理研に委ねられたそうで、素になった培養液は「玄米乳酸菌」 https://t.co/VwdG0muNrV",
+      "bookmarks": 6023,
+      "likes": 12885,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "抗がん剤を扱う看護師はごつい手袋をする\n抗がん剤投与後48時間ほど、尿や便中に成分が排泄される\n家族への影響を防ぐため期間中は男性も座って排尿しトイレの蓋を閉めて2回流す\n汚れた衣類は単独で2度洗う\n家族の中で入浴は最後に入らないといけない\n\n抗がん剤がどれだけ危険⚠️なのかよくわかる",
+      "bookmarks": 2272,
+      "likes": 14078,
+      "formats": [
+        "standard"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "がんや何か治したい症状がある人にお勧めしたいのが腕振り運動（スワイショウ）\n\n腕を前後に振るだけなのですがこれをやるだけでがんを含む様々な病気が改善された例が実際にある\n\n白内障改善や視力回復の事例も実際にある\nこれはかなり健康効果の高い無料でできる健康法😊\n\n僕は毎朝の習慣にしてる https://t.co/yt0y1Yoeni",
+      "bookmarks": 1489,
+      "likes": 2821,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "【イタリア人医師が教えるがんにお勧めの重曹療法】\n\n重曹水(アルミニウムフリーの重曹がお勧め)\n喉頭がん・食道がん\n10%〜20%の重曹水を１時間〜２時間かけてちびちび飲む\n\n胃がん\n100〜200mlの重曹水を一気に飲んでお腹（胃の辺り）を10分マッサージする\n\n大腸がん・直腸がん https://t.co/0vHwHhIoq8",
+      "bookmarks": 1394,
+      "likes": 2168,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "ヨモギには強い抗がん作用がある\n \nヨモギに含まれる成分ががん細胞だけを選択的に死滅させ抗がん剤よりも34,000倍も正確にがん細胞だけを死滅させる作用があるとワシントン大学のヘンリー・ライ博士の研究チームが報告している\n\nヨモギの旬は3月から5月\n\n癌の方はヨモギを拾いに行きましょう😊",
+      "bookmarks": 796,
+      "likes": 3739,
+      "formats": [
+        "standard"
+      ],
+      "hook": "short_impact_hook"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "updated_at": "2026-04-09T09:05:02.948236",
+  "themes": {
+    "孤独を選べない人間に覚悟はない": {
+      "weight": 1.0,
+      "avg_score": 89.3,
+      "posts": 4,
+      "avg_impressions": 8
+    },
+    "志のない成功は最も醜い失敗だ": {
+      "weight": 0.97,
+      "avg_score": 86.4,
+      "posts": 4,
+      "avg_impressions": 11
+    },
+    "裏切られても信じる人間だけが本物の仲間を得る": {
+      "weight": 0.74,
+      "avg_score": 65.8,
+      "posts": 8,
+      "avg_impressions": 14
+    },
+    "売上を追う会社は必ず信用を失う": {
+      "weight": 0.47,
+      "avg_score": 42.4,
+      "posts": 20,
+      "avg_impressions": 14
+    },
+    "夢を語れない人間に人はついてこない": {
+      "weight": 0.35,
+      "avg_score": 31.7,
+      "posts": 4,
+      "avg_impressions": 19
+    },
+    "金の奴隷は一生金に困る": {
+      "weight": 0.34,
+      "avg_score": 30.7,
+      "posts": 4,
+      "avg_impressions": 22
+    },
+    "常識を捨てた人間だけが常識を変えられる": {
+      "weight": 0.31,
+      "avg_score": 27.8,
+      "posts": 4,
+      "avg_impressions": 17
+    },
+    "医者に従う人間ほど自分の身体を知らない": {
+      "weight": 0.3,
+      "avg_score": 26.7,
+      "posts": 4,
+      "avg_impressions": 14
+    },
+    "権威への依存と自己決定": {
+      "weight": 0.29,
+      "avg_score": 26.3,
+      "posts": 4,
+      "avg_impressions": 15
+    },
+    "些事に気を込める": {
+      "weight": 0.2,
+      "avg_score": 14.0,
+      "posts": 4,
+      "avg_impressions": 27
+    },
+    "貧しさは美しい。心が貧しい方がよほど醜い": {
+      "weight": 0.2,
+      "avg_score": 13.0,
+      "posts": 4,
+      "avg_impressions": 42
+    },
+    "矛盾を隠す人間ほど脆く壊れる": {
+      "weight": 0.2,
+      "avg_score": 8.5,
+      "posts": 1,
+      "avg_impressions": 42
+    },
+    "信頼経済": {
+      "weight": 0.2,
+      "avg_score": 0.0,
+      "posts": 1,
+      "avg_impressions": 17
+    },
+    "評価基準は売上ではなく信用で決まる": {
+      "weight": 0.2,
+      "avg_score": 0.0,
+      "posts": 4,
+      "avg_impressions": 18
+    },
+    "完璧主義の罠": {
+      "weight": 0.2,
+      "avg_score": 0.0,
+      "posts": 1,
+      "avg_impressions": 19
+    },
+    "信頼という通貨": {
+      "weight": 0.2,
+      "avg_score": 0.0,
+      "posts": 1,
+      "avg_impressions": 30
+    },
+    "矛盾と人間性": {
+      "weight": 0.2,
+      "avg_score": 0.0,
+      "posts": 1,
+      "avg_impressions": 23
+    },
+    "感謝が運命を変える構造": {
+      "weight": 0.2,
+      "avg_score": 0.0,
+      "posts": 1,
+      "avg_impressions": 22
+    },
+    "心の積極化と消極化": {
+      "weight": 0.2,
+      "avg_score": 0.0,
+      "posts": 1,
+      "avg_impressions": 31
+    }
+  },
+  "default_weight": 1.0
+}

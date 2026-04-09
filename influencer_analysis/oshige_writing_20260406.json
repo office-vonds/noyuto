@@ -1,0 +1,83 @@
+{
+  "account": "oshige_writing",
+  "info": {
+    "name": "おしげ（耕納茂彰）",
+    "domain": "メンタル・人間関係",
+    "why_watch": "61Kフォロワー。ブクマ率17.8%。信用・誠実さの切り口。NOYUTOの信頼経済と共鳴"
+  },
+  "analyzed_at": "2026-04-06T00:05:06.238246+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 17.9,
+    "avg_bookmarks": 3.8,
+    "avg_retweets": 2.3,
+    "avg_bookmark_ratio": 0.104,
+    "avg_chars": 103
+  },
+  "format_distribution": {
+    "standard": 38,
+    "dialogue": 6,
+    "bullet_list": 4,
+    "punchline_ending": 2,
+    "flow_arrow": 1
+  },
+  "hook_distribution": {
+    "statement_hook": 34,
+    "dialogue_hook": 9,
+    "short_impact_hook": 7
+  },
+  "high_bookmark_formats": {
+    "bullet_list": 4,
+    "standard": 3,
+    "dialogue": 2,
+    "flow_arrow": 1,
+    "punchline_ending": 1
+  },
+  "top_posts": [
+    {
+      "text": "嫌な人への対処法\n\n❌やりがちだけどNG\n\n・相手を変えようとする\n・ムリに仲良くなろうとする\n・相手の機嫌をとろうとする\n・周りにグチを言う\n・真っ向から反論する\n・あからさまに無視をする\n・相手の動向をチェックする\n・嫌だけど愛想笑い\n・自分に非があると思い込む\n\n⭕️正解の対応",
+      "bookmarks": 36,
+      "likes": 116,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "・とにかく離れる\n・”はいはい”と受け流す\n・理由をつけて断る\n・言いたいことは言う\n・反面教師として学ぶ\n・いいところを探す\n・最低限の会話にとどめる\n・思いきって環境を変える\n・別の星の生き物だと思う\n\nストレスの原因は嫌な人との関わり。少しでも楽になるためには",
+      "bookmarks": 28,
+      "likes": 76,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "【要注意】\n人が離れていく人の特徴Tier表\n\nTier C（悪気はないけど）\n・話を最後まで聞かない\n・自分の話ばかりする\n・時間にルーズ\n・頼まれたことをすぐ忘れる\n\nTier B（違和感を感じる）\n・お金に対してケチくさい\n・ネガティブ発言が多い\n・ありがとうを言えない\n・人の噂話が大好き\n\nTier A↓",
+      "bookmarks": 27,
+      "likes": 94,
+      "formats": [
+        "bullet_list"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "ミスが多い人って、めんどくさがりで、いつも焦ってて、後回しグセがひどく、マルチタスクをしがちで、思いこみが激しいし、メモもしないし、知ったかぶりで、変にプライドが高い人。物事より自分の確認をするのが大切です。素直に謙虚に冷静に。ミスを減らしたい人にオススメの習慣は…",
+      "bookmarks": 21,
+      "likes": 81,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "わかっているのに出来ない人が多い。 https://t.co/jl7JhG4feG",
+      "bookmarks": 16,
+      "likes": 173,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    }
+  ]
+}

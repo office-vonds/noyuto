@@ -3,11 +3,12 @@
 import asyncio
 import json
 import glob
+import os
 from pathlib import Path
 from playwright.async_api import async_playwright
 
-PENDING_DIR  = Path.home() / "projects/noyuto/pending_notes"
-SESSION_FILE = Path.home() / "projects/noyuto/note_session.json"
+PENDING_DIR  = Path(__file__).parent / "pending_notes"
+SESSION_FILE = Path(__file__).parent / "note_session.json"
 
 async def close_dialog(page):
     """AIダイアログやモーダルを閉じる"""
@@ -50,6 +51,10 @@ async def post_to_note():
     body  = data["body"]
     print(f"[投稿開始] {title}")
 
+    # WSL2/cron環境ではX11が不要なヘッドレスモードで起動
+    os.environ.pop("DISPLAY", None)
+    os.environ.pop("WAYLAND_DISPLAY", None)
+
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
@@ -58,6 +63,8 @@ async def post_to_note():
                 "--no-sandbox",
                 "--disable-dev-shm-usage",
                 "--disable-gpu",
+                "--headless=new",
+                "--ozone-platform=headless",
             ],
         )
         context = await browser.new_context(
@@ -81,7 +88,7 @@ async def post_to_note():
             print(f"[待機中] {(i+1)*2}秒経過...")
         else:
             # Take screenshot for debugging
-            await page.screenshot(path=str(Path.home() / "projects/noyuto/note_error.png"))
+            await page.screenshot(path=str(Path(__file__).parent / "note_error.png"))
             print("[エラー] エディタが30秒以内にロードされませんでした")
             url = page.url
             title_text = await page.title()
@@ -152,7 +159,7 @@ async def post_to_note():
                     continue
             if not body_filled:
                 print("[本文] セレクタが見つかりません")
-                await page.screenshot(path=str(Path.home() / "projects/noyuto/note_body_error.png"))
+                await page.screenshot(path=str(Path(__file__).parent / "note_body_error.png"))
                 await browser.close()
                 return
         except Exception as e:
@@ -193,7 +200,7 @@ async def post_to_note():
 
         except Exception as e:
             print(f"[公開] 失敗: {e}")
-            await page.screenshot(path=str(Path.home() / "projects/noyuto/note_publish_error.png"))
+            await page.screenshot(path=str(Path(__file__).parent / "note_publish_error.png"))
 
         await browser.close()
         print("[完了] 正常終了")

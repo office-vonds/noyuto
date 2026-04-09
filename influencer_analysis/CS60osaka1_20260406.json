@@ -1,0 +1,86 @@
+{
+  "account": "CS60osaka1",
+  "info": {
+    "name": "東大阪健康サロン@健康オタク",
+    "domain": "健康・自然療法",
+    "why_watch": "10万フォロワー。ブクマ率24.8%。リスト型・常識破壊型の構造が秀逸"
+  },
+  "analyzed_at": "2026-04-06T00:05:04.067761+00:00",
+  "total_posts_analyzed": 50,
+  "metrics": {
+    "avg_likes": 1225.2,
+    "avg_bookmarks": 473.7,
+    "avg_retweets": 207.7,
+    "avg_bookmark_ratio": 0.205,
+    "avg_chars": 141
+  },
+  "format_distribution": {
+    "standard": 22,
+    "numbered_circle_list": 14,
+    "bullet_list": 7,
+    "punchline_ending": 6,
+    "authority_cite": 3,
+    "flow_arrow": 3,
+    "comparison": 1,
+    "myth_busting": 1
+  },
+  "hook_distribution": {
+    "short_impact_hook": 26,
+    "statement_hook": 22,
+    "dialogue_hook": 2
+  },
+  "high_bookmark_formats": {
+    "standard": 4,
+    "authority_cite": 2,
+    "numbered_circle_list": 2,
+    "punchline_ending": 1,
+    "bullet_list": 1
+  },
+  "top_posts": [
+    {
+      "text": "利権によって潰されてしまったＳＴＡＰ細胞\n\n免疫力が上がって、身体がめちゃくちゃ健康になってしまうSTAP細胞は、ほとんどお金をかけずに誰でも簡単に作れてしまう‼️\n\nＳＴＡＰ細胞は、もともと熊本大学で研究され、理研に委ねられたそうで、素になった培養液は「玄米乳酸菌」 https://t.co/VwdG0muNrV",
+      "bookmarks": 9623,
+      "likes": 21027,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "歯周病がひどくて歯を抜かないといけないと\n歯医者で言われた方が歯磨粉にコパイバマリマリを数滴垂らして、歯周ポケットに入る歯ブラシの柔らかめを使って磨きまくった\n\n一週間後、歯医者に行ったら先生が一言『何した？治ってる』と言って、歯を抜かずに済んだ\n\nコパイバマリマリの体験版 https://t.co/DPNUR9CIgV",
+      "bookmarks": 7483,
+      "likes": 8344,
+      "formats": [
+        "authority_cite"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "イベルメクチンは高い・副作用が怖いという方にお勧めなのがヨモギ\n\nヨモギにはアルテミシニンというがんに効く成分が入っている\n\nヨモギは駆虫薬としての効果もあり、天然のイベルメクチンと呼ばれている\n\n今はヨモギが無料で手に入る季節\n\n僕はイベルメクチンよりヨモギ派です\n\n大自然に感謝😊",
+      "bookmarks": 916,
+      "likes": 3852,
+      "formats": [
+        "standard"
+      ],
+      "hook": "statement_hook"
+    },
+    {
+      "text": "エビデンスがないのに\n\nがんが治った人がいる重曹クエン酸\n\n血圧が下がった人がいるシリカ水　\n\n白髪が黒くなった人がいるスギナ茶\n\n視力回復した人がいる塩水点眼\n\nフルボ酸を頭皮に塗って髪が生えてハゲ改善した人\n\nエビデンスがないのに様々な不調が治った人がいる食事療法\n\nエビデンスよりも生の声",
+      "bookmarks": 714,
+      "likes": 2109,
+      "formats": [
+        "standard"
+      ],
+      "hook": "short_impact_hook"
+    },
+    {
+      "text": "東城百合子氏の自然療法によると\n\n骨髄ガンの患者で、もう助からないと言われた人が毎日朝晩一個づつ一日二個のビワの種を生のままガリガリかじってたべて、一か月でガンが消えたという事実がある\n\n他には\n\nガンになった犬にびわ種の粉末「びわ健」を餌に混ぜて食べさせたら、1か月で治った事例もある",
+      "bookmarks": 402,
+      "likes": 1336,
+      "formats": [
+        "authority_cite"
+      ],
+      "hook": "short_impact_hook"
+    }
+  ]
+}

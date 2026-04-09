@@ -190,3 +190,16 @@ Call log:
   - [pid=115269] finished temporary directories cleanup
   - [pid=115269] <gracefully close end>
 
+[完了] 投稿するnoteがありません
+[完了] 投稿するnoteがありません
+[完了] 投稿するnoteがありません
+[投稿開始] 売上を追う会社は必ず信用を失う
+[ナビ] editor.note.com/new へ移動中...
+[ロード完了] 2個の入力要素を検出（2秒後）
+[ダイアログ] 閉じました: button[aria-label*="閉じる"]
+[タイトル] 入力完了 (textarea[placeholder*="タイトル"])
+[本文] 入力完了 (.ProseMirror)
+[公開] 「公開に進む」クリック
+[公開] button:has-text("投稿する") クリック成功
+[完了] URL: https://editor.note.com/notes/nacde8ed8a0e4/publish/
+[完了] 正常終了
