@@ -3,3 +3,4 @@
 auto-repair/.env
 .env.local
 scripts/node_modules/
+__pycache__/
