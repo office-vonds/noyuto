@@ -1,0 +1,20 @@
+include:
+  - column/
+
+exclude:
+  - scripts/
+  - auto-repair/
+  - seo/
+  - theme/
+  - skills/
+  - hearing/
+  - node_modules/
+  - __pycache__/
+  - .env
+  - .env.local
+  - CLAUDE.md
+  - kizuna-job
+  - majistretch/
+  - "*.py"
+  - "*.sh"
+  - "*.log"

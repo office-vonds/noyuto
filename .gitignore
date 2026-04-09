@@ -1,4 +1,5 @@
 .env
+.env.local
 __pycache__/
 *.pyc
 debug_screenshot*.png
@@ -8,3 +9,7 @@ Your archive*
 assets/
 data/
 debug_note*.py
+# SMTP認証情報（パスワード含むためgit管理対象外）
+**/mail-config.php
+auto-repair/.env
+scripts/node_modules/

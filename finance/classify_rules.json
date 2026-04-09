@@ -1,0 +1,419 @@
+{
+  "revenue_rules": [
+    {
+      "keyword": "GOOGLE",
+      "business": "オフィスVONDS",
+      "note": "Google広告関連"
+    },
+    {
+      "keyword": "広告",
+      "business": "オフィスVONDS",
+      "note": "広告収入"
+    },
+    {
+      "keyword": "RIWAY",
+      "business": "RIWAY",
+      "note": "RIWAY報酬"
+    },
+    {
+      "keyword": "エートラック",
+      "business": "A-TRUCK",
+      "note": "A-TRUCK報酬"
+    },
+    {
+      "keyword": "オザワ",
+      "business": "共通",
+      "note": "個人振込"
+    },
+    {
+      "keyword": "サンケン",
+      "business": "オフィスVONDS",
+      "note": "SANKENクライアント報酬"
+    },
+    {
+      "keyword": "SANKEN",
+      "business": "オフィスVONDS",
+      "note": "SANKENクライアント報酬"
+    },
+    {
+      "keyword": "マサムネ",
+      "business": "UNLYUTO",
+      "note": "デリヘル法人"
+    },
+    {
+      "keyword": "ネクストエイド",
+      "business": "共通",
+      "note": "保険代理店"
+    },
+    {
+      "keyword": "NTT",
+      "business": "共通",
+      "note": "保険代理店経由"
+    },
+    {
+      "keyword": "振込",
+      "business": "未分類",
+      "note": "振込入金"
+    }
+  ],
+  "expense_rules": [
+    {
+      "keyword": "GOOGLE",
+      "category": "広告費",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "ADS",
+      "category": "広告費",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "GRAB.COM",
+      "category": "交通費（海外）",
+      "business": "RIWAY"
+    },
+    {
+      "keyword": "GRAB",
+      "category": "交通費（海外）",
+      "business": "RIWAY"
+    },
+    {
+      "keyword": "AIRASIA",
+      "category": "航空券",
+      "business": "RIWAY"
+    },
+    {
+      "keyword": "OPENAI",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "CHATGPT",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "ヤマグチ",
+      "category": "外注費",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "ZOOM",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "Next Aid",
+      "category": "保険料",
+      "business": "共通"
+    },
+    {
+      "keyword": "ネクストエイド",
+      "category": "保険料",
+      "business": "共通"
+    },
+    {
+      "keyword": "wpX",
+      "category": "サーバー代",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "オクトパス",
+      "category": "光熱費",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "トヨタファイナンス",
+      "category": "車両ローン",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "NOTTA",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "E-net",
+      "category": "現金引出",
+      "business": "共通"
+    },
+    {
+      "keyword": "X CORP",
+      "category": "ツール費用",
+      "business": "noyuto"
+    },
+    {
+      "keyword": "PAID FEATURES",
+      "category": "ツール費用",
+      "business": "noyuto"
+    },
+    {
+      "keyword": "エートラック",
+      "category": "事業経費",
+      "business": "A-TRUCK"
+    },
+    {
+      "keyword": "A-TRUCK",
+      "category": "事業経費",
+      "business": "A-TRUCK"
+    },
+    {
+      "keyword": "ラクラクフリーワイファイ",
+      "category": "通信費",
+      "business": "共通"
+    },
+    {
+      "keyword": "ワイファイ",
+      "category": "通信費",
+      "business": "共通"
+    },
+    {
+      "keyword": "振込手数料",
+      "category": "振込手数料",
+      "business": "共通"
+    },
+    {
+      "keyword": "損害保険ジャパン",
+      "category": "自動車保険",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "損保ジャパン",
+      "category": "自動車保険",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "ヤチンシュウノウ",
+      "category": "家賃",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "サイバーリンク",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "ソンポビマワリ",
+      "category": "保険料（解約済）",
+      "business": "共通"
+    },
+    {
+      "keyword": "SOMPO",
+      "category": "保険料（解約済）",
+      "business": "共通"
+    },
+    {
+      "keyword": "SEOキョウカイ",
+      "category": "会費",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "KARAKUBUY",
+      "category": "海外通販",
+      "business": "共通"
+    },
+    {
+      "keyword": "MICROSOFT",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "EVERAI",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "DREAM STUDIO",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "PADDLE",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "CHATAI",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "FIGMA",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "ココナラ",
+      "category": "外注費",
+      "business": "共通"
+    },
+    {
+      "keyword": "MHF",
+      "category": "家賃",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "損害保険",
+      "category": "自動車保険",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "振込手数",
+      "category": "振込手数料",
+      "business": "共通"
+    },
+    {
+      "keyword": "イオネセイキュウ",
+      "category": "カード決済",
+      "business": "共通"
+    },
+    {
+      "keyword": "AMAZON",
+      "category": "消耗品",
+      "business": "共通"
+    },
+    {
+      "keyword": "アマゾン",
+      "category": "消耗品",
+      "business": "共通"
+    },
+    {
+      "keyword": "ATM",
+      "category": "現金引出",
+      "business": "共通"
+    },
+    {
+      "keyword": "セブン",
+      "category": "現金引出",
+      "business": "共通"
+    },
+    {
+      "keyword": "ローソン",
+      "category": "現金引出",
+      "business": "共通"
+    },
+    {
+      "keyword": "電気",
+      "category": "光熱費",
+      "business": "共通"
+    },
+    {
+      "keyword": "ガス",
+      "category": "光熱費",
+      "business": "共通"
+    },
+    {
+      "keyword": "水道",
+      "category": "光熱費",
+      "business": "共通"
+    },
+    {
+      "keyword": "通信",
+      "category": "通信費",
+      "business": "共通"
+    },
+    {
+      "keyword": "携帯",
+      "category": "通信費",
+      "business": "共通"
+    },
+    {
+      "keyword": "ソフトバンク",
+      "category": "通信費",
+      "business": "共通"
+    },
+    {
+      "keyword": "ドコモ",
+      "category": "通信費",
+      "business": "共通"
+    },
+    {
+      "keyword": "サーバ",
+      "category": "サーバー代",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "ドメイン",
+      "category": "サーバー代",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "XSERVER",
+      "category": "サーバー代",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "SUBSCR",
+      "category": "ツール費用",
+      "business": "共通"
+    },
+    {
+      "keyword": "イオネセイキュウ",
+      "category": "光熱費・通信費",
+      "business": "共通"
+    },
+    {
+      "keyword": "ネットフリックス",
+      "category": "娯楽費",
+      "business": "共通"
+    },
+    {
+      "keyword": "NETFLIX",
+      "category": "娯楽費",
+      "business": "共通"
+    },
+    {
+      "keyword": "UBER",
+      "category": "食費",
+      "business": "共通"
+    },
+    {
+      "keyword": "ラクテン",
+      "category": "消耗品",
+      "business": "共通"
+    },
+    {
+      "keyword": "楽天",
+      "category": "消耗品",
+      "business": "共通"
+    },
+    {
+      "keyword": "NETLIFY",
+      "category": "サーバー代",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "CSS",
+      "category": "保険料（解約済）",
+      "business": "共通"
+    },
+    {
+      "keyword": "NSS",
+      "category": "会費",
+      "business": "オフィスVONDS"
+    },
+    {
+      "keyword": "クール",
+      "category": "不明",
+      "business": "共通"
+    },
+    {
+      "keyword": "ナナマイ",
+      "category": "不明",
+      "business": "共通"
+    },
+    {
+      "keyword": "キキカワ",
+      "category": "不明",
+      "business": "共通"
+    },
+    {
+      "keyword": "デビット",
+      "category": "カード決済",
+      "business": "未分類"
+    }
+  ],
+  "ignore_keywords": [
+    "利息"
+  ]
+}

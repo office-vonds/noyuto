@@ -1,0 +1,1262 @@
+[
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "サーバー代",
+    "amount": 5280,
+    "note": "Vデビット　ｗｐＸ（自動引落）　1A001001",
+    "date": "2026-01-01",
+    "recorded_at": "2026-04-01T11:14:27.369248",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "広告費",
+    "amount": 23050,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ１３６３７１９６４２　1A002001",
+    "date": "2026-01-02",
+    "recorded_at": "2026-04-01T11:14:27.370422",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 20000,
+    "note": "セブンATM出金",
+    "date": "2026-01-02",
+    "recorded_at": "2026-04-01T11:14:27.370438",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 165,
+    "note": "ＡＴＭ手数料",
+    "date": "2026-01-03",
+    "recorded_at": "2026-04-01T11:14:27.370456",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "外注費",
+    "amount": 30000,
+    "note": "振込 ヤマグチ　カズエ",
+    "date": "2026-01-05",
+    "recorded_at": "2026-04-01T11:14:27.370485",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "振込手数料",
+    "amount": 145,
+    "note": "振込手数料",
+    "date": "2026-01-05",
+    "recorded_at": "2026-04-01T11:14:27.370496",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 15000,
+    "note": "セブンATM出金",
+    "date": "2026-01-05",
+    "recorded_at": "2026-04-01T11:14:27.370505",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 30000,
+    "note": "ローソンATM出金",
+    "date": "2026-01-06",
+    "recorded_at": "2026-04-01T11:14:27.370521",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "広告費",
+    "amount": 2000,
+    "note": "Vデビット　Google ADS8549114235　1A007001",
+    "date": "2026-01-07",
+    "recorded_at": "2026-04-01T11:14:27.370528",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "ツール費用",
+    "amount": 3556,
+    "note": "Vデビット　OPENAI *CHATGPT SUBSCR　1A008001",
+    "date": "2026-01-08",
+    "recorded_at": "2026-04-01T11:14:27.370545",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 50000,
+    "note": "セブンATM出金",
+    "date": "2026-01-09",
+    "recorded_at": "2026-04-01T11:14:27.370574",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-01",
+    "category": "カード決済",
+    "amount": 1500,
+    "note": "Vデビット　ｸﾞｰｸﾞﾙ･ｼﾞｬﾊﾟﾝ･ｼﾞｰ･ﾄﾞｯﾄ･　1A009001",
+    "date": "2026-01-09",
+    "recorded_at": "2026-04-01T11:14:27.370593",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ１３６３７１９６４２　1A009002",
+    "date": "2026-01-09",
+    "recorded_at": "2026-04-01T11:14:27.370604",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 1491,
+    "note": "Vデビット　WWW.GRAB.COM　1A010001",
+    "date": "2026-01-10",
+    "recorded_at": "2026-04-01T11:14:27.370611",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 1496,
+    "note": "Vデビット　WWW.GRAB.COM　1A010002",
+    "date": "2026-01-10",
+    "recorded_at": "2026-04-01T11:14:27.370617",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 3424,
+    "note": "Vデビット　WWW.GRAB.COM　1A011001",
+    "date": "2026-01-11",
+    "recorded_at": "2026-04-01T11:14:27.370623",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 975,
+    "note": "Vデビット　WWW.GRAB.COM　1A011002",
+    "date": "2026-01-11",
+    "recorded_at": "2026-04-01T11:14:27.370628",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 912,
+    "note": "Vデビット　WWW.GRAB.COM　1A011003",
+    "date": "2026-01-11",
+    "recorded_at": "2026-04-01T11:14:27.370654",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 2856,
+    "note": "Vデビット　WWW.GRAB.COM　1A012001",
+    "date": "2026-01-12",
+    "recorded_at": "2026-04-01T11:14:27.370660",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 3455,
+    "note": "Vデビット　WWW.GRAB.COM　1A012002",
+    "date": "2026-01-12",
+    "recorded_at": "2026-04-01T11:14:27.370687",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "交通費（海外）",
+    "amount": 104,
+    "note": "Vデビット　WWW.GRAB.COM　1A012003",
+    "date": "2026-01-12",
+    "recorded_at": "2026-04-01T11:14:27.370693",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "航空券",
+    "amount": 1303,
+    "note": "Vデビット　WWW.AIRASIA.COM　1A012004",
+    "date": "2026-01-12",
+    "recorded_at": "2026-04-01T11:14:27.370699",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "RIWAY",
+    "month": "2026-01",
+    "category": "航空券",
+    "amount": 2710,
+    "note": "Vデビット　WWW.AIRASIA.COM　1A012005",
+    "date": "2026-01-12",
+    "recorded_at": "2026-04-01T11:14:27.370705",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "ツール費用",
+    "amount": 2484,
+    "note": "Vデビット　ZOOM.COM 888-799-9666　1A014001",
+    "date": "2026-01-14",
+    "recorded_at": "2026-04-01T11:14:27.370713",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "保険料",
+    "amount": 2750,
+    "note": "Vデビット　Ｎｅｘｔ　Ａｉｄ　1A014002",
+    "date": "2026-01-14",
+    "recorded_at": "2026-04-01T11:14:27.370723",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "保険料",
+    "amount": 7900,
+    "note": "Vデビット　Ｎｅｘｔ　Ａｉｄ　1A014003",
+    "date": "2026-01-14",
+    "recorded_at": "2026-04-01T11:14:27.370730",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "保険料",
+    "amount": 8800,
+    "note": "Vデビット　Ｎｅｘｔ　Ａｉｄ　1A014004",
+    "date": "2026-01-14",
+    "recorded_at": "2026-04-01T11:14:27.370737",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 60000,
+    "note": "セブンATM出金",
+    "date": "2026-01-14",
+    "recorded_at": "2026-04-01T11:14:27.370746",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 16000,
+    "note": "ローソンATM出金",
+    "date": "2026-01-14",
+    "recorded_at": "2026-04-01T11:14:27.370755",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-01",
+    "category": "カード決済",
+    "amount": 2893,
+    "note": "Vデビット　ｲｲﾈｾｲｷﾕｳｻｰﾋﾞｽ　1A015001",
+    "date": "2026-01-15",
+    "recorded_at": "2026-04-01T11:14:27.370778",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "ツール費用",
+    "amount": 10850,
+    "note": "Vデビット　OPENAI *CHATGPT SUBSCR　1A015002",
+    "date": "2026-01-15",
+    "recorded_at": "2026-04-01T11:14:27.370807",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "noyuto",
+    "month": "2026-01",
+    "category": "ツール費用",
+    "amount": 6080,
+    "note": "Vデビット　X CORP. PAID FEATURES　1A016001",
+    "date": "2026-01-16",
+    "recorded_at": "2026-04-01T11:14:27.370816",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 18000,
+    "note": "セブンATM出金",
+    "date": "2026-01-17",
+    "recorded_at": "2026-04-01T11:14:27.370844",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "光熱費",
+    "amount": 15481,
+    "note": "Vデビット　オクトパスエナジー　1A019001",
+    "date": "2026-01-19",
+    "recorded_at": "2026-04-01T11:14:27.370859",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "車両ローン",
+    "amount": 61000,
+    "note": "トヨタファイナンス（カブ）",
+    "date": "2026-01-19",
+    "recorded_at": "2026-04-01T11:14:27.370865",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "広告費",
+    "amount": 10000,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ８５４９１１４２３５　1A019003",
+    "date": "2026-01-19",
+    "recorded_at": "2026-04-01T11:14:27.370873",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＡＤＳ１３６３７１９６４２　1A020001",
+    "date": "2026-01-20",
+    "recorded_at": "2026-04-01T11:14:27.370879",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "ツール費用",
+    "amount": 14220,
+    "note": "Vデビット　NOTTA　1A020003",
+    "date": "2026-01-20",
+    "recorded_at": "2026-04-01T11:14:27.370887",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 30000,
+    "note": "Ｅ−ｎｅｔＡＴＭ",
+    "date": "2026-01-20",
+    "recorded_at": "2026-04-01T11:14:27.370896",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-01",
+    "category": "カード決済",
+    "amount": 3080,
+    "note": "Vデビット　ﾗｸﾗｸﾌﾘ-ﾜｲﾌｱｲ　1A023001",
+    "date": "2026-01-23",
+    "recorded_at": "2026-04-01T11:14:27.370962",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "広告費",
+    "amount": 25000,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ８５４９１１４２３５　1A023002",
+    "date": "2026-01-23",
+    "recorded_at": "2026-04-01T11:14:27.370991",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 25000,
+    "note": "セブンATM出金",
+    "date": "2026-01-23",
+    "recorded_at": "2026-04-01T11:14:27.371003",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "現金引出",
+    "amount": 28000,
+    "note": "セブンATM出金",
+    "date": "2026-01-25",
+    "recorded_at": "2026-04-01T11:14:27.371038",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "自動車保険",
+    "amount": 7415,
+    "note": "損害保険ジャパン株式会社",
+    "date": "2026-01-26",
+    "recorded_at": "2026-04-01T11:14:27.371073",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "自動車保険",
+    "amount": 5065,
+    "note": "損害保険ジャパン株式会社",
+    "date": "2026-01-26",
+    "recorded_at": "2026-04-01T11:14:27.371080",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "家賃",
+    "amount": 63240,
+    "note": "ＭＨＦ）ヤチンシユウノウ",
+    "date": "2026-01-26",
+    "recorded_at": "2026-04-01T11:14:27.371109",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "ツール費用",
+    "amount": 12030,
+    "note": "Vデビット　サイバーリンク株式会社　1A026001",
+    "date": "2026-01-26",
+    "recorded_at": "2026-04-01T11:14:27.371119",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-01",
+    "category": "保険料（解約済）",
+    "amount": 4227,
+    "note": "ＣＳＳ（ソンポヒマワリ",
+    "date": "2026-01-27",
+    "recorded_at": "2026-04-01T11:14:27.371152",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "会費",
+    "amount": 8800,
+    "note": "ＮＳＳ．ＳＥＯキヨウカイカイヒ",
+    "date": "2026-01-27",
+    "recorded_at": "2026-04-01T11:14:27.371165",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-01",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＡＤＳ１３６３７１９６４２　1A028001",
+    "date": "2026-01-28",
+    "recorded_at": "2026-04-01T11:14:27.371206",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "サーバー代",
+    "amount": 5280,
+    "note": "Vデビット　ｗｐＸ（自動引落）　1A032001",
+    "date": "2026-02-01",
+    "recorded_at": "2026-04-01T11:14:27.371267",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 60000,
+    "note": "セブンATM出金",
+    "date": "2026-02-01",
+    "recorded_at": "2026-04-01T11:14:27.371276",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 42700,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ８５４９１１４２３５　1A033001",
+    "date": "2026-02-02",
+    "recorded_at": "2026-04-01T11:14:27.371283",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 34346,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ１３６３７１９６４２　1A033002",
+    "date": "2026-02-02",
+    "recorded_at": "2026-04-01T11:14:27.371290",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 20000,
+    "note": "セブンATM出金",
+    "date": "2026-02-02",
+    "recorded_at": "2026-04-01T11:14:27.371321",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 165,
+    "note": "ＡＴＭ手数料",
+    "date": "2026-02-02",
+    "recorded_at": "2026-04-01T11:14:27.371349",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "海外通販",
+    "amount": 28900,
+    "note": "Vデビット　WWW.KARAKUBUY.COM　1A034001",
+    "date": "2026-02-03",
+    "recorded_at": "2026-04-01T11:14:27.371359",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "ツール費用",
+    "amount": 2740,
+    "note": "Vデビット　ＭＩＣＲＯＳＯＦＴ＊ＳＴＯＲＥ　1A035003",
+    "date": "2026-02-04",
+    "recorded_at": "2026-04-01T11:14:27.371401",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 10000,
+    "note": "セブンATM出金",
+    "date": "2026-02-06",
+    "recorded_at": "2026-04-01T11:14:27.371410",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ１３６３７１９６４２　1A040001",
+    "date": "2026-02-09",
+    "recorded_at": "2026-04-01T11:14:27.371476",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 30000,
+    "note": "セブンATM出金",
+    "date": "2026-02-09",
+    "recorded_at": "2026-04-01T11:14:27.371488",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 50000,
+    "note": "Ｅ−ｎｅｔＡＴＭ",
+    "date": "2026-02-09",
+    "recorded_at": "2026-04-01T11:14:27.371516",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "保険料",
+    "amount": 2750,
+    "note": "Vデビット　Ｎｅｘｔ　Ａｉｄ　1A041001",
+    "date": "2026-02-10",
+    "recorded_at": "2026-04-01T11:14:27.371523",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "保険料",
+    "amount": 7900,
+    "note": "Vデビット　Ｎｅｘｔ　Ａｉｄ　1A041002",
+    "date": "2026-02-10",
+    "recorded_at": "2026-04-01T11:14:27.371551",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "保険料",
+    "amount": 8800,
+    "note": "Vデビット　Ｎｅｘｔ　Ａｉｄ　1A041003",
+    "date": "2026-02-10",
+    "recorded_at": "2026-04-01T11:14:27.371558",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "ツール費用",
+    "amount": 3895,
+    "note": "Vデビット　EVERAI　1A041004",
+    "date": "2026-02-10",
+    "recorded_at": "2026-04-01T11:14:27.371588",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "ツール費用",
+    "amount": 2484,
+    "note": "Vデビット　ZOOM.COM 888-799-9666　1A045001",
+    "date": "2026-02-14",
+    "recorded_at": "2026-04-01T11:14:27.371643",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 50000,
+    "note": "Vデビット　ＡＤＳ８５４９１１４２３５　1A045002",
+    "date": "2026-02-14",
+    "recorded_at": "2026-04-01T11:14:27.371670",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 10000,
+    "note": "Ｅ−ｎｅｔＡＴＭ",
+    "date": "2026-02-14",
+    "recorded_at": "2026-04-01T11:14:27.371699",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "ツール費用",
+    "amount": 1582,
+    "note": "Vデビット　EVERAI　1A045003",
+    "date": "2026-02-14",
+    "recorded_at": "2026-04-01T11:14:27.371715",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-02",
+    "category": "カード決済",
+    "amount": 2893,
+    "note": "Vデビット　ｲｲﾈｾｲｷﾕｳｻｰﾋﾞｽ　1A045004",
+    "date": "2026-02-14",
+    "recorded_at": "2026-04-01T11:14:27.371768",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "ツール費用",
+    "amount": 3167,
+    "note": "Vデビット　DREAM STUDIO LLC　1A046002",
+    "date": "2026-02-15",
+    "recorded_at": "2026-04-01T11:14:27.371781",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "ツール費用",
+    "amount": 10456,
+    "note": "Vデビット　OPENAI *CHATGPT SUBSCR　1A046003",
+    "date": "2026-02-15",
+    "recorded_at": "2026-04-01T11:14:27.371788",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "光熱費",
+    "amount": 21059,
+    "note": "Vデビット　オクトパスエナジー　1A047001",
+    "date": "2026-02-16",
+    "recorded_at": "2026-04-01T11:14:27.371815",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 15000,
+    "note": "セブンATM出金",
+    "date": "2026-02-16",
+    "recorded_at": "2026-04-01T11:14:27.371823",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "車両ローン",
+    "amount": 61000,
+    "note": "トヨタファイナンス（カブ）",
+    "date": "2026-02-17",
+    "recorded_at": "2026-04-01T11:14:27.371835",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 12000,
+    "note": "セブンATM出金",
+    "date": "2026-02-18",
+    "recorded_at": "2026-04-01T11:14:27.371843",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 7000,
+    "note": "セブンATM出金",
+    "date": "2026-02-19",
+    "recorded_at": "2026-04-01T11:14:27.371858",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 200,
+    "note": "Vデビット　GOOGLE*TEMPORARY HOLD　2A050001",
+    "date": "2026-02-19",
+    "recorded_at": "2026-04-01T11:14:27.371880",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＡＤＳ１３６３７１９６４２　2A050002",
+    "date": "2026-02-19",
+    "recorded_at": "2026-04-01T11:14:27.371937",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 2900,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＧＯＯＧＬＥ　ＯＮＥ　2A052002",
+    "date": "2026-02-21",
+    "recorded_at": "2026-04-01T11:14:27.371953",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-02",
+    "category": "未分類",
+    "amount": 100000,
+    "note": "振込 カ）マサムネ",
+    "date": "2026-02-24",
+    "recorded_at": "2026-04-01T11:14:27.371986",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "振込手数料",
+    "amount": 145,
+    "note": "振込手数料",
+    "date": "2026-02-24",
+    "recorded_at": "2026-04-01T11:14:27.371994",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＡＤＳ１３６３７１９６４２　2A056001",
+    "date": "2026-02-25",
+    "recorded_at": "2026-04-01T11:14:27.372010",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "自動車保険",
+    "amount": 7415,
+    "note": "損害保険ジャパン株式会社",
+    "date": "2026-02-26",
+    "recorded_at": "2026-04-01T11:14:27.372024",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "家賃",
+    "amount": 63240,
+    "note": "ＭＨＦ）ヤチンシユウノウ",
+    "date": "2026-02-26",
+    "recorded_at": "2026-04-01T11:14:27.372033",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-02",
+    "category": "会費",
+    "amount": 8800,
+    "note": "ＮＳＳ．ＳＥＯキヨウカイカイヒ",
+    "date": "2026-02-27",
+    "recorded_at": "2026-04-01T11:14:27.372046",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "現金引出",
+    "amount": 55000,
+    "note": "Ｅ−ｎｅｔＡＴＭ",
+    "date": "2026-02-27",
+    "recorded_at": "2026-04-01T11:14:27.372060",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-02",
+    "category": "外注費",
+    "amount": 123600,
+    "note": "Vデビット　ココナラ　2A058001",
+    "date": "2026-02-27",
+    "recorded_at": "2026-04-01T11:14:27.372070",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "現金引出",
+    "amount": 15000,
+    "note": "セブンATM出金",
+    "date": "2026-03-01",
+    "recorded_at": "2026-04-01T11:14:27.372093",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "広告費",
+    "amount": 34395,
+    "note": "Vデビット　ＡＤＳ１３６３７１９６４２　2A061001",
+    "date": "2026-03-02",
+    "recorded_at": "2026-04-01T11:14:27.372100",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "ツール費用",
+    "amount": 15000,
+    "note": "Vデビット　PADDLE.NET* CHATAI WEB　2A061003",
+    "date": "2026-03-02",
+    "recorded_at": "2026-04-01T11:14:27.372112",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "広告費",
+    "amount": 76674,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ８５４９１１４２３５　2A061004",
+    "date": "2026-03-02",
+    "recorded_at": "2026-04-01T11:14:27.372122",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "ツール費用",
+    "amount": 16107,
+    "note": "Vデビット　CLAUDE.AI SUBSCRIPTION　2A061005",
+    "date": "2026-03-02",
+    "recorded_at": "2026-04-01T11:14:27.372138",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "ツール費用",
+    "amount": 3300,
+    "note": "Vデビット　FIGMA　1A062002",
+    "date": "2026-03-03",
+    "recorded_at": "2026-04-01T11:14:27.372150",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "ツール費用",
+    "amount": 2740,
+    "note": "Vデビット　ＭＩＣＲＯＳＯＦＴ＊ＳＴＯＲＥ　1A063003",
+    "date": "2026-03-04",
+    "recorded_at": "2026-04-01T11:14:27.372162",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "カード決済",
+    "amount": 1348,
+    "note": "Vデビット　ｵﾅﾏｴﾄﾞﾂﾄｺﾑﾄﾞﾒｲﾝ　1A064003",
+    "date": "2026-03-05",
+    "recorded_at": "2026-04-01T11:14:27.372177",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "広告費",
+    "amount": 31246,
+    "note": "Vデビット　ＡＤＳ８５４９１１４２３５　1A065003",
+    "date": "2026-03-06",
+    "recorded_at": "2026-04-01T11:14:27.372205",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "現金引出",
+    "amount": 30000,
+    "note": "Ｅ−ｎｅｔＡＴＭ",
+    "date": "2026-03-06",
+    "recorded_at": "2026-04-01T11:14:27.372218",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "娯楽費",
+    "amount": 1145,
+    "note": "Vデビット　ネットフリックス　1A066002",
+    "date": "2026-03-07",
+    "recorded_at": "2026-04-01T11:14:27.372232",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＡＤＳ１３６３７１９６４２　2A068001",
+    "date": "2026-03-09",
+    "recorded_at": "2026-04-01T11:14:27.372238",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "カード決済",
+    "amount": 3445,
+    "note": "Vデビット　ｵｷﾅﾜﾁｭﾗｷｶｸ        (ﾗｸﾃﾝ　1A069001",
+    "date": "2026-03-10",
+    "recorded_at": "2026-04-01T11:14:27.372254",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "カード決済",
+    "amount": 4490,
+    "note": "Vデビット　ﾆﾁｶﾞﾗｸﾃﾝｲﾁﾊﾞﾃﾝ    (ﾗｸﾃﾝ　1A069002",
+    "date": "2026-03-10",
+    "recorded_at": "2026-04-01T11:14:27.372271",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "現金引出",
+    "amount": 70000,
+    "note": "セブンATM出金",
+    "date": "2026-03-10",
+    "recorded_at": "2026-04-01T11:14:27.372281",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "保険料",
+    "amount": 19450,
+    "note": "Vデビット　Ｎｅｘｔ　Ａｉｄ　1A069004",
+    "date": "2026-03-10",
+    "recorded_at": "2026-04-01T11:14:27.372288",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "現金引出",
+    "amount": 100000,
+    "note": "セブンATM出金",
+    "date": "2026-03-12",
+    "recorded_at": "2026-04-01T11:14:27.372297",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "広告費",
+    "amount": 249,
+    "note": "Vデビット　ＡＤＳ８５４９１１４２３５　2A072001",
+    "date": "2026-03-13",
+    "recorded_at": "2026-04-01T11:14:27.372303",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "食費",
+    "amount": 1764,
+    "note": "Vデビット　UBER *EATS HELP.UBER.COM　2A072003",
+    "date": "2026-03-13",
+    "recorded_at": "2026-04-01T11:14:27.372318",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "ツール費用",
+    "amount": 10869,
+    "note": "Vデビット　OPENAI *CHATGPT SUBSCR　1A074001",
+    "date": "2026-03-15",
+    "recorded_at": "2026-04-01T11:14:27.372325",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "カード決済",
+    "amount": 3870,
+    "note": "Vデビット　ｵﾅﾏｴﾄﾞﾂﾄｺﾑﾄﾞﾒｲﾝ　1A075002",
+    "date": "2026-03-16",
+    "recorded_at": "2026-04-01T11:14:27.372340",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "カード決済",
+    "amount": 3870,
+    "note": "Vデビット　ｵﾅﾏｴﾄﾞﾂﾄｺﾑﾄﾞﾒｲﾝ　1A075004",
+    "date": "2026-03-16",
+    "recorded_at": "2026-04-01T11:14:27.372355",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "カード決済",
+    "amount": 1674,
+    "note": "Vデビット　ｵﾅﾏｴﾄﾞﾂﾄｺﾑﾄﾞﾒｲﾝ　1A076002",
+    "date": "2026-03-17",
+    "recorded_at": "2026-04-01T11:14:27.372369",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "車両ローン",
+    "amount": 61000,
+    "note": "トヨタファイナンス（カブ）",
+    "date": "2026-03-17",
+    "recorded_at": "2026-04-01T11:14:27.372376",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "サーバー代",
+    "amount": 3294,
+    "note": "Vデビット　NETLIFY　1A076004",
+    "date": "2026-03-17",
+    "recorded_at": "2026-04-01T11:14:27.372395",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "現金引出",
+    "amount": 10000,
+    "note": "セブンATM出金",
+    "date": "2026-03-17",
+    "recorded_at": "2026-04-01T11:14:27.372404",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "現金引出",
+    "amount": 165,
+    "note": "ＡＴＭ手数料",
+    "date": "2026-03-17",
+    "recorded_at": "2026-04-01T11:14:27.372413",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "広告費",
+    "amount": 100000,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＡＤＳ１３６３７１９６４２　1A077001",
+    "date": "2026-03-18",
+    "recorded_at": "2026-04-01T11:14:27.372421",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "広告費",
+    "amount": 2900,
+    "note": "Vデビット　ＧＯＯＧＬＥ　ＧＯＯＧＬＥ　ＯＮＥ　2A079002",
+    "date": "2026-03-20",
+    "recorded_at": "2026-04-01T11:14:27.372427",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "ツール費用",
+    "amount": 2484,
+    "note": "Vデビット　ZOOM.COM 888-799-9666　1A079003",
+    "date": "2026-03-20",
+    "recorded_at": "2026-04-01T11:14:27.372435",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "共通",
+    "month": "2026-03",
+    "category": "現金引出",
+    "amount": 30000,
+    "note": "セブンATM出金",
+    "date": "2026-03-25",
+    "recorded_at": "2026-04-01T11:14:27.372443",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "自動車保険",
+    "amount": 7415,
+    "note": "損害保険ジャパン株式会社",
+    "date": "2026-03-26",
+    "recorded_at": "2026-04-01T11:14:27.372458",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "自動車保険",
+    "amount": 5065,
+    "note": "損害保険ジャパン株式会社",
+    "date": "2026-03-26",
+    "recorded_at": "2026-04-01T11:14:27.372468",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "家賃",
+    "amount": 63240,
+    "note": "ＭＨＦ）ヤチンシユウノウ",
+    "date": "2026-03-26",
+    "recorded_at": "2026-04-01T11:14:27.372482",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "未分類",
+    "amount": 10500,
+    "note": "ミツイスミトモカ−ド　（カ",
+    "date": "2026-03-26",
+    "recorded_at": "2026-04-01T11:14:27.372495",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "未分類",
+    "month": "2026-03",
+    "category": "未分類",
+    "amount": 40687,
+    "note": "ＡＰアプラス",
+    "date": "2026-03-27",
+    "recorded_at": "2026-04-01T11:14:27.372508",
+    "source": "paypay_bank"
+  },
+  {
+    "business": "オフィスVONDS",
+    "month": "2026-03",
+    "category": "会費",
+    "amount": 8800,
+    "note": "ＮＳＳ．ＳＥＯキヨウカイカイヒ",
+    "date": "2026-03-27",
+    "recorded_at": "2026-04-01T11:14:27.372521",
+    "source": "paypay_bank"
+  }
+]

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A-TRUCK SEO改善提案書｜VONDS</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 landscape;margin:0}
+:root{--navy:#053980;--red:#e8302a;--gold:#FDD65F;--g50:#f8f9fc;--g100:#eef1f6;--g600:#6b7280;--g800:#1f2937;--w:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--g800);background:#e8e8e8;-webkit-font-smoothing:antialiased}
+.slide{width:960px;min-height:540px;margin:20px auto;background:var(--w);box-shadow:0 4px 24px rgba(0,0,0,.12);overflow:hidden;position:relative;page-break-after:always;display:flex;flex-direction:column}
+.slide-num{position:absolute;bottom:16px;right:24px;font-size:11px;color:rgba(0,0,0,.25);font-weight:500}
+
+/* Cover */
+.cover{background:linear-gradient(135deg,var(--navy) 0%,#0a5bc4 100%);color:var(--w);justify-content:center;align-items:center;text-align:center;padding:60px}
+.cover .tag{background:var(--gold);color:var(--navy);font-size:12px;font-weight:700;padding:4px 16px;border-radius:20px;display:inline-block;margin-bottom:24px}
+.cover h1{font-size:36px;font-weight:900;line-height:1.4;margin-bottom:16px}
+.cover .sub{font-size:16px;opacity:.8;margin-bottom:40px}
+.cover .meta{font-size:13px;opacity:.6}
+.cover .logo{position:absolute;bottom:24px;left:24px;opacity:.5;font-size:12px}
+
+/* Standard */
+.std{padding:48px 56px}
+.std .slide-title{font-size:24px;font-weight:900;color:var(--navy);margin-bottom:4px}
+.std .slide-title-bar{width:48px;height:3px;background:var(--red);border-radius:2px;margin-bottom:28px}
+.std .content{flex:1}
+
+/* Section divider */
+.divider{background:var(--navy);color:var(--w);justify-content:center;align-items:center;text-align:center;padding:60px}
+.divider .section-num{font-size:14px;letter-spacing:4px;opacity:.5;margin-bottom:12px}
+.divider h2{font-size:32px;font-weight:900}
+
+/* Components */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.card{background:var(--g50);border-radius:10px;padding:20px}
+.card h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.card p{font-size:13px;color:var(--g600);line-height:1.7}
+.card-red{border-left:4px solid var(--red)}
+.card-navy{border-left:4px solid var(--navy)}
+.card-gold{border-left:4px solid var(--gold)}
+
+.big-num{font-size:48px;font-weight:900;color:var(--red);line-height:1}
+.big-num span{font-size:20px}
+.big-num-navy{color:var(--navy)}
+
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{background:var(--navy);color:var(--w);padding:10px 12px;text-align:left;font-weight:700}
+table.data td{padding:10px 12px;border-bottom:1px solid var(--g100)}
+table.data tr:hover td{background:rgba(5,57,128,.02)}
+.tag-good{background:#dcfce7;color:#166534;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700}
+.tag-bad{background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700}
+.tag-new{background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700}
+
+.impact-bar{height:8px;border-radius:4px;margin-top:4px}
+.bar-high{background:var(--red);width:90%}
+.bar-mid{background:var(--gold);width:60%}
+.bar-low{background:var(--g200);width:30%}
+
+.highlight-box{background:linear-gradient(135deg,var(--navy),#0a5bc4);color:var(--w);border-radius:10px;padding:24px;text-align:center;margin-top:20px}
+.highlight-box h3{font-size:20px;font-weight:900;margin-bottom:8px}
+.highlight-box p{font-size:14px;opacity:.85}
+
+ul.check{list-style:none;font-size:14px}
+ul.check li{padding:6px 0;padding-left:24px;position:relative}
+ul.check li::before{content:'✓';position:absolute;left:0;color:var(--navy);font-weight:700}
+
+.quote{border-left:4px solid var(--gold);padding:16px 20px;background:var(--g50);border-radius:0 8px 8px 0;font-size:15px;font-style:italic;color:var(--g600);margin:16px 0}
+
+.timeline{display:flex;gap:12px;margin-top:16px}
+.timeline-item{flex:1;text-align:center;padding:16px;background:var(--g50);border-radius:10px;position:relative}
+.timeline-item.active{background:var(--navy);color:var(--w)}
+.timeline-item h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.timeline-item p{font-size:11px;opacity:.7}
+
+@media print{
+body{background:#fff}
+.slide{box-shadow:none;margin:0;page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1: COVER ===== -->
+<div class="slide cover">
+  <span class="tag">ご提案書</span>
+  <h1>A-TRUCK<br>SEO改善・エリア戦略のご提案</h1>
+  <p class="sub">「トラック レンタル」検索で上位表示を実現し<br>全国11拠点の問い合わせを最大化する</p>
+  <p class="meta">2026年4月｜株式会社VONDS</p>
+  <div class="logo">VONDS Inc.</div>
+  <div class="slide-num">1 / 14</div>
+</div>
+
+<!-- ===== SLIDE 2: AGENDA ===== -->
+<div class="slide std">
+  <div class="slide-title">本日のアジェンダ</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <table class="data" style="max-width:600px">
+      <tr><td style="width:40px;text-align:center;font-weight:900;color:var(--navy)">1</td><td><strong>現状分析</strong> — A-TRUCKサイトのSEO診断結果</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--navy)">2</td><td><strong>競合分析</strong> — 上位表示サイト5社との比較</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--navy)">3</td><td><strong>提案内容</strong> — エリアLP戦略の概要</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--navy)">4</td><td><strong>テストページ</strong> — 実際のデモをお見せします</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--navy)">5</td><td><strong>期待効果・スケジュール</strong></td></tr>
+    </table>
+    <div class="quote" style="margin-top:32px">
+      既存サイトは一切変更しません。<br>新規ページの追加だけで、検索からの問い合わせを増やす施策です。
+    </div>
+  </div>
+  <div class="slide-num">2 / 14</div>
+</div>
+
+<!-- ===== SLIDE 3: SECTION DIVIDER ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 01</div>
+  <h2>現状分析</h2>
+  <div class="slide-num">3 / 14</div>
+</div>
+
+<!-- ===== SLIDE 4: CURRENT STATE ===== -->
+<div class="slide std">
+  <div class="slide-title">A-TRUCKサイトのSEO診断結果</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:15px;color:var(--navy);margin-bottom:12px">できていること</h3>
+        <div class="card card-navy" style="margin-bottom:8px"><h3>All in One SEO導入済み</h3><p>title・description・OGP・canonical・構造化データの基本設定は概ね完了</p></div>
+        <div class="card card-navy" style="margin-bottom:8px"><h3>レスポンシブ対応</h3><p>スマートフォン表示に対応済み。モバイルユーザーへのアクセシビリティ確保</p></div>
+        <div class="card card-navy"><h3>車両一覧の充実</h3><p>レンタル車両の写真・スペック・料金が詳細に掲載されている</p></div>
+      </div>
+      <div>
+        <h3 style="font-size:15px;color:var(--red);margin-bottom:12px">課題（大きな機会損失）</h3>
+        <div class="card card-red" style="margin-bottom:8px"><h3>エリアページが存在しない</h3><p>11拠点あるのに「トラック レンタル 千葉」等の地域検索で受け皿がゼロ</p></div>
+        <div class="card card-red" style="margin-bottom:8px"><h3>FAQページがない</h3><p>「冷凍車 レンタル 免許」「トラック レンタル 料金」等のロングテール検索を逃している</p></div>
+        <div class="card card-red"><h3>LocalBusinessスキーマ未実装</h3><p>Googleマップのローカルパック（上位3件表示）に出にくい状態</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">4 / 14</div>
+</div>
+
+<!-- ===== SLIDE 5: THE BIG NUMBER ===== -->
+<div class="slide std">
+  <div class="slide-title">最大の機会損失</div>
+  <div class="slide-title-bar"></div>
+  <div class="content" style="display:flex;align-items:center;justify-content:center;text-align:center">
+    <div>
+      <p style="font-size:16px;color:var(--g600);margin-bottom:12px">「トラック レンタル ＋ 地域名」で検索するユーザーは<br><strong style="color:var(--g800)">今すぐトラックを借りたい人</strong>です</p>
+      <div class="big-num" style="margin:24px 0">0<span> ページ</span></div>
+      <p style="font-size:18px;font-weight:700;color:var(--navy)">現在の地域別ランディングページ数</p>
+      <p style="font-size:14px;color:var(--g600);margin-top:8px">11拠点あるのに、地域検索の受け皿がゼロ</p>
+      <div style="display:flex;justify-content:center;gap:16px;margin-top:32px">
+        <div style="text-align:center"><div class="big-num big-num-navy" style="font-size:32px">11</div><p style="font-size:12px;color:var(--g600)">全国拠点数</p></div>
+        <div style="font-size:32px;color:var(--g200);align-self:center">×</div>
+        <div style="text-align:center"><div class="big-num big-num-navy" style="font-size:32px">2</div><p style="font-size:12px;color:var(--g600)">サービス種別</p></div>
+        <div style="font-size:32px;color:var(--g200);align-self:center">=</div>
+        <div style="text-align:center"><div class="big-num" style="font-size:32px">22</div><p style="font-size:12px;color:var(--g600)">作るべきページ数</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">5 / 14</div>
+</div>
+
+<!-- ===== SLIDE 6: SECTION DIVIDER ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 02</div>
+  <h2>競合分析</h2>
+  <div class="slide-num">6 / 14</div>
+</div>
+
+<!-- ===== SLIDE 7: COMPETITOR ANALYSIS ===== -->
+<div class="slide std">
+  <div class="slide-title">「トラック レンタル」上位5社との比較</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <table class="data">
+      <tr>
+        <th>要素</th>
+        <th>ハコボーネット<br><span style="font-weight:400;opacity:.7">1位</span></th>
+        <th>オリックス<br><span style="font-weight:400;opacity:.7">3位</span></th>
+        <th>UJレンタル<br><span style="font-weight:400;opacity:.7">4位</span></th>
+        <th style="background:var(--red)">A-TRUCK<br><span style="font-weight:400;opacity:.8">現状</span></th>
+      </tr>
+      <tr><td><strong>エリアページ</strong></td><td><span class="tag-good">47都道府県</span></td><td>営業所案内のみ</td><td>3店舗</td><td><span class="tag-bad">なし</span></td></tr>
+      <tr><td><strong>FAQページ</strong></td><td>あり</td><td>なし</td><td><span class="tag-good">あり</span></td><td><span class="tag-bad">なし</span></td></tr>
+      <tr><td><strong>料金表示</strong></td><td>あり</td><td>PDFのみ</td><td>なし</td><td>オプションのみ</td></tr>
+      <tr><td><strong>保有台数明記</strong></td><td>87台</td><td>なし</td><td><span class="tag-good">300台以上</span></td><td><span class="tag-bad">なし</span></td></tr>
+      <tr><td><strong>モバイル固定CTA</strong></td><td>なし</td><td>なし</td><td>なし</td><td><span class="tag-bad">なし</span></td></tr>
+    </table>
+    <div class="highlight-box">
+      <h3>ハコボーネットが1位の理由 = 47都道府県別ページ</h3>
+      <p>A-TRUCKには実店舗11拠点という圧倒的な強みがある。エリアページを作るだけで逆転可能。</p>
+    </div>
+  </div>
+  <div class="slide-num">7 / 14</div>
+</div>
+
+<!-- ===== SLIDE 8: SECTION DIVIDER ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 03</div>
+  <h2>提案内容</h2>
+  <div class="slide-num">8 / 14</div>
+</div>
+
+<!-- ===== SLIDE 9: PROPOSAL OVERVIEW ===== -->
+<div class="slide std">
+  <div class="slide-title">エリアLP戦略 — 概要</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="quote">既存ページは一切変更しません。WordPress固定ページとして新規追加するだけです。</div>
+    <div class="three-col" style="margin-top:20px">
+      <div class="card card-red">
+        <h3>トラックレンタル × 10拠点</h3>
+        <p>/rental/chiba/<br>/rental/osaka/<br>/rental/nagoya/<br>...等10ページ</p>
+        <p style="margin-top:8px"><strong>ターゲットKW:</strong><br>「トラック レンタル 千葉」<br>「トラック レンタル 大阪」等</p>
+      </div>
+      <div class="card card-red">
+        <h3>冷凍車レンタル × 10拠点</h3>
+        <p>/rental/freezer-chiba/<br>/rental/freezer-osaka/<br>...等10ページ</p>
+        <p style="margin-top:8px"><strong>ターゲットKW:</strong><br>「冷凍車 レンタル 千葉」<br>「冷凍車 レンタル 大阪」等</p>
+      </div>
+      <div class="card card-gold">
+        <h3>FAQ + 構造化データ</h3>
+        <p>/rental/faq/<br>1ページ</p>
+        <p style="margin-top:8px"><strong>ターゲットKW:</strong><br>「トラック レンタル 料金」<br>「冷凍車 レンタル 免許」等</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:20px;font-size:14px;color:var(--g600)">合計 <strong style="color:var(--red);font-size:20px">21ページ</strong> を新規追加</p>
+  </div>
+  <div class="slide-num">9 / 14</div>
+</div>
+
+<!-- ===== SLIDE 10: WHAT'S IN EACH PAGE ===== -->
+<div class="slide std">
+  <div class="slide-title">各エリアLPに含まれる要素</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:15px;color:var(--navy);margin-bottom:12px">SEO要素（検索順位向上）</h3>
+        <ul class="check">
+          <li>地域名入りtitle・description・h1</li>
+          <li>LocalBusinessスキーマ（営業所情報）</li>
+          <li>FAQPage構造化データ（8問）</li>
+          <li>Serviceスキーマ</li>
+          <li>BreadcrumbListスキーマ</li>
+          <li>地域名を含むコンテンツ（対応エリア一覧）</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:15px;color:var(--red);margin-bottom:12px">CVR要素（問い合わせ獲得）</h3>
+        <ul class="check">
+          <li>ヒーローに電話番号＋Webフォームリンク</li>
+          <li>車種検索UI（8車種アイコン付き）</li>
+          <li>料金表（7車種×3プラン）</li>
+          <li>選ばれる3つの理由（実写真付き）</li>
+          <li>利用フロー4ステップ</li>
+          <li>FAQ 8問（アコーディオン形式）</li>
+          <li>Googleマップ埋込み営業所情報</li>
+          <li><strong style="color:var(--red)">モバイル固定フッターバー（業界初）</strong></li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--g600);text-align:center">※ 競合5社の分析から、業界全体が未対応の要素（固定CTA・料金表示・FAQ）を全て実装</p>
+  </div>
+  <div class="slide-num">10 / 14</div>
+</div>
+
+<!-- ===== SLIDE 11: DEMO ===== -->
+<div class="slide std">
+  <div class="slide-title">テストページ — 実際にご確認いただけます</div>
+  <div class="slide-title-bar"></div>
+  <div class="content" style="display:flex;align-items:center;justify-content:center;text-align:center">
+    <div>
+      <p style="font-size:16px;color:var(--g600);margin-bottom:24px">千葉版プロトタイプを作成済みです</p>
+      <div style="background:var(--g50);border:2px solid var(--navy);border-radius:12px;padding:24px 40px;display:inline-block">
+        <p style="font-size:13px;color:var(--g600);margin-bottom:8px">テストURL（非公開・noindex設定済み）</p>
+        <p style="font-size:18px;font-weight:700;color:var(--navy)">vonds.co.jp/test-lp/truck-rental-chiba.html</p>
+      </div>
+      <p style="font-size:14px;color:var(--g600);margin-top:24px">PC・スマートフォンの両方でご確認いただけます</p>
+      <div style="display:flex;justify-content:center;gap:24px;margin-top:24px">
+        <div style="background:var(--g50);padding:16px 24px;border-radius:8px;text-align:center">
+          <div style="font-size:24px;margin-bottom:4px">🖥️</div>
+          <p style="font-size:12px;font-weight:700">デスクトップ表示</p>
+          <p style="font-size:11px;color:var(--g600)">2カラム・車種検索UI</p>
+        </div>
+        <div style="background:var(--g50);padding:16px 24px;border-radius:8px;text-align:center">
+          <div style="font-size:24px;margin-bottom:4px">📱</div>
+          <p style="font-size:12px;font-weight:700">スマホ表示</p>
+          <p style="font-size:11px;color:var(--g600)">固定フッターバー付き</p>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--g600);margin-top:16px">→ ミーティング中に画面共有でデモいたします</p>
+    </div>
+  </div>
+  <div class="slide-num">11 / 14</div>
+</div>
+
+<!-- ===== SLIDE 12: SECTION DIVIDER ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 04</div>
+  <h2>期待効果・スケジュール</h2>
+  <div class="slide-num">12 / 14</div>
+</div>
+
+<!-- ===== SLIDE 13: EXPECTED IMPACT ===== -->
+<div class="slide std">
+  <div class="slide-title">期待される効果</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="three-col">
+      <div style="text-align:center;padding:20px">
+        <div class="big-num big-num-navy" style="font-size:36px">+21</div>
+        <p style="font-size:14px;font-weight:700;color:var(--navy);margin-top:4px">インデックスページ増</p>
+        <p style="font-size:12px;color:var(--g600);margin-top:4px">Google検索に新たに21ページが表示される</p>
+      </div>
+      <div style="text-align:center;padding:20px">
+        <div class="big-num" style="font-size:36px">20+</div>
+        <p style="font-size:14px;font-weight:700;color:var(--navy);margin-top:4px">新規キーワード獲得</p>
+        <p style="font-size:12px;color:var(--g600);margin-top:4px">「トラック レンタル 千葉」等の地域KWで上位表示</p>
+      </div>
+      <div style="text-align:center;padding:20px">
+        <div class="big-num" style="font-size:36px">↑</div>
+        <p style="font-size:14px;font-weight:700;color:var(--navy);margin-top:4px">問い合わせ件数増</p>
+        <p style="font-size:12px;color:var(--g600);margin-top:4px">地域検索→直接電話/フォーム送信の導線</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:15px;color:var(--navy);margin:24px 0 12px">施策ごとのインパクト</h3>
+    <table class="data">
+      <tr><th>施策</th><th>対象</th><th style="width:200px">期待効果</th></tr>
+      <tr><td>エリアLP 20ページ</td><td>地域×サービスKW</td><td><div class="impact-bar bar-high"></div><span style="font-size:11px;color:var(--red)">最大</span></td></tr>
+      <tr><td>FAQ専用ページ</td><td>ロングテールKW</td><td><div class="impact-bar bar-mid"></div><span style="font-size:11px;color:var(--g600)">中</span></td></tr>
+      <tr><td>構造化データ（既に実装済み）</td><td>リッチリザルト表示</td><td><div class="impact-bar bar-mid"></div><span style="font-size:11px;color:var(--g600)">中</span></td></tr>
+      <tr><td>メタタグ最適化（既に実装済み）</td><td>CTR改善</td><td><div class="impact-bar bar-low"></div><span style="font-size:11px;color:var(--g600)">低</span></td></tr>
+    </table>
+  </div>
+  <div class="slide-num">13 / 14</div>
+</div>
+
+<!-- ===== SLIDE 14: NEXT STEPS ===== -->
+<div class="slide std">
+  <div class="slide-title">スケジュール・ネクストステップ</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="timeline">
+      <div class="timeline-item active"><h4>STEP 1</h4><p>テストページ確認<br>（本日）</p></div>
+      <div class="timeline-item"><h4>STEP 2</h4><p>内容FIX・<br>フィードバック反映</p></div>
+      <div class="timeline-item"><h4>STEP 3</h4><p>WordPress<br>固定ページ登録</p></div>
+      <div class="timeline-item"><h4>STEP 4</h4><p>公開・<br>Google Search Console登録</p></div>
+      <div class="timeline-item"><h4>STEP 5</h4><p>効果測定・<br>改善サイクル開始</p></div>
+    </div>
+
+    <div class="two-col" style="margin-top:28px">
+      <div>
+        <h3 style="font-size:15px;color:var(--navy);margin-bottom:12px">既に完了していること</h3>
+        <ul class="check">
+          <li>SEOレポート作成（全14ページ診断済み）</li>
+          <li>競合5社の詳細分析</li>
+          <li>構造化データ実装（LocalBusiness・Service・FAQ）</li>
+          <li>メタタグ最適化（5ページ修正済み）</li>
+          <li>テストページ22ページ作成済み</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:15px;color:var(--red);margin-bottom:12px">A-TRUCK様にご判断いただくこと</h3>
+        <ul class="check">
+          <li>テストページの内容確認・修正要望</li>
+          <li>料金表の正確な数値の確認</li>
+          <li>掲載する写真・キャッチコピーの確認</li>
+          <li>公開スケジュールの決定</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h3>既存サイトのリスクはゼロです</h3>
+      <p>新規ページの追加のみ。既存ページのデザイン・機能・URLは一切変更しません。<br>効果が出なければページを非公開にするだけで元通りです。</p>
+    </div>
+  </div>
+  <div class="slide-num">14 / 14</div>
+</div>
+
+</body>
+</html>

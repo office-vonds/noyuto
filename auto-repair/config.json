@@ -1,0 +1,34 @@
+{
+  "sites": {
+    "VONDS": {
+      "repo_path": "~/projects/vonds/vonds-site",
+      "branch": "main",
+      "notify_email": ""
+    },
+    "SANKEN": {
+      "repo_path": "~/projects/vonds/sanken-site",
+      "branch": "main",
+      "notify_email": ""
+    },
+    "A-TRUCK": {
+      "repo_path": "~/projects/vonds/a-truck-site",
+      "branch": "main",
+      "notify_email": ""
+    },
+    "stretchzero": {
+      "repo_path": "~/projects/vonds/stretchzero-site",
+      "branch": "main",
+      "notify_email": ""
+    },
+    "BAR KOFU": {
+      "repo_path": "~/projects/vonds/barkofu-site",
+      "branch": "main",
+      "notify_email": ""
+    },
+    "majistretch": {
+      "repo_path": "~/projects/vonds/majistretch",
+      "branch": "main",
+      "notify_email": ""
+    }
+  }
+}

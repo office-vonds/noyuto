@@ -1,0 +1,598 @@
+{
+  "categories": [
+    {
+      "id": "seo",
+      "label": "SEO対策",
+      "keywords": [
+        {
+          "keyword": "SEO対策 やり方",
+          "title": "【2026年最新】SEO対策の正しいやり方｜初心者でもわかる完全ガイド",
+          "slug": "seo-howto-guide",
+          "meta_description": "SEO対策の基本から実践的なやり方まで徹底解説。検索順位を上げるための具体的な手順を初心者にもわかりやすく紹介します。",
+          "meta_keywords": "SEO対策,やり方,初心者,検索順位,Google",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "SEO とは わかりやすく",
+          "title": "SEOとは？わかりやすく基本を解説｜なぜ検索上位が重要なのか",
+          "slug": "what-is-seo",
+          "meta_description": "SEO（検索エンジン最適化）の基本概念をわかりやすく解説。なぜSEOが重要なのか、検索順位が売上に与える影響を具体的な数字で紹介。",
+          "meta_keywords": "SEO,とは,わかりやすく,検索エンジン最適化,基本",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "山梨 SEO対策",
+          "title": "山梨県でSEO対策を依頼するなら｜地域密着型SEOの強みと選び方",
+          "slug": "yamanashi-seo",
+          "meta_description": "山梨県の企業がSEO対策で成果を出すための戦略を解説。地域密着型SEOのメリットと、失敗しないSEO会社の選び方を紹介。",
+          "meta_keywords": "山梨,SEO対策,地域SEO,甲府,SEO会社",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "ローカルSEO 対策",
+          "title": "ローカルSEO完全攻略｜Googleマップで上位表示を獲得する方法",
+          "slug": "local-seo-strategy",
+          "meta_description": "ローカルSEO対策の具体的な手順を解説。Googleビジネスプロフィールの最適化からMEO対策、口コミ戦略まで網羅的に紹介します。",
+          "meta_keywords": "ローカルSEO,MEO,Googleマップ,上位表示,地域ビジネス",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "SEO キーワード選定",
+          "title": "SEOキーワード選定の極意｜検索意図を理解して成果を出す方法",
+          "slug": "seo-keyword-selection",
+          "meta_description": "SEOで成果を出すためのキーワード選定方法を徹底解説。検索意図の分析、競合調査、ロングテール戦略の具体的な手順を紹介。",
+          "meta_keywords": "SEO,キーワード選定,検索意図,ロングテール,競合分析",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "内部SEO 対策",
+          "title": "内部SEO対策チェックリスト｜サイト構造から技術要件まで完全網羅",
+          "slug": "internal-seo-checklist",
+          "meta_description": "内部SEO対策の全項目をチェックリスト形式で解説。タイトルタグ、メタディスクリプション、見出し構造、内部リンクなど実践的な改善方法を紹介。",
+          "meta_keywords": "内部SEO,チェックリスト,サイト構造,技術SEO,タイトルタグ",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "被リンク 獲得 方法",
+          "title": "被リンク獲得の正攻法｜2026年に効果的な外部SEO戦略",
+          "slug": "backlink-strategy",
+          "meta_description": "被リンク（外部リンク）を自然に獲得するための正しい方法を解説。コンテンツマーケティングを軸とした持続可能な外部SEO戦略を紹介。",
+          "meta_keywords": "被リンク,外部SEO,リンクビルディング,コンテンツマーケティング",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "SEO コンテンツ 書き方",
+          "title": "検索1位を狙うSEOコンテンツの書き方｜構成からライティングまで",
+          "slug": "seo-content-writing",
+          "meta_description": "検索上位を獲得するSEOコンテンツの書き方を徹底解説。記事構成の作り方、見出し設計、読者に響くライティング技術を具体例付きで紹介。",
+          "meta_keywords": "SEO,コンテンツ,書き方,ライティング,検索上位",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "SEO 効果 出るまで 期間",
+          "title": "SEO対策の効果が出るまでの期間は？成果を早める5つの施策",
+          "slug": "seo-timeline",
+          "meta_description": "SEO対策で効果が出るまでの現実的な期間を解説。業種別の目安と、成果を早めるための具体的な施策を5つ紹介します。",
+          "meta_keywords": "SEO,効果,期間,いつ,成果",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "SEO 最新 トレンド",
+          "title": "2026年SEO最新トレンド｜AI時代に勝ち残る検索対策とは",
+          "slug": "seo-trends-2026",
+          "meta_description": "2026年のSEO最新トレンドを解説。AI検索、SGE対応、E-E-A-T強化など、これからのSEO戦略で押さえるべきポイントを網羅。",
+          "meta_keywords": "SEO,トレンド,2026年,AI検索,SGE",
+          "evergreen": false,
+          "priority": "low"
+        },
+        {
+          "keyword": "コアウェブバイタル 改善",
+          "title": "コアウェブバイタル改善ガイド｜表示速度がSEOに与える影響と対策",
+          "slug": "core-web-vitals",
+          "meta_description": "コアウェブバイタル（LCP・INP・CLS）の改善方法を具体的に解説。ページ表示速度がSEO順位に与える影響と、実践的な改善手順を紹介。",
+          "meta_keywords": "コアウェブバイタル,CWV,LCP,INP,CLS,表示速度",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "E-E-A-T SEO",
+          "title": "E-E-A-TとSEOの関係｜Googleが重視する信頼性の高め方",
+          "slug": "eeat-seo-guide",
+          "meta_description": "GoogleのE-E-A-T（経験・専門性・権威性・信頼性）がSEOに与える影響と、評価を高めるための具体的な施策を解説します。",
+          "meta_keywords": "E-E-A-T,SEO,専門性,権威性,信頼性,Google",
+          "evergreen": true,
+          "priority": "medium"
+        }
+      ]
+    },
+    {
+      "id": "web-production",
+      "label": "ホームページ制作",
+      "keywords": [
+        {
+          "keyword": "ホームページ制作 費用 相場",
+          "title": "ホームページ制作の費用相場｜目的別の料金目安と賢い依頼方法",
+          "slug": "website-cost-guide",
+          "meta_description": "ホームページ制作の費用相場を目的・規模別に徹底解説。コーポレートサイト、LP、ECサイトなど種類別の料金目安と、費用を抑えるポイントを紹介。",
+          "meta_keywords": "ホームページ制作,費用,相場,料金,見積もり",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "LP制作 コツ",
+          "title": "成果が出るLP制作のコツ｜コンバージョン率を上げる設計の基本",
+          "slug": "lp-design-tips",
+          "meta_description": "LP（ランディングページ）制作で成果を出すためのコツを解説。構成設計、コピーライティング、CTAの配置など、コンバージョン率を上げる具体的な方法を紹介。",
+          "meta_keywords": "LP制作,ランディングページ,コンバージョン,コツ,設計",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "ホームページ リニューアル タイミング",
+          "title": "ホームページリニューアルの最適なタイミングと進め方｜失敗しないポイント",
+          "slug": "website-renewal-timing",
+          "meta_description": "ホームページリニューアルのタイミング判断基準と失敗しない進め方を解説。リニューアルが必要なサインと、SEOを落とさない移行方法を紹介。",
+          "meta_keywords": "ホームページ,リニューアル,タイミング,SEO,移行",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "レスポンシブデザイン 重要性",
+          "title": "レスポンシブデザインの重要性｜モバイル対応がビジネスに与える影響",
+          "slug": "responsive-design-importance",
+          "meta_description": "レスポンシブデザイン（スマホ対応）の重要性を解説。モバイルファーストインデックスの影響、ユーザー体験の向上、SEO効果を具体的なデータで紹介。",
+          "meta_keywords": "レスポンシブデザイン,スマホ対応,モバイル,ユーザー体験",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "ホームページ 集客 できない",
+          "title": "ホームページで集客できない原因と解決策｜見直すべき7つのポイント",
+          "slug": "website-no-traffic-fix",
+          "meta_description": "ホームページを作ったのに集客できない原因を7つの視点から分析。SEO、コンテンツ、導線設計などの具体的な改善策を紹介します。",
+          "meta_keywords": "ホームページ,集客,できない,原因,改善",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "WordPress メリット デメリット",
+          "title": "WordPress（ワードプレス）のメリット・デメリット｜他CMSとの比較で徹底解説",
+          "slug": "wordpress-pros-cons",
+          "meta_description": "WordPressのメリットとデメリットを客観的に解説。他のCMSとの比較、向いている企業・向いていない企業の特徴、セキュリティ対策も紹介。",
+          "meta_keywords": "WordPress,メリット,デメリット,CMS,比較",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "ホームページ 自作 vs 外注",
+          "title": "ホームページは自作と外注どっちがいい？判断基準と各メリットを比較",
+          "slug": "website-diy-vs-outsource",
+          "meta_description": "ホームページを自作するか外注するかの判断基準を解説。費用、品質、時間、運用面から比較し、自社に最適な選択肢を紹介します。",
+          "meta_keywords": "ホームページ,自作,外注,比較,費用",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "コーポレートサイト 必要な要素",
+          "title": "コーポレートサイトに必要な要素｜信頼を獲得するサイト設計の基本",
+          "slug": "corporate-site-essentials",
+          "meta_description": "コーポレートサイトに必須の要素を解説。会社概要、サービス紹介、お問い合わせなどの構成要素と、信頼性を高めるデザインのポイントを紹介。",
+          "meta_keywords": "コーポレートサイト,要素,構成,デザイン,信頼",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "Webサイト 表示速度 改善",
+          "title": "Webサイトの表示速度を改善する方法｜遅いサイトが失う3つのもの",
+          "slug": "website-speed-optimization",
+          "meta_description": "Webサイトの表示速度を改善する具体的な方法を解説。画像最適化、キャッシュ設定、コード軽量化など、実践的な高速化テクニックを紹介。",
+          "meta_keywords": "表示速度,改善,高速化,ページスピード,最適化",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "問い合わせ フォーム 最適化",
+          "title": "問い合わせフォーム最適化（EFO）｜離脱を防ぐフォーム設計のコツ",
+          "slug": "form-optimization-efo",
+          "meta_description": "問い合わせフォームの離脱率を下げる最適化（EFO）の方法を解説。入力項目の設計、バリデーション、UX改善の具体的なテクニックを紹介。",
+          "meta_keywords": "問い合わせフォーム,EFO,最適化,離脱率,コンバージョン",
+          "evergreen": true,
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "id": "web-marketing",
+      "label": "WEBマーケティング",
+      "keywords": [
+        {
+          "keyword": "WEB集客 方法",
+          "title": "WEB集客の方法を完全解説｜中小企業が成果を出す7つの戦略",
+          "slug": "web-marketing-methods",
+          "meta_description": "中小企業がWEB集客で成果を出すための7つの方法を解説。SEO、SNS、広告、コンテンツマーケティングなど、予算に合わせた戦略を紹介。",
+          "meta_keywords": "WEB集客,方法,中小企業,戦略,オンライン",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "コンテンツマーケティング 始め方",
+          "title": "コンテンツマーケティングの始め方｜初心者でも成果を出す5ステップ",
+          "slug": "content-marketing-start",
+          "meta_description": "コンテンツマーケティングの始め方を5ステップで解説。戦略設計、キーワード選定、記事制作、効果測定まで、初心者でも実践できる方法を紹介。",
+          "meta_keywords": "コンテンツマーケティング,始め方,初心者,ステップ,戦略",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "Google広告 始め方",
+          "title": "Google広告の始め方｜初心者向け設定手順と効果を出すコツ",
+          "slug": "google-ads-beginners",
+          "meta_description": "Google広告（リスティング広告）の始め方を初心者向けに解説。アカウント開設から初期設定、効果的なキャンペーン設計のコツを紹介。",
+          "meta_keywords": "Google広告,リスティング広告,始め方,初心者,設定",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "SNS マーケティング 中小企業",
+          "title": "中小企業のSNSマーケティング戦略｜限られたリソースで成果を出す方法",
+          "slug": "sns-marketing-sme",
+          "meta_description": "中小企業がSNSマーケティングで成果を出すための戦略を解説。Instagram、X、Facebook、LINEの活用法と、少人数でも続けられる運用方法を紹介。",
+          "meta_keywords": "SNS,マーケティング,中小企業,Instagram,LINE",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "MEO対策 やり方",
+          "title": "MEO対策のやり方完全ガイド｜Googleマップ集客で差をつける方法",
+          "slug": "meo-strategy-guide",
+          "meta_description": "MEO対策（Googleマップ最適化）の具体的なやり方を解説。Googleビジネスプロフィールの設定、口コミ対策、投稿運用の実践方法を紹介。",
+          "meta_keywords": "MEO対策,やり方,Googleマップ,Googleビジネスプロフィール,集客",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "リスティング広告 費用",
+          "title": "リスティング広告の費用相場｜業界別の目安と予算配分の考え方",
+          "slug": "listing-ads-cost",
+          "meta_description": "リスティング広告の費用相場を業界別に解説。クリック単価の目安、月額予算の決め方、費用対効果を高める運用のポイントを紹介。",
+          "meta_keywords": "リスティング広告,費用,相場,予算,クリック単価",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "オウンドメディア 運営",
+          "title": "オウンドメディア運営の成功法則｜立ち上げから成果が出るまでの全手順",
+          "slug": "owned-media-management",
+          "meta_description": "オウンドメディアの立ち上げから運営、成果を出すまでの全手順を解説。コンテンツ戦略、SEO対策、KPI設定の具体的な方法を紹介。",
+          "meta_keywords": "オウンドメディア,運営,立ち上げ,コンテンツ,成功",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "CVR 改善 方法",
+          "title": "CVR（コンバージョン率）改善の方法｜成果を2倍にする施策一覧",
+          "slug": "cvr-improvement",
+          "meta_description": "CVR（コンバージョン率）を改善する具体的な方法を解説。LP最適化、CTA改善、A/Bテストなど、実践的な施策を優先度順に紹介。",
+          "meta_keywords": "CVR,コンバージョン率,改善,LP,CTA",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "マーケティング オートメーション",
+          "title": "マーケティングオートメーション（MA）入門｜中小企業こそ導入すべき理由",
+          "slug": "marketing-automation-intro",
+          "meta_description": "マーケティングオートメーション（MA）の基本を解説。中小企業が導入するメリット、ツール選定のポイント、活用事例を紹介します。",
+          "meta_keywords": "マーケティングオートメーション,MA,中小企業,ツール,自動化",
+          "evergreen": true,
+          "priority": "low"
+        },
+        {
+          "keyword": "ペルソナ 作り方",
+          "title": "ペルソナの作り方｜マーケティング成功の鍵となる顧客像の設計方法",
+          "slug": "persona-creation-guide",
+          "meta_description": "マーケティングで使えるペルソナの作り方を解説。データに基づく設計方法、テンプレート、活用シーンを具体的に紹介します。",
+          "meta_keywords": "ペルソナ,作り方,マーケティング,顧客像,ターゲット",
+          "evergreen": true,
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "id": "ai-dx",
+      "label": "AI・DX活用",
+      "keywords": [
+        {
+          "keyword": "AI 業務効率化 事例",
+          "title": "AI業務効率化の成功事例15選｜中小企業でも今日から始められる活用法",
+          "slug": "ai-business-efficiency",
+          "meta_description": "AI（人工知能）を活用した業務効率化の成功事例を15個紹介。中小企業でもすぐに始められるAI活用法と導入ステップを解説。",
+          "meta_keywords": "AI,業務効率化,事例,中小企業,活用",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "DX推進 中小企業",
+          "title": "中小企業のDX推進ガイド｜失敗しないデジタルトランスフォーメーションの進め方",
+          "slug": "dx-sme-guide",
+          "meta_description": "中小企業がDX（デジタルトランスフォーメーション）を成功させるためのガイド。段階的な進め方、成功事例、補助金情報を網羅的に解説。",
+          "meta_keywords": "DX,中小企業,デジタルトランスフォーメーション,推進,ガイド",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "ChatGPT ビジネス活用",
+          "title": "ChatGPTのビジネス活用法｜業務別の使い方と効果的なプロンプト集",
+          "slug": "chatgpt-business-use",
+          "meta_description": "ChatGPTをビジネスで活用する方法を業務別に解説。文章作成、データ分析、カスタマーサポートなど、実践的な使い方とプロンプト例を紹介。",
+          "meta_keywords": "ChatGPT,ビジネス,活用,プロンプト,AI",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "AI ホームページ制作",
+          "title": "AIを活用したホームページ制作｜効率化できること・できないこと",
+          "slug": "ai-website-creation",
+          "meta_description": "AIを活用したホームページ制作の現状を解説。AIで効率化できる工程、人間が担うべき工程、最適な組み合わせ方を紹介します。",
+          "meta_keywords": "AI,ホームページ制作,効率化,自動化,Web制作",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "業務自動化 ツール",
+          "title": "業務自動化ツール比較｜中小企業の生産性を上げるおすすめ10選",
+          "slug": "business-automation-tools",
+          "meta_description": "中小企業向け業務自動化ツールを10個厳選して比較。RPA、ノーコード、API連携など、目的別のおすすめツールと導入方法を解説。",
+          "meta_keywords": "業務自動化,ツール,RPA,ノーコード,中小企業",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "AI マーケティング 活用",
+          "title": "AIマーケティングの活用法｜データ分析からコンテンツ制作まで",
+          "slug": "ai-marketing-guide",
+          "meta_description": "AIをマーケティングに活用する方法を解説。データ分析、パーソナライゼーション、コンテンツ制作など、AI活用で成果を最大化する戦略を紹介。",
+          "meta_keywords": "AI,マーケティング,活用,データ分析,パーソナライゼーション",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "ノーコード ツール 比較",
+          "title": "ノーコードツール比較｜プログラミング不要でWebサイト・アプリを作る方法",
+          "slug": "nocode-tools-comparison",
+          "meta_description": "ノーコードツールを目的別に比較。Webサイト、業務アプリ、ECサイト制作など、用途に合ったツール選びと活用法を紹介します。",
+          "meta_keywords": "ノーコード,ツール,比較,Web制作,アプリ開発",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "DX 補助金 助成金",
+          "title": "DX推進に使える補助金・助成金一覧｜申請方法と採択のコツ",
+          "slug": "dx-subsidies-guide",
+          "meta_description": "DX推進に活用できる補助金・助成金を一覧で紹介。IT導入補助金、ものづくり補助金など、申請方法と採択率を上げるポイントを解説。",
+          "meta_keywords": "DX,補助金,助成金,IT導入補助金,申請",
+          "evergreen": false,
+          "priority": "medium"
+        },
+        {
+          "keyword": "AI SEO対策",
+          "title": "AIを活用したSEO対策｜コンテンツ制作と分析の効率化テクニック",
+          "slug": "ai-seo-techniques",
+          "meta_description": "AIをSEO対策に活用する方法を解説。キーワード分析、コンテンツ制作、競合調査など、AIで効率化できるSEO施策を具体的に紹介。",
+          "meta_keywords": "AI,SEO対策,コンテンツ制作,効率化,自動化",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "デジタル人材 育成",
+          "title": "デジタル人材の育成方法｜中小企業がIT人材を社内で育てる戦略",
+          "slug": "digital-talent-development",
+          "meta_description": "中小企業がデジタル人材を社内で育成する方法を解説。研修プログラムの設計、学習ロードマップ、外部リソースの活用法を紹介。",
+          "meta_keywords": "デジタル人材,育成,中小企業,IT人材,研修",
+          "evergreen": true,
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "id": "branding",
+      "label": "経営・ブランディング",
+      "keywords": [
+        {
+          "keyword": "中小企業 ブランディング",
+          "title": "中小企業のブランディング戦略｜限られた予算で信頼を構築する方法",
+          "slug": "sme-branding-strategy",
+          "meta_description": "中小企業がブランディングで信頼を構築する方法を解説。Webサイト、SNS、コンテンツを活用した、予算を抑えながら実践できるブランディング戦略を紹介。",
+          "meta_keywords": "中小企業,ブランディング,信頼構築,戦略,Web",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "信頼 構築 ビジネス",
+          "title": "ビジネスにおける信頼構築の方法｜オンラインで信頼を可視化する技術",
+          "slug": "trust-building-business",
+          "meta_description": "ビジネスにおける信頼構築の方法を解説。口コミ、実績、コンテンツを通じてオンラインで信頼を可視化し、顧客を獲得する戦略を紹介。",
+          "meta_keywords": "信頼構築,ビジネス,口コミ,実績,オンライン",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "差別化戦略 中小企業",
+          "title": "中小企業の差別化戦略｜大手に勝つためのポジショニングの作り方",
+          "slug": "differentiation-strategy",
+          "meta_description": "中小企業が大手企業と差別化する戦略を解説。独自のポジショニング構築、強みの発掘、Webでの訴求方法を具体的に紹介。",
+          "meta_keywords": "差別化,戦略,中小企業,ポジショニング,強み",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "ストーリーテリング マーケティング",
+          "title": "ストーリーテリングでマーケティングを強化する方法｜共感を生む伝え方",
+          "slug": "storytelling-marketing",
+          "meta_description": "ストーリーテリングをマーケティングに活用する方法を解説。企業理念、創業ストーリー、顧客事例を効果的に伝える技術を紹介。",
+          "meta_keywords": "ストーリーテリング,マーケティング,共感,ブランド,伝え方",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "会社ホームページ 信頼性",
+          "title": "会社ホームページの信頼性を高める12の要素｜見込み客が安心するサイト設計",
+          "slug": "website-credibility",
+          "meta_description": "会社ホームページの信頼性を高める12の重要要素を解説。会社情報、実績、お客様の声、セキュリティなど、見込み客が安心する要素を紹介。",
+          "meta_keywords": "ホームページ,信頼性,会社,デザイン,要素",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "口コミ マーケティング",
+          "title": "口コミマーケティングの戦略と実践｜Googleレビューを活用した信頼獲得術",
+          "slug": "review-marketing-strategy",
+          "meta_description": "口コミマーケティングの戦略と実践方法を解説。Googleレビュー、SNS口コミ、お客様の声を活用して信頼を獲得する方法を紹介。",
+          "meta_keywords": "口コミ,マーケティング,Googleレビュー,信頼,戦略",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "企業ロゴ デザイン 重要性",
+          "title": "企業ロゴデザインの重要性｜ブランド認知を高めるロゴの条件とは",
+          "slug": "corporate-logo-importance",
+          "meta_description": "企業ロゴデザインの重要性とブランド認知を高めるロゴの条件を解説。良いロゴの特徴、制作プロセス、コスト感を紹介。",
+          "meta_keywords": "企業ロゴ,デザイン,ブランド,認知,CI",
+          "evergreen": true,
+          "priority": "low"
+        },
+        {
+          "keyword": "中小企業 Web戦略",
+          "title": "中小企業のWeb戦略設計｜限られたリソースで最大の成果を出す方法",
+          "slug": "sme-web-strategy",
+          "meta_description": "中小企業がWeb戦略を設計する方法を解説。SEO、広告、SNSの優先順位付け、予算配分、PDCAの回し方を具体的に紹介。",
+          "meta_keywords": "中小企業,Web戦略,SEO,広告,SNS",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "顧客獲得コスト 下げる",
+          "title": "顧客獲得コスト（CAC）を下げる方法｜コンテンツとSEOで実現する低コスト集客",
+          "slug": "reduce-customer-acquisition-cost",
+          "meta_description": "顧客獲得コスト（CAC）を下げる方法を解説。コンテンツマーケティング、SEO、リファラルなど、持続可能な低コスト集客戦略を紹介。",
+          "meta_keywords": "顧客獲得コスト,CAC,コンテンツ,SEO,低コスト",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "地方企業 デジタルマーケティング",
+          "title": "地方企業のデジタルマーケティング戦略｜地域の強みをオンラインで活かす方法",
+          "slug": "local-digital-marketing",
+          "meta_description": "地方企業がデジタルマーケティングで成功するための戦略を解説。ローカルSEO、Googleビジネスプロフィール、SNS活用の実践方法を紹介。",
+          "meta_keywords": "地方企業,デジタルマーケティング,ローカルSEO,地域,戦略",
+          "evergreen": true,
+          "priority": "medium"
+        }
+      ]
+    },
+    {
+      "id": "analytics",
+      "label": "データ分析",
+      "keywords": [
+        {
+          "keyword": "Google Analytics 使い方",
+          "title": "Google Analytics 4（GA4）の使い方完全ガイド｜初心者でもわかる分析入門",
+          "slug": "ga4-beginners-guide",
+          "meta_description": "Google Analytics 4（GA4）の使い方を初心者向けに徹底解説。基本操作、レポートの見方、コンバージョン設定まで、実践的な分析方法を紹介。",
+          "meta_keywords": "Google Analytics,GA4,使い方,初心者,分析",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "アクセス解析 見方",
+          "title": "アクセス解析の見方｜Webサイト改善に直結するデータの読み解き方",
+          "slug": "access-analysis-guide",
+          "meta_description": "アクセス解析の見方を解説。PV、セッション、直帰率など重要指標の意味と、データからWebサイトを改善する具体的な方法を紹介。",
+          "meta_keywords": "アクセス解析,見方,PV,セッション,直帰率",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "Google Search Console 使い方",
+          "title": "Google Search Consoleの使い方｜SEO改善に役立つデータ活用法",
+          "slug": "search-console-guide",
+          "meta_description": "Google Search Console（サーチコンソール）の使い方を解説。検索パフォーマンス分析、インデックス管理、SEO改善に役立つ活用法を紹介。",
+          "meta_keywords": "Google Search Console,サーチコンソール,使い方,SEO,分析",
+          "evergreen": true,
+          "priority": "high"
+        },
+        {
+          "keyword": "KPI 設定 Webマーケティング",
+          "title": "WebマーケティングのKPI設定ガイド｜成果を測る指標の選び方と目標値",
+          "slug": "web-marketing-kpi",
+          "meta_description": "WebマーケティングのKPI設定方法を解説。SEO、広告、SNSなどチャネル別の重要指標と、適切な目標値の決め方を紹介。",
+          "meta_keywords": "KPI,Webマーケティング,指標,目標,設定",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "ヒートマップ 分析",
+          "title": "ヒートマップ分析の活用法｜ユーザー行動を可視化してサイトを改善する方法",
+          "slug": "heatmap-analysis-guide",
+          "meta_description": "ヒートマップ分析の活用法を解説。クリック、スクロール、アテンションの分析から、Webサイト改善に繋げる具体的な方法を紹介。",
+          "meta_keywords": "ヒートマップ,分析,ユーザー行動,可視化,改善",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "ABテスト やり方",
+          "title": "A/Bテストのやり方｜成果を科学的に検証するWeb改善手法",
+          "slug": "ab-testing-guide",
+          "meta_description": "A/Bテストの正しいやり方を解説。テスト設計、実施手順、結果の分析方法まで、科学的にWebサイトを改善する手法を紹介。",
+          "meta_keywords": "A/Bテスト,やり方,検証,改善,コンバージョン",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "データドリブン マーケティング",
+          "title": "データドリブンマーケティング入門｜感覚ではなくデータで判断する経営",
+          "slug": "data-driven-marketing",
+          "meta_description": "データドリブンマーケティングの基本を解説。データに基づく意思決定の方法、必要なツール、中小企業での実践方法を紹介。",
+          "meta_keywords": "データドリブン,マーケティング,データ分析,意思決定,中小企業",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "競合分析 やり方 Web",
+          "title": "Web競合分析のやり方｜無料ツールで競合のSEO・広告戦略を丸裸にする方法",
+          "slug": "competitor-analysis-web",
+          "meta_description": "Web上の競合分析のやり方を解説。無料ツールを使ってSEO、広告、コンテンツ戦略を分析し、自社の差別化ポイントを見つける方法を紹介。",
+          "meta_keywords": "競合分析,やり方,Web,SEO,無料ツール",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "GA4 コンバージョン 設定",
+          "title": "GA4コンバージョン設定の完全ガイド｜問い合わせ・購入を正確に計測する方法",
+          "slug": "ga4-conversion-setup",
+          "meta_description": "GA4でコンバージョンを正しく設定する方法を解説。問い合わせフォーム送信、電話タップ、購入完了など、重要なイベント計測の設定手順を紹介。",
+          "meta_keywords": "GA4,コンバージョン,設定,イベント,計測",
+          "evergreen": true,
+          "priority": "medium"
+        },
+        {
+          "keyword": "ROI 計算 Web広告",
+          "title": "Web広告のROI計算方法｜投資対効果を正しく測って予算を最適化する",
+          "slug": "web-ads-roi-calculation",
+          "meta_description": "Web広告のROI（投資対効果）を正しく計算する方法を解説。ROAS、CPA、LTVなどの指標の意味と、予算配分の最適化方法を紹介。",
+          "meta_keywords": "ROI,Web広告,ROAS,CPA,投資対効果",
+          "evergreen": true,
+          "priority": "low"
+        }
+      ]
+    }
+  ]
+}
