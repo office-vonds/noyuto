@@ -13,3 +13,4 @@ debug_note*.py
 **/mail-config.php
 auto-repair/.env
 scripts/node_modules/
+node_modules/
