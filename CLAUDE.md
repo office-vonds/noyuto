@@ -86,9 +86,29 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-09 18:30 / ブランチ: main**
+**最終更新: 2026-04-09 22:00 / ブランチ: main**
 
-### 進行中プロジェクト: VONDS 2024年12月期 決算＋小規模事業者持続化補助金申請
+### 直近セッション: 本気ストレッチLP改修＋フォーム実装（2026-04-08〜09完了）
+
+**完了したこと:**
+- 予約フォームをPHPMailer+Google Workspace SMTP化（Gmail警告解消）
+- 中込社長(yuki.nakagomi@sanken-gr.com)への直接送信（店舗通知:TO / 自動返信:BCC）
+- メール文面・差出人名を「本気ストレッチ」に統一（件名・本文・サンクス画面全て）
+- サンクスページ: JS側でフォームセクションをDOM差し替え方式で実装
+- LP改修4点: 口コミ位置上方移動/追従バナー削除/WEB予約ボタン削除/CTAをフォーム遷移に変更
+- ルート(/)とLP(/lp/)両方にreservation.php+mail-config.php+phpmailer/を配置
+- Google Ads棲み分けCSV作成（`majistretch/work/ads/majistretch_campaign_full.csv`）
+
+**重要メモリ:**
+- `reference_majistretch_server.md` — FTPパス（FTPルート直下が本番、`/majistretch.com/public_html/` は別ディレクトリ要注意）
+- `feedback_server_deploy.md` — 本番ファイル変更前に必ずFTPバックアップ取得する鉄則（2026-04-08事故を受けて策定）
+
+**次のタスク:**
+- Google Adsアカウント`681-110-5790`にキャンペーンCSVインポート＆公開（配信地域半径10kmは手動設定）
+
+---
+
+### 継続中プロジェクト: VONDS 2024年12月期 決算＋小規模事業者持続化補助金申請
 
 **現在地:**
 - 令和6年12月期 PLドラフト完成済み（税引前利益 +1,176,620円・黒字着地）→ `finance/2024_pl_draft.md`
@@ -108,7 +128,6 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 **環境運用ルール（2026-04-09統一済み）:**
 - 作業ブランチは必ず `main`。`gh-pages` は GitHub Pages 専用で手動作業禁止
 - 詳細: `WORKING_PROTOCOL.md` 参照
-- 関連session-log: `session-logs/2026-04-09_1745_env-unification.md` / `session-logs/2026-04-09_1800_tax-accountant-request.md`
 
 **重要な確定事項（VONDS 2024年期）:**
 - メイン口座: PayPay銀行（甲府信金は補助）
