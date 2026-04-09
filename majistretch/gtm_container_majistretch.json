@@ -1,0 +1,142 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-04-01",
+  "containerVersion": {
+    "tag": [
+      {
+        "accountId": "",
+        "containerId": "",
+        "name": "GA4 - TEL タップ",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "eventName", "value": "tel_click"},
+          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-93MZ8ERBW5"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [
+              {"type": "TEMPLATE", "key": "name", "value": "link_text"},
+              {"type": "TEMPLATE", "key": "value", "value": "{{Click Text}}"}
+            ]},
+            {"type": "MAP", "map": [
+              {"type": "TEMPLATE", "key": "name", "value": "link_url"},
+              {"type": "TEMPLATE", "key": "value", "value": "{{Click URL}}"}
+            ]},
+            {"type": "MAP", "map": [
+              {"type": "TEMPLATE", "key": "name", "value": "gtm_click"},
+              {"type": "TEMPLATE", "key": "value", "value": "{{gtm-click}}"}
+            ]}
+          ]}
+        ],
+        "firingTriggerId": ["tel_trigger"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "",
+        "containerId": "",
+        "name": "GA4 - お問い合わせボタン タップ",
+        "type": "gaawe",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "eventName", "value": "contact_click"},
+          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-93MZ8ERBW5"},
+          {"type": "LIST", "key": "eventParameters", "list": [
+            {"type": "MAP", "map": [
+              {"type": "TEMPLATE", "key": "name", "value": "link_text"},
+              {"type": "TEMPLATE", "key": "value", "value": "{{Click Text}}"}
+            ]},
+            {"type": "MAP", "map": [
+              {"type": "TEMPLATE", "key": "name", "value": "gtm_click"},
+              {"type": "TEMPLATE", "key": "value", "value": "{{gtm-click}}"}
+            ]}
+          ]}
+        ],
+        "firingTriggerId": ["contact_trigger"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "",
+        "containerId": "",
+        "name": "Google Ads - TEL コンバージョン",
+        "type": "awct",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "conversionId", "value": ""},
+          {"type": "TEMPLATE", "key": "conversionLabel", "value": ""}
+        ],
+        "firingTriggerId": ["tel_trigger"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "",
+        "containerId": "",
+        "name": "Google Ads - お問い合わせ コンバージョン",
+        "type": "awct",
+        "parameter": [
+          {"type": "TEMPLATE", "key": "conversionId", "value": ""},
+          {"type": "TEMPLATE", "key": "conversionLabel", "value": ""}
+        ],
+        "firingTriggerId": ["contact_trigger"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "",
+        "containerId": "",
+        "name": "TEL タップ",
+        "type": "LINK_CLICK",
+        "customEventFilter": [],
+        "filter": [
+          {
+            "type": "CONTAINS",
+            "parameter": [
+              {"type": "TEMPLATE", "key": "arg0", "value": "{{Click URL}}"},
+              {"type": "TEMPLATE", "key": "arg1", "value": "tel:"}
+            ]
+          }
+        ],
+        "autoEventFilter": [
+          {
+            "type": "CONTAINS",
+            "parameter": [
+              {"type": "TEMPLATE", "key": "arg0", "value": "{{Click URL}}"},
+              {"type": "TEMPLATE", "key": "arg1", "value": "tel:"}
+            ]
+          }
+        ],
+        "uniqueTriggerId": "tel_trigger",
+        "waitForTags": {"type": "BOOLEAN", "value": "false"},
+        "checkValidation": {"type": "BOOLEAN", "value": "false"},
+        "waitForTagsTimeout": {"type": "TEMPLATE", "value": "2000"}
+      },
+      {
+        "accountId": "",
+        "containerId": "",
+        "name": "お問い合わせボタン タップ",
+        "type": "CLICK",
+        "customEventFilter": [],
+        "filter": [
+          {
+            "type": "MATCH_REGEX",
+            "parameter": [
+              {"type": "TEMPLATE", "key": "arg0", "value": "{{Click Classes}}"},
+              {"type": "TEMPLATE", "key": "arg1", "value": "cta-guarantee|cta-final|cta-fv|p-fixed-banner__btn"}
+            ]
+          }
+        ],
+        "uniqueTriggerId": "contact_trigger"
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "",
+        "containerId": "",
+        "name": "gtm-click",
+        "type": "d",
+        "parameter": [
+          {"type": "INTEGER", "key": "version", "value": "2"},
+          {"type": "TEMPLATE", "key": "component", "value": ""},
+          {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
+          {"type": "TEMPLATE", "key": "attributeName", "value": "data-gtm-click"}
+        ]
+      }
+    ]
+  }
+}

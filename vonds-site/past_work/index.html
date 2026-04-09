@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>制作実績一覧｜株式会社オフィスVONDS</title>
+  <meta name="description" content="株式会社オフィスVONDSの制作実績一覧。ホームページ制作、SEO対策、Google広告運用、WEBコンサルティングの実績をご紹介。">
+  <link rel="canonical" href="https://vonds.co.jp/past_work/">
+  <meta property="og:title" content="制作実績一覧｜株式会社オフィスVONDS">
+  <meta property="og:description" content="オフィスVONDSの制作実績一覧。ホームページ制作、SEO対策、Google広告運用の実績。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vonds.co.jp/past_work/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ===== Past Work Page ===== */
+    .pw-hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 100px 0 60px;
+      text-align: center;
+      color: var(--white);
+    }
+    .pw-hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+    .pw-hero p {
+      font-size: clamp(0.875rem, 2vw, 1.125rem);
+      opacity: 0.85;
+    }
+
+    /* Filter */
+    .pw-filter {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 32px 24px;
+      background: var(--gray-50);
+    }
+    .pw-filter__btn {
+      padding: 8px 20px;
+      border: 2px solid var(--gray-300);
+      border-radius: 50px;
+      background: var(--white);
+      color: var(--gray-600);
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .pw-filter__btn:hover,
+    .pw-filter__btn.is-active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    /* Grid */
+    .pw-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    /* Card */
+    .pw-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInCard 0.6s ease forwards;
+    }
+    .pw-card:nth-child(1) { animation-delay: 0.1s; }
+    .pw-card:nth-child(2) { animation-delay: 0.2s; }
+    .pw-card:nth-child(3) { animation-delay: 0.3s; }
+    .pw-card:nth-child(4) { animation-delay: 0.4s; }
+    .pw-card:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInCard {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .pw-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .pw-card__img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      background: var(--gray-100);
+    }
+
+    .pw-card__body {
+      padding: 24px;
+    }
+
+    .pw-card__client {
+      font-size: 0.75rem;
+      color: var(--gray-500);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .pw-card__name {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .pw-card__name a {
+      color: var(--dark);
+      transition: color 0.3s;
+    }
+    .pw-card__name a:hover {
+      color: var(--primary);
+    }
+
+    .pw-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .pw-card__tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 50px;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .pw-card__tag--seo {
+      background: #ecfdf5;
+      color: #059669;
+    }
+    .pw-card__tag--ads {
+      background: #fef3c7;
+      color: #d97706;
+    }
+    .pw-card__tag--web {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+    .pw-card__tag--consult {
+      background: #f3e8ff;
+      color: #7c3aed;
+    }
+
+    .pw-card__desc {
+      font-size: 0.85rem;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    .pw-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary);
+      transition: gap 0.3s;
+    }
+    .pw-card__link:hover {
+      gap: 8px;
+    }
+
+    /* CTA */
+    .pw-cta {
+      background: var(--gray-50);
+      text-align: center;
+      padding: 64px 24px;
+    }
+    .pw-cta h2 {
+      font-size: clamp(1.25rem, 3vw, 1.75rem);
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+    .pw-cta p {
+      color: var(--gray-600);
+      margin-bottom: 32px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+    }
+    .breadcrumb a {
+      color: var(--gray-500);
+    }
+    .breadcrumb a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 640px) {
+      .pw-grid {
+        grid-template-columns: 1fr;
+        padding: 32px 16px 60px;
+      }
+      .pw-hero {
+        padding: 80px 0 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="header-logo">
+        <a href="/">
+          <img src="../logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61">
+        </a>
+      </div>
+      <nav class="header-nav" id="nav">
+        <ul>
+          <li><a href="/#service">サービス</a></li>
+          <li><a href="/past_work/" class="is-current">実績</a></li>
+          <li><a href="/#reason">選ばれる理由</a></li>
+          <li><a href="/#flow">ご利用の流れ</a></li>
+          <li><a href="/#company">会社概要</a></li>
+        </ul>
+      </nav>
+      <a href="/#contact" class="header-cta">無料相談はこちら</a>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- パンくず -->
+  <div class="breadcrumb">
+    <a href="/">ホーム</a> &gt; 制作実績一覧
+  </div>
+
+  <!-- ヒーロー -->
+  <section class="pw-hero">
+    <div class="container">
+      <h1>制作実績</h1>
+      <p>ホームページ制作・SEO対策・Google広告運用の実績をご紹介します</p>
+    </div>
+  </section>
+
+  <!-- フィルター -->
+  <div class="pw-filter">
+    <button class="pw-filter__btn is-active" data-filter="all">すべて</button>
+    <button class="pw-filter__btn" data-filter="web">Web制作</button>
+    <button class="pw-filter__btn" data-filter="seo">SEO対策</button>
+    <button class="pw-filter__btn" data-filter="ads">広告運用</button>
+    <button class="pw-filter__btn" data-filter="consult">コンサル</button>
+  </div>
+
+  <!-- 実績グリッド -->
+  <div class="pw-grid" id="works-grid">
+
+    <!-- ① A-TRUCK -->
+    <div class="pw-card" data-category="web seo ads">
+      <img src="images/atruck.webp" alt="A-TRUCK ホームページ" class="pw-card__img" loading="lazy">
+      <div class="pw-card__body">
+        <p class="pw-card__client">株式会社 A-TRUCK（千葉県）</p>
+        <h3 class="pw-card__name"><a href="https://www.a-truck.jp" target="_blank" rel="noopener">A-TRUCK 公式サイト</a></h3>
+        <div class="pw-card__tags">
+          <span class="pw-card__tag pw-card__tag--web">ホームページ制作</span>
+          <span class="pw-card__tag pw-card__tag--seo">SEO対策</span>
+          <span class="pw-card__tag pw-card__tag--ads">リスティング広告</span>
+        </div>
+        <p class="pw-card__desc">冷凍車・物流トラックのレンタル・リース・売買・修理を展開する企業サイトを制作。集客のためのSEO対策とGoogle広告運用も実施。</p>
+        <a href="https://www.a-truck.jp" target="_blank" rel="noopener" class="pw-card__link">サイトを見る &rarr;</a>
+      </div>
+    </div>
+
+    <!-- ② SANKEN ストレッチゼロ -->
+    <div class="pw-card" data-category="web seo ads">
+      <img src="images/stretchzero.webp" alt="ストレッチゼロ LP" class="pw-card__img" loading="lazy">
+      <div class="pw-card__body">
+        <p class="pw-card__client">SANKEN株式会社（山梨県）</p>
+        <h3 class="pw-card__name"><a href="https://stretchzero.jp" target="_blank" rel="noopener">ストレッチゼロ LP</a></h3>
+        <div class="pw-card__tags">
+          <span class="pw-card__tag pw-card__tag--web">LP制作</span>
+          <span class="pw-card__tag pw-card__tag--seo">SEO対策</span>
+          <span class="pw-card__tag pw-card__tag--ads">リスティング広告</span>
+        </div>
+        <p class="pw-card__desc">山梨県初のストレッチ専門店のランディングページを制作。SEO対策とGoogle広告運用で集客を支援。</p>
+        <a href="https://stretchzero.jp" target="_blank" rel="noopener" class="pw-card__link">サイトを見る &rarr;</a>
+      </div>
+    </div>
+
+    <!-- ③ PORTA -->
+    <div class="pw-card" data-category="seo consult">
+      <img src="images/porta.webp" alt="PORTA ポルタ" class="pw-card__img" loading="lazy">
+      <div class="pw-card__body">
+        <p class="pw-card__client">株式会社 武田広告社（山梨県）</p>
+        <h3 class="pw-card__name"><a href="https://www.porta-y.jp" target="_blank" rel="noopener">PORTA（ポルタ）</a></h3>
+        <div class="pw-card__tags">
+          <span class="pw-card__tag pw-card__tag--consult">SEOコンサルティング</span>
+        </div>
+        <p class="pw-card__desc">山梨県内の情報ポータルサイト「PORTA」のSEOコンサルティングを担当。8,500件以上の掲載情報を有する地域メディアの検索上位表示を支援。</p>
+        <a href="https://www.porta-y.jp" target="_blank" rel="noopener" class="pw-card__link">サイトを見る &rarr;</a>
+      </div>
+    </div>
+
+    <!-- ④ フォーカス -->
+    <div class="pw-card" data-category="web">
+      <img src="images/forcus.webp" alt="フォーカス サイト" class="pw-card__img" loading="lazy">
+      <div class="pw-card__body">
+        <p class="pw-card__client">株式会社フォーカス</p>
+        <h3 class="pw-card__name"><a href="https://www.forcus.co.jp" target="_blank" rel="noopener">フォーカス 公式サイト</a></h3>
+        <div class="pw-card__tags">
+          <span class="pw-card__tag pw-card__tag--web">サイト開発・改修</span>
+        </div>
+        <p class="pw-card__desc">CLAT-JAPANを運営する株式会社フォーカスのウェブサイト開発・改修を担当。オリジナルTシャツ製作サイトの機能改善を実施。</p>
+        <a href="https://www.forcus.co.jp" target="_blank" rel="noopener" class="pw-card__link">サイトを見る &rarr;</a>
+      </div>
+    </div>
+
+    <!-- ⑤ 大嶽山那賀都神社 -->
+    <div class="pw-card" data-category="web seo">
+      <img src="images/nagato.webp" alt="大嶽山那賀都神社" class="pw-card__img" loading="lazy">
+      <div class="pw-card__body">
+        <p class="pw-card__client">大嶽山那賀都神社</p>
+        <h3 class="pw-card__name"><a href="https://nagato-jinja.jp" target="_blank" rel="noopener">大嶽山那賀都神社 公式サイト</a></h3>
+        <div class="pw-card__tags">
+          <span class="pw-card__tag pw-card__tag--web">ホームページ制作</span>
+          <span class="pw-card__tag pw-card__tag--seo">SEO/MEO対策</span>
+        </div>
+        <p class="pw-card__desc">歴史ある神社の公式サイトを制作。自然豊かなロケーションを活かしたビジュアルデザインと、SEO・MEO対策で地域からの集客を強化。</p>
+        <a href="https://nagato-jinja.jp" target="_blank" rel="noopener" class="pw-card__link">サイトを見る &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <section class="pw-cta">
+    <div class="container">
+      <h2>あなたのビジネスも、次の実績に。</h2>
+      <p>SEO対策・ホームページ制作・Google広告運用のご相談はお気軽にどうぞ。</p>
+      <a href="/#contact" class="btn btn-primary btn-lg">無料相談はこちら</a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-info">
+          <div class="footer-logo">
+            <img src="../logo185-61.png" alt="株式会社オフィスVONDS" width="185" height="61" style="filter: brightness(10);">
+          </div>
+          <p class="footer-address">〒400-0041 山梨県甲府市上石田4-17-7 コーポ河井202</p>
+          <p class="footer-tel">TEL: <a href="tel:055-269-7220">055-269-7220</a></p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="/#service">サービス</a></li>
+            <li><a href="/past_work/">実績</a></li>
+            <li><a href="/#reason">選ばれる理由</a></li>
+            <li><a href="/#flow">ご利用の流れ</a></li>
+            <li><a href="/#company">会社概要</a></li>
+            <li><a href="/#contact">お問い合わせ</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2024 株式会社オフィスVONDS All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- フィルター JS -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var btns = document.querySelectorAll('.pw-filter__btn');
+    var cards = document.querySelectorAll('.pw-card');
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        btns.forEach(function(b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+
+        var filter = btn.getAttribute('data-filter');
+
+        cards.forEach(function(card) {
+          var cats = card.getAttribute('data-category');
+          if (filter === 'all' || cats.indexOf(filter) !== -1) {
+            card.style.display = '';
+            card.style.animation = 'fadeInCard 0.5s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // ハンバーガーメニュー
+    var hamburger = document.getElementById('hamburger');
+    var nav = document.getElementById('nav');
+    if (hamburger && nav) {
+      hamburger.addEventListener('click', function() {
+        hamburger.classList.toggle('is-active');
+        nav.classList.toggle('is-open');
+      });
+    }
+  });
+  </script>
+
+</body>
+</html>
