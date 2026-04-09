@@ -1,0 +1,245 @@
+{
+  "site": "kizuna-job.com",
+  "updated": "2026-04-09",
+  "note": "絆JOB（山梨県風俗求人サイト）SEOキーワード戦略。インデックス2ページのみの緊急状態からの復旧を目的とする。",
+  "categories": [
+    {
+      "id": "regional_jobs",
+      "label": "地域×求人（山梨エリア特化）",
+      "keywords": [
+        {
+          "keyword": "山梨 高収入 求人 女性",
+          "title": "山梨で高収入求人をお探しの女性へ｜絆JOB【日払い・寮完備】",
+          "slug": "yamanashi-koushunyu-kyujin",
+          "meta_description": "山梨県で高収入の女性向け求人をお探しなら絆JOB。日払い対応・寮完備・未経験歓迎。甲府・富士吉田エリアの厳選求人を掲載中。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "甲府 ナイトワーク 求人",
+          "title": "甲府のナイトワーク求人一覧｜絆JOBで安心のお仕事探し",
+          "slug": "kofu-nightwork-kyujin",
+          "meta_description": "甲府市のナイトワーク求人を多数掲載。キャバクラ・ラウンジ・ガールズバーなど、あなたに合ったお仕事が見つかる絆JOB。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "山梨 デリヘル 求人",
+          "title": "山梨のデリヘル求人｜絆JOB【高収入・送迎あり・未経験OK】",
+          "slug": "yamanashi-delivery-kyujin",
+          "meta_description": "山梨県のデリヘル求人情報。送迎あり・高収入・未経験OK。安心して働ける環境を絆JOBが厳選してご紹介します。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "甲府 風俗 求人",
+          "title": "甲府の風俗求人｜絆JOB 山梨専門の高収入求人サイト",
+          "slug": "kofu-fuzoku-kyujin",
+          "meta_description": "甲府市の風俗求人を探すなら絆JOB。地元山梨に特化した求人サイトだから安心。日払い・寮完備・体験入店OKの求人を多数掲載。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "山梨 風俗 バイト",
+          "title": "山梨の風俗バイト求人｜短期OK・Wワーク可｜絆JOB",
+          "slug": "yamanashi-fuzoku-baito",
+          "meta_description": "山梨県で風俗バイトをお探しの方へ。短期OK・Wワーク可・自由出勤。ライフスタイルに合わせた働き方を絆JOBがサポートします。",
+          "priority": "medium",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "富士吉田 ナイトワーク",
+          "title": "富士吉田のナイトワーク求人｜絆JOB【地元密着の安心サポート】",
+          "slug": "fujiyoshida-nightwork",
+          "meta_description": "富士吉田市周辺のナイトワーク求人。地元密着だから通いやすい。絆JOBが面接から勤務開始まで丁寧にサポートします。",
+          "priority": "medium",
+          "page_type": "landing"
+        }
+      ]
+    },
+    {
+      "id": "beginner_friendly",
+      "label": "未経験・安心系",
+      "keywords": [
+        {
+          "keyword": "風俗 未経験 不安",
+          "title": "風俗未経験で不安な方へ｜初めてでも安心して働ける理由【絆JOB】",
+          "slug": "fuzoku-mikeiken-fuan",
+          "meta_description": "風俗未経験で不安を感じている方へ。仕事内容・収入・安全面の疑問にすべてお答えします。絆JOBなら専任スタッフが徹底サポート。",
+          "priority": "high",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "体験入店 流れ",
+          "title": "体験入店の流れを完全解説｜当日の持ち物・服装・給料【絆JOB】",
+          "slug": "taiken-nyuten-nagare",
+          "meta_description": "風俗の体験入店の流れを応募から当日まで完全解説。持ち物・服装・給料の受け取り方まで、初めての方にもわかりやすくご案内します。",
+          "priority": "high",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "風俗 面接 何聞かれる",
+          "title": "風俗の面接では何を聞かれる？質問内容と合格のコツ【絆JOB】",
+          "slug": "fuzoku-mensetsu-shitsumon",
+          "meta_description": "風俗の面接で聞かれる質問内容を事前に解説。服装・持ち物・NGな回答例も紹介。絆JOBなら面接前の不安を解消できます。",
+          "priority": "medium",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "風俗 初めて 働く",
+          "title": "風俗で初めて働く女性が知っておくべき10のこと｜絆JOB",
+          "slug": "fuzoku-hajimete-hataraku",
+          "meta_description": "風俗で初めて働く方向けの完全ガイド。給料の仕組み・お仕事の種類・安全対策など、知っておくべきポイントを10項目で解説します。",
+          "priority": "medium",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "30代 風俗 求人",
+          "title": "30代からの風俗求人｜年齢を強みに変える働き方【絆JOB山梨】",
+          "slug": "30dai-fuzoku-kyujin",
+          "meta_description": "30代から風俗で働きたい方へ。年齢を気にせず高収入を得られる求人を絆JOBが厳選。30代以上歓迎のお店を多数掲載中。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "風俗 未経験 おすすめ 業種",
+          "title": "風俗未経験におすすめの業種ランキング｜働きやすさで比較【絆JOB】",
+          "slug": "mikeiken-osusume-gyoushu",
+          "meta_description": "風俗未経験の方におすすめの業種を働きやすさ・収入・身体的負担で比較。自分に合ったお仕事を見つけるための業種ガイドです。",
+          "priority": "medium",
+          "page_type": "blog"
+        }
+      ]
+    },
+    {
+      "id": "compensation",
+      "label": "待遇・給与系",
+      "keywords": [
+        {
+          "keyword": "風俗 日払い 求人",
+          "title": "日払い対応の風俗求人｜即日現金支給OK【絆JOB山梨】",
+          "slug": "fuzoku-hibarai-kyujin",
+          "meta_description": "日払い対応の風俗求人を山梨県で探すなら絆JOB。即日現金支給・全額日払い可能なお店を厳選掲載。急な出費にも対応できます。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "高収入 バイト 女性 山梨",
+          "title": "山梨で女性向け高収入バイト｜月収50万以上も可能【絆JOB】",
+          "slug": "koushunyu-baito-josei-yamanashi",
+          "meta_description": "山梨県で高収入バイトを探している女性へ。月収50万円以上も可能な求人を絆JOBが厳選紹介。日払い・週払い・自由出勤OK。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "風俗 寮完備 求人",
+          "title": "寮完備の風俗求人｜家賃無料・即入居OK【絆JOB山梨】",
+          "slug": "fuzoku-ryo-kanbi",
+          "meta_description": "寮完備の風俗求人を山梨県で探すなら絆JOB。家賃無料・家具家電付き・即入居可能。遠方からの応募も大歓迎です。",
+          "priority": "medium",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "風俗 給料 相場",
+          "title": "風俗の給料相場を業種別に徹底比較｜リアルな収入事情【絆JOB】",
+          "slug": "fuzoku-kyuryo-souba",
+          "meta_description": "風俗の給料相場を業種別・地域別に徹底解説。デリヘル・ヘルス・ソープの平均日給と月収目安を公開。リアルな収入事情がわかります。",
+          "priority": "medium",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "短期 風俗 バイト",
+          "title": "短期OKの風俗バイト｜1日だけ・週末だけでも高収入【絆JOB】",
+          "slug": "tanki-fuzoku-baito",
+          "meta_description": "短期OKの風俗バイト求人を掲載中。1日体験・週末だけ・長期休暇中だけなど、あなたの都合に合わせた働き方が可能です。",
+          "priority": "medium",
+          "page_type": "landing"
+        }
+      ]
+    },
+    {
+      "id": "faq",
+      "label": "FAQ系（よくある質問・不安解消）",
+      "keywords": [
+        {
+          "keyword": "風俗 バレない 方法",
+          "title": "風俗で働いていることがバレない方法｜身バレ対策完全ガイド【絆JOB】",
+          "slug": "fuzoku-barenai-houhou",
+          "meta_description": "風俗で働いていることが家族や友人にバレないための対策を徹底解説。写メ日記・確定申告・SNS対策など具体的な身バレ防止策を紹介。",
+          "priority": "high",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "風俗 辞め方",
+          "title": "風俗の正しい辞め方｜トラブルなく円満退店する方法【絆JOB】",
+          "slug": "fuzoku-yamekata",
+          "meta_description": "風俗をスムーズに辞めるための正しい手順を解説。退店のタイミング・伝え方・引き止められた時の対処法まで詳しくご案内します。",
+          "priority": "medium",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "風俗 確定申告 やり方",
+          "title": "風俗で働く女性の確定申告ガイド｜バレずに正しく申告する方法【絆JOB】",
+          "slug": "fuzoku-kakutei-shinkoku",
+          "meta_description": "風俗で働く女性向けの確定申告完全ガイド。必要書類・経費計上・住民税の普通徴収切替など、バレずに正しく申告する方法を解説。",
+          "priority": "medium",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "風俗 性病 検査",
+          "title": "風俗で働く前に知っておきたい性病検査の基礎知識【絆JOB】",
+          "slug": "fuzoku-seibyou-kensa",
+          "meta_description": "風俗で働く女性が知っておくべき性病検査の頻度・費用・種類を解説。定期検査の重要性と、安心して働くための衛生管理について紹介。",
+          "priority": "medium",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "風俗 子持ち 働ける",
+          "title": "子持ちでも風俗で働ける？シングルマザーの働き方ガイド【絆JOB】",
+          "slug": "fuzoku-komochi-hatarakeru",
+          "meta_description": "子持ち・シングルマザーでも風俗で働けるのか？託児所補助・時短勤務・自由出勤など、育児と両立しやすい求人を絆JOBが紹介します。",
+          "priority": "medium",
+          "page_type": "blog"
+        }
+      ]
+    },
+    {
+      "id": "brand",
+      "label": "ブランド指名キーワード",
+      "keywords": [
+        {
+          "keyword": "絆JOB",
+          "title": "絆JOB（きずなジョブ）｜山梨県の高収入女性求人サイト【公式】",
+          "slug": "index",
+          "meta_description": "絆JOB（きずなジョブ）は山梨県に特化した高収入女性求人サイト。甲府・富士吉田エリアのナイトワーク・風俗求人を厳選掲載。未経験歓迎・日払い対応。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "きずなグループ 山梨",
+          "title": "きずなグループ山梨｜絆JOBの運営会社・グループ店舗紹介",
+          "slug": "kizuna-group-yamanashi",
+          "meta_description": "きずなグループは山梨県で複数店舗を運営する老舗グループ。絆JOBを通じて安心・安全な職場環境を提供しています。グループの特徴・実績を紹介。",
+          "priority": "high",
+          "page_type": "landing"
+        },
+        {
+          "keyword": "絆JOB 口コミ 評判",
+          "title": "絆JOBの口コミ・評判｜実際に働いた女性のリアルな声【2026年】",
+          "slug": "kizunajob-kuchikomi",
+          "meta_description": "絆JOBの口コミ・評判を実際に働いた女性の声をもとに紹介。給料・待遇・スタッフ対応のリアルな評価を掲載しています。",
+          "priority": "high",
+          "page_type": "blog"
+        },
+        {
+          "keyword": "kizuna-job.com",
+          "title": "kizuna-job.com｜絆JOB公式サイト 山梨の高収入求人",
+          "slug": "official",
+          "meta_description": "kizuna-job.com は絆JOB（きずなジョブ）の公式サイトです。山梨県の高収入女性求人を多数掲載。安心して働ける求人のみを厳選しています。",
+          "priority": "medium",
+          "page_type": "landing"
+        }
+      ]
+    }
+  ]
+}
