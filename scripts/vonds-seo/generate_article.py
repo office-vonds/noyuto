@@ -279,11 +279,11 @@ def generate_article_content(keyword_entry: dict, category: dict) -> str:
             logger.error("claude --print タイムアウト（600秒）")
             sys.exit(1)
         except FileNotFoundError:
-        logger.error("claudeコマンドが見つかりません")
-        sys.exit(1)
-    except Exception as e:
-        logger.error(f"記事生成エラー: {e}")
-        sys.exit(1)
+            logger.error("claudeコマンドが見つかりません")
+            sys.exit(1)
+        except Exception as e:
+            logger.error(f"記事生成エラー: {e}")
+            sys.exit(1)
 
 
 # ==============================================================================
