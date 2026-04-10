@@ -21,6 +21,90 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<!-- Firebase (rina学習ログ・匿名化保存用) -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js';
+  import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js';
+
+  // Firebase プロジェクト: il-game（2026-04-10 設定）
+  const firebaseConfig = {
+    apiKey: "AIzaSyAYjyeU-cZ5VMYnNkeNXATmIJhi-SZuY0M",
+    authDomain: "il-game.firebaseapp.com",
+    projectId: "il-game",
+    storageBucket: "il-game.firebasestorage.app",
+    messagingSenderId: "759997319728",
+    appId: "1:759997319728:web:c01fe2d7f97ce4cfc7fbf5",
+    measurementId: "G-PGXEH0VGJ4"
+  };
+
+  let db = null;
+  try {
+    const app = initializeApp(firebaseConfig);
+    db = getFirestore(app);
+  } catch(e) { console.warn("Firebase init failed:", e); }
+
+  // 匿名化関数：個人情報っぽいパターンを全部除去
+  const anonymize = (text, castName) => {
+    if (!text) return "";
+    let s = String(text);
+    // キャスト名を全削除
+    if (castName) {
+      const nameRe = new RegExp(castName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + 'ちゃん?|' + castName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+      s = s.replace(nameRe, '[NAME]');
+    }
+    // 電話番号
+    s = s.replace(/0\d{1,4}[-\s]?\d{1,4}[-\s]?\d{3,4}/g, '[PHONE]');
+    // メールアドレス
+    s = s.replace(/[\w.+-]+@[\w.-]+\.[\w.-]+/g, '[EMAIL]');
+    // URL
+    s = s.replace(/https?:\/\/[^\s]+/g, '[URL]');
+    // 生年月日（YYYY/MM/DD, YYYY-MM-DD）
+    s = s.replace(/\b(19|20)\d{2}[\/\-年]\d{1,2}[\/\-月]\d{1,2}日?\b/g, '[DATE]');
+    // 金額（5桁以上・個人特定リスク低いが念のため）
+    // ※ 金額はそのまま残す（傾向分析に必要）
+    // 住所らしき連番（〒123-4567等）
+    s = s.replace(/〒?\d{3}-?\d{4}/g, '[POSTAL]');
+    return s;
+  };
+
+  // セッションハッシュ生成（cast_name + 端末固有文字列のSHA的ハッシュ・非可逆）
+  const getSessionHash = async (castName) => {
+    try {
+      let deviceSalt = localStorage.getItem('rina_device_salt');
+      if (!deviceSalt) {
+        deviceSalt = Math.random().toString(36).substring(2) + Date.now().toString(36);
+        localStorage.setItem('rina_device_salt', deviceSalt);
+      }
+      const raw = castName + '|' + deviceSalt + '|kizuna_rina_v1';
+      const buf = new TextEncoder().encode(raw);
+      const hash = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(hash)).slice(0, 8).map(b => b.toString(16).padStart(2, '0')).join('');
+    } catch(e) {
+      return 'anon_' + Math.random().toString(36).substring(2, 10);
+    }
+  };
+
+  // 学習ログ送信（匿名化してFirestoreへ）
+  window.rinaLogChat = async ({castName, castIl, category, userMessage, rinaResponse, quickReplyUsed, unidraSuggested, consented}) => {
+    if (!db) return;
+    if (!consented) return; // 同意なしは送信しない
+    try {
+      const sessionHash = await getSessionHash(castName || 'unknown');
+      await addDoc(collection(db, 'rina_chat_logs'), {
+        session_hash: sessionHash,
+        timestamp: serverTimestamp(),
+        category: category || 'free',
+        user_message: anonymize(userMessage, castName).substring(0, 1800),
+        rina_response: (rinaResponse || '').substring(0, 1800),
+        cast_il_bucket: castIl ? Math.floor(castIl / 10) * 10 : 0,  // 0,10,20,30... 単位に丸める（IL個別特定回避）
+        quick_reply_used: !!quickReplyUsed,
+        unidra_suggested: !!unidraSuggested,
+        message_length: (userMessage || '').length,
+        app_version: 'v5.1_rina'
+      });
+    } catch(e) { console.warn("Firestore log failed:", e); }
+  };
+</script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { background: #0a0015; font-family: 'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif; color: white; }
@@ -49,32 +133,50 @@ const { useState, useEffect, useRef } = React;
 
 const ADMIN_PW = "kizuna2025";
 
+// 3月稼働キャスト 37名（出勤≥5日・IL降順） — 2026-04-10 KIRYU update from 3月集計_キャスト実績_絆様.xlsx
 const DEFAULT_CASTS = [
-  {id:1,  name:"ゆき",    il:27, pv:915, diary:44, limited:18, video:4,  mitene:50,  okini:34,  mygirl:132, pin:"0000"},
-  {id:2,  name:"りえ",    il:26, pv:288, diary:52, limited:1,  video:0,  mitene:25,  okini:219, mygirl:297, pin:"0000"},
-  {id:3,  name:"さり",    il:23, pv:664, diary:18, limited:6,  video:0,  mitene:0,   okini:7,   mygirl:895, pin:"0000"},
-  {id:4,  name:"ゆうな",  il:18, pv:216, diary:55, limited:19, video:5,  mitene:90,  okini:61,  mygirl:495, pin:"0000"},
-  {id:5,  name:"みこ",    il:16, pv:271, diary:34, limited:0,  video:0,  mitene:151, okini:9,   mygirl:270, pin:"0000"},
-  {id:6,  name:"めいこ",  il:15, pv:152, diary:5,  limited:0,  video:0,  mitene:67,  okini:16,  mygirl:180, pin:"0000"},
-  {id:7,  name:"あすか",  il:14, pv:468, diary:26, limited:0,  video:0,  mitene:30,  okini:1,   mygirl:310, pin:"0000"},
-  {id:8,  name:"るい",    il:14, pv:213, diary:53, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:220, pin:"0000"},
-  {id:9,  name:"うと",    il:14, pv:428, diary:23, limited:0,  video:0,  mitene:26,  okini:4,   mygirl:290, pin:"0000"},
-  {id:10, name:"かおる",  il:13, pv:142, diary:0,  limited:0,  video:0,  mitene:0,   okini:1,   mygirl:180, pin:"0000"},
-  {id:11, name:"めぐな",  il:13, pv:168, diary:17, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:200, pin:"0000"},
-  {id:12, name:"いお",    il:12, pv:201, diary:2,  limited:0,  video:0,  mitene:10,  okini:2,   mygirl:150, pin:"0000"},
-  {id:13, name:"すずな",  il:12, pv:157, diary:78, limited:0,  video:0,  mitene:2,   okini:1,   mygirl:190, pin:"0000"},
-  {id:14, name:"ゆう",    il:11, pv:166, diary:70, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:160, pin:"0000"},
-  {id:15, name:"ここ",    il:11, pv:219, diary:50, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:175, pin:"0000"},
-  {id:16, name:"かぐら",  il:10, pv:301, diary:28, limited:0,  video:0,  mitene:0,   okini:2,   mygirl:210, pin:"0000"},
-  {id:17, name:"まゆ",    il:9,  pv:499, diary:4,  limited:0,  video:0,  mitene:10,  okini:0,   mygirl:120, pin:"0000"},
-  {id:18, name:"えれな",  il:8,  pv:221, diary:43, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:140, pin:"0000"},
-  {id:19, name:"ゆずか",  il:8,  pv:91,  diary:50, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:130, pin:"0000"},
-  {id:20, name:"たかなん",il:7,  pv:156, diary:12, limited:0,  video:0,  mitene:0,   okini:1,   mygirl:120, pin:"0000"},
+  {id:1, name:"めいこ", il:29, pv:424, diary:69, limited:30, video:0, mitene:159, okini:16, mygirl:1183, pin:"0000"},
+  {id:2, name:"りえ", il:28, pv:289, diary:55, limited:7, video:0, mitene:96, okini:880, mygirl:333, pin:"0000"},
+  {id:3, name:"てんか", il:27, pv:577, diary:49, limited:17, video:7, mitene:64, okini:92, mygirl:68, pin:"0000"},
+  {id:4, name:"めぐな", il:24, pv:316, diary:54, limited:23, video:0, mitene:110, okini:8, mygirl:1227, pin:"0000"},
+  {id:5, name:"りり", il:23, pv:523, diary:36, limited:20, video:4, mitene:60, okini:81, mygirl:80, pin:"0000"},
+  {id:6, name:"もえ", il:23, pv:537, diary:34, limited:14, video:8, mitene:50, okini:36, mygirl:74, pin:"0000"},
+  {id:7, name:"かおる", il:22, pv:244, diary:45, limited:30, video:0, mitene:130, okini:11, mygirl:1200, pin:"0000"},
+  {id:8, name:"なな", il:22, pv:386, diary:54, limited:27, video:0, mitene:60, okini:82, mygirl:67, pin:"0000"},
+  {id:9, name:"いおり", il:20, pv:264, diary:64, limited:32, video:8, mitene:90, okini:57, mygirl:209, pin:"0000"},
+  {id:10, name:"すい", il:19, pv:257, diary:84, limited:33, video:0, mitene:134, okini:9, mygirl:105, pin:"0000"},
+  {id:11, name:"みこ", il:19, pv:199, diary:38, limited:8, video:2, mitene:95, okini:12, mygirl:764, pin:"0000"},
+  {id:12, name:"かぐら", il:18, pv:161, diary:120, limited:48, video:0, mitene:180, okini:2, mygirl:159, pin:"0000"},
+  {id:13, name:"ゆず", il:18, pv:182, diary:76, limited:30, video:0, mitene:140, okini:33, mygirl:92, pin:"0000"},
+  {id:14, name:"みかさ", il:17, pv:184, diary:91, limited:45, video:0, mitene:160, okini:7, mygirl:111, pin:"0000"},
+  {id:15, name:"まみ", il:17, pv:585, diary:35, limited:15, video:4, mitene:0, okini:0, mygirl:80, pin:"0000"},
+  {id:16, name:"えれな", il:16, pv:159, diary:79, limited:32, video:0, mitene:180, okini:4, mygirl:227, pin:"0000"},
+  {id:17, name:"ゆう", il:16, pv:121, diary:86, limited:34, video:0, mitene:170, okini:3, mygirl:58, pin:"0000"},
+  {id:18, name:"むむ", il:15, pv:174, diary:65, limited:28, video:0, mitene:100, okini:9, mygirl:295, pin:"0000"},
+  {id:19, name:"はる", il:15, pv:92, diary:80, limited:32, video:0, mitene:150, okini:5, mygirl:203, pin:"0000"},
+  {id:20, name:"みはな", il:14, pv:48, diary:68, limited:44, video:0, mitene:200, okini:1, mygirl:47, pin:"0000"},
+  {id:21, name:"すずな", il:13, pv:102, diary:71, limited:28, video:0, mitene:140, okini:2, mygirl:99, pin:"0000"},
+  {id:22, name:"はつね", il:12, pv:512, diary:26, limited:10, video:0, mitene:30, okini:7, mygirl:78, pin:"0000"},
+  {id:23, name:"いお", il:12, pv:180, diary:4, limited:0, video:0, mitene:12, okini:5, mygirl:2530, pin:"0000"},
+  {id:24, name:"かな", il:12, pv:209, diary:51, limited:20, video:0, mitene:89, okini:1, mygirl:53, pin:"0000"},
+  {id:25, name:"すず", il:10, pv:164, diary:40, limited:17, video:0, mitene:59, okini:39, mygirl:46, pin:"0000"},
+  {id:26, name:"ゆうな", il:10, pv:164, diary:21, limited:6, video:3, mitene:50, okini:6, mygirl:492, pin:"0000"},
+  {id:27, name:"らぶ", il:8, pv:148, diary:24, limited:10, video:0, mitene:60, okini:3, mygirl:118, pin:"0000"},
+  {id:28, name:"たかなん", il:7, pv:137, diary:8, limited:0, video:0, mitene:0, okini:1, mygirl:277, pin:"0000"},
+  {id:29, name:"ひなた", il:7, pv:54, diary:0, limited:0, video:0, mitene:0, okini:4, mygirl:629, pin:"0000"},
+  {id:30, name:"ひまり", il:7, pv:95, diary:17, limited:6, video:0, mitene:41, okini:9, mygirl:65, pin:"0000"},
+  {id:31, name:"はるな", il:7, pv:71, diary:32, limited:13, video:0, mitene:50, okini:5, mygirl:47, pin:"0000"},
+  {id:32, name:"しの", il:6, pv:277, diary:28, limited:13, video:0, mitene:30, okini:2, mygirl:42, pin:"0000"},
+  {id:33, name:"ゆりな", il:6, pv:214, diary:27, limited:10, video:0, mitene:30, okini:0, mygirl:32, pin:"0000"},
+  {id:34, name:"ここ", il:2, pv:135, diary:0, limited:0, video:0, mitene:20, okini:0, mygirl:166, pin:"0000"},
+  {id:35, name:"りいさ", il:1, pv:76, diary:0, limited:0, video:0, mitene:20, okini:0, mygirl:115, pin:"0000"},
+  {id:36, name:"はるか", il:1, pv:51, diary:10, limited:4, video:0, mitene:30, okini:2, mygirl:147, pin:"0000"},
+  {id:37, name:"あん", il:1, pv:38, diary:0, limited:0, video:0, mitene:20, okini:0, mygirl:64, pin:"0000"},
 ];
 
 const loadCasts = () => {
   try {
-    const s = localStorage.getItem("kizuna_v4");
+    const s = localStorage.getItem("kizuna_v5");
     if (s) {
       const parsed = JSON.parse(s);
       return parsed.map(c => ({...c, pin: c.pin || "0000"}));
@@ -82,7 +184,7 @@ const loadCasts = () => {
   } catch(e) {}
   return DEFAULT_CASTS;
 };
-const saveCasts = (d) => { try { localStorage.setItem("kizuna_v4", JSON.stringify(d)); } catch(e) {} };
+const saveCasts = (d) => { try { localStorage.setItem("kizuna_v5", JSON.stringify(d)); } catch(e) {} };
 
 const getILRank = (il) => {
   if (il >= 90) return {name:"👑 レジェンド", color:"#FFD700", next:100};
@@ -152,22 +254,24 @@ const titleGroups = [
 
 // ─── Unidra Affiliate Banner ─────────────────────────
 function UnidraBanner({cast}) {
+  const [hover, setHover] = useState(false);
   const handleClick = () => {
     try { trackEvent('unidra_banner_click', {cast_name: cast.name, cast_il: cast.il, location: 'home'}); } catch(e) {}
   };
   return (
-    <div style={{margin:"14px 0",display:"flex",flexDirection:"column",alignItems:"center"}}>
+    <div style={{margin:"16px 0",display:"flex",justifyContent:"center"}}>
       {/* トラッキングピクセル（計測用） */}
       <img src="https://mttag.com/banner/N7LA9DpHxjk" alt="" style={{width:1,height:1,position:"absolute",pointerEvents:"none",opacity:0}} aria-hidden="true" />
-      <div style={{fontSize:10,color:"rgba(255,215,0,0.55)",marginBottom:6,letterSpacing:1,fontWeight:700}}>✨ PR ｜ おすすめアイテム</div>
       <a href="https://mttag.com/s/jjyygkMvC54"
          target="_blank"
          rel="nofollow noopener noreferrer"
          onClick={handleClick}
-         style={{display:"block",borderRadius:18,overflow:"hidden",border:"2px solid rgba(255,215,0,0.35)",boxShadow:"0 6px 22px rgba(255,105,180,0.28)",lineHeight:0,background:"rgba(0,0,0,0.3)"}}>
-        <img src="https://mttag.com/banner/jjyygkMvC54" alt="ユニドラ" style={{display:"block",width:200,height:200,objectFit:"cover"}} />
+         onMouseEnter={() => setHover(true)}
+         onMouseLeave={() => setHover(false)}
+         style={{position:"relative",display:"inline-block",borderRadius:12,overflow:"hidden",background:"#fff",boxShadow: hover ? "0 6px 22px rgba(255,105,180,0.45)" : "0 4px 14px rgba(0,0,0,0.3)",lineHeight:0,maxWidth:"100%",transform: hover ? "translateY(-1px)" : "translateY(0)",transition:"all 0.18s ease"}}>
+        <img src="https://mttag.com/banner/jjyygkMvC54" alt="ユニドラ" style={{display:"block",width:"100%",height:"auto",maxWidth:300}} />
+        <span style={{position:"absolute",top:3,right:5,fontSize:8,color:"rgba(0,0,0,0.42)",fontWeight:700,letterSpacing:0.5,background:"rgba(255,255,255,0.75)",padding:"0 3px",borderRadius:2,lineHeight:"12px",pointerEvents:"none"}}>PR</span>
       </a>
-      <div style={{fontSize:10,color:"rgba(255,200,230,0.4)",marginTop:6,textAlign:"center"}}>タップでサイトへ</div>
     </div>
   );
 }
@@ -274,7 +378,6 @@ function HomeTab({cast, rank}) {
         ))}
       </div>
       <IncomeSimulator cast={cast} />
-      <UnidraBanner cast={cast} />
       {tips.length > 0 && (
         <div style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.12)",borderRadius:18,padding:16}}>
           <div style={{fontSize:14,fontWeight:700,marginBottom:10}}>💡 今月の改善ポイント</div>
@@ -1030,6 +1133,372 @@ function PublicRanking({casts, onBack}) {
   );
 }
 
+// ─── Unidra Suggestion Modal（お悩み相談から文脈で出す1枚説明） ───
+function UnidraSuggestionModal({onClose, onOpenLink, cast}) {
+  const handleOpen = () => {
+    try { trackEvent('unidra_suggestion_open', {cast_name: cast.name, cast_il: cast.il, source: 'chat_health'}); } catch(e) {}
+    if (onOpenLink) onOpenLink();
+  };
+  return (
+    <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.82)",zIndex:200,display:"flex",alignItems:"flex-end",justifyContent:"center",backdropFilter:"blur(6px)"}} onClick={onClose}>
+      <div onClick={e => e.stopPropagation()}
+           style={{background:"linear-gradient(180deg,#1a0530,#0d0220)",borderTopLeftRadius:24,borderTopRightRadius:24,border:"1px solid rgba(255,105,180,0.25)",padding:"22px 22px 28px",maxWidth:480,width:"100%",maxHeight:"88vh",overflowY:"auto",animation:"fadeSlide 0.3s ease-out"}}>
+        <div style={{width:44,height:4,background:"rgba(255,255,255,0.25)",borderRadius:2,margin:"0 auto 16px"}} />
+        <div style={{fontSize:11,color:"rgba(255,215,0,0.6)",letterSpacing:2,textAlign:"center",fontWeight:700,marginBottom:6}}>— 選択肢のひとつ —</div>
+        <div style={{fontSize:20,fontWeight:800,textAlign:"center",marginBottom:14,color:"#fff"}}>💙 こんな方法もあります</div>
+        <div style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.12)",borderRadius:14,padding:"16px 18px",marginBottom:14,fontSize:13,lineHeight:1.8,color:"rgba(255,230,240,0.92)"}}>
+          夜のお仕事をしているキャストさんの中には、<br/>
+          体調管理や通院のことで悩む人が少なくありません。<br/><br/>
+          <strong style={{color:"#FFD700"}}>ユニドラ</strong>は、そういうお悩みを<strong>匿名で相談・購入</strong>できる、<br/>
+          オンラインのお薬サポートサイトです。
+        </div>
+        <div style={{fontSize:12,color:"rgba(255,200,230,0.85)",marginBottom:8,fontWeight:700}}>💡 こんな時に使えます</div>
+        <ul style={{fontSize:12,lineHeight:1.75,color:"rgba(255,210,230,0.78)",paddingLeft:20,marginBottom:16}}>
+          <li>病院に行く時間が取れない時</li>
+          <li>誰にも相談しづらい症状がある時</li>
+          <li>お仕事前後の体調管理のために</li>
+        </ul>
+        <div style={{background:"rgba(74,222,128,0.08)",border:"1px solid rgba(74,222,128,0.25)",borderRadius:10,padding:"10px 14px",marginBottom:18,fontSize:11,color:"rgba(180,255,200,0.88)",lineHeight:1.7}}>
+          <strong style={{color:"#4ADE80"}}>🔐 安心ポイント</strong><br/>
+          匿名での相談・購入が可能 / プライバシー配慮の梱包 / 薬剤師対応
+        </div>
+        <div style={{fontSize:10,color:"rgba(255,200,230,0.5)",lineHeight:1.7,marginBottom:18,padding:"10px 12px",background:"rgba(255,255,255,0.02)",borderRadius:8}}>
+          ※ 絆からの一方的な推奨ではなく、選択肢のひとつとしてご紹介しています。他にも信頼できる相談窓口があります：<br/>
+          • <strong>よりそいホットライン</strong>（0120-279-338・24時間）<br/>
+          • <strong>保健所の匿名相談</strong>（各自治体）
+        </div>
+        {/* トラッキングピクセル */}
+        <img src="https://mttag.com/banner/N7LA9DpHxjk" alt="" style={{width:1,height:1,position:"absolute",pointerEvents:"none",opacity:0}} aria-hidden="true" />
+        <a href="https://mttag.com/s/jjyygkMvC54"
+           target="_blank"
+           rel="nofollow noopener noreferrer"
+           onClick={handleOpen}
+           style={{display:"block",textAlign:"center",background:"linear-gradient(135deg,#FF69B4,#FFD700)",color:"#1a0530",padding:"14px",borderRadius:12,fontSize:15,fontWeight:800,textDecoration:"none",boxShadow:"0 6px 20px rgba(255,105,180,0.35)",marginBottom:10,position:"relative"}}>
+          ユニドラを見てみる →
+          <span style={{position:"absolute",top:4,right:8,fontSize:8,background:"rgba(0,0,0,0.15)",padding:"1px 4px",borderRadius:2,fontWeight:700,letterSpacing:0.5}}>PR</span>
+        </a>
+        <button onClick={onClose} style={{display:"block",width:"100%",background:"rgba(255,255,255,0.06)",color:"rgba(255,230,240,0.7)",border:"1px solid rgba(255,200,230,0.18)",padding:"12px",borderRadius:12,fontSize:13,fontWeight:600,cursor:"pointer"}}>今は見ない</button>
+      </div>
+    </div>
+  );
+}
+
+// ─── Chat Tab（お悩み相談・Phase1モック） ─────────────
+const CHAT_CATEGORIES = [
+  {id:"money",  icon:"💰", label:"お金のこと",    color:"#FFD700"},
+  {id:"people", icon:"👥", label:"対人関係",      color:"#00CED1"},
+  {id:"family", icon:"🏠", label:"家族のこと",    color:"#A78BFA"},
+  {id:"health", icon:"💊", label:"健康・お薬",    color:"#FF69B4"},
+];
+
+// Phase 1 モック応答（後でClaude APIに差し替え・風俗特有知識を前提に設計）
+// 設計哲学：女性は言えずに貯め込む性質があるため、「答えさせる」より「吐き出させる」
+// 話者：rina（@rina_xxxfree）— 風俗業界の先輩女性・離婚経験・どん底から立ち直った経験あり
+// 所在地は明示しない（将来の全国展開対応）。金額は出さない（共感レンジ広げる）。
+// 敬語なし口語。共感先行・経験談・押し付けない。会える可能性の余白を残す。
+// AI開示はチャット画面では絶対に行わない（世界観優先）。
+const mockRespond = (category, userText, subTopic) => {
+  const t = (userText || "").toLowerCase();
+
+  // === 吐き出しモード（最優先・どのカテゴリでも対応） ===
+  const ventKw = ["まとまってない","吐き出","わからない","ただ聞","言葉にならない","うまく書けない","まとまらない"];
+  if (ventKw.some(k => t.includes(k))) {
+    const ventResponses = {
+      money:  "うん、まとまってなくていいよ。\n\nお金のことって、考えれば考えるほどグルグルするよね。私もそうだった。寝る前に頭の中で計算して、また朝起きてどうしようって繰り返してた時期ある。\n\nモヤモヤしてる全部、思いつくまま書いていいよ。改行も句読点もいらない。私、ここでずっと聞いてるから。",
+      people: "全然いいよ、順番なんていらない。\n\n人のことで悩むと、頭の中がごちゃごちゃになって、何から言えばいいかわからなくなるよね。私もそういう時、LINEの下書きに何度も書いては消してた。\n\nそのまま書いて。書いてる途中で「これ言っていいのかな」って思っても、気にしないで書き切って。",
+      family: "うん、言葉にならないよね。\n\n家族のことって、うまく言えないほど近いんだよ。私も、親のこと話そうとすると喉が詰まる感じ、今でもある。\n\nいいよ、断片でも、愚痴でも、何でも。「なんか苦しい」だけでも、ちゃんと受け取るから。",
+      health: "うん、無理に説明しなくていい。\n\n体のことって、自分でもよくわからないことあるよね。私もよく「病院行くほどじゃないけどしんどい」って状態、長く放置してた。\n\n「なんか変」「なんかしんどい」それだけで十分。続いてるの？急に来たの？思い出した順でいいよ。",
+    };
+    return {text: ventResponses[category] || "うん、書いていいよ。まとまってなくていい。順番もいらない。思いついた順に書いて。私、ここで聞いてるから。"};
+  }
+
+  // === 健康カテゴリ ===
+  const healthKw = ["薬","くすり","体調","病院","ピル","症状","生理","痛み","だるい","眠れない","健康","病気","お薬","検査","性病","おりもの","かゆい","かゆみ"];
+  const isHealth = category === "health" || healthKw.some(k => t.includes(k));
+  if (isHealth) {
+    if (t.includes("性病") || t.includes("検査")) {
+      return {text:"うん、性のことって、不安になる時、本当に不安になるよね。私もあった。お仕事してたら誰にでもあることだから、自分を責めないでね。\n\n一番大事なのは「早く調べること」と「一人で抱えないこと」。保健所なら匿名で無料検査できる自治体多いよ。行くハードル下げる選択肢もあるから、よければ紹介するね。", suggestUnidra:true};
+    }
+    if (t.includes("ピル") || t.includes("生理")) {
+      return {text:"ピルと生理、お仕事してる子にはマジで大事な話だよね。生理中でも出勤プレッシャーあるし、痛み止めで無理やり乗り切ってる子めっちゃ多い。私もそうだった。\n\n低用量ピルで生理日ずらしたり、出勤前の痛み対策したり、やり方あるよ。ただ合う合わないがあるから、信頼できるオンライン診療で相談するのが安心だよ。", suggestUnidra:true};
+    }
+    return {text:"体調のこと、話してくれてありがとう。お仕事してると病院行く時間も取れないし、「これ言って大丈夫かな」って躊躇する気持ち、わかる。私もずっとそうだった。\n\n我慢すると仕事に響くし、自分を守るのが一番大事だよ。相談しづらい症状でも、匿名で話せる窓口あるから紹介するね。", suggestUnidra:true};
+  }
+
+  // === お金カテゴリ（NOYUTO指示：ILゲーム活用 / 店相談 / 傾聴 の3ルート） ===
+  if (category === "money") {
+    if (subTopic === "money_il") {
+      return {text:"ILゲームで稼ぎを増やす方向、いいね。私も「数字で見える化」したのが転機だったよ。やった分が数字で返ってくると、やる気全然違うから。\n\n経験から言うと、一番効くのは3つ：\n\n① 写メ日記の頻度を上げる（絆のデータでは月40本が主力ライン）\n② マイガール登録を増やす（日記の最後に一言入れるだけ）\n③ ミテネ送信を毎日5〜10回\n\n絆の主力キャスト、この3つを2週間続けたら平均でIL+5〜+10上がってる。私も似たようなこと始めた月から、通帳見るのが怖くなくなっていった。\n\n何から始めたい？「まなび」タブに詳しいコツも置いてあるよ。"};
+    }
+    if (subTopic === "money_store") {
+      return {text:"店に相談するのは全然アリ。絆は話を聞いてくれる店だから大丈夫。\n\nでも「口で伝えるのがしんどい」「何から話せばいいかわからない」って気持ち、めっちゃわかる。私も昔、店長に前借りお願いした時、喉が詰まって言葉出なかったことあるよ。\n\nそういう時は私が一緒に下書き作るね。今どんな状況？", quickReplies:[
+        {label:"前借りをお願いしたい", send:"前借りをお願いしたい"},
+        {label:"罰金のことで相談", send:"罰金のことで相談したい"},
+        {label:"お客さんの未払い", send:"お客さんの売掛が回収できない"},
+        {label:"別のこと", send:"別のことで相談したい"}
+      ]};
+    }
+    if (subTopic === "money_listen") {
+      return {text:"わかった、ただ聞くよ。解決策もアドバイスもいらないから、今しんどいこと全部吐き出して。\n\n言葉にならなくても大丈夫。思いついた順に書いて。私、ここで全部受け止めるから。\n\n…私も、通帳見て泣いた夜あるよ。誰にも言えなくて、布団の中で声殺して泣いた。あの夜があったから今があるけど、あの時は出口なんて見えなかった。\n\n今話したいこと、何でも書いていい。"};
+    }
+    // 代筆フロー（店相談の下書き作成）
+    if (t.includes("前借り") || t.includes("前払い")) {
+      return {text:"前借りのお願い、下書き作ったよ。そのままコピペしていいし、自分の言葉に直してもOK。私が昔送ったやつの改良版だから安心して。\n\n━━━━━━━━━━━━━━\nお疲れ様です。\n\n突然のお願いで申し訳ないのですが、今月生活費が厳しく、もしご相談に乗っていただけるなら給与の一部を前払いしていただきたいと思っています。\n\n金額は○万円（ここを自分で埋めてね）を考えています。来月以降の出勤でお返しする形でお願いできれば助かります。\n\n直接お話しするのが少し緊張してしまうので、まずは文章でご相談させていただきました。お手数おかけしますがよろしくお願いします。\n━━━━━━━━━━━━━━\n\n店長やマネージャーに見せる、またはLINEで送るだけでOK。「口で言うの苦手で」って一言添えると自然だよ。"};
+    }
+    if (t.includes("罰金")) {
+      return {text:"罰金の相談、つらいよね。言いにくいやつ。下書き作るね。\n\n━━━━━━━━━━━━━━\nお疲れ様です。\n\n○月○日の罰金について相談させてください。\n状況としては（遅刻 / 当日欠勤 / その他…）で、理由は（体調不良 / 家族の事情 / 公共交通の乱れ…）でした。\n\n事前連絡できなかった点は反省していますが、金額について一度ご相談させてください。分割や減額のご相談が可能であればありがたいです。\n\n直接伝えるのが緊張するので、まず文章でお願いしました。\n━━━━━━━━━━━━━━\n\n店によって対応は違うけど、絆みたいに話を聞いてくれる店なら、正直に事情を書けば配慮してくれる可能性高いよ。私の経験だけど。"};
+    }
+    if (t.includes("売掛") || t.includes("未払い")) {
+      return {text:"お客さんの未払い…これが一番しんどいやつだよね。気持ちめっちゃわかる。私も過去に一件あって、追い詰められた経験ある。\n\nまず大事なのは「一人で追わないこと」。売掛トラブルは店に共有すべき問題だから、下書き作るね。\n\n━━━━━━━━━━━━━━\nお疲れ様です。\n\n○月○日のお客様（源氏名 / 初回 / 常連等）との売掛について相談させてください。\n\n金額：○○円\n状況：「後日必ず払う」と言われたが、その後連絡が取れない / 連絡はあるが支払いが引き延ばされている\n\nキャスト個人では回収が難しく、店の対応としてどう進めるかご相談させてください。LINE / 電話履歴は残してあります。\n━━━━━━━━━━━━━━\n\n個人で追い込まれる必要ないからね。必ず店に共有しよう。"};
+    }
+    // お金カテゴリ初回応答
+    return {text:"お金のこと、話してくれてありがとう。夜のお仕事は収入の波が大きいし、急な出費が続くとあっという間に詰むよね。私もそうだった、自分を責めないで。\n\n私もね、通帳の残高見るのが怖くて、ずっと見ないで過ごしてた時期ある。コンビニで値引きシール貼られるの、遠くから待ってたこともあった。電気代の催促、封筒開けられなくて、机の端に積んでた。\n\nあの時の自分に一番言いたいのは「一人で抱えるのが一番きつい」ってこと。だから、話してくれて嬉しい。\n\nどの方向で話したい？", quickReplies:[
+      {label:"ILゲームで稼ぎを増やしたい", subTopic:"money_il"},
+      {label:"店に相談したい（下書き作るよ）", subTopic:"money_store"},
+      {label:"ただ話を聞いてほしい", subTopic:"money_listen"}
+    ]};
+  }
+
+  // === 対人関係カテゴリ ===
+  if (category === "people") {
+    if (t.includes("客") || t.includes("お客")) {
+      return {text:"お客さんのことか。しつこい人・脅してくる人・払わない人…いろんなタイプいるよね。私も経験ある、一人で抱え込むのは絶対ダメだよ。\n\n具体的にどんな状況？危険を感じるレベルなら即店に共有すべきだし、そうじゃなくても対処法あるよ。\n\n・指名で来る常連がしつこい\n・プレイ中の強要\n・金銭トラブル\n・プライベート侵入（住所バレ・SNS特定）\n\nどれが近い？"};
+    }
+    if (t.includes("同僚") || t.includes("キャスト") || t.includes("先輩") || t.includes("カースト")) {
+      return {text:"同じキャスト同士の関係、本当にしんどい時あるよね。源氏名かぶり、陰口、待機室での気まずさ、カースト…表に出ない部分で消耗するやつ。\n\n私、昔は待機室で誰とも話せない期間あったよ。その時どうしたかも話せるから、まず何があったか教えて。\n\n「我慢するしかない」って思ってるなら、それは違うよ。店に共有すべきこともあるし、距離の取り方もある。"};
+    }
+    if (t.includes("店長") || t.includes("マネージャー") || t.includes("スタッフ") || t.includes("店の人")) {
+      return {text:"店側の人との関係かあ。これ難しいのは、仕事上の上下関係があるから、ただの人間関係じゃ済まないとこだよね。\n\n具体的に何があった？言い方がきつい、不公平な扱い、セクハラっぽいこと、プライベートに踏み込んでくる…どれか近いのある？\n\n絆は話を聞く店だから、限界を感じる前に相談してほしいけど、相談の仕方から一緒に考えてもいいよ。"};
+    }
+    return {text:"対人関係の悩み、聞かせてくれてありがとう。職業柄、誰にでも話せることじゃないから、ここで吐き出していいよ。\n\n相手は誰のこと？\n\n・お客さん\n・同僚キャスト\n・店のスタッフ\n・プライベートの人（本命・家族・友達）\n\n一番しんどい関係から話していこう。"};
+  }
+
+  // === 家族カテゴリ ===
+  if (category === "family") {
+    if (t.includes("バレ") || t.includes("ばれ") || t.includes("隠") || t.includes("秘密")) {
+      return {text:"仕事を家族に隠してるプレッシャー…本当にわかる。毎日嘘をつき続ける感覚、二重生活のしんどさ、バレる恐怖。私もずっとそうだった。\n\nこれは風俗やってる子のほとんどが抱えてる悩みで、あなただけじゃないからね。\n\n具体的に何が一番怖い？\n・家族に知られること自体\n・バレた時の反応（怒り / 悲しみ / 絶縁）\n・経済的影響（仕送り / 扶養）\n・罪悪感が消えないこと\n\n話しやすいところから聞かせて。"};
+    }
+    if (t.includes("親") || t.includes("母") || t.includes("父")) {
+      return {text:"親との関係…近いからこそ一番複雑だよね。期待されてる / 失望させたくない / 頼られすぎてる / 距離を置きたい / 愛されたい…感情が混ざる。\n\n私も離婚した時、親にどう伝えるかで何ヶ月も寝られなかった。\n\n今、親との間で一番重く感じてることは何？話しやすい断片からでいいよ。"};
+    }
+    if (t.includes("子ども") || t.includes("こども") || t.includes("育")) {
+      return {text:"子どものために働いてる子、絆にもたくさんいるよ。愛と罪悪感の板挟みって、本当にしんどいよね。私は子ども居ないけど、周りの友達から何度もその話聞いてきた。\n\nお子さんは今いくつ？話せる範囲で教えてくれれば、その年齢ならではの悩みも一緒に考えられるよ。仕事のこといつかどう伝えるか、将来のこと、今の生活のこと…全部話していい。"};
+    }
+    return {text:"家族のこと、話してくれてありがとう。近いからこそ一番複雑で、一番しんどい時あるよね。私もそうだった。\n\n今、一番気になってる相手は誰？\n・親（父 / 母）\n・子ども\n・兄弟姉妹\n・配偶者・パートナー\n・家族全体の雰囲気\n\nゆっくりでいい、教えて。"};
+  }
+
+  // === カテゴリ選択済みだが未分類の発言（傾聴モード） ===
+  if (category) {
+    // 短い発言・言葉にならない感じを受け止める
+    if (t.length < 20) {
+      return {text:"うん、それ聞こえたよ。\n\nもう少し書ける？書けないなら、今のままでもいい。焦らなくて大丈夫。"};
+    }
+    // 普通の長さの発言
+    const listenResponses = {
+      money:  "ちゃんと読んだよ。重ねて積もってるやつだね。\n\nもう少し聞かせて。書けば書くほど、気持ちの整理になることあるから。無理にまとめなくていい。",
+      people: "うん、聞いてる。それはしんどいやつだね。\n\n続けて書いていいよ。今の気持ちも、過去のことも、順番はバラバラでいい。",
+      family: "受け取ったよ。\n\n家族の話って、一回で全部は出ないものだから、ゆっくりでいい。続きがあれば、書いて。",
+      health: "聞かせてくれてありがとう。\n\n体のことは我慢しないでね。もう少し詳しく書ける？書きづらかったら、書ける範囲でいい。",
+    };
+    return {text: listenResponses[category] || "うん、聞いてるよ。続けていいよ。"};
+  }
+
+  // === フォールバック（カテゴリ未選択） ===
+  return {text:"話してくれてありがとう。まずは何について話したいか、上のカテゴリから選ぶか、自由に書いてみてね。秘密は守るし、ここは安心できる場所だよ。"};
+};
+
+function ChatTab({cast}) {
+  const INITIAL_MSG = {role:"assistant", text:"こんばんは、" + cast.name + "ちゃん。\n\nはじめまして、りなです。同じ業界で働いてる、ちょっと先輩の女の子だと思って。\n\n安心してほしいこと一つだけ先に。\n\n話した内容はあなたのスマホの中だけに残る仕組みで、下に「会話を消す」ボタンもあるから、店の人に見られる心配はしないで大丈夫。消せばすぐ全部消えるから、安心して話してね。\n\n私もね、過去にすごく苦しかった時期がある。離婚して、実家にも頼れなくて、通帳見るのが怖くて見ないで過ごしてた時期。友達の結婚式、行きたかったのに嘘ついて欠席した。あの夜のこと、今でも覚えてる。\n\n今は少し落ち着いてきて、この先のことも自分なりに考え始めてるところ。でも今も現場に立つことあるから、今の空気もわかるつもりだよ。\n\nだから、今しんどいことがあるなら、きっと気持ちがわかると思う。\n\n家族にも友達にも恋人にも言えないこと、ここで吐き出していいよ。まとまってなくていい。まずは上のボタンから選ぶか、思いついたまま書いてみて。\n\n…いつか、どこかで会えたら嬉しいな♡\n\n（あと一つだけ。ここでの話は、もっと寄り添えるお部屋にするための学びに、こっそり名前を伏せて使わせてもらうこともあるよ。あなただと分かる情報は一切残らない形で、未来の誰かを救うヒントになるかもしれないから。嫌だったら下のトグルでOFFにしてね）"};
+  const loadChatHistory = () => {
+    try {
+      const saved = localStorage.getItem("kizuna_chat_" + cast.name);
+      if (saved) return JSON.parse(saved);
+    } catch(e) {}
+    return [INITIAL_MSG];
+  };
+  const loadConsent = () => {
+    try {
+      const v = localStorage.getItem("rina_log_consent");
+      return v === null ? true : v === "true";  // デフォルトON
+    } catch(e) { return true; }
+  };
+  const [messages, setMessages] = useState(loadChatHistory);
+  const [logConsent, setLogConsent] = useState(loadConsent);
+  useEffect(() => {
+    try { localStorage.setItem("kizuna_chat_" + cast.name, JSON.stringify(messages)); } catch(e) {}
+  }, [messages, cast.name]);
+  useEffect(() => {
+    try { localStorage.setItem("rina_log_consent", String(logConsent)); } catch(e) {}
+  }, [logConsent]);
+  const clearChat = () => {
+    if (!window.confirm("会話の履歴を全部消すよ。消したら戻せないけど大丈夫？")) return;
+    try { localStorage.removeItem("kizuna_chat_" + cast.name); } catch(e) {}
+    setMessages([INITIAL_MSG]);
+    setCategory(null);
+    setQuickReplies([]);
+    try { trackEvent('chat_history_cleared', {cast_name: cast.name}); } catch(e) {}
+  };
+  // 学習ログ送信（匿名化してFirestoreへ・同意ONの時のみ）
+  const logToFirestore = (userMessage, rinaResponse, cat, quickReplyUsed, unidraSuggested) => {
+    if (typeof window.rinaLogChat !== 'function') return;
+    window.rinaLogChat({
+      castName: cast.name,
+      castIl: cast.il,
+      category: cat || category,
+      userMessage: userMessage,
+      rinaResponse: rinaResponse,
+      quickReplyUsed: !!quickReplyUsed,
+      unidraSuggested: !!unidraSuggested,
+      consented: logConsent
+    });
+  };
+  const [input, setInput] = useState("");
+  const [category, setCategory] = useState(null);
+  const [showUnidra, setShowUnidra] = useState(false);
+  const [quickReplies, setQuickReplies] = useState([]);
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [messages, showUnidra, quickReplies]);
+
+  const send = (text, cat, subTopic) => {
+    if (!text.trim()) return;
+    const userMsg = {role:"user", text: text.trim()};
+    setMessages(m => [...m, userMsg]);
+    setInput("");
+    setQuickReplies([]);
+    try { trackEvent('chat_message_sent', {cast_name: cast.name, category: cat || category || 'free', message_length: text.length}); } catch(e) {}
+    setTimeout(() => {
+      const res = mockRespond(cat || category, text, subTopic);
+      setMessages(m => [...m, {role:"assistant", text: res.text}]);
+      if (res.quickReplies) setQuickReplies(res.quickReplies);
+      if (res.suggestUnidra) setTimeout(() => setShowUnidra(true), 800);
+      // Firestoreへ匿名化ログ送信（同意ONのみ）
+      logToFirestore(text, res.text, cat || category, false, !!res.suggestUnidra);
+    }, 650);
+  };
+
+  const handleQuickReply = (qr) => {
+    try { trackEvent('chat_quick_reply', {cast_name: cast.name, category: category, label: qr.label}); } catch(e) {}
+    if (qr.subTopic) {
+      // subTopic指定の場合は直接mockRespond
+      setMessages(m => [...m, {role:"user", text: qr.label}]);
+      setQuickReplies([]);
+      setTimeout(() => {
+        const res = mockRespond(category, "", qr.subTopic);
+        setMessages(m => [...m, {role:"assistant", text: res.text}]);
+        if (res.quickReplies) setQuickReplies(res.quickReplies);
+        if (res.suggestUnidra) setTimeout(() => setShowUnidra(true), 800);
+        logToFirestore(qr.label, res.text, category, true, !!res.suggestUnidra);
+      }, 500);
+    } else if (qr.send) {
+      send(qr.send);
+    }
+  };
+
+  const selectCategory = (c) => {
+    setCategory(c.id);
+    try { trackEvent('chat_category_select', {cast_name: cast.name, category: c.id}); } catch(e) {}
+    setMessages(m => [...m, {role:"user", text: c.icon + " " + c.label}]);
+    setTimeout(() => {
+      const greetings = {
+        money:  "お金のことだね。話してくれてありがとう。\n\n…私、その話、聞きたかった。私自身がそこで一番苦しんだから。\n\nまとまってなくていいよ。思いついた順に、ぽつぽつ書いてくれれば大丈夫。何も決めなくていい。",
+        people: "対人関係だね。うん、聞くよ。\n\n「何から話せばいいかわからない」でも全然大丈夫。私、昔は待機室で誰とも話せなかった時期ある。モヤモヤしてること、何でも書いて。順番いらない。",
+        family: "家族のこと。一番しんどいやつだよね。\n\n私も、親のこと話そうとすると今でも喉詰まる。まとめなくていいよ。言葉にならないなら「○○のこと」だけでもいい。そこから少しずつで。",
+        health: "体調のことだね。話してくれてありがとう。\n\n体のこと、書きづらいやつ多いよね。私もずっと後回しにしてた時期ある。「なんか最近しんどい」だけでもいい。書けるところから。",
+      };
+      setMessages(m => [...m, {role:"assistant", text: greetings[c.id] || "話したいこと、教えて。"}]);
+      setQuickReplies([
+        {label:"💭 まずは吐き出したい", send:"まとまってないけど、吐き出したいだけ"},
+        {label:"✍️ 書き始めてみる", send:""},
+      ]);
+    }, 500);
+  };
+
+  return (
+    <div style={{padding:"16px 16px 20px"}} className="fade-slide">
+      <div style={{background:"linear-gradient(135deg,rgba(147,112,219,0.14),rgba(255,105,180,0.08))",border:"1px solid rgba(167,139,250,0.28)",borderRadius:16,padding:"14px 16px",marginBottom:14,display:"flex",alignItems:"center",gap:12}}>
+        <div style={{width:48,height:48,borderRadius:"50%",background:"linear-gradient(135deg,#FF69B4,#FFD700)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:24,flexShrink:0,boxShadow:"0 3px 12px rgba(255,105,180,0.35)"}}>🌸</div>
+        <div style={{flex:1,minWidth:0}}>
+          <div style={{fontSize:14,fontWeight:800,marginBottom:2,color:"#fff"}}>りなの相談部屋</div>
+          <div style={{fontSize:10,color:"rgba(255,210,230,0.6)",lineHeight:1.5}}>先輩キャスト・りなに話せる場所<br/>🔐 店の人には見られない・あなたの端末だけに保存</div>
+        </div>
+      </div>
+      {!category && (
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:14}}>
+          {CHAT_CATEGORIES.map(c => (
+            <button key={c.id} onClick={() => selectCategory(c)} className="btn-tap"
+              style={{background:"rgba(255,255,255,0.04)",border:"1px solid " + c.color + "55",borderRadius:12,padding:"14px 10px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:4}}>
+              <span style={{fontSize:24}}>{c.icon}</span>
+              <span style={{fontSize:12,color:c.color,fontWeight:700}}>{c.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+      <div ref={scrollRef} style={{background:"rgba(0,0,0,0.25)",border:"1px solid rgba(255,200,230,0.1)",borderRadius:14,padding:12,maxHeight:380,overflowY:"auto",marginBottom:12,minHeight:240}}>
+        {messages.map((m, i) => (
+          <div key={i} style={{display:"flex",flexDirection:"column",alignItems: m.role === "user" ? "flex-end" : "flex-start",marginBottom:12}}>
+            {m.role === "assistant" && (
+              <div style={{display:"flex",alignItems:"center",gap:6,marginBottom:3,marginLeft:4}}>
+                <div style={{width:18,height:18,borderRadius:"50%",background:"linear-gradient(135deg,#FF69B4,#FFD700)",display:"flex",alignItems:"center",justifyContent:"center",fontSize:10}}>🌸</div>
+                <span style={{fontSize:10,color:"rgba(255,200,230,0.6)",fontWeight:700}}>りな</span>
+              </div>
+            )}
+            <div style={{maxWidth:"82%",background: m.role === "user" ? "linear-gradient(135deg,#FF69B4,#FFD700)" : "rgba(255,255,255,0.08)",color: m.role === "user" ? "#1a0530" : "rgba(255,230,240,0.95)",padding:"10px 14px",borderRadius:14,fontSize:13,lineHeight:1.7,whiteSpace:"pre-wrap",wordBreak:"break-word",fontWeight: m.role === "user" ? 700 : 400,border: m.role === "assistant" ? "1px solid rgba(255,200,230,0.12)" : "none"}}>
+              {m.text}
+            </div>
+          </div>
+        ))}
+        {quickReplies.length > 0 && (
+          <div style={{display:"flex",flexWrap:"wrap",gap:6,marginTop:6,justifyContent:"flex-start"}}>
+            {quickReplies.map((qr, i) => (
+              <button key={i} onClick={() => handleQuickReply(qr)} className="btn-tap"
+                style={{background:"rgba(255,105,180,0.14)",border:"1px solid rgba(255,105,180,0.45)",color:"#FF69B4",borderRadius:20,padding:"7px 14px",fontSize:11.5,fontWeight:700,cursor:"pointer"}}>
+                {qr.label}
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+      <div style={{display:"flex",gap:8}}>
+        <input type="text" className="ai" placeholder="話したいことを入力…"
+               value={input}
+               onChange={e => setInput(e.target.value)}
+               onKeyDown={e => { if (e.key === "Enter") send(input); }}
+               style={{flex:1}} />
+        <button onClick={() => send(input)} className="btn-tap"
+                style={{background:"linear-gradient(135deg,#FF69B4,#FFD700)",color:"#1a0530",border:"none",borderRadius:10,padding:"10px 18px",fontWeight:800,fontSize:14,cursor:"pointer"}}>送信</button>
+      </div>
+      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:10,gap:8}}>
+        {category ? (
+          <button onClick={() => { setCategory(null); setQuickReplies([]); }} style={{background:"none",border:"none",color:"rgba(255,200,230,0.45)",fontSize:11,cursor:"pointer",textDecoration:"underline",padding:0}}>カテゴリを選び直す</button>
+        ) : <div />}
+        <button onClick={clearChat} style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.2)",color:"rgba(255,200,230,0.55)",fontSize:10.5,cursor:"pointer",padding:"6px 12px",borderRadius:14,fontWeight:600,display:"flex",alignItems:"center",gap:5}}>
+          🗑 会話を消す
+        </button>
+      </div>
+      <div style={{marginTop:14,padding:"10px 14px",background:"rgba(255,105,180,0.04)",borderRadius:12,textAlign:"center"}}>
+        <div style={{fontSize:11,color:"rgba(255,210,230,0.55)",lineHeight:1.7,fontStyle:"italic"}}>いつか、どこかで会えるといいね♡</div>
+      </div>
+      <div style={{marginTop:10,padding:"8px 12px",background:"rgba(255,255,255,0.02)",border:"1px solid rgba(255,200,230,0.08)",borderRadius:10,display:"flex",alignItems:"center",justifyContent:"space-between",gap:10}}>
+        <div style={{fontSize:9.5,color:"rgba(255,200,230,0.5)",lineHeight:1.55,flex:1}}>
+          🔒 会話を匿名化して未来の改善に使う
+          <div style={{fontSize:8.5,color:"rgba(255,200,230,0.3)",marginTop:2}}>※名前・個人情報は残らない形で</div>
+        </div>
+        <button onClick={() => setLogConsent(c => !c)}
+          style={{background: logConsent ? "linear-gradient(135deg,#FF69B4,#FFD700)" : "rgba(255,255,255,0.08)",border:"none",borderRadius:20,padding:"4px 12px",fontSize:10,fontWeight:700,color: logConsent ? "#1a0530" : "rgba(255,200,230,0.5)",cursor:"pointer",minWidth:52}}>
+          {logConsent ? "ON" : "OFF"}
+        </button>
+      </div>
+      <div style={{fontSize:9,color:"rgba(255,200,230,0.3)",marginTop:10,textAlign:"center",lineHeight:1.6}}>
+        ⚠️ 深刻なお悩みは専門機関へ：よりそいホットライン 0120-279-338（24時間・無料）
+      </div>
+      {showUnidra && <UnidraSuggestionModal cast={cast} onClose={() => setShowUnidra(false)} onOpenLink={() => setShowUnidra(false)} />}
+    </div>
+  );
+}
+
 // ─── Main App ───────────────────────────────────────
 function App() {
   const [casts, setCasts] = useState(loadCasts);
@@ -1061,6 +1530,7 @@ function App() {
     {id:"timer",   icon:"⏱",  label:"待機"},
     {id:"learn",   icon:"📖", label:"まなび"},
     {id:"ranking", icon:"🏆", label:"ランキング"},
+    {id:"chat",    icon:"🤍", label:"相談"},
   ];
 
   return (
@@ -1081,6 +1551,7 @@ function App() {
         {tab === "learn"   && <LearnTab />}
         {tab === "ranking" && <RankingTab casts={casts} myName={cast.name} />}
         {tab === "tips"    && <TipsTab />}
+        {tab === "chat"    && <ChatTab cast={cast} />}
       </div>
       <div style={{position:"fixed",bottom:0,left:0,right:0,background:"rgba(8,0,18,0.96)",borderTop:"1px solid rgba(255,100,200,0.18)",display:"flex",backdropFilter:"blur(12px)",zIndex:50}}>
         {tabs.map(t => (

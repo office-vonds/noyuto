@@ -86,9 +86,66 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-10 19:00 / ブランチ: main**
+**最終更新: 2026-04-10 21:00 / ブランチ: main**
 
-### 直近セッション: なみAI画像Phase1 リアリティ改善（2026-04-10 18:50 完了）
+### 直近セッション: ILゲーム v5 + rina相談チャット実装（2026-04-10 21:00 完了・デプロイ待ち）
+
+**担当: KIRYU**
+
+**やったこと:**
+- 絆2月/3月エクセルのIDベース突合で前回分析の誤りを修正（両月継続88名・離職26%・主力層IL+40%）
+- GA4 Data API 接続成功（GCP `kizuna`/`potent-impulse-165116` プロジェクト・サービスアカウント経由）
+- GA4管理画面でカスタムディメンション `cast_name` / `cast_il` 登録
+- docx分析で IL2025理論確定（1成約=300PV・IL40成約入口・IL70一般目標）
+- `il_game/education/` にキャスト向け/オーナー向けIL教育資料（MD+HTML）作成
+- `il_game/source/kizuna_v5_unidra.html` 実装（本番80KB→103KBに拡張）：
+  - **DEFAULT_CASTS** を3月稼働37名に更新（localStorage key `kizuna_v5`）
+  - **ChatTab** 新設（7タブ目「相談」）
+  - **rina ペルソナ**（現役寄りグラデ期・風俗業界先輩女性・@rina_xxxfree と同一人格）
+  - **UnidraSuggestionModal**（健康カテゴリで文脈連動型に提案表示・HomeTabバナーは廃止）
+  - **mockRespond**（風俗特化・4カテゴリ×吐き出し×傾聴×quickReply×店相談下書き代筆）
+  - **会話削除ボタン** + localStorage履歴永続化
+  - **Firebase Firestore 学習ログ**（`il-game` プロジェクト・`rina_chat_logs` collection・同意制・匿名化）
+  - **匿名化パイプライン**（cast_name/phone/email/URL/date/postal削除・il_bucket化・SHA-256セッションハッシュ）
+  - **同意トグルUI**（デフォルトON・画面下のトグルで随時OFF可能）
+- メモリ4件新規：`project_kizuna_shinjin_hoshodekasegi` / `project_il2025_theory` / `project_rina_persona` / `project_rina_learning_loop`
+
+**重要設計判断（rina）:**
+- AI開示は画面上厳禁（世界観優先・Phase 2で管理者ページ奥に利用規約として設置予定）
+- 所在地（山梨）明示禁止（全国展開対応）
+- 金額具体値禁止（共感レンジ最大化のため）
+- 「絶対」ワード禁止（削除ボタンを根拠にする）
+- Xアカウント表示は Phase 2 条件付き復活（今は余白文言のみ）
+- 現役寄りグラデーション期（「今も現場に立つ・この先考え始めてる」）
+
+**NOYUTO側の残タスク（次セッション冒頭で確認・必須）:**
+1. **Firestoreセキュリティルール適用**（Firebase Console → `il-game` → Firestore → ルール タブ）：
+   ```
+   rules_version = '2';
+   service cloud.firestore {
+     match /databases/{database}/documents {
+       match /rina_chat_logs/{doc} {
+         allow create: if request.resource.data.keys().hasAll(['session_hash','timestamp','user_message'])
+                       && request.resource.data.user_message.size() < 2000;
+         allow read, update, delete: if false;
+       }
+     }
+   }
+   ```
+2. **Netlify デプロイ**（`\\wsl.localhost\Ubuntu\home\noyuto\projects\vonds\il_game\source\kizuna_v5_unidra.html` を eloquent-treacle-64cfec の Deploys タブにドロップ）
+3. デプロイ後のブラウザ動作確認
+
+**Phase 2 以降のタスク:**
+- Claude API接続（Netlify Functions経由・rinaペルソナをsystem prompt化）
+- 機能② 管理者一斉メッセージ（Firestore活用）
+- 深刻ワード検知＋緊急エスカレーション（自傷・死にたい等）
+- 管理者ページ奥に利用規約（AI開示の法的最低限担保）
+- KIRYU月次レビュー初回実施（ログ100件貯まり次第）
+- IL教育資料書き直し（IL15→IL40-70業界ベンチマーク3段階構成）
+
+---
+
+### 前セッション: なみAI画像Phase1 リアリティ改善（2026-04-10 18:50 完了）
 
 **やったこと:**
 - `scripts/ai-generate-nami.js` 新規作成（体型5×髪4×年齢3×シチュ10×Lv1-3の多変量ジェネレーター、リアリティ強化プロンプト、seed固定顔一貫性）
