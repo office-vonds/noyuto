@@ -304,11 +304,18 @@ else
 fi
 
 # ============================================================
-# ステップ4: フォロワー数トラッキング（朝のみ）
+# ステップ4: フォロワー数トラッキング + リプライ候補検索（朝のみ）
 # ============================================================
+REPLY_CANDIDATES=""
 if [ "$TIME_SLOT" = "morning" ]; then
     if [ -f track_followers.py ]; then
         python3 track_followers.py >> "$LOGFILE" 2>&1 || log "[warn] フォロワー追跡スキップ"
+    fi
+
+    # リプライ候補検索（6軸テーマに基づく大型アカウント投稿検索）
+    if [ -f search_reply_targets.py ]; then
+        log "[reply] 候補検索..."
+        REPLY_CANDIDATES=$(python3 search_reply_targets.py --top 3 --no-email --section 2>/dev/null || echo "")
     fi
 fi
 
@@ -339,6 +346,9 @@ $NOTE_URL
 - 単発1投稿×1日2本(朝7:15・夜21:30)
 - 画像カード自動添付（テキスト=フック / 画像=本体）
 - 競合分析exemplar反映済み
+
+■ リプライ候補（大型アカウントへの手動リプライ用、5分で着地）
+${REPLY_CANDIDATES:-なし（APIレート or キーワードhit 0）}
 
 ■ アラート
 ${ALERT_MSG:-なし}
