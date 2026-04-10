@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y13NQP5Q04"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y13NQP5Q04');
+</script>
+<title>絆 ILチャレンジ</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+body { background: #0a0015; font-family: 'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif; color: white; }
+::-webkit-scrollbar { display: none; }
+@keyframes shimmer { 0%{background-position:-200% center} 100%{background-position:200% center} }
+@keyframes fadeSlide { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pop-in { 0%{transform:scale(0.5);opacity:0} 70%{transform:scale(1.1)} 100%{transform:scale(1);opacity:1} }
+@keyframes pulse-ring { 0%,100%{transform:scale(1);opacity:0.8} 50%{transform:scale(1.08);opacity:0.4} }
+@keyframes float-up { from{transform:translateY(0);opacity:1} to{transform:translateY(-120px);opacity:0} }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-8px)} 75%{transform:translateX(8px)} }
+.fade-slide { animation: fadeSlide 0.3s ease-out; }
+.btn-tap:active { transform: scale(0.95); opacity: 0.8; }
+.copy-toast { position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#4ADE80;color:#000;padding:10px 24px;border-radius:999px;font-weight:800;font-size:15px;z-index:9999;animation:pop-in 0.3s ease-out;pointer-events:none; }
+.ai { background:rgba(255,255,255,0.08);border:1px solid rgba(255,200,230,0.2);border-radius:10px;padding:10px 14px;color:white;font-size:14px;width:100%;outline:none;font-family:inherit; }
+.ai:focus { border-color:rgba(255,105,180,0.5); }
+.ai::placeholder { color:rgba(255,200,230,0.3); }
+.ni { background:rgba(255,255,255,0.08);border:1px solid rgba(255,200,230,0.2);border-radius:8px;padding:7px 10px;color:white;font-size:13px;width:100%;outline:none;font-family:inherit;text-align:center; }
+.ni:focus { border-color:rgba(255,105,180,0.5); }
+input[type=range] { width:100%;accent-color:#FF69B4;cursor:pointer; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const ADMIN_PW = "kizuna2025";
+
+const DEFAULT_CASTS = [
+  {id:1,  name:"ゆき",    il:27, pv:915, diary:44, limited:18, video:4,  mitene:50,  okini:34,  mygirl:132, pin:"0000"},
+  {id:2,  name:"りえ",    il:26, pv:288, diary:52, limited:1,  video:0,  mitene:25,  okini:219, mygirl:297, pin:"0000"},
+  {id:3,  name:"さり",    il:23, pv:664, diary:18, limited:6,  video:0,  mitene:0,   okini:7,   mygirl:895, pin:"0000"},
+  {id:4,  name:"ゆうな",  il:18, pv:216, diary:55, limited:19, video:5,  mitene:90,  okini:61,  mygirl:495, pin:"0000"},
+  {id:5,  name:"みこ",    il:16, pv:271, diary:34, limited:0,  video:0,  mitene:151, okini:9,   mygirl:270, pin:"0000"},
+  {id:6,  name:"めいこ",  il:15, pv:152, diary:5,  limited:0,  video:0,  mitene:67,  okini:16,  mygirl:180, pin:"0000"},
+  {id:7,  name:"あすか",  il:14, pv:468, diary:26, limited:0,  video:0,  mitene:30,  okini:1,   mygirl:310, pin:"0000"},
+  {id:8,  name:"るい",    il:14, pv:213, diary:53, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:220, pin:"0000"},
+  {id:9,  name:"うと",    il:14, pv:428, diary:23, limited:0,  video:0,  mitene:26,  okini:4,   mygirl:290, pin:"0000"},
+  {id:10, name:"かおる",  il:13, pv:142, diary:0,  limited:0,  video:0,  mitene:0,   okini:1,   mygirl:180, pin:"0000"},
+  {id:11, name:"めぐな",  il:13, pv:168, diary:17, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:200, pin:"0000"},
+  {id:12, name:"いお",    il:12, pv:201, diary:2,  limited:0,  video:0,  mitene:10,  okini:2,   mygirl:150, pin:"0000"},
+  {id:13, name:"すずな",  il:12, pv:157, diary:78, limited:0,  video:0,  mitene:2,   okini:1,   mygirl:190, pin:"0000"},
+  {id:14, name:"ゆう",    il:11, pv:166, diary:70, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:160, pin:"0000"},
+  {id:15, name:"ここ",    il:11, pv:219, diary:50, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:175, pin:"0000"},
+  {id:16, name:"かぐら",  il:10, pv:301, diary:28, limited:0,  video:0,  mitene:0,   okini:2,   mygirl:210, pin:"0000"},
+  {id:17, name:"まゆ",    il:9,  pv:499, diary:4,  limited:0,  video:0,  mitene:10,  okini:0,   mygirl:120, pin:"0000"},
+  {id:18, name:"えれな",  il:8,  pv:221, diary:43, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:140, pin:"0000"},
+  {id:19, name:"ゆずか",  il:8,  pv:91,  diary:50, limited:0,  video:0,  mitene:0,   okini:0,   mygirl:130, pin:"0000"},
+  {id:20, name:"たかなん",il:7,  pv:156, diary:12, limited:0,  video:0,  mitene:0,   okini:1,   mygirl:120, pin:"0000"},
+];
+
+const loadCasts = () => {
+  try {
+    const s = localStorage.getItem("kizuna_v4");
+    if (s) {
+      const parsed = JSON.parse(s);
+      return parsed.map(c => ({...c, pin: c.pin || "0000"}));
+    }
+  } catch(e) {}
+  return DEFAULT_CASTS;
+};
+const saveCasts = (d) => { try { localStorage.setItem("kizuna_v4", JSON.stringify(d)); } catch(e) {} };
+
+const getILRank = (il) => {
+  if (il >= 90) return {name:"👑 レジェンド", color:"#FFD700", next:100};
+  if (il >= 80) return {name:"⭐ スター",     color:"#FF69B4", next:90};
+  if (il >= 70) return {name:"💎 エリート",   color:"#00CED1", next:80};
+  if (il >= 60) return {name:"🏆 エース",     color:"#9370DB", next:70};
+  if (il >= 50) return {name:"💠 ダイヤ",     color:"#4169E1", next:60};
+  if (il >= 40) return {name:"🥇 プラチナ",   color:"#F5C842", next:50};
+  if (il >= 30) return {name:"🥈 ゴールド",   color:"#DAA520", next:40};
+  if (il >= 20) return {name:"🥉 シルバー",   color:"#C0C0C0", next:30};
+  if (il >= 10) return {name:"🔴 ブロンズ",   color:"#CD7F32", next:20};
+  if (il >= 1)  return {name:"⚪ ルーキー",   color:"#A0A0A0", next:10};
+  return            {name:"👤 未デビュー",   color:"#666",    next:1};
+};
+
+const ilToBookings = (il) => {
+  if (il >= 90) return 15; if (il >= 80) return 10; if (il >= 70) return 5;
+  if (il >= 60) return 4.5; if (il >= 50) return 3.5; if (il >= 40) return 2.5;
+  if (il >= 30) return 1.5; if (il >= 20) return 0.5; if (il >= 10) return 0.2;
+  return 0.05;
+};
+
+const dailyMissions = [
+  {id:"login",    icon:"📱", label:"姫デコSPログインした",          pts:2, tip:"毎日ログインで+2pt！"},
+  {id:"diary1",   icon:"📸", label:"写メ日記を1本投稿した",          pts:3, tip:"タイトルを工夫すると◎"},
+  {id:"diary2",   icon:"✨", label:"写メ日記を2本以上投稿した",      pts:2, tip:"朝・夕2本で最大効果！"},
+  {id:"mitene",   icon:"💌", label:"ミテネを5回以上送った",          pts:3, tip:"出勤前に必ず送ろう"},
+  {id:"okini",    icon:"💬", label:"オキニトークを送った",           pts:3, tip:"「今日出てるよ」一言でOK"},
+  {id:"mygirl",   icon:"💗", label:"日記にマイガール登録を促した",    pts:2, tip:"末尾に「マイガール登録してね💕」"},
+  {id:"webyoyaku",icon:"📅", label:"日記にWEB予約を案内した",        pts:2, tip:"「WEB予約が一番スムーズ」"},
+  {id:"limited",  icon:"🔐", label:"限定日記を投稿した",             pts:4, tip:"週2本目標！"},
+  {id:"video",    icon:"🎥", label:"動画日記を投稿した（15〜30秒）", pts:5, tip:"一番PVが上がる！"},
+  {id:"kuchikomi",icon:"⭐", label:"お客様に口コミをお願いした",     pts:5, tip:"施術後に一言お願いしよう"},
+];
+
+const weeklyMissions = [
+  {id:"w_diary",  icon:"🗓️", label:"今週7本以上日記を投稿", pts:10},
+  {id:"w_mitene", icon:"💌", label:"今週ミテネ30回以上送信", pts:8},
+  {id:"w_mygirl", icon:"💗", label:"今週マイガール新規5人増加", pts:10},
+];
+
+const titleGroups = [
+  {label:"🆕 新規さん向け", color:"#4ADE80", items:[
+    "【初めまして🔰】3行で自己紹介｜私ってこんな子",
+    "初めてでも安心してね｜接客の流れまとめ",
+    "初指名迷ってる人へ｜私のおすすめコースはこれ",
+    "よくある不安に答えるね（Q&A）初めてさん向け",
+    "まずは読んで｜会う前の不安を消す日記",
+  ]},
+  {label:"💑 リピーターさん向け", color:"#FF69B4", items:[
+    "今日はありがとう｜また会いたいって思ったよ",
+    "帰ってからも思い出してた｜次はもっとゆっくりね",
+    "いつもありがとう｜次の出勤、先に伝えるね",
+    "また会えて嬉しかった｜次は◯日いるよ",
+  ]},
+  {label:"💗 マイガール向け", color:"#A78BFA", items:[
+    "【マイガールさん優先】次の出勤、先にここで言うね",
+    "【内緒】ここだけの話、聞いてくれる？",
+    "マイガール押してくれたら、次の写真もっと見せたい",
+  ]},
+  {label:"⚡ 当日集客", color:"#FFD700", items:[
+    "今日これから空きあり｜◯時〜ご案内できます",
+    "今すぐOK｜◯時〜◯時まで待ってるね",
+    "急に会いたくなった人へ｜本日◯時〜出勤",
+  ]},
+];
+
+// ─── Simulator ───────────────────────────────────────
+function IncomeSimulator({cast}) {
+  const [targetIL, setTargetIL] = useState(Math.min(cast.il + 20, 90));
+  const [days, setDays] = useState(15);
+  const [price, setPrice] = useState(25000);
+  const rank = getILRank(cast.il);
+  const targetRank = getILRank(targetIL);
+  const curIncome = Math.floor(ilToBookings(cast.il) * days * price);
+  const tgtIncome = Math.floor(ilToBookings(targetIL) * days * price);
+  const diff = tgtIncome - curIncome;
+  return (
+    <div style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.12)",borderRadius:20,padding:18,marginBottom:14}}>
+      <div style={{fontSize:15,fontWeight:800,marginBottom:4}}>💴 月収シミュレーター</div>
+      <div style={{fontSize:11,color:"rgba(255,200,230,0.5)",marginBottom:14}}>ILが上がると月収はどう変わる？</div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",gap:8,alignItems:"center",marginBottom:14}}>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:14,padding:"10px 8px",textAlign:"center"}}>
+          <div style={{fontSize:10,color:"rgba(255,200,230,0.5)",marginBottom:2}}>現在IL</div>
+          <div style={{fontSize:26,fontWeight:900,color:rank.color}}>{cast.il}</div>
+          <div style={{fontSize:12,fontWeight:700,color:"white",marginTop:6}}>{curIncome.toLocaleString()}円</div>
+        </div>
+        <div style={{color:"rgba(255,200,230,0.4)",fontSize:20}}>→</div>
+        <div style={{background:"linear-gradient(135deg,rgba(255,215,0,0.15),rgba(255,105,180,0.1))",border:"1px solid rgba(255,215,0,0.3)",borderRadius:14,padding:"10px 8px",textAlign:"center"}}>
+          <div style={{fontSize:10,color:"rgba(255,200,230,0.5)",marginBottom:2}}>目標IL</div>
+          <div style={{fontSize:26,fontWeight:900,color:targetRank.color}}>{targetIL}</div>
+          <div style={{fontSize:12,fontWeight:700,color:"#FFD700",marginTop:6}}>{tgtIncome.toLocaleString()}円</div>
+        </div>
+      </div>
+      <div style={{background:"rgba(74,222,128,0.12)",border:"1px solid rgba(74,222,128,0.3)",borderRadius:12,padding:"10px",textAlign:"center",marginBottom:12}}>
+        <div style={{fontSize:11,color:"rgba(255,200,230,0.6)"}}>ILを{targetIL - cast.il}点上げると</div>
+        <div style={{fontSize:24,fontWeight:900,color:"#4ADE80"}}>+{diff.toLocaleString()}円/月</div>
+      </div>
+      <div style={{marginBottom:10}}>
+        <div style={{fontSize:11,color:"rgba(255,200,230,0.55)",marginBottom:4}}>目標IL: {targetIL}点</div>
+        <input type="range" min={cast.il + 1} max={90} value={targetIL} onChange={e => setTargetIL(Number(e.target.value))} />
+      </div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+        <div>
+          <div style={{fontSize:11,color:"rgba(255,200,230,0.55)",marginBottom:4}}>月の出勤日数</div>
+          <input type="number" className="ni" value={days} min={1} max={30} onChange={e => setDays(Number(e.target.value) || 15)} />
+        </div>
+        <div>
+          <div style={{fontSize:11,color:"rgba(255,200,230,0.55)",marginBottom:4}}>1本あたりの単価</div>
+          <input type="number" className="ni" value={price} min={1000} step={1000} onChange={e => setPrice(Number(e.target.value) || 25000)} />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Home Tab ───────────────────────────────────────
+function HomeTab({cast, rank}) {
+  const stats = [
+    {icon:"📊", label:"出勤PV平均", value:cast.pv,    target:600},
+    {icon:"📸", label:"写メ日記",   value:cast.diary,  target:50,  suffix:"本"},
+    {icon:"💗", label:"マイガール", value:cast.mygirl, target:500, suffix:"人"},
+    {icon:"💌", label:"ミテネ",     value:cast.mitene, target:150, suffix:"回"},
+    {icon:"💬", label:"オキニ送信", value:cast.okini,  target:80,  suffix:"回"},
+    {icon:"🎥", label:"動画日記",   value:cast.video,  target:5,   suffix:"本"},
+  ];
+  const tips = [];
+  if (cast.mitene < 50)  tips.push({icon:"💌", text:"ミテネが少ない！出勤前に毎日5回以上送ろう", color:"#FF69B4"});
+  if (cast.diary < 30)   tips.push({icon:"📸", text:"写メ日記を毎日2本投稿しよう！タイトルを工夫して", color:"#FFD700"});
+  if (cast.okini < 30)   tips.push({icon:"💬", text:"オキニトークでマイガールさんに連絡を！", color:"#00CED1"});
+  if (!cast.video)       tips.push({icon:"🎥", text:"動画日記がまだ0本！15秒でいいから撮ってみて", color:"#F97316"});
+  return (
+    <div style={{padding:16}} className="fade-slide">
+      <div style={{background:"linear-gradient(135deg,rgba(255,105,180,0.18),rgba(147,112,219,0.12))",border:"1px solid rgba(255,105,180,0.28)",borderRadius:22,padding:"22px 18px",marginBottom:14}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
+          <div>
+            <div style={{fontSize:11,color:"rgba(255,200,230,0.6)",marginBottom:4}}>インフルエンサーレベル</div>
+            <div style={{fontSize:58,fontWeight:900,lineHeight:1,color:rank.color}}>{cast.il}</div>
+            <div style={{fontSize:13,color:rank.color,marginTop:3,fontWeight:700}}>{rank.name}</div>
+          </div>
+          <div style={{textAlign:"right"}}>
+            <div style={{fontSize:11,color:"rgba(255,200,230,0.5)",marginBottom:6}}>次のレベルまで</div>
+            <div style={{fontSize:22,fontWeight:900}}>{rank.next - cast.il}<span style={{fontSize:12}}>点</span></div>
+            <div style={{width:90,height:8,background:"rgba(255,255,255,0.1)",borderRadius:4,marginTop:8,overflow:"hidden"}}>
+              <div style={{width:((cast.il % 10) / 10 * 100) + "%",height:"100%",background:"linear-gradient(90deg," + rank.color + ",#FF69B4)",borderRadius:4}} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8,marginBottom:14}}>
+        {stats.map(s => (
+          <div key={s.label} style={{background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,200,230,0.1)",borderRadius:14,padding:"11px 8px",textAlign:"center"}}>
+            <div style={{fontSize:18}}>{s.icon}</div>
+            <div style={{fontSize:16,fontWeight:800,color:s.value >= s.target ? "#4ADE80" : "white",marginTop:2}}>{s.value.toLocaleString()}{s.suffix || ""}</div>
+            <div style={{fontSize:9,color:"rgba(255,200,230,0.4)",marginTop:1}}>目標{s.target.toLocaleString()}</div>
+            <div style={{width:"100%",height:3,background:"rgba(255,255,255,0.08)",borderRadius:2,marginTop:5,overflow:"hidden"}}>
+              <div style={{width:Math.min(100, s.value / s.target * 100) + "%",height:"100%",background:s.value >= s.target ? "#4ADE80" : rank.color,borderRadius:2}} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <IncomeSimulator cast={cast} />
+      {tips.length > 0 && (
+        <div style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.12)",borderRadius:18,padding:16}}>
+          <div style={{fontSize:14,fontWeight:700,marginBottom:10}}>💡 今月の改善ポイント</div>
+          {tips.slice(0,3).map((t, i) => (
+            <div key={i} style={{display:"flex",gap:10,marginBottom:i < tips.slice(0,3).length - 1 ? 8 : 0,padding:"10px 12px",background:"rgba(255,255,255,0.03)",borderRadius:12,borderLeft:"3px solid " + t.color}}>
+              <span style={{fontSize:20,flexShrink:0}}>{t.icon}</span>
+              <span style={{fontSize:12,color:"rgba(255,210,230,0.85)",lineHeight:1.6}}>{t.text}</span>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Mission Tab ───────────────────────────────────────
+function MissionTab({checked, setChecked, weekChecked, setWeekChecked, onCheck}) {
+  const dailyPts = dailyMissions.reduce((s, m) => s + (checked[m.id] ? m.pts : 0), 0);
+  const weekPts  = weeklyMissions.reduce((s, m) => s + (weekChecked[m.id] ? m.pts : 0), 0);
+  const done = Object.values(checked).filter(Boolean).length;
+  return (
+    <div style={{padding:16}} className="fade-slide">
+      <div style={{background:"linear-gradient(135deg,rgba(255,215,0,0.14),rgba(255,105,180,0.1))",border:"1px solid rgba(255,215,0,0.22)",borderRadius:18,padding:"16px 20px",marginBottom:16,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+        <div>
+          <div style={{fontSize:11,color:"rgba(255,200,230,0.6)"}}>本日の獲得ポイント</div>
+          <div style={{fontSize:32,fontWeight:900,color:"#FFD700"}}>+{dailyPts + weekPts}<span style={{fontSize:14,marginLeft:2}}>pt ⭐</span></div>
+        </div>
+        <div style={{textAlign:"right"}}>
+          <div style={{fontSize:11,color:"rgba(255,200,230,0.6)"}}>完了</div>
+          <div style={{fontSize:26,fontWeight:900}}>{done}<span style={{fontSize:12}}>/{dailyMissions.length}</span></div>
+        </div>
+      </div>
+      <div style={{fontSize:13,fontWeight:700,color:"rgba(255,180,220,0.7)",marginBottom:10}}>📋 デイリーミッション</div>
+      {dailyMissions.map(m => (
+        <div key={m.id} onClick={() => { setChecked(p => { const n = {...p, [m.id]: !p[m.id]}; if (!p[m.id]) onCheck(); return n; }); }} className="btn-tap"
+          style={{background:checked[m.id] ? "rgba(74,222,128,0.1)" : "rgba(255,255,255,0.04)",border:"1px solid " + (checked[m.id] ? "rgba(74,222,128,0.35)" : "rgba(255,200,230,0.12)"),borderRadius:14,padding:"13px 14px",marginBottom:9,cursor:"pointer",display:"flex",alignItems:"center",gap:12}}>
+          <div style={{width:26,height:26,borderRadius:"50%",border:"2px solid " + (checked[m.id] ? "#4ADE80" : "rgba(255,200,230,0.28)"),display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,background:checked[m.id] ? "#4ADE80" : "transparent",color:"#000",fontSize:14,fontWeight:900}}>
+            {checked[m.id] ? "✓" : ""}
+          </div>
+          <div style={{flex:1,minWidth:0}}>
+            <div style={{fontSize:13,fontWeight:600,color:checked[m.id] ? "rgba(255,255,255,0.38)" : "white",textDecoration:checked[m.id] ? "line-through" : "none",overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{m.icon} {m.label}</div>
+            <div style={{fontSize:10,color:"rgba(255,200,230,0.42)",marginTop:2}}>{m.tip}</div>
+          </div>
+          <div style={{fontSize:13,fontWeight:800,color:checked[m.id] ? "rgba(255,215,0,0.35)" : "#FFD700",flexShrink:0}}>+{m.pts}</div>
+        </div>
+      ))}
+      <div style={{fontSize:13,fontWeight:700,color:"rgba(255,180,220,0.7)",marginTop:18,marginBottom:10}}>📅 ウィークリーミッション</div>
+      {weeklyMissions.map(m => (
+        <div key={m.id} onClick={() => setWeekChecked(p => ({...p, [m.id]: !p[m.id]}))} className="btn-tap"
+          style={{background:weekChecked[m.id] ? "rgba(167,139,250,0.12)" : "rgba(255,255,255,0.04)",border:"1px solid " + (weekChecked[m.id] ? "rgba(167,139,250,0.35)" : "rgba(255,200,230,0.12)"),borderRadius:14,padding:"13px 14px",marginBottom:9,cursor:"pointer",display:"flex",alignItems:"center",gap:12}}>
+          <div style={{width:26,height:26,borderRadius:7,border:"2px solid " + (weekChecked[m.id] ? "#A78BFA" : "rgba(255,200,230,0.28)"),display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0,background:weekChecked[m.id] ? "#A78BFA" : "transparent",color:"#000",fontSize:14,fontWeight:900}}>
+            {weekChecked[m.id] ? "✓" : ""}
+          </div>
+          <div style={{flex:1}}><div style={{fontSize:13,fontWeight:600,color:weekChecked[m.id] ? "rgba(255,255,255,0.38)" : "white",textDecoration:weekChecked[m.id] ? "line-through" : "none"}}>{m.icon} {m.label}</div></div>
+          <div style={{fontSize:13,fontWeight:800,color:weekChecked[m.id] ? "rgba(167,139,250,0.35)" : "#A78BFA",flexShrink:0}}>+{m.pts}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Timer Tab ───────────────────────────────────────
+function TimerTab({checked, cast}) {
+  const [running, setRunning] = React.useState(false);
+  const [seconds, setSeconds] = React.useState(0);
+  const [sessions, setSessions] = React.useState([]);
+  const intRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (running) {
+      intRef.current = setInterval(() => setSeconds(s => s + 1), 1000);
+    } else {
+      clearInterval(intRef.current);
+      intRef.current = null;
+    }
+    return () => clearInterval(intRef.current);
+  }, [running]);
+
+  const fmt = (s) => {
+    const h = Math.floor(s / 3600);
+    const m = Math.floor((s % 3600) / 60);
+    const sec = s % 60;
+    const mm = String(m).padStart(2, "0");
+    const ss = String(sec).padStart(2, "0");
+    return h > 0 ? h + ":" + mm + ":" + ss : mm + ":" + ss;
+  };
+
+  const stop = () => {
+    if (seconds > 0) {
+      setSessions(p => [{duration:seconds, missions:Object.values(checked).filter(Boolean).length, pv:Math.floor(seconds/3600*cast.pv), time:new Date().toLocaleTimeString("ja-JP",{hour:"2-digit",minute:"2-digit"})}, ...p].slice(0, 5));
+    }
+    setRunning(false);
+    setSeconds(0);
+  };
+
+  const tips = ["今すぐミテネを5件送ろう！📱","写メ日記のタイトルを考えよう✍️","マイガールさんにオキニトークを送ろう💬","限定日記のネタを考えよう🔐","動画日記のネタを考えよう🎥","日記に使う写真を撮っておこう📸"];
+  const tip = tips[Math.floor(seconds / 30) % tips.length];
+  const completedMissions = Object.values(checked).filter(Boolean).length;
+  const estimatedPV = Math.floor(seconds / 3600 * cast.pv);
+
+  return (
+    <div style={{padding:16}} className="fade-slide">
+      <div style={{background:"linear-gradient(135deg,rgba(255,105,180,0.15),rgba(147,112,219,0.12))",border:"1px solid " + (running ? "rgba(255,105,180,0.5)" : "rgba(255,105,180,0.2)"),borderRadius:24,padding:"28px 20px",textAlign:"center",marginBottom:14}}>
+        <div style={{fontSize:12,color:"rgba(255,200,230,0.6)",letterSpacing:2,marginBottom:8}}>{running ? "🔴 待機中 — この時間が未来の収入になる" : "⏸ 待機タイマー"}</div>
+        <div style={{fontSize:62,fontWeight:900,letterSpacing:2,color:running ? "#FF69B4" : "rgba(255,200,230,0.5)",fontVariantNumeric:"tabular-nums"}}>{fmt(seconds)}</div>
+        {running && seconds > 0 && (
+          <div style={{marginTop:12,display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
+            <div style={{background:"rgba(255,255,255,0.07)",borderRadius:12,padding:"8px 4px"}}>
+              <div style={{fontSize:16,fontWeight:800,color:"#FFD700"}}>{estimatedPV}</div>
+              <div style={{fontSize:9,color:"rgba(255,200,230,0.5)"}}>推定PV</div>
+            </div>
+            <div style={{background:"rgba(255,255,255,0.07)",borderRadius:12,padding:"8px 4px"}}>
+              <div style={{fontSize:16,fontWeight:800,color:"#4ADE80"}}>{completedMissions}</div>
+              <div style={{fontSize:9,color:"rgba(255,200,230,0.5)"}}>完了ミッション</div>
+            </div>
+            <div style={{background:"rgba(255,255,255,0.07)",borderRadius:12,padding:"8px 4px"}}>
+              <div style={{fontSize:16,fontWeight:800,color:"#A78BFA"}}>{(estimatedPV/300).toFixed(2)}</div>
+              <div style={{fontSize:9,color:"rgba(255,200,230,0.5)"}}>推定成約貢献</div>
+            </div>
+          </div>
+        )}
+        <div style={{marginTop:20,display:"flex",gap:12,justifyContent:"center"}}>
+          {!running ? (
+            <button className="btn-tap" onClick={() => setRunning(true)}
+              style={{background:"linear-gradient(90deg,#FF69B4,#A78BFA)",color:"white",padding:"16px 48px",fontSize:18,fontWeight:900,border:"none",borderRadius:999,cursor:"pointer",boxShadow:"0 4px 20px rgba(255,105,180,0.4)"}}>
+              ▶ 待機スタート
+            </button>
+          ) : (
+            <>
+              <button className="btn-tap" onClick={() => setRunning(false)}
+                style={{background:"rgba(255,255,255,0.1)",color:"white",padding:"14px 28px",border:"1px solid rgba(255,200,230,0.3)",borderRadius:999,fontSize:15,fontWeight:700,cursor:"pointer"}}>
+                ⏸ 一時停止
+              </button>
+              <button className="btn-tap" onClick={stop}
+                style={{background:"rgba(255,68,68,0.2)",color:"#FF6B6B",padding:"14px 28px",border:"1px solid rgba(255,68,68,0.3)",borderRadius:999,fontSize:15,fontWeight:700,cursor:"pointer"}}>
+                ⏹ 終了
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+      {running && (
+        <div style={{background:"rgba(255,215,0,0.1)",border:"1px solid rgba(255,215,0,0.3)",borderRadius:16,padding:"14px 16px",marginBottom:14,display:"flex",alignItems:"center",gap:12}}>
+          <div style={{fontSize:28,flexShrink:0}}>💡</div>
+          <div>
+            <div style={{fontSize:11,color:"rgba(255,200,230,0.55)",marginBottom:3}}>今すぐできること</div>
+            <div style={{fontSize:14,fontWeight:700}}>{tip}</div>
+          </div>
+        </div>
+      )}
+      <div style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.1)",borderRadius:16,padding:"14px 16px",marginBottom:14}}>
+        <div style={{fontSize:13,fontWeight:700,marginBottom:10}}>🧠 待機中にやること = 未来の収入</div>
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+          <div style={{background:"rgba(74,222,128,0.15)",border:"1px solid rgba(74,222,128,0.3)",borderRadius:12,padding:"12px 10px",textAlign:"center"}}>
+            <div style={{fontSize:26,marginBottom:4}}>💸</div>
+            <div style={{fontSize:13,fontWeight:800,color:"#4ADE80"}}>接客中</div>
+            <div style={{fontSize:10,color:"rgba(255,200,230,0.7)",marginTop:4,lineHeight:1.5}}>今すぐお金になる時間</div>
+          </div>
+          <div style={{background:"rgba(255,105,180,0.15)",border:"1px solid rgba(255,105,180,0.3)",borderRadius:12,padding:"12px 10px",textAlign:"center"}}>
+            <div style={{fontSize:26,marginBottom:4}}>📈</div>
+            <div style={{fontSize:13,fontWeight:800,color:"#FF69B4"}}>待機中</div>
+            <div style={{fontSize:10,color:"rgba(255,200,230,0.7)",marginTop:4,lineHeight:1.5}}>将来のお客さんを集める時間</div>
+          </div>
+        </div>
+      </div>
+      {sessions.length > 0 && (
+        <div style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.1)",borderRadius:16,padding:"14px 16px"}}>
+          <div style={{fontSize:13,fontWeight:700,marginBottom:10}}>📋 今日の待機履歴</div>
+          {sessions.map((s, i) => (
+            <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:i < sessions.length - 1 ? "1px solid rgba(255,200,230,0.08)" : "none"}}>
+              <div style={{fontSize:12,color:"rgba(255,200,230,0.7)"}}>{s.time} 終了</div>
+              <div style={{display:"flex",gap:12,fontSize:12}}>
+                <span style={{color:"#FF69B4"}}>{fmt(s.duration)}</span>
+                <span style={{color:"#FFD700"}}>PV+{s.pv}</span>
+                <span style={{color:"#4ADE80"}}>✓{s.missions}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Learn Tab ───────────────────────────────────────
+function LearnTab() {
+  const [page, setPage] = useState(0);
+  const pages = [
+    {title:"ILって何？", bg:"linear-gradient(135deg,rgba(255,105,180,0.15),rgba(147,112,219,0.1))", content:(
+      <div>
+        <div style={{textAlign:"center",marginBottom:16}}><div style={{fontSize:60}}>📊</div><div style={{fontSize:20,fontWeight:900,marginTop:8}}>インフルエンサーレベル</div><div style={{fontSize:13,color:"rgba(255,200,230,0.65)",marginTop:4}}>= あなたの「集客力スコア」</div></div>
+        <div style={{background:"rgba(255,255,255,0.06)",borderRadius:16,padding:16,marginBottom:12}}>
+          <div style={{fontSize:13,color:"rgba(255,210,230,0.9)",lineHeight:1.8}}>ヘブンネットには毎日たくさんの男性が<br/>「今夜どの女の子に会いに行こう？」<br/>と検索しています。<br/><br/><strong style={{color:"#FF69B4"}}>ILが高い = 検索で上位に表示される</strong><br/>ILが低い = ページを見てもらえない</div>
+        </div>
+        <div style={{background:"rgba(255,215,0,0.1)",border:"1px solid rgba(255,215,0,0.25)",borderRadius:12,padding:"12px 14px"}}>
+          <div style={{fontSize:12,color:"rgba(255,220,180,0.9)",lineHeight:1.7}}>💡 どれだけ可愛くても、どれだけ接客が上手でも、<strong style={{color:"#FFD700"}}>ページを見てもらえなければ予約は入らない。</strong></div>
+        </div>
+      </div>
+    )},
+    {title:"ILと収入の関係", bg:"linear-gradient(135deg,rgba(74,222,128,0.12),rgba(74,222,128,0.05))", content:(
+      <div>
+        <div style={{textAlign:"center",marginBottom:14}}><div style={{fontSize:44}}>💴</div><div style={{fontSize:17,fontWeight:800,marginTop:6}}>ILが倍になると収入も倍になる</div></div>
+        {[{il:10,icon:"😔",label:"IL10点",booking:"ほぼ予約が入らない",income:"月 〜3万円",color:"#CD7F32"},{il:30,icon:"😊",label:"IL30点",booking:"10hで1〜2本",income:"月 15〜30万円",color:"#DAA520"},{il:50,icon:"😄",label:"IL50点",booking:"10hで3〜4本",income:"月 50〜80万円",color:"#4169E1"},{il:70,icon:"🌟",label:"IL70点",booking:"10hで5本以上",income:"月 100万円超も！",color:"#00CED1"}].map(item => (
+          <div key={item.il} style={{display:"flex",alignItems:"center",gap:12,padding:"10px 14px",background:"rgba(255,255,255,0.05)",borderRadius:12,marginBottom:8,borderLeft:"3px solid " + item.color}}>
+            <div style={{fontSize:22,flexShrink:0}}>{item.icon}</div>
+            <div style={{flex:1}}>
+              <div style={{fontSize:13,fontWeight:700,color:item.color}}>{item.label}</div>
+              <div style={{fontSize:11,color:"rgba(255,200,230,0.7)",marginTop:2}}>{item.booking}</div>
+            </div>
+            <div style={{fontSize:12,fontWeight:800,textAlign:"right"}}>{item.income}</div>
+          </div>
+        ))}
+        <div style={{fontSize:10,color:"rgba(255,200,230,0.35)",textAlign:"center",marginTop:8}}>※1本25,000円、月15日出勤の目安</div>
+      </div>
+    )},
+    {title:"待機中の使い方で未来が変わる", bg:"linear-gradient(135deg,rgba(255,105,180,0.12),rgba(255,215,0,0.08))", content:(
+      <div>
+        <div style={{textAlign:"center",marginBottom:14}}><div style={{fontSize:44}}>⏰</div><div style={{fontSize:17,fontWeight:800,marginTop:8}}>1日の時間の使い方で<br/>未来が変わる</div></div>
+        <div style={{background:"rgba(74,222,128,0.1)",border:"1px solid rgba(74,222,128,0.3)",borderRadius:16,padding:"14px 16px",marginBottom:10}}>
+          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:6}}><div style={{fontSize:26}}>💸</div><div><div style={{fontSize:15,fontWeight:800,color:"#4ADE80"}}>接客中</div><div style={{fontSize:11,color:"rgba(255,200,230,0.6)"}}>今日のお客様にサービスする時間</div></div></div>
+          <div style={{fontSize:12,color:"rgba(255,210,230,0.85)",lineHeight:1.7}}>今すぐお金になる大切な時間。でもここで稼げる金額には<strong style={{color:"#4ADE80"}}>上限</strong>がある。</div>
+        </div>
+        <div style={{background:"rgba(255,105,180,0.1)",border:"1px solid rgba(255,105,180,0.3)",borderRadius:16,padding:"14px 16px",marginBottom:12}}>
+          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:6}}><div style={{fontSize:26}}>📈</div><div><div style={{fontSize:15,fontWeight:800,color:"#FF69B4"}}>待機中</div><div style={{fontSize:11,color:"rgba(255,200,230,0.6)"}}>未来のお客様を集める時間</div></div></div>
+          <div style={{fontSize:12,color:"rgba(255,210,230,0.85)",lineHeight:1.7}}>日記を書く・ミテネを送る・動画を投稿する。これが<strong style={{color:"#FF69B4"}}>来週・来月の予約</strong>につながる。<br/>待機を「投資」と思うかで<strong style={{color:"#FFD700"}}>3ヶ月後の収入が大きく変わる。</strong></div>
+        </div>
+        <div style={{background:"rgba(167,139,250,0.1)",border:"1px solid rgba(167,139,250,0.3)",borderRadius:12,padding:"12px 14px",textAlign:"center"}}>
+          <div style={{fontSize:13,fontWeight:800,color:"#A78BFA"}}>待機中にやること = ILを上げること</div>
+          <div style={{fontSize:11,color:"rgba(255,200,230,0.65)",marginTop:4}}>ILが上がれば、次のシフトから予約が増え始める</div>
+        </div>
+      </div>
+    )},
+    {title:"300PVの法則", bg:"linear-gradient(135deg,rgba(0,206,209,0.12),rgba(65,105,225,0.08))", content:(
+      <div>
+        <div style={{textAlign:"center",marginBottom:14}}><div style={{fontSize:44}}>🔢</div><div style={{fontSize:18,fontWeight:800,marginTop:8}}>1本の予約に必要なPVは<br/><span style={{color:"#00CED1",fontSize:28}}>300PV</span></div></div>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:16,padding:16,marginBottom:12}}>
+          <div style={{fontSize:12,color:"rgba(255,210,230,0.85)",lineHeight:1.9}}>ヘブンネット全体のデータから判明した事実：<br/><strong style={{color:"#00CED1"}}>出勤した日に300PV集められると1本の成約が期待できる</strong></div>
+        </div>
+        {[{pv:100,booking:"0〜1本/10h",label:"IL低め",color:"#CD7F32"},{pv:300,booking:"1本/10h",label:"IL30点ライン",color:"#DAA520"},{pv:600,booking:"2本/10h",label:"IL40点ライン",color:"#F5C842"},{pv:1500,booking:"5本/10h",label:"IL70点ライン",color:"#00CED1"}].map(item => (
+          <div key={item.pv} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 12px",background:"rgba(255,255,255,0.04)",borderRadius:10,marginBottom:6}}>
+            <div style={{fontSize:12,color:item.color,fontWeight:700}}>出勤日PV {item.pv}</div>
+            <div style={{fontSize:11,color:"rgba(255,200,230,0.7)"}}>{item.label}</div>
+            <div style={{fontSize:12,fontWeight:800}}>{item.booking}</div>
+          </div>
+        ))}
+        <div style={{marginTop:12,background:"rgba(255,215,0,0.1)",border:"1px solid rgba(255,215,0,0.25)",borderRadius:12,padding:"12px 14px"}}>
+          <div style={{fontSize:12,color:"rgba(255,220,180,0.9)",lineHeight:1.7}}>💡 日記・動画・ミテネをこなすとPVが積み上がり、予約が入りやすくなる。<br/><strong style={{color:"#FFD700"}}>待機中の作業 = PVを積む作業</strong></div>
+        </div>
+      </div>
+    )},
+    {title:"今日から変えられること", bg:"linear-gradient(135deg,rgba(255,105,180,0.15),rgba(255,215,0,0.08))", content:(
+      <div>
+        <div style={{textAlign:"center",marginBottom:14}}><div style={{fontSize:44}}>🚀</div><div style={{fontSize:17,fontWeight:800,marginTop:8}}>待機中にこれだけやれば<br/>来月の収入が変わる</div></div>
+        {[{icon:"📱",title:"姫デコSPログイン",desc:"毎日ログインするだけ。30秒で+2pt",color:"#A78BFA"},{icon:"📸",title:"写メ日記 1日2本",desc:"朝と夕方に投稿。タイトルを工夫して",color:"#FF69B4"},{icon:"💌",title:"ミテネを5回送る",desc:"出勤前・待機中に必ず送る習慣を",color:"#00CED1"},{icon:"💬",title:"オキニトーク送信",desc:"マイガールさんに「今日出てるよ」",color:"#4ADE80"},{icon:"🎥",title:"動画日記 月3本",desc:"15秒でOK。一番PVが上がる魔法",color:"#FFD700"}].map(item => (
+          <div key={item.title} style={{display:"flex",gap:12,alignItems:"flex-start",padding:"11px 14px",background:"rgba(255,255,255,0.04)",borderRadius:14,marginBottom:8,borderLeft:"3px solid " + item.color}}>
+            <div style={{fontSize:20,flexShrink:0}}>{item.icon}</div>
+            <div><div style={{fontSize:13,fontWeight:700,color:item.color}}>{item.title}</div><div style={{fontSize:11,color:"rgba(255,200,230,0.7)",marginTop:2}}>{item.desc}</div></div>
+          </div>
+        ))}
+        <div style={{marginTop:12,background:"linear-gradient(90deg,rgba(255,105,180,0.2),rgba(255,215,0,0.1))",borderRadius:16,padding:"16px",textAlign:"center"}}>
+          <div style={{fontSize:14,fontWeight:800}}>3ヶ月続ければ必ず変わる💪</div>
+        </div>
+      </div>
+    )},
+    {title:"本指名獲得 LESSON1", bg:"linear-gradient(135deg,rgba(255,215,0,0.12),rgba(255,165,0,0.08))", content:(
+      <div>
+        <div style={{textAlign:"center",marginBottom:14}}><div style={{fontSize:44}}>☕</div><div style={{fontSize:17,fontWeight:800,marginTop:8}}>フィニッシュ後は<br/>必ずお茶を入れる</div></div>
+        <div style={{background:"rgba(255,255,255,0.05)",borderRadius:16,padding:16,marginBottom:12}}>
+          <div style={{fontSize:13,color:"rgba(255,210,230,0.9)",lineHeight:1.9}}>フィニッシュ後、何をしたらいいかわからずぼーっとしてしまう子がほとんど。<br/><br/>ホテルには備え付けの飲み物があります。<strong style={{color:"#FFD700"}}>そこでお茶を入れてあげるだけで差がつく！</strong></div>
+        </div>
+        <div style={{background:"rgba(255,215,0,0.1)",border:"1px solid rgba(255,215,0,0.25)",borderRadius:14,padding:14,marginBottom:10}}>
+          <div style={{fontSize:13,fontWeight:800,color:"#FFD700",marginBottom:10}}>💡 POINT</div>
+          {[{icon:"💗",text:"余った時間も丁寧に使う子だとお客様に好感を持たれる"},{icon:"🗣️",text:"自分の喉も潤わせながら会話が続けやすくなる"},{icon:"⏰",text:"時間稼ぎにもなり、次の話題に自然につながる"}].map((p,i) => (
+            <div key={i} style={{display:"flex",gap:10,alignItems:"flex-start",marginBottom:i < 2 ? 8 : 0}}>
+              <span style={{fontSize:18,flexShrink:0}}>{p.icon}</span>
+              <span style={{fontSize:12,color:"rgba(255,210,230,0.85)",lineHeight:1.6}}>{p.text}</span>
+            </div>
+          ))}
+        </div>
+        <div style={{background:"rgba(255,105,180,0.1)",border:"1px solid rgba(255,105,180,0.25)",borderRadius:12,padding:"11px 14px",fontSize:12,color:"rgba(255,200,230,0.85)",lineHeight:1.7}}>「自分の彼女でも奥さんでもないのに」丁寧に接してもらえる男性は弱いもの。<br/><strong style={{color:"#FF69B4"}}>過去のナンバーキャストたちはみなこの術を心得ていた。</strong></div>
+      </div>
+    )},
+    {title:"本指名獲得 LESSON2", bg:"linear-gradient(135deg,rgba(167,139,250,0.14),rgba(236,72,153,0.08))", content:(
+      <div>
+        <div style={{textAlign:"center",marginBottom:14}}><div style={{fontSize:44}}>✨</div><div style={{fontSize:17,fontWeight:800,marginTop:8}}>魔法の言葉を使い倒そう</div></div>
+        {[{icon:"🌸",color:"#FF69B4",title:"褒める",desc:"男性は自尊心が高く、褒められるのに弱い。",points:["その人の短所・コンプレックスをあえて褒める","あくまでも自然に、さりげなく伝える"]},{icon:"💘",color:"#A78BFA",title:"好意を感じさせる",desc:"「この子、俺に気があるのかな？」と錯覚させる。",points:["「何だかお客さんじゃないみたい」","口説くような雰囲気を女性側から自然に出す"]},{icon:"🙏",color:"#4ADE80",title:"感謝を伝える",desc:"「ありがとう」は魔法の言葉。いい子だと感じたらリピートする。",points:["小さなことにも必ず感謝を伝える","言葉だけでなく表情と目線も合わせる"]},{icon:"👂",color:"#60A5FA",title:"話をよく聞く",desc:"「この子は俺を受け入れてくれている」と信頼が生まれる。",points:["人は自分の話を聞いてもらいたい生き物","聞き上手はプライベートでも最強のスキル"]}].map((item, i) => (
+          <div key={i} style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,255,255,0.08)",borderRadius:14,padding:"12px 14px",marginBottom:10,borderLeft:"3px solid " + item.color}}>
+            <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:6}}>
+              <span style={{fontSize:18}}>{item.icon}</span>
+              <span style={{fontSize:14,fontWeight:800,color:item.color}}>「{item.title}」</span>
+            </div>
+            <div style={{fontSize:11,color:"rgba(255,200,230,0.7)",marginBottom:6}}>{item.desc}</div>
+            {item.points.map((p, j) => (
+              <div key={j} style={{display:"flex",gap:6,alignItems:"flex-start",marginBottom:3}}>
+                <span style={{color:item.color,fontSize:10,marginTop:2,flexShrink:0}}>▶</span>
+                <span style={{fontSize:11,color:"rgba(255,210,230,0.85)",lineHeight:1.6}}>{p}</span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    )},
+  ];
+  const current = pages[page];
+  return (
+    <div style={{padding:16}} className="fade-slide">
+      <div style={{display:"flex",justifyContent:"center",gap:6,marginBottom:14}}>
+        {pages.map((_, i) => (
+          <button key={i} onClick={() => setPage(i)}
+            style={{width:i === page ? 24 : 8,height:8,borderRadius:4,background:i === page ? "#FF69B4" : "rgba(255,200,230,0.2)",border:"none",cursor:"pointer",transition:"all 0.3s"}} />
+        ))}
+      </div>
+      <div style={{background:current.bg,border:"1px solid rgba(255,200,230,0.15)",borderRadius:22,padding:"22px 18px",marginBottom:14}}>
+        <div style={{fontSize:11,color:"rgba(255,200,230,0.55)",textAlign:"center",marginBottom:4}}>{page + 1} / {pages.length}</div>
+        <div style={{fontSize:17,fontWeight:800,textAlign:"center",marginBottom:16}}>{current.title}</div>
+        {current.content}
+      </div>
+      <div style={{display:"flex",gap:10}}>
+        {page > 0 && <button onClick={() => setPage(p => p - 1)} className="btn-tap" style={{flex:1,background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,200,230,0.2)",borderRadius:14,padding:"14px",fontSize:14,color:"rgba(255,200,230,0.7)",cursor:"pointer"}}>← 前へ</button>}
+        {page < pages.length - 1
+          ? <button onClick={() => setPage(p => p + 1)} className="btn-tap" style={{flex:2,background:"linear-gradient(90deg,#FF69B4,#A78BFA)",border:"none",borderRadius:14,padding:"14px",fontSize:15,fontWeight:800,color:"white",cursor:"pointer"}}>次へ →</button>
+          : <button onClick={() => setPage(0)} className="btn-tap" style={{flex:2,background:"rgba(255,215,0,0.15)",border:"1px solid rgba(255,215,0,0.3)",borderRadius:14,padding:"14px",fontSize:14,fontWeight:700,color:"#FFD700",cursor:"pointer"}}>🔄 最初から読む</button>
+        }
+      </div>
+    </div>
+  );
+}
+
+// ─── Ranking Tab ───────────────────────────────────────
+function RankingTab({casts, myName}) {
+  const sorted = [...casts].sort((a, b) => b.il - a.il);
+  return (
+    <div style={{padding:16}} className="fade-slide">
+      <div style={{fontSize:14,fontWeight:700,color:"rgba(255,180,220,0.7)",marginBottom:14}}>🏆 ILランキング（絆）</div>
+      {sorted.map((c, i) => {
+        const r = getILRank(c.il);
+        const isMe = c.name === myName;
+        return (
+          <div key={c.id} style={{background:isMe ? "rgba(255,105,180,0.12)" : "rgba(255,255,255,0.04)",border:"1px solid " + (isMe ? "rgba(255,105,180,0.32)" : "rgba(255,200,230,0.1)"),borderRadius:14,padding:"12px 14px",marginBottom:8,display:"flex",alignItems:"center",gap:12}}>
+            <div style={{fontSize:20,fontWeight:900,width:28,textAlign:"center",color:i===0?"#FFD700":i===1?"#C0C0C0":i===2?"#CD7F32":"rgba(255,200,230,0.3)"}}>{i < 3 ? ["🥇","🥈","🥉"][i] : i + 1}</div>
+            <div style={{flex:1}}>
+              <div style={{display:"flex",alignItems:"center",gap:6}}>
+                <span style={{fontSize:15,fontWeight:isMe ? 800 : 600,color:isMe ? "#FF69B4" : "white"}}>{c.name}</span>
+                {isMe && <span style={{fontSize:9,background:"#FF69B4",color:"white",padding:"2px 7px",borderRadius:99,fontWeight:700}}>YOU</span>}
+              </div>
+              <div style={{fontSize:10,color:r.color,marginTop:2}}>{r.name}</div>
+            </div>
+            <div style={{textAlign:"right"}}>
+              <div style={{fontSize:20,fontWeight:900,color:r.color}}>{c.il}</div>
+              <div style={{fontSize:9,color:"rgba(255,200,230,0.4)"}}>IL点</div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+// ─── Tips Tab ───────────────────────────────────────
+function TipsTab() {
+  const [toast, setToast] = useState(false);
+  const copy = (text) => { if (navigator.clipboard) navigator.clipboard.writeText(text); setToast(true); setTimeout(() => setToast(false), 1200); };
+  return (
+    <div style={{padding:16}} className="fade-slide">
+      {toast && <div className="copy-toast">コピー完了！📋</div>}
+      <div style={{background:"rgba(255,255,255,0.04)",borderRadius:12,padding:"10px 14px",marginBottom:14,fontSize:12,color:"rgba(255,200,230,0.6)",lineHeight:1.7}}>
+        💡 タイトルをタップするとコピーできます。日記のタイトルにそのまま使ってね！
+      </div>
+      {titleGroups.map(g => (
+        <div key={g.label} style={{marginBottom:18}}>
+          <div style={{fontSize:13,fontWeight:700,color:g.color,marginBottom:8}}>{g.label}</div>
+          {g.items.map((item, i) => (
+            <div key={i} onClick={() => copy(item)} className="btn-tap"
+              style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.1)",borderRadius:11,padding:"11px 14px",marginBottom:6,fontSize:12,color:"rgba(255,210,230,0.85)",lineHeight:1.6,cursor:"pointer",display:"flex",justifyContent:"space-between",alignItems:"center",gap:8}}>
+              <span>{item}</span>
+              <span style={{fontSize:10,color:"rgba(255,200,230,0.28)",flexShrink:0}}>📋</span>
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// ─── Admin ───────────────────────────────────────
+function AdminLogin({onLogin, onBack}) {
+  const [pw, setPw] = useState("");
+  const [err, setErr] = useState(false);
+  const submit = () => { if (pw === ADMIN_PW) { onLogin(); } else { setErr(true); setTimeout(() => setErr(false), 1500); } };
+  return (
+    <div style={{minHeight:"100vh",background:"linear-gradient(160deg,#0a0015,#1a0030)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:32}}>
+      <div style={{fontSize:44,marginBottom:16}}>🔐</div>
+      <div style={{fontSize:20,fontWeight:800,marginBottom:6}}>管理者ログイン</div>
+      <div style={{fontSize:12,color:"rgba(255,200,230,0.5)",marginBottom:32}}>キャストデータを編集できます</div>
+      <div style={{width:"100%",maxWidth:320}}>
+        <input className="ai" type="password" placeholder="パスワードを入力" value={pw} onChange={e => setPw(e.target.value)} onKeyDown={e => e.key === "Enter" && submit()} style={{marginBottom:12,textAlign:"center",fontSize:18,letterSpacing:4}} />
+        {err && <div style={{textAlign:"center",color:"#FF6B6B",fontSize:13,marginBottom:10}}>❌ パスワードが違います</div>}
+        <button onClick={submit} className="btn-tap" style={{width:"100%",background:"linear-gradient(90deg,#FF69B4,#A78BFA)",border:"none",borderRadius:12,padding:"14px",fontSize:15,fontWeight:800,color:"white",cursor:"pointer",marginBottom:12}}>ログイン</button>
+        <button onClick={onBack} className="btn-tap" style={{width:"100%",background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,200,230,0.2)",borderRadius:12,padding:"12px",fontSize:13,color:"rgba(255,200,230,0.6)",cursor:"pointer"}}>← 戻る</button>
+      </div>
+    </div>
+  );
+}
+
+function AdminPanel({casts, setCasts, onBack}) {
+  const [view, setView] = useState("list");
+  const [editing, setEditing] = useState(null);
+  const [form, setForm] = useState({});
+  const [toast, setToast] = useState("");
+  const [deleteId, setDeleteId] = useState(null);
+  const [importPreview, setImportPreview] = useState(null);
+  const [importing, setImporting] = useState(false);
+  const fileRef = useRef(null);
+  const showToast = (msg) => { setToast(msg); setTimeout(() => setToast(""), 2200); };
+
+  const handleExcel = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setImporting(true);
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      try {
+        const data = new Uint8Array(ev.target.result);
+        const wb = XLSX.read(data, {type:"array"});
+        const ws = wb.Sheets[wb.SheetNames[0]];
+        const rows = XLSX.utils.sheet_to_json(ws, {header:1});
+        const h = rows[0].map(x => String(x));
+        const fi = (keyword) => h.findIndex(x => x.includes(keyword));
+        const idx = { name:fi("女の子名"), il:fi("合計pt"), pv:fi("出勤平均"), diary:fi("写メ日記"), limited:fi("限定日記"), video:fi("動画日記"), mitene:fi("ミテネ"), okini:fi("オキニトーク"), mygirl:fi("累計") };
+        const parsed = rows.slice(1).filter(r => r[idx.name]).map((r, i) => ({
+          id:i+1, name:String(r[idx.name]||"").trim(), il:Math.round(Number(r[idx.il])||0),
+          pv:Math.round(Number(r[idx.pv])||0), diary:Math.round(Number(r[idx.diary])||0),
+          limited:Math.round(Number(r[idx.limited])||0), video:Math.round(Number(r[idx.video])||0),
+          mitene:Math.round(Number(r[idx.mitene])||0), okini:Math.round(Number(r[idx.okini])||0),
+          mygirl:Math.round(Number(r[idx.mygirl])||0), pin:"0000"
+        })).filter(c => c.name.length > 0);
+        setImportPreview(parsed);
+        setView("import");
+      } catch(err) { showToast("❌ 読み込みエラー"); }
+      setImporting(false);
+    };
+    reader.readAsArrayBuffer(file);
+    e.target.value = "";
+  };
+
+  const executeImport = () => {
+    // Preserve existing PINs
+    const pinMap = {};
+    casts.forEach(c => { pinMap[c.name.trim()] = c.pin || "0000"; });
+    const merged = importPreview.map(c => ({...c, pin:pinMap[c.name] || "0000"}));
+    setCasts(merged); saveCasts(merged);
+    showToast("✅ " + merged.length + "名をインポートしました！");
+    setImportPreview(null); setView("list");
+  };
+
+  const saveEdit = () => {
+    if (!form.name.trim()) { showToast("❌ 名前を入力してください"); return; }
+    const updated = casts.map(c => c.id === editing ? {...form, id:editing} : c);
+    setCasts(updated); saveCasts(updated); showToast("✅ 保存しました！"); setView("list");
+  };
+
+  const saveAdd = () => {
+    if (!form.name.trim()) { showToast("❌ 名前を入力してください"); return; }
+    const newId = Math.max(...casts.map(c => c.id), 0) + 1;
+    const c = {...form, id:newId, il:Number(form.il)||0, pv:Number(form.pv)||0, diary:Number(form.diary)||0, limited:Number(form.limited)||0, video:Number(form.video)||0, mitene:Number(form.mitene)||0, okini:Number(form.okini)||0, mygirl:Number(form.mygirl)||0, pin:form.pin||"0000"};
+    const updated = [...casts, c]; setCasts(updated); saveCasts(updated); showToast("✅ 追加しました！"); setView("list");
+  };
+
+  const doDelete = () => {
+    const target = casts.find(c => c.id === deleteId);
+    const updated = casts.filter(c => c.id !== deleteId);
+    setCasts(updated); saveCasts(updated); setDeleteId(null);
+    showToast("🗑️ " + (target ? target.name : "") + " を削除しました");
+  };
+
+  const sorted = [...casts].sort((a, b) => b.il - a.il);
+  const fields = [
+    {key:"name",    label:"名前",         type:"text"},
+    {key:"pin",     label:"🔐 PIN（4桁）", type:"text"},
+    {key:"il",      label:"IL点数",        type:"number"},
+    {key:"pv",      label:"出勤日PV平均",  type:"number"},
+    {key:"diary",   label:"写メ日記数",    type:"number"},
+    {key:"limited", label:"限定日記数",    type:"number"},
+    {key:"video",   label:"動画日記数",    type:"number"},
+    {key:"mitene",  label:"ミテネ回数",    type:"number"},
+    {key:"okini",   label:"オキニ送信",    type:"number"},
+    {key:"mygirl",  label:"マイガール数",  type:"number"},
+  ];
+
+  return (
+    <div style={{minHeight:"100vh",background:"linear-gradient(160deg,#0a0015,#1a0030,#0d0020)",paddingBottom:40}}>
+      {toast && <div className="copy-toast">{toast}</div>}
+      {deleteId && (
+        <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,0.85)",zIndex:200,display:"flex",alignItems:"center",justifyContent:"center",padding:24}}>
+          <div style={{background:"#1a0030",border:"1px solid rgba(255,100,200,0.3)",borderRadius:20,padding:28,width:"100%",maxWidth:320,textAlign:"center"}}>
+            <div style={{fontSize:40,marginBottom:12}}>🗑️</div>
+            <div style={{fontSize:16,fontWeight:700,marginBottom:8}}>{(casts.find(c => c.id === deleteId) || {}).name} を削除しますか？</div>
+            <div style={{fontSize:12,color:"rgba(255,200,230,0.55)",marginBottom:24}}>この操作は元に戻せません</div>
+            <div style={{display:"flex",gap:10}}>
+              <button onClick={() => setDeleteId(null)} className="btn-tap" style={{flex:1,background:"rgba(255,255,255,0.07)",border:"1px solid rgba(255,200,230,0.2)",borderRadius:12,padding:12,color:"white",cursor:"pointer",fontSize:14}}>キャンセル</button>
+              <button onClick={doDelete} className="btn-tap" style={{flex:1,background:"#FF4444",border:"none",borderRadius:12,padding:12,color:"white",cursor:"pointer",fontWeight:800,fontSize:14}}>削除する</button>
+            </div>
+          </div>
+        </div>
+      )}
+      <div style={{background:"rgba(10,0,21,0.9)",borderBottom:"1px solid rgba(255,100,200,0.2)",padding:"16px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50,backdropFilter:"blur(12px)"}}>
+        <button onClick={view === "list" ? onBack : () => setView("list")} style={{background:"none",border:"none",color:"rgba(255,180,220,0.6)",fontSize:22,cursor:"pointer"}}>←</button>
+        <div style={{textAlign:"center"}}>
+          <div style={{fontSize:16,fontWeight:800}}>{view === "list" ? "⚙️ 管理者パネル" : view === "edit" ? "✏️ 編集" : view === "add" ? "➕ 追加" : "📥 インポート確認"}</div>
+          {view === "list" && <div style={{fontSize:10,color:"rgba(255,200,230,0.45)",marginTop:2}}>全 {casts.length} 名</div>}
+        </div>
+        {view === "list"
+          ? <button onClick={() => { setForm({name:"",pin:"0000",il:0,pv:0,diary:0,limited:0,video:0,mitene:0,okini:0,mygirl:0}); setView("add"); }} className="btn-tap" style={{background:"linear-gradient(90deg,#FF69B4,#A78BFA)",border:"none",borderRadius:10,padding:"8px 14px",color:"white",fontWeight:700,fontSize:13,cursor:"pointer"}}>+ 追加</button>
+          : <div style={{width:60}} />
+        }
+      </div>
+
+      {view === "list" && (
+        <div style={{padding:16}} className="fade-slide">
+          <input ref={fileRef} type="file" accept=".xlsx,.xls" style={{display:"none"}} onChange={handleExcel} />
+          <button onClick={() => fileRef.current && fileRef.current.click()} className="btn-tap"
+            style={{width:"100%",background:"linear-gradient(90deg,rgba(74,222,128,0.2),rgba(74,222,128,0.1))",border:"1px solid rgba(74,222,128,0.4)",borderRadius:14,padding:"14px 16px",marginBottom:10,display:"flex",alignItems:"center",justifyContent:"center",gap:10,cursor:"pointer"}}>
+            <span style={{fontSize:22}}>📥</span>
+            <div style={{textAlign:"left"}}>
+              <div style={{fontSize:14,fontWeight:800,color:"#4ADE80"}}>エクセルをインポート</div>
+              <div style={{fontSize:10,color:"rgba(255,200,230,0.55)"}}>シティヘブンのxlsxをそのまま読み込む</div>
+            </div>
+          </button>
+          {importing && <div style={{textAlign:"center",color:"rgba(255,200,230,0.6)",fontSize:13,marginBottom:10}}>⏳ 読み込み中...</div>}
+          <div style={{background:"rgba(255,215,0,0.08)",border:"1px solid rgba(255,215,0,0.2)",borderRadius:14,padding:"12px 16px",marginBottom:14,fontSize:12,color:"rgba(255,220,180,0.8)",lineHeight:1.7}}>
+            💡 毎月データが出たら更新しよう。PINは自動で引き継がれます。✏️で編集、🗑️で削除。
+          </div>
+          {sorted.map(c => {
+            const r = getILRank(c.il);
+            return (
+              <div key={c.id} style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.1)",borderRadius:14,padding:"12px 14px",marginBottom:8,display:"flex",alignItems:"center",gap:10}}>
+                <div style={{flex:1,minWidth:0}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}>
+                    <span style={{fontSize:15,fontWeight:700}}>{c.name}</span>
+                    <span style={{fontSize:11,color:r.color}}>IL {c.il}点</span>
+                    <span style={{fontSize:10,color:"rgba(255,200,230,0.35)"}}>PIN:{c.pin || "0000"}</span>
+                  </div>
+                  <div style={{fontSize:10,color:"rgba(255,200,230,0.4)",marginTop:3}}>PV {c.pv} / 日記 {c.diary}本 / ミテネ {c.mitene}回</div>
+                </div>
+                <button onClick={() => { setEditing(c.id); setForm({...c}); setView("edit"); }} className="btn-tap" style={{background:"rgba(255,105,180,0.15)",border:"1px solid rgba(255,105,180,0.3)",borderRadius:9,padding:"7px 12px",color:"#FF69B4",fontSize:16,cursor:"pointer",flexShrink:0}}>✏️</button>
+                <button onClick={() => setDeleteId(c.id)} className="btn-tap" style={{background:"rgba(255,68,68,0.12)",border:"1px solid rgba(255,68,68,0.3)",borderRadius:9,padding:"7px 12px",color:"#FF6B6B",fontSize:16,cursor:"pointer",flexShrink:0}}>🗑️</button>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+      {view === "import" && importPreview && (
+        <div style={{padding:16}} className="fade-slide">
+          <div style={{background:"rgba(74,222,128,0.1)",border:"1px solid rgba(74,222,128,0.3)",borderRadius:16,padding:"14px 16px",marginBottom:14}}>
+            <div style={{fontSize:15,fontWeight:800,color:"#4ADE80",marginBottom:4}}>📥 インポートプレビュー</div>
+            <div style={{fontSize:13,color:"white",fontWeight:700}}>{importPreview.length}名のデータを検出（PINは自動引き継ぎ）</div>
+          </div>
+          <div style={{maxHeight:320,overflowY:"auto",marginBottom:14}}>
+            {importPreview.map((c, i) => {
+              const r = getILRank(c.il);
+              return (
+                <div key={i} style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.08)",borderRadius:12,padding:"10px 14px",marginBottom:6,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                  <div>
+                    <span style={{fontSize:14,fontWeight:700}}>{c.name}</span>
+                    <span style={{fontSize:11,color:r.color,marginLeft:8}}>IL {c.il}点</span>
+                  </div>
+                  <div style={{fontSize:10,color:"rgba(255,200,230,0.45)"}}>PV{c.pv} 日記{c.diary}</div>
+                </div>
+              );
+            })}
+          </div>
+          <div style={{background:"rgba(255,100,100,0.1)",border:"1px solid rgba(255,100,100,0.25)",borderRadius:12,padding:"10px 14px",marginBottom:14,fontSize:12,color:"rgba(255,180,180,0.8)"}}>
+            ⚠️ 実行すると現在のデータがすべて上書きされます
+          </div>
+          <button onClick={executeImport} className="btn-tap" style={{width:"100%",background:"linear-gradient(90deg,#4ADE80,#22C55E)",border:"none",borderRadius:14,padding:"16px",fontSize:16,fontWeight:800,color:"#000",cursor:"pointer",marginBottom:10}}>
+            ✅ インポート実行
+          </button>
+          <button onClick={() => { setImportPreview(null); setView("list"); }} className="btn-tap" style={{width:"100%",background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,200,230,0.2)",borderRadius:14,padding:"13px",fontSize:13,color:"rgba(255,200,230,0.6)",cursor:"pointer"}}>キャンセル</button>
+        </div>
+      )}
+
+      {(view === "edit" || view === "add") && (
+        <div style={{padding:16}} className="fade-slide">
+          <div style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.12)",borderRadius:18,padding:18,marginBottom:16}}>
+            {fields.map(f => (
+              <div key={f.key} style={{marginBottom:14}}>
+                <div style={{fontSize:12,color:"rgba(255,200,230,0.65)",marginBottom:5,fontWeight:600}}>{f.label}</div>
+                {f.type === "text"
+                  ? <input className="ai" type="text" value={form[f.key] || ""} onChange={e => setForm(p => ({...p, [f.key]:e.target.value}))} placeholder={f.label + "を入力"} />
+                  : <input className="ni" type="number" inputMode="numeric" value={form[f.key] || 0} min="0" onChange={e => setForm(p => ({...p, [f.key]:Number(e.target.value)}))} />
+                }
+              </div>
+            ))}
+          </div>
+          <button onClick={view === "edit" ? saveEdit : saveAdd} className="btn-tap" style={{width:"100%",background:"linear-gradient(90deg,#FF69B4,#A78BFA)",border:"none",borderRadius:14,padding:"16px",fontSize:16,fontWeight:800,color:"white",cursor:"pointer",marginBottom:10}}>
+            {view === "edit" ? "💾 保存する" : "➕ 追加する"}
+          </button>
+          <button onClick={() => setView("list")} className="btn-tap" style={{width:"100%",background:"rgba(255,255,255,0.06)",border:"1px solid rgba(255,200,230,0.2)",borderRadius:14,padding:"13px",fontSize:13,color:"rgba(255,200,230,0.6)",cursor:"pointer"}}>キャンセル</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── PIN Entry ───────────────────────────────────────
+function PinEntry({cast, onSuccess, onBack}) {
+  const [pin, setPin] = useState("");
+  const [err, setErr] = useState(false);
+  const [shake, setShake] = useState(false);
+  const rank = getILRank(cast.il);
+  const emoji = cast.il >= 25 ? "🌟" : cast.il >= 15 ? "⭐" : cast.il >= 8 ? "🌙" : "💫";
+
+  const handleNum = (n) => {
+    if (pin.length >= 4) return;
+    const next = pin + n;
+    setPin(next);
+    if (next.length === 4) {
+      setTimeout(() => {
+        const correctPin = cast.pin || "0000";
+        if (next === correctPin) {
+          onSuccess();
+        } else {
+          setShake(true);
+          setErr(true);
+          setTimeout(() => { setPin(""); setErr(false); setShake(false); }, 1000);
+        }
+      }, 200);
+    }
+  };
+
+  const handleDel = () => setPin(p => p.slice(0, -1));
+
+  const numpad = ["1","2","3","4","5","6","7","8","9","","0","⌫"];
+
+  return (
+    <div style={{minHeight:"100vh",background:"linear-gradient(160deg,#0a0015,#1a0030)",display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",padding:28}}>
+      <div style={{textAlign:"center",marginBottom:28}}>
+        <div style={{fontSize:44,marginBottom:8}}>{emoji}</div>
+        <div style={{fontSize:22,fontWeight:900}}>{cast.name}</div>
+        <div style={{fontSize:12,color:rank.color,marginTop:4}}>{rank.name} IL{cast.il}点</div>
+      </div>
+      <div style={{fontSize:14,color:"rgba(255,200,230,0.6)",marginBottom:20}}>🔐 4桁PINを入力してください</div>
+      <div style={{display:"flex",gap:14,marginBottom:28,animation:shake ? "shake 0.4s" : "none"}}>
+        {[0,1,2,3].map(i => (
+          <div key={i} style={{width:52,height:52,borderRadius:14,background:pin.length > i ? "rgba(255,105,180,0.3)" : "rgba(255,255,255,0.07)",border:pin.length > i ? "2px solid #FF69B4" : "2px solid rgba(255,200,230,0.2)",display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.15s"}}>
+            {pin.length > i && <div style={{width:16,height:16,borderRadius:"50%",background:"#FF69B4"}} />}
+          </div>
+        ))}
+      </div>
+      {err && <div style={{color:"#FF6B6B",fontSize:13,marginBottom:16,fontWeight:700}}>❌ PINが違います</div>}
+      <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,width:"100%",maxWidth:280,marginBottom:20}}>
+        {numpad.map((n, i) => (
+          <button key={i} onClick={() => n === "⌫" ? handleDel() : n === "" ? null : handleNum(n)}
+            className="btn-tap"
+            style={{background:n === "" ? "transparent" : n === "⌫" ? "rgba(255,68,68,0.15)" : "rgba(255,255,255,0.08)",border:n === "" ? "none" : n === "⌫" ? "1px solid rgba(255,68,68,0.3)" : "1px solid rgba(255,200,230,0.15)",borderRadius:14,padding:"18px 0",fontSize:n === "⌫" ? 20 : 22,fontWeight:700,color:n === "⌫" ? "#FF6B6B" : "white",cursor:n === "" ? "default" : "pointer"}}>
+            {n}
+          </button>
+        ))}
+      </div>
+      <button onClick={onBack} className="btn-tap" style={{background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,200,230,0.15)",borderRadius:12,padding:"11px 28px",color:"rgba(255,200,230,0.5)",fontSize:13,cursor:"pointer"}}>
+        ← 戻る
+      </button>
+    </div>
+  );
+}
+
+// ─── Cast Select ───────────────────────────────────────
+function CastSelect({casts, onSelect, onAdminClick, onRankingClick}) {
+  const [search, setSearch] = useState("");
+  const sorted = [...casts].sort((a, b) => b.il - a.il);
+  const filtered = search.trim()
+    ? sorted.filter(c => c.name.includes(search.trim()))
+    : sorted;
+  return (
+    <div style={{background:"linear-gradient(160deg,#0a0015,#1a0030,#0d0020)",minHeight:"100vh",paddingBottom:40}}>
+      <div style={{padding:"32px 20px 20px",textAlign:"center",borderBottom:"1px solid rgba(255,100,200,0.15)"}}>
+        <div style={{fontSize:28,fontWeight:900,letterSpacing:3,background:"linear-gradient(90deg,#FF69B4,#FFD700,#FF69B4)",backgroundSize:"200%",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent",animation:"shimmer 3s linear infinite"}}>✨ 絆 IL チャレンジ ✨</div>
+        <div style={{fontSize:12,color:"rgba(255,180,220,0.65)",marginTop:6}}>インフルエンサーレベル向上ゲーム</div>
+      </div>
+      <div style={{padding:"18px 16px"}}>
+        <button onClick={onRankingClick} className="btn-tap"
+          style={{width:"100%",background:"linear-gradient(90deg,rgba(255,215,0,0.15),rgba(255,105,180,0.1))",border:"1px solid rgba(255,215,0,0.3)",borderRadius:16,padding:"14px 16px",marginBottom:16,display:"flex",alignItems:"center",justifyContent:"center",gap:10,cursor:"pointer"}}>
+          <span style={{fontSize:22}}>🏆</span>
+          <div style={{textAlign:"left"}}>
+            <div style={{fontSize:14,fontWeight:800,color:"#FFD700"}}>みんなのランキングを見る</div>
+            <div style={{fontSize:10,color:"rgba(255,200,230,0.55)"}}>PIN不要・誰でも見られます</div>
+          </div>
+        </button>
+        <div style={{fontSize:13,color:"rgba(255,180,220,0.6)",marginBottom:10,textAlign:"center"}}>あなたの名前を選んでね 💕</div>
+        <div style={{position:"relative",marginBottom:14}}>
+          <span style={{position:"absolute",left:14,top:"50%",transform:"translateY(-50%)",fontSize:16,pointerEvents:"none"}}>🔍</span>
+          <input
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="名前を入力して検索..."
+            style={{width:"100%",background:"rgba(255,255,255,0.08)",border:"1px solid rgba(255,105,180,0.3)",borderRadius:14,padding:"13px 14px 13px 42px",fontSize:15,color:"white",outline:"none",fontFamily:"inherit"}}
+          />
+          {search && (
+            <button onClick={() => setSearch("")} style={{position:"absolute",right:12,top:"50%",transform:"translateY(-50%)",background:"rgba(255,200,230,0.2)",border:"none",borderRadius:"50%",width:22,height:22,color:"white",fontSize:12,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
+          )}
+        </div>
+        {filtered.length === 0 && (
+          <div style={{textAlign:"center",color:"rgba(255,200,230,0.4)",fontSize:13,padding:"20px 0"}}>「{search}」は見つかりませんでした</div>
+        )}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
+          {filtered.map(c => {
+            const r = getILRank(c.il);
+            const emoji = c.il >= 25 ? "🌟" : c.il >= 15 ? "⭐" : c.il >= 8 ? "🌙" : "💫";
+            return (
+              <button key={c.id} className="btn-tap" onClick={() => onSelect(c)}
+                style={{background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,100,200,0.2)",borderRadius:16,padding:"16px 10px",textAlign:"center",cursor:"pointer",color:"white"}}>
+                <div style={{fontSize:24,marginBottom:4}}>{emoji}</div>
+                <div style={{fontSize:15,fontWeight:700,color:"white"}}>{c.name}</div>
+                <div style={{fontSize:11,color:r.color,marginTop:3}}>{r.name}</div>
+                <div style={{fontSize:10,color:"rgba(255,200,230,0.35)",marginTop:2}}>🔐 PIN保護</div>
+              </button>
+            );
+          })}
+        </div>
+        <div style={{textAlign:"center",marginTop:28}}>
+          <button onClick={onAdminClick} className="btn-tap" style={{background:"rgba(255,255,255,0.04)",border:"1px solid rgba(255,200,230,0.1)",borderRadius:10,padding:"9px 20px",color:"rgba(255,200,230,0.3)",fontSize:11,cursor:"pointer"}}>⚙️ 管理者</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Particles ───────────────────────────────────────
+function Particle({x, color}) {
+  return <div style={{position:"fixed",left:x+"%",top:"45%",width:10,height:10,borderRadius:"50%",background:color,pointerEvents:"none",zIndex:1000,animation:"float-up 0.9s ease-out forwards"}} />;
+}
+
+// ─── Public Ranking ───────────────────────────────────────
+function PublicRanking({casts, onBack}) {
+  return (
+    <div style={{background:"linear-gradient(160deg,#0a0015,#1a0030,#0d0020)",minHeight:"100vh",paddingBottom:40}}>
+      <div style={{background:"rgba(10,0,21,0.85)",borderBottom:"1px solid rgba(255,100,200,0.18)",padding:"16px 20px",display:"flex",alignItems:"center",gap:12,position:"sticky",top:0,zIndex:50,backdropFilter:"blur(12px)"}}>
+        <button onClick={onBack} style={{background:"none",border:"none",color:"rgba(255,180,220,0.5)",fontSize:22,cursor:"pointer"}}>←</button>
+        <div style={{fontSize:17,fontWeight:800}}>🏆 みんなのランキング</div>
+      </div>
+      <RankingTab casts={casts} myName="" />
+    </div>
+  );
+}
+
+// ─── Main App ───────────────────────────────────────
+function App() {
+  const [casts, setCasts] = useState(loadCasts);
+  const [screen, setScreen] = useState("select");
+  const [cast, setCast] = useState(null);
+  const [tab, setTab] = useState("home");
+  const [checked, setChecked] = useState({});
+  const [weekChecked, setWeekChecked] = useState({});
+  const [particles, setParticles] = useState([]);
+
+  const spawnParticles = () => {
+    const colors = ["#FF69B4","#FFD700","#00CED1","#A78BFA","#4ADE80"];
+    const ps = Array.from({length:8}, (_, i) => ({id:Date.now()+i, x:10+Math.random()*80, color:colors[Math.floor(Math.random()*colors.length)]}));
+    setParticles(ps);
+    setTimeout(() => setParticles([]), 1100);
+  };
+
+  if (screen === "adminLogin") return <AdminLogin onLogin={() => setScreen("admin")} onBack={() => setScreen("select")} />;
+  if (screen === "admin")      return <AdminPanel casts={casts} setCasts={setCasts} onBack={() => setScreen("select")} />;
+  if (screen === "pubranking") return <PublicRanking casts={casts} onBack={() => setScreen("select")} />;
+  if (screen === "pin" && cast) return <PinEntry cast={cast} onSuccess={() => { setTab("home"); setScreen("game"); }} onBack={() => { setCast(null); setScreen("select"); }} />;
+  if (screen === "select")     return <CastSelect casts={casts} onSelect={c => { setCast(c); setScreen("pin"); }} onAdminClick={() => setScreen("adminLogin")} onRankingClick={() => setScreen("pubranking")} />;
+
+  if (!cast) { setScreen("select"); return null; }
+  const rank = getILRank(cast.il);
+  const tabs = [
+    {id:"home",    icon:"🏠", label:"ホーム"},
+    {id:"mission", icon:"🎯", label:"ミッション"},
+    {id:"timer",   icon:"⏱",  label:"待機"},
+    {id:"learn",   icon:"📖", label:"まなび"},
+    {id:"ranking", icon:"🏆", label:"ランキング"},
+  ];
+
+  return (
+    <div style={{background:"linear-gradient(160deg,#0a0015,#1a0030,#0d0020)",minHeight:"100vh",paddingBottom:88}}>
+      {particles.map(p => <Particle key={p.id} x={p.x} color={p.color} />)}
+      <div style={{background:"rgba(10,0,21,0.85)",borderBottom:"1px solid rgba(255,100,200,0.18)",padding:"14px 20px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50,backdropFilter:"blur(12px)"}}>
+        <button onClick={() => { setCast(null); setChecked({}); setWeekChecked({}); setScreen("select"); }} style={{background:"none",border:"none",color:"rgba(255,180,220,0.5)",fontSize:22,cursor:"pointer",padding:"4px 8px 4px 0"}}>←</button>
+        <div style={{textAlign:"center"}}>
+          <div style={{fontSize:17,fontWeight:800}}>{cast.name}</div>
+          <div style={{fontSize:11,color:rank.color,fontWeight:600}}>{rank.name} IL{cast.il}点</div>
+        </div>
+        <div style={{fontSize:24}}>{cast.il >= 25 ? "🌟" : cast.il >= 15 ? "⭐" : "💫"}</div>
+      </div>
+      <div style={{overflowY:"auto",maxHeight:"calc(100vh - 140px)"}}>
+        {tab === "home"    && <HomeTab cast={cast} rank={rank} />}
+        {tab === "mission" && <MissionTab checked={checked} setChecked={setChecked} weekChecked={weekChecked} setWeekChecked={setWeekChecked} onCheck={spawnParticles} />}
+        {tab === "timer"   && <TimerTab checked={checked} cast={cast} />}
+        {tab === "learn"   && <LearnTab />}
+        {tab === "ranking" && <RankingTab casts={casts} myName={cast.name} />}
+        {tab === "tips"    && <TipsTab />}
+      </div>
+      <div style={{position:"fixed",bottom:0,left:0,right:0,background:"rgba(8,0,18,0.96)",borderTop:"1px solid rgba(255,100,200,0.18)",display:"flex",backdropFilter:"blur(12px)",zIndex:50}}>
+        {tabs.map(t => (
+          <button key={t.id} onClick={() => setTab(t.id)} className="btn-tap"
+            style={{flex:1,background:"none",border:"none",padding:"8px 2px 14px",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:2,position:"relative"}}>
+            {tab === t.id && <div style={{position:"absolute",top:0,left:"15%",right:"15%",height:2,background:"linear-gradient(90deg,#FF69B4,#FFD700)",borderRadius:2}} />}
+            <span style={{fontSize:19}}>{t.icon}</span>
+            <span style={{fontSize:9,color:tab === t.id ? "#FF69B4" : "rgba(255,180,220,0.35)",fontWeight:tab === t.id ? 700 : 400}}>{t.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>
