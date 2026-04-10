@@ -3,6 +3,11 @@
 .env.local
 .env-backup-dir/
 *.env
+# GCP / クラウド認証情報
+.sa_key.json
+**/.sa_key.json
+*-credentials.json
+*service-account*.json
 __pycache__/
 *.pyc
 debug_screenshot*.png
