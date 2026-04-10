@@ -1,256 +1,355 @@
 #!/bin/bash
-# 毎朝cronで実行: NOTE→X単発1本+画像カード の新パイプライン
-# 戦略: 結果ファースト(金) / 不変6軸テーマ / 読者主語 / 単発投稿 / X→NOTE導線
-# 朝9:05 → NOTE生成・投稿 + X単発1本目生成・投稿(画像付)
-# 夕18:05 → X単発2本目生成・投稿(朝のNOTE URL再利用、別角度)
+# NOYUTO X/NOTE 結果ファースト戦略 cron パイプライン
+# 戦略: テキスト=短いフック / カード画像=本体 / NOTE=金化
+# 朝7:15 = NOTE生成・投稿 + X単発1本目
+# 夜21:30 = X単発2本目（朝のNOTE URL再利用・別角度）
 
+set -u
 cd ~/projects/vonds
 
 LOGFILE=~/claude_cron_post.log
 OUTFILE=~/projects/vonds/daily_report.txt
 NOTE_URL_FILE=~/projects/vonds/daily_note_url.txt
+ALERT_FLAG=~/projects/vonds/cron_alert.flag
 DATE=$(date +%Y/%m/%d)
-TIME_SLOT="$1"  # "morning" or "evening"
+TIME_SLOT="${1:-morning}"
 
-if [ -z "$TIME_SLOT" ]; then
-    TIME_SLOT="morning"
+mkdir -p posts pending_notes assets/cards
+: > "$ALERT_FLAG"  # リセット
+
+log() { echo "[$(date +%H:%M:%S)] $*" >> "$LOGFILE"; }
+alert() { echo "$*" >> "$ALERT_FLAG"; log "ALERT: $*"; }
+
+log "=== $DATE [$TIME_SLOT] 実行開始 ==="
+
+# ============================================================
+# ステップ0: 環境チェック
+# ============================================================
+for f in assets/fonts/NotoSansJP-Bold.otf prompts/noyuto_persona.txt \
+         prompts/learned_patterns.txt prompts/competitor_exemplars.txt \
+         make_card.py approve_post.py post_note.py; do
+    if [ ! -f "$f" ]; then
+        alert "必須ファイル欠落: $f"
+    fi
+done
+
+if [ ! -f .env ]; then
+    alert ".env ファイル不在"
 fi
 
-echo "=== $DATE [$TIME_SLOT] 実行開始 ===" >> "$LOGFILE"
-
 # ============================================================
-# ステップ0: 前日エンゲージメント・NOTE遷移の参照用取得
-# ============================================================
-if [ "$TIME_SLOT" = "morning" ]; then
-    echo "[分析] エンゲージメント取得開始..." >> "$LOGFILE"
-    python3 track_engagement.py --update-weights >> "$LOGFILE" 2>&1 || echo "[警告] 分析スキップ" >> "$LOGFILE"
-fi
-
-# ============================================================
-# ステップ1: NOTE記事生成・投稿 (朝のみ)
+# ステップ1: 朝のみ NOTE生成・投稿
 # ============================================================
 NOTE_URL=""
+NOTE_THEME=""
+NOTE_TOPIC=""
+NOTE_TITLE=""
+
 if [ "$TIME_SLOT" = "morning" ]; then
-    echo "[NOTE] 生成開始..." >> "$LOGFILE"
+    log "[NOTE] 生成開始..."
 
-    NOTE_RESULT=$(/home/noyuto/.local/bin/claude --print "
-prompts/noyuto_persona.txt を読み込み、そのペルソナ定義と新戦略（2026-04-10刷新版）に厳密に従ってください。
+    NOTE_JSON=$(/home/noyuto/.local/bin/claude --print "
+prompts/noyuto_persona.txt と prompts/competitor_exemplars.txt を読み込んでから作業してください。
 
-【タスク】
-本日のテーマ軸を generate_post.py の THEME_TREE からローテーションで選び（直近3日と異なるカテゴリ）、
-そのテーマでNOTE記事を1本生成し、pending_notes/ に保存してください。
+【タスク】本日のNOTE記事を1本生成し、JSONのみを出力してください。
 
-【NOTE記事の要件】
-- 扱うテーマ: 健康 / 金 / 人間関係 / 家族 / 精神 / 理想 の6軸のみ
-- 文字数: 2,000〜3,500文字程度
-- 構造: 冒頭(問いの提示) → 本文(観察→具体→再観察) → 結語(メンバーシップ or 対話への自然な招待)
-- 主語は「あなた」「私たち」「多くの人」。NOYUTO個人史の前面化禁止
-- 原体験は構造の証明材料として1〜2箇所だけ
-- 結語に必ず『第3の視点・思考実験室』¥980/月メンバーシップへの招待を自然に織り込む
-- 安っぽい売り込み禁止。存在を示唆し読者の選択に委ねる
+【テーマ選定】
+generate_post.py の THEME_TREE（6軸: 健康/金/人間関係/家族/精神/理想）から、
+posts/post_history.jsonl の直近3件と異なるカテゴリを選び、その中からテーマを1つピックしてください。
+
+【記事要件】
+- 2,000〜3,500字
+- 主語は読者（あなた・私たち）、NOYUTO個人史禁止
+- 構造: 冒頭(問い) → 本文(観察→具体→再観察) → 結語（メンバーシップへの自然な招待）
+- 結語に必ず『第3の視点・思考実験室 ¥980/月』への自然な招待文
 - ## markdown見出しを使う
 - 読後感として『何かが変わりそう』を残す
-- タイトルは断定せず、読者の内面に問いを置く形式
+- タイトルは読者の内面に問いを置く形
 
-【保存】
-以下のPythonコードを生成して実行してください:
+【出力】
+以下のJSONのみを出力してください。余計な説明・markdownフェンス不要。生JSONのみ:
 
-\`\`\`python
-import json
+{
+  \"theme\": \"6軸のカテゴリ名\",
+  \"topic\": \"具体テーマ名\",
+  \"title\": \"記事タイトル\",
+  \"body\": \"記事本文全体（markdown）\"
+}
+" 2>>"$LOGFILE")
+
+    # JSON をファイルに保存（shell内での扱いを安定させる）
+    echo "$NOTE_JSON" > /tmp/note_gen.json
+
+    # Pythonで抽出・保存
+    python3 - <<'PYEOF' >> "$LOGFILE" 2>&1
+import json, re, sys
 from datetime import datetime
 from pathlib import Path
 
-title = '（ここに生成したタイトル）'
-body = '''（ここに生成した記事本文・markdown）'''
-theme = '（選んだテーマ軸: 健康/金/人間関係/家族/精神/理想）'
-topic = '（選んだ具体テーマ）'
+raw = open('/tmp/note_gen.json', encoding='utf-8').read()
+# JSONブロックを抽出（余計なmarkdown fence があっても拾う）
+m = re.search(r'\{[\s\S]*\}', raw)
+if not m:
+    print("ERROR: No JSON in NOTE generation output", file=sys.stderr)
+    sys.exit(2)
+try:
+    data = json.loads(m.group(0))
+except json.JSONDecodeError as e:
+    print(f"ERROR: Invalid JSON: {e}", file=sys.stderr)
+    sys.exit(2)
 
 ts = datetime.now().strftime('%Y%m%d_%H%M%S')
-pending = Path('pending_notes')
-pending.mkdir(exist_ok=True)
-filepath = pending / f'{ts}.json'
-with open(filepath, 'w', encoding='utf-8') as f:
-    json.dump({
-        'timestamp': datetime.now().isoformat(),
-        'title': title,
-        'body': body,
-        'theme': theme,
-        'topic': topic,
-        'status': 'pending',
-    }, f, ensure_ascii=False, indent=2)
-print(f'NOTE_SAVED:{filepath}')
-print(f'THEME:{theme}')
-print(f'TOPIC:{topic}')
-print(f'TITLE:{title}')
-\`\`\`
+path = Path('pending_notes') / f'{ts}.json'
+path.parent.mkdir(exist_ok=True)
+payload = {
+    'timestamp': datetime.now().isoformat(),
+    'title': data.get('title', ''),
+    'body': data.get('body', ''),
+    'theme': data.get('theme', ''),
+    'topic': data.get('topic', ''),
+    'status': 'pending',
+}
+path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
+print(f"NOTE_SAVED:{path}")
+print(f"NOTE_THEME:{data.get('theme','')}")
+print(f"NOTE_TOPIC:{data.get('topic','')}")
+print(f"NOTE_TITLE:{data.get('title','')}")
+Path('/tmp/note_meta.json').write_text(json.dumps({
+    'theme': data.get('theme',''),
+    'topic': data.get('topic',''),
+    'title': data.get('title',''),
+}, ensure_ascii=False), encoding='utf-8')
+PYEOF
 
-実行後、保存ファイルパス・テーマ・タイトルを出力してください。
-" 2>>"$LOGFILE")
+    NOTE_STEP=$?
+    if [ $NOTE_STEP -ne 0 ]; then
+        alert "NOTE生成失敗（JSON parse error）"
+    else
+        NOTE_THEME=$(python3 -c "import json; print(json.load(open('/tmp/note_meta.json')).get('theme',''))" 2>/dev/null)
+        NOTE_TOPIC=$(python3 -c "import json; print(json.load(open('/tmp/note_meta.json')).get('topic',''))" 2>/dev/null)
+        NOTE_TITLE=$(python3 -c "import json; print(json.load(open('/tmp/note_meta.json')).get('title',''))" 2>/dev/null)
 
-    echo "$NOTE_RESULT" >> "$LOGFILE"
-    NOTE_TOPIC=$(echo "$NOTE_RESULT" | grep '^TOPIC:' | sed 's/^TOPIC://' | head -1)
-    NOTE_THEME=$(echo "$NOTE_RESULT" | grep '^THEME:' | sed 's/^THEME://' | head -1)
-    NOTE_TITLE=$(echo "$NOTE_RESULT" | grep '^TITLE:' | sed 's/^TITLE://' | head -1)
+        log "[NOTE] 投稿開始..."
+        NOTE_POST_OUT=$(python3 post_note.py 2>&1)
+        echo "$NOTE_POST_OUT" >> "$LOGFILE"
 
-    echo "[NOTE] 投稿開始..." >> "$LOGFILE"
-    NOTE_POST_OUTPUT=$(python3 post_note.py 2>&1)
-    echo "$NOTE_POST_OUTPUT" >> "$LOGFILE"
-
-    # NOTE URLを抽出
-    NOTE_URL=$(echo "$NOTE_POST_OUTPUT" | grep -oE 'https://[^/]*note\.com/[^[:space:]]+' | tail -1)
-    if [ -z "$NOTE_URL" ]; then
-        NOTE_URL=$(echo "$NOTE_POST_OUTPUT" | grep -oE 'https://editor\.note\.com/notes/[a-zA-Z0-9]+' | tail -1 | sed 's|/publish/||; s|editor\.note\.com/notes|note\.com/noyuto/n|')
-    fi
-    if [ -n "$NOTE_URL" ]; then
-        echo "$NOTE_URL" > "$NOTE_URL_FILE"
-        echo "[NOTE] URL保存: $NOTE_URL" >> "$LOGFILE"
+        NOTE_URL=$(echo "$NOTE_POST_OUT" | grep -oE 'https://editor\.note\.com/notes/[a-zA-Z0-9]+' | tail -1 | sed 's|editor\.note\.com/notes|note\.com/noyuto/n|; s|/publish/||')
+        if [ -z "$NOTE_URL" ]; then
+            NOTE_URL=$(echo "$NOTE_POST_OUT" | grep -oE 'https://note\.com/[^[:space:]]+' | tail -1)
+        fi
+        if [ -n "$NOTE_URL" ]; then
+            echo "$NOTE_URL" > "$NOTE_URL_FILE"
+            log "[NOTE] URL保存: $NOTE_URL"
+        else
+            alert "NOTE投稿URLの取得に失敗"
+        fi
     fi
 else
-    # 夕方実行: 朝のNOTE URLを再利用
+    # 夜の実行: 朝のNOTE URLを再利用
     if [ -f "$NOTE_URL_FILE" ]; then
         NOTE_URL=$(cat "$NOTE_URL_FILE")
-        echo "[NOTE] 朝のURLを再利用: $NOTE_URL" >> "$LOGFILE"
+        log "[NOTE] 朝のURL再利用: $NOTE_URL"
+    else
+        alert "朝のNOTE URLがない（朝の実行が失敗した可能性）"
     fi
-    NOTE_THEME=""
-    NOTE_TOPIC=""
-    NOTE_TITLE=""
+    if [ -f /tmp/note_meta.json ]; then
+        NOTE_THEME=$(python3 -c "import json; print(json.load(open('/tmp/note_meta.json')).get('theme',''))" 2>/dev/null)
+        NOTE_TOPIC=$(python3 -c "import json; print(json.load(open('/tmp/note_meta.json')).get('topic',''))" 2>/dev/null)
+        NOTE_TITLE=$(python3 -c "import json; print(json.load(open('/tmp/note_meta.json')).get('title',''))" 2>/dev/null)
+    fi
 fi
 
 # ============================================================
-# ステップ2: X単発投稿 生成（新フォーマット：1投稿完結・100〜180字・読者主語・NOTE誘導）
+# ステップ2: X単発投稿生成
 # ============================================================
-echo "[X] 単発投稿生成開始 [$TIME_SLOT]..." >> "$LOGFILE"
+log "[X] 生成開始 [$TIME_SLOT]..."
 
-ANGLE_HINT=""
 if [ "$TIME_SLOT" = "morning" ]; then
-    ANGLE_HINT="朝(通勤前・出勤前)に読まれる想定。1日を始める前の静かな問い。"
+    ANGLE="朝7時台・通勤前の静かな時間に読まれる想定。一日を始める前の小さな問い。"
 else
-    ANGLE_HINT="夕方〜夜(帰宅前後)に読まれる想定。1日を振り返る静かな問い。朝の投稿と同じテーマ軸だが切り口を変える。"
+    ANGLE="夜21時台・就寝前の静かな時間に読まれる想定。一日を振り返る静かな問い。朝と同じテーマ軸だが別角度。"
 fi
 
-X_POST=$(/home/noyuto/.local/bin/claude --print "
-prompts/noyuto_persona.txt と prompts/learned_patterns.txt を両方読み込み、
-2026-04-10刷新版の新ルールに厳密に従ってX単発投稿を1本生成してください。
+X_JSON=$(/home/noyuto/.local/bin/claude --print "
+prompts/noyuto_persona.txt と prompts/competitor_exemplars.txt と prompts/learned_patterns.txt の3ファイルを読み込んでから作業してください。
 
 【今日のNOTE情報】
-- テーマ: $NOTE_THEME
+- テーマ軸: $NOTE_THEME
 - 具体テーマ: $NOTE_TOPIC
 - NOTE記事タイトル: $NOTE_TITLE
 - NOTE URL: $NOTE_URL
 
 【角度】
-$ANGLE_HINT
+$ANGLE
 
-【X単発投稿の要件（絶対）】
-- 形式: 単発1ポスト（スレッド不可・フックだけの投稿禁止）
-- 文字数: 本文120〜180字 + NOTE導線1文 + URL 1本（合計200〜260字以内）
-- 構造: 【観察】2〜3文 + 【問い】1文 + 【NOTE導線】1文 + URL
-- 主語は『あなた』『私たち』『多くの人』。NOYUTO個人史禁止
-- 『〜だ』『〜である』の断定口調禁止。敬語(です・ます調)
-- 説教・上から目線・攻撃的フレーミング禁止
-- 『続きはnoteで』『詳しくはnoteで』禁止
-- 絵文字禁止。ハッシュタグは最大1個(思想の旗印として)
-- 学習済みパターン(learned_patterns.txt)から『対比型』『常識破壊型』『パンチライン着地』のいずれかの構造を取り入れる
-- 改行: 1〜2文ごとに空行。壁テキスト禁止
-- 読後に読者が『自分のことだ』『もう少し深く読みたい』と感じる
+【タスク】X単発投稿を1本生成し、JSONのみを出力してください。
 
-【NOTE導線の文面パターン(どれか1つ選ぶ)】
+【戦略ポイント（競合分析の結論）】
+- X本文テキスト(text)は50〜90字の短いフック
+- カード画像本体(card_text)は150〜250字の構造化された本体
+- card_text には以下3形式のどれかを選ぶ:
+  * observation: 4〜6文の静かな観察（精神・理想・家族軸に向く）
+  * list: 『・』で始まる5〜8項目の箇条書き+タイトル1行（人間関係・金・健康に向く・保存率最高）
+  * contrast: ❌やりがち ⭕正解 の2カラム対比（人間関係・精神・家族に向く・拡散最強）
+- 偉そうな断定禁止。読者主語。敬語。
+
+【X本文(text)の例】
+- 朝: 眠れない夜を『気のせい』で片付けて、もう10年。その沈黙の代償を、見たことがありますか。
+- 夜: 人が離れていく人には、共通点があります。気づかない本人ほど、その輪の外に立っています。
+
+【NOTE導線（text末尾に1行必須、以下から1つ）】
 - その答えを、今日のnoteに置いておきました。
 - 同じことを、noteにもう少し深く書いています。
 - この問いの先は、noteにあります。
 - 続きは、今日のnoteに。
 
-【出力フォーマット】
-TOPIC: 具体テーマ名
-THEME: 6軸カテゴリ名
-POST:
-（X投稿本文ここに。NOTE導線文とURLも含めた完成形）
+【X本文の最終構造】
+(フック50〜90字)
 
-【保存】
-以下のPythonコードで posts/ に保存してください:
+(NOTE導線1文)
+(NOTE URL)
 
-\`\`\`python
-import json
-from datetime import datetime
-from pathlib import Path
-import subprocess
+全体で200〜280字以内に収める。
 
-text = '''（上で生成したPOST本文全体、URL含む）'''
-topic = '（上のTOPIC）'
-theme = '（上のTHEME）'
+【出力（生JSONのみ、markdown fence不要）】
 
-ts = datetime.now().strftime('%Y%m%d_%H%M%S')
-filepath = Path('posts') / f'{ts}.json'
-filepath.parent.mkdir(exist_ok=True)
-
-# カード画像生成
-card_path = Path('assets/cards') / f'{ts}.png'
-card_path.parent.mkdir(parents=True, exist_ok=True)
-result = subprocess.run(['python3', 'make_card.py', text, '-o', str(card_path), '-t', theme],
-                        capture_output=True, text=True)
-media_path = str(card_path) if card_path.exists() else None
-
-with open(filepath, 'w', encoding='utf-8') as f:
-    json.dump({
-        'timestamp': datetime.now().isoformat(),
-        'text': text,
-        'topic': topic,
-        'theme': theme,
-        'status': 'pending',
-        'media_path': media_path,
-        'slot': '$TIME_SLOT',
-    }, f, ensure_ascii=False, indent=2)
-print(f'POST_SAVED:{filepath}')
-print(f'CARD:{media_path}')
-print(f'LEN:{len(text)}')
-\`\`\`
+{
+  \"theme\": \"6軸カテゴリ名\",
+  \"topic\": \"具体テーマ\",
+  \"text\": \"X本文完成形（フック+導線+URL）\",
+  \"card_text\": \"カード画像に載せる本体テキスト150〜250字\",
+  \"card_template\": \"observation or list or contrast\"
+}
 " 2>>"$LOGFILE")
 
-echo "$X_POST" >> "$LOGFILE"
+echo "$X_JSON" > /tmp/x_gen.json
 
-# ============================================================
-# ステップ3: X単発投稿 実行（latest pending を1本だけ投稿）
-# ============================================================
-echo "[X] 自動投稿実行..." >> "$LOGFILE"
-if python3 approve_post.py --auto >> "$LOGFILE" 2>&1; then
-    echo "[X] 投稿完了 [$TIME_SLOT]" >> "$LOGFILE"
-else
-    echo "[X] 投稿失敗 [$TIME_SLOT]（APIキー or pending 要確認）" >> "$LOGFILE"
+python3 - "$TIME_SLOT" <<'PYEOF' >> "$LOGFILE" 2>&1
+import json, re, sys, subprocess
+from datetime import datetime
+from pathlib import Path
+
+slot = sys.argv[1]
+raw = open('/tmp/x_gen.json', encoding='utf-8').read()
+m = re.search(r'\{[\s\S]*\}', raw)
+if not m:
+    print("ERROR: No JSON in X generation output", file=sys.stderr)
+    sys.exit(2)
+try:
+    data = json.loads(m.group(0))
+except json.JSONDecodeError as e:
+    print(f"ERROR: Invalid JSON in X: {e}", file=sys.stderr)
+    sys.exit(2)
+
+text = data.get('text', '').strip()
+card_text = data.get('card_text', '').strip()
+theme = data.get('theme', '')
+topic = data.get('topic', '')
+template = data.get('card_template', 'auto')
+
+if not text or not card_text:
+    print("ERROR: text or card_text is empty", file=sys.stderr)
+    sys.exit(2)
+
+if len(text) > 280:
+    print(f"WARNING: text is {len(text)} chars, truncating", file=sys.stderr)
+    text = text[:275] + "..."
+
+ts = datetime.now().strftime('%Y%m%d_%H%M%S')
+post_path = Path('posts') / f'{ts}.json'
+card_path = Path('assets/cards') / f'{ts}.png'
+
+# カード生成
+result = subprocess.run(
+    ['python3', 'make_card.py', card_text, '-o', str(card_path),
+     '-t', theme, '--template', template],
+    capture_output=True, text=True
+)
+print("card stdout:", result.stdout.strip())
+if result.stderr:
+    print("card stderr:", result.stderr.strip())
+
+media_path = str(card_path) if card_path.exists() else None
+
+post_path.write_text(json.dumps({
+    'timestamp': datetime.now().isoformat(),
+    'text': text,
+    'card_text': card_text,
+    'topic': topic,
+    'theme': theme,
+    'status': 'pending',
+    'media_path': media_path,
+    'slot': slot,
+    'strategy_version': '2026-04-10-v2',
+}, ensure_ascii=False, indent=2), encoding='utf-8')
+print(f"POST_SAVED:{post_path}")
+print(f"TEXT_LEN:{len(text)}")
+print(f"CARD_LEN:{len(card_text)}")
+print(f"MEDIA:{media_path}")
+PYEOF
+
+X_GEN_STEP=$?
+if [ $X_GEN_STEP -ne 0 ]; then
+    alert "X投稿生成失敗（JSON parse or card error）"
 fi
 
 # ============================================================
-# ステップ4: 日報送信 (朝のみ)
+# ステップ3: X自動投稿
+# ============================================================
+log "[X] 自動投稿実行..."
+if python3 approve_post.py --auto >> "$LOGFILE" 2>&1; then
+    log "[X] 投稿完了 [$TIME_SLOT]"
+else
+    alert "X投稿APIエラー（APIキー・レート上限・ネット環境を確認）"
+fi
+
+# ============================================================
+# ステップ4: フォロワー数トラッキング（朝のみ）
 # ============================================================
 if [ "$TIME_SLOT" = "morning" ]; then
+    if [ -f track_followers.py ]; then
+        python3 track_followers.py >> "$LOGFILE" 2>&1 || log "[warn] フォロワー追跡スキップ"
+    fi
+fi
+
+# ============================================================
+# ステップ5: 日報送信（朝のみ）+ アラート通知
+# ============================================================
+if [ "$TIME_SLOT" = "morning" ]; then
+    ALERT_MSG=""
+    if [ -s "$ALERT_FLAG" ]; then
+        ALERT_MSG=$(cat "$ALERT_FLAG")
+    fi
+
     cat > "$OUTFILE" << REPORT_EOF
 ━━━━━━━━━━━━━━━━━━
-【NOYUTO日報】$DATE
+【NOYUTO日報】$DATE 朝
 ━━━━━━━━━━━━━━━━━━
 
-■ 本日のテーマ軸
-$NOTE_THEME
+■ 本日のテーマ
+$NOTE_THEME / $NOTE_TOPIC
 
 ■ 本日のNOTE記事
-タイトル: $NOTE_TITLE
-URL: $NOTE_URL
-
-■ 本日のX単発投稿（朝）
-$X_POST
+$NOTE_TITLE
+$NOTE_URL
 
 ■ 戦略状況
 - 結果ファースト(金)KPI稼働中
 - 不変6軸テーマ限定
-- 単発1投稿×1日2本(朝・夕)
-- 画像カード自動添付
-- NOTE誘導必須
+- 単発1投稿×1日2本(朝7:15・夜21:30)
+- 画像カード自動添付（テキスト=フック / 画像=本体）
+- 競合分析exemplar反映済み
 
-次の実行: 本日18:05 (X単発2本目・同じNOTE URLで別角度)
+■ アラート
+${ALERT_MSG:-なし}
+
+次の実行: 本日21:30 (X単発2本目・別角度)
 REPORT_EOF
 
     python3 send_gmail.py \
         --to office.vonds@gmail.com \
-        --subject "【NOYUTO日報】$DATE 朝の投稿完了" \
-        --body-file "$OUTFILE" >> "$LOGFILE" 2>&1 || echo "[Gmail] 送信失敗" >> "$LOGFILE"
+        --subject "【NOYUTO日報】$DATE 朝 ${ALERT_MSG:+【要確認】}" \
+        --body-file "$OUTFILE" >> "$LOGFILE" 2>&1 || log "[Gmail] 送信失敗"
 fi
 
-echo "=== $DATE [$TIME_SLOT] 実行完了 ===" >> "$LOGFILE"
+log "=== $DATE [$TIME_SLOT] 実行完了 ==="
