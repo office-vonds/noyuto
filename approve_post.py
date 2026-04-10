@@ -20,9 +20,8 @@ BASE_DIR = Path(__file__).parent
 POSTS_DIR = BASE_DIR / "posts"
 
 
-def get_x_client() -> tweepy.Client:
+def _load_x_keys() -> dict:
     load_dotenv(BASE_DIR / ".env")
-
     required_keys = [
         "X_API_KEY",
         "X_API_SECRET",
@@ -36,13 +35,29 @@ def get_x_client() -> tweepy.Client:
             print(f"エラー: {key}が.envに設定されていません")
             sys.exit(1)
         keys[key] = value
+    return keys
 
+
+def get_x_client() -> tweepy.Client:
+    keys = _load_x_keys()
     return tweepy.Client(
         consumer_key=keys["X_API_KEY"],
         consumer_secret=keys["X_API_SECRET"],
         access_token=keys["X_ACCESS_TOKEN"],
         access_token_secret=keys["X_ACCESS_TOKEN_SECRET"],
     )
+
+
+def get_x_api_v1() -> tweepy.API:
+    """v1.1 API (media_upload用)。v2は画像アップロードをサポートしないため必須。"""
+    keys = _load_x_keys()
+    auth = tweepy.OAuth1UserHandler(
+        keys["X_API_KEY"],
+        keys["X_API_SECRET"],
+        keys["X_ACCESS_TOKEN"],
+        keys["X_ACCESS_TOKEN_SECRET"],
+    )
+    return tweepy.API(auth)
 
 
 def get_pending_posts() -> list[tuple[Path, dict]]:
@@ -58,10 +73,23 @@ def get_pending_posts() -> list[tuple[Path, dict]]:
     return posts
 
 
-def post_to_x(client: tweepy.Client, text: str, reply_to: str | None = None) -> str:
+def post_to_x(client: tweepy.Client, text: str, reply_to: str | None = None,
+              media_path: str | None = None) -> str:
     kwargs = {"text": text}
     if reply_to:
         kwargs["in_reply_to_tweet_id"] = reply_to
+    if media_path:
+        media_file = Path(media_path)
+        if media_file.exists():
+            try:
+                api_v1 = get_x_api_v1()
+                media = api_v1.media_upload(filename=str(media_file))
+                kwargs["media_ids"] = [media.media_id_string]
+                print(f"  画像アップロード成功: {media_file.name}")
+            except Exception as e:
+                print(f"  [警告] 画像アップロード失敗、テキストのみで投稿継続: {e}")
+        else:
+            print(f"  [警告] 画像ファイルが見つかりません: {media_path}")
     response = client.create_tweet(**kwargs)
     return response.data["id"]
 
@@ -118,14 +146,14 @@ def thread_mode(posts: list[tuple[Path, dict]]):
 
 
 def auto_mode(posts: list[tuple[Path, dict]], latest_only: bool = True):
-    """承認不要で自動投稿する。"""
+    """承認不要で自動投稿する。投稿JSONに media_path があれば画像を添付する。"""
     targets = [posts[-1]] if latest_only else posts
     client = get_x_client()
 
     for filepath, data in targets:
         print(f"自動投稿中: {data['text'][:50]}...")
         try:
-            tweet_id = post_to_x(client, data["text"])
+            tweet_id = post_to_x(client, data["text"], media_path=data.get("media_path"))
             update_post_status(filepath, tweet_id)
             print(f"投稿完了 (tweet_id: {tweet_id})")
         except tweepy.TweepyException as e:
