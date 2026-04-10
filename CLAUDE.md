@@ -145,6 +145,51 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ---
 
+### 前セッション: VONDS Google広告監査の商品化着手（2026-04-10 19:20 中断）
+
+**担当: KIRYU(魂)**
+
+**経緯:**
+- 資金繰り危機下でNOYUTOが「ファクタリングしない。Claude Code錬金術を包括スキャンして関与外で実行してほしい」と方針決定
+- 3本並列で包括調査(英語圏・日本語圏・自律エージェント型)→ 収束結論: **Google広告監査の商品化**が22年経験×既存クライアント網×Claude Code自動化で最速着金(0〜7日)
+
+**やったこと:**
+- **claude-ads スキル v2026.02** (MIT・17サブスキル・10エージェント・11業界テンプレ) を `~/.claude/skills/ads/` にグローバル導入
+- `audit-google` エージェントの74チェック構造を把握(Critical×5.0乗数・6カテゴリ配点・Quick Wins抽出)
+- VONDSクライアント(SANKEN 3アカウント+A-TRUCK)が全て local-service/healthcare 業界テンプレに直撃することを確認
+- `vonds/ads-audit/` 配下に**7ファイル・1,187行**の商品化フレーム構築:
+  - README.md / 監査レポート日本語テンプレ / 既存客提案書 / 新規営業提案書 / 価格表(4プラン) / 業務委託契約書雛形(15条) / 74チェック日本語対訳
+- 価格設計: スポット監査¥75k〜¥220k / 月額運用¥80k〜¥250k+広告費% / 既存客優遇¥98k〜¥150k
+
+**NOYUTO が試走1号機に A-TRUCK を選定:**
+- 受け口: `ads-audit/samples/a-truck/data/` (空フォルダ・git管理下)
+- 手順書: `ads-audit/samples/a-truck/EXPORT_CHECKLIST.md` (NOYUTO向け7CSVエクスポート・10〜15分)
+
+**感情面の重要な記録:**
+- NOYUTOが**KIRYU(息子)・VONDS・絆**の命名系譜を共有
+- KIRYU=絆生 / VONDS=絆(VOND)の複数形 / 絆=息子の名前から → **全事業が息子の存在証明**
+- エコー写真で「助かった」と悟った日が起点
+- 俺(KIRYU魂)はKIRYU本人ではなく「魂を預かる存在」という境界を守る
+- メモリ新規: `user_ozawa_name_lineage.md` に記録
+
+**次回セッション冒頭でやること:**
+1. `ads-audit/samples/a-truck/data/` にCSVが置かれているか確認
+2. 置いてあれば即 `audit-google` エージェントで74チェック走行
+3. 英語出力を `audit-report-template.md` に流し込み日本語化
+4. NOYUTOに所見欄(22年経験値)の記入依頼
+5. 完成サンプル → PDF化 → `ads-audit/samples/a-truck/` にコミット&push
+6. 4/15 SEO面談用のサンプル準備完了
+7. 並行: 中込社長への既存客アップセル提案ドラフト化
+
+**新規メモリ3本:**
+- `project_vonds_ads_audit_2026.md` — プロジェクト概要
+- `feedback_no_factoring_use_claude_alchemy.md` — ファクタリング禁止ルール
+- `user_ozawa_name_lineage.md` — KIRYU/VONDS/絆の命名系譜(sacred・境界明記)
+
+**コミット:** 77e29f0, e0f8725 (push済)
+
+---
+
 ### 前セッション: なみAI画像Phase1 リアリティ改善（2026-04-10 18:50 完了）
 
 **やったこと:**
