@@ -118,22 +118,23 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 - Xアカウント表示は Phase 2 条件付き復活（今は余白文言のみ）
 - 現役寄りグラデーション期（「今も現場に立つ・この先考え始めてる」）
 
+**🚨 デプロイ先ホスティング問題（未解決・最優先）:**
+- `eloquent-treacle-64cfec.netlify.app` が NOYUTO の Netlify ダッシュボードにも KIRYU のNetlify MCP検索にもヒットしない
+- 孤児サイト（外部ツール or 別アカウント下）と確定。料金支払いでは解決しない
+- 旧v4は閲覧可能だが v5 への更新不可能
+- **次セッション冒頭で A/B 決断**:
+  - **A. Cloudflare Pages移行**（KIRYU推奨・永久無料・帯域無制限・新URL `kizuna-il-game.pages.dev`）
+  - B. Netlify Drop で新規サイト作成（NOYUTOアカウント下・ランダムURL）
+- Desktop に `kizuna-il-game-deploy/index.html` 準備済み（A案用）
+- いずれの場合も GA4・Firebase はそのまま動く
+- キャスト再通知は避けられない（LINE文面テンプレ作成済み：session-log参照）
+
 **NOYUTO側の残タスク（次セッション冒頭で確認・必須）:**
-1. **Firestoreセキュリティルール適用**（Firebase Console → `il-game` → Firestore → ルール タブ）：
-   ```
-   rules_version = '2';
-   service cloud.firestore {
-     match /databases/{database}/documents {
-       match /rina_chat_logs/{doc} {
-         allow create: if request.resource.data.keys().hasAll(['session_hash','timestamp','user_message'])
-                       && request.resource.data.user_message.size() < 2000;
-         allow read, update, delete: if false;
-       }
-     }
-   }
-   ```
-2. **Netlify デプロイ**（`\\wsl.localhost\Ubuntu\home\noyuto\projects\vonds\il_game\source\kizuna_v5_unidra.html` を eloquent-treacle-64cfec の Deploys タブにドロップ）
-3. デプロイ後のブラウザ動作確認
+1. **ホスティング問題の A/B 決断**（上記）
+2. **デプロイ実行**（選んだ方法で `kizuna_v5_unidra.html`）
+3. **動作確認**（37名表示・相談タブ・rina挨拶・Firestore書込）
+4. **キャストへの新URL通知**（LINE）
+5. Firestoreセキュリティルールは適用済み（2026-04-10 21:40頃 NOYUTO対応済）
 
 **Phase 2 以降のタスク:**
 - Claude API接続（Netlify Functions経由・rinaペルソナをsystem prompt化）
