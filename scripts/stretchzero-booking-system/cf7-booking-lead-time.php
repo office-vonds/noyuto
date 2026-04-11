@@ -27,6 +27,7 @@ add_action('wp_footer', function () {
 <script>
 (function () {
   var LEAD_HOURS = <?php echo $lead; ?>;
+  var originalOptions = {};
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
   function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
@@ -37,8 +38,46 @@ add_action('wp_footer', function () {
     return d;
   }
 
+  function snapshotOriginal(timeEl, key) {
+    if (originalOptions[key]) return;
+    var list = [];
+    Array.prototype.forEach.call(timeEl.options, function (opt) {
+      list.push({ value: opt.value, label: opt.textContent });
+    });
+    originalOptions[key] = list;
+  }
+
+  function rebuild(timeEl, key, basisDate, minDate, minYmd) {
+    var prev = timeEl.value;
+    while (timeEl.firstChild) timeEl.removeChild(timeEl.firstChild);
+
+    originalOptions[key].forEach(function (item) {
+      var isPlaceholder = !item.value || item.value === '時間を選択';
+      var keep = true;
+
+      if (!isPlaceholder) {
+        if (basisDate < minYmd) {
+          keep = false;
+        } else if (basisDate === minYmd) {
+          var parts = item.value.split(':');
+          var optDate = new Date(basisDate + 'T' + pad(parts[0]) + ':' + pad(parts[1]) + ':00');
+          keep = optDate.getTime() >= minDate.getTime();
+        }
+      }
+
+      if (keep) {
+        var opt = document.createElement('option');
+        opt.value = item.value;
+        opt.textContent = item.label;
+        timeEl.appendChild(opt);
+      }
+    });
+
+    var canRestore = Array.prototype.some.call(timeEl.options, function (o) { return o.value === prev; });
+    timeEl.value = canRestore ? prev : (timeEl.options[0] ? timeEl.options[0].value : '');
+  }
+
   function applyConstraints() {
-    var now = new Date();
     var min = earliest();
     var minYmd = ymd(min);
 
@@ -50,26 +89,9 @@ add_action('wp_footer', function () {
       dateEl.min = minYmd;
       dateEl.setAttribute('min', minYmd);
 
-      var selectedDate = dateEl.value;
-      var basisDate = selectedDate || minYmd;
-
-      Array.prototype.forEach.call(timeEl.options, function (opt) {
-        if (!opt.value || opt.value === '時間を選択') { opt.disabled = false; return; }
-
-        if (basisDate < minYmd) {
-          opt.disabled = true;
-        } else if (basisDate === minYmd) {
-          var parts = opt.value.split(':');
-          var optDate = new Date(basisDate + 'T' + pad(parts[0]) + ':' + pad(parts[1]) + ':00');
-          opt.disabled = optDate.getTime() < min.getTime();
-        } else {
-          opt.disabled = false;
-        }
-      });
-
-      if (timeEl.selectedOptions[0] && timeEl.selectedOptions[0].disabled) {
-        timeEl.value = '時間を選択';
-      }
+      snapshotOriginal(timeEl, n);
+      var basisDate = dateEl.value || minYmd;
+      rebuild(timeEl, n, basisDate, min, minYmd);
     });
   }
 
@@ -80,11 +102,17 @@ add_action('wp_footer', function () {
     });
   }
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function init() {
     bind();
     applyConstraints();
     setInterval(applyConstraints, 60 * 1000);
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
 </script>
     <?php
