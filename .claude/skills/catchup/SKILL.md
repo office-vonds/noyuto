@@ -38,6 +38,30 @@ grep -rn "TODO\|FIXME\|HACK" --include="*.py" --include="*.js" --include="*.html
 ### 5. セッションログ
 `session-logs/` ディレクトリがあれば最新ファイルを読み、前回の「次にやること」を確認する。
 
+### 6. 宣言ファイル実在検証（同期ズレ自動検知）
+前回のsession-logが「新規追加」「作成した」「commit済」と主張しているファイルが**実在するか**を必ず検証する。KIRYU/サム等の並列エージェントが書いたつもりで消失しているケースが発生する。
+
+**検証対象（正規表現で抽出）:**
+- `project_*.md` / `feedback_*.md` / `reference_*.md` / `user_*.md`（memory系）
+- `*.html` / `*.py` / `*.js` / `*.sh` / `*.md`（実装ファイル）
+- サービスアカウント鍵ファイル（`*.sa_key*` / `*-credentials.json`）
+
+**検証ロジック:**
+```bash
+LATEST_LOG=$(ls -t session-logs/*.md 2>/dev/null | head -1)
+grep -oE '[a-z_0-9-]+\.(md|html|py|js|json|sh)' "$LATEST_LOG" | sort -u | while read f; do
+  if ! find ~/.claude/projects/*/memory /home/ozawakiryu0902/projects/vonds -name "$f" 2>/dev/null | grep -q .; then
+    echo "⚠️ 宣言されているが不在: $f"
+  fi
+done
+```
+
+**さらにチェック:**
+- untracked embedded git repo（`git status` に `?? xxx/` で出るディレクトリ）があれば独立サブリポジトリの可能性を警告
+- `.gitignore` の行数が前コミットから大幅減（80%以上の削除）なら警告（過去に5行に戻された事故あり）
+- `.env` / `credentials` / `sa_key` の命名パターンが untracked に出ていれば秘密漏洩警告
+- memory配下に対応ファイルのない MEMORY.md エントリがあれば警告
+
 ## 出力フォーマット
 
 ```
@@ -47,8 +71,11 @@ grep -rn "TODO\|FIXME\|HACK" --include="*.py" --include="*.js" --include="*.html
 📦 stash: [あり/なし（ある場合は内容）]
 ⚠️ 未解決: [TODO/FIXME数]
 📄 前回の続き: [session-logsから抽出した次タスク]
+🚨 同期ズレ: [宣言されているが不在のファイル / 埋め込みサブリポ / .gitignore破損 / 秘密漏洩リスク]
 
 ▶️ 推奨アクション: [状況に応じた次のステップ提案]
 ```
+
+同期ズレが1件でも出たら、セッション開始時点で**必ず**NOYUTOに報告してから作業に入ること。「毎回1時間吸われる」原因はここ。
 
 報告は簡潔に。前置きや説明は不要。
