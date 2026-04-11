@@ -3,7 +3,7 @@
 - **担当**: Claude Opus 4.6
 - **クライアント**: 株式会社A-TRUCK (https://www.a-truck.jp/)
 - **サーバー**: svw06.server-can.net (Plesk + nginx + PHP 7.4.33)
-- **状態**: **5分タイマー待機中**（.user.ini による opcache 自動リロード待ち）
+- **状態**: **A-TRUCK クライアントへの PHP-FPM 再起動依頼メール待ち**（本日作業完了）
 
 ## 発見の経緯（時系列）
 
@@ -157,3 +157,72 @@ Plesk管理パネル経由:
 3. **PHP設定** or **ホスティング設定**
 4. PHP バージョン 7.4.33 の **「適用」**ボタン
 5. それでも効かなければ PHP バージョンを **7.4 → 8.0 → 7.4** に往復（要互換性確認）
+
+---
+
+## Phase 9: 5分待機結果（2026-04-11 18:36頃）
+
+- **結果: 変化なし**（LocalBusiness=0・opcache依然古いまま）
+- `.user.ini` の `user_ini.cache_ttl=300秒` が効いていないか、Plesk設定で `.user.ini` 読込が無効化されている
+
+## Phase 10: Plesk A案試行（PHP設定「適用」ボタン）
+
+- NOYUTO が Plesk管理画面 → PHP設定 → 「適用」クリック
+- **結果: 変化なし**（同様に opcache 古いまま）
+- Plesk の「適用」ボタンは**設定変更が無いと PHP-FPM reload しない**仕様
+
+## Phase 11: 核心発見（PHPバージョンと権限）
+
+Plesk PHP 設定画面から新発見:
+
+1. **PHPバージョン = 8.4.19**（メモリ上の「7.4.33」情報は古い）
+2. **opcache.enable = on**（デフォルト）
+3. **disable_functions = opcache_get_status**（opcache関数がサーバーレベル無効化）
+4. **pm.max_requests = 0**（ワーカー永続・再起動なし）
+5. **NOYUTO権限で PHP設定変更不可**（画面表示はできるがクリックしても編集できない）
+6. Plesk ヘルプ文書記載: 「契約の設定次第で管理できない可能性あり」
+
+**結論**: **jhuv52pz アカウントのPlesk契約レベルでPHP設定変更権限が無い**。FTP経由では opcache をリセットする手段が完全に尽きた。
+
+## Phase 12: A-TRUCKクライアントへの依頼方針へ切替（最終）
+
+### 実行した最終クリーンアップ
+- `/httpdocs/wp/.user.ini` 削除（効かず担当者混乱の元）
+- `/wp-content/mu-plugins/` 削除済み
+- `/wp-content/plugins/atruck-*` 削除済み
+- `/wp-content/uploads/atruck-verify.txt` 削除済み
+- **残した**: `functions.php`（修正版・parse error 解消・29,407 bytes）
+- **残した**: `functions.php.bak-20260411-before-fix`（29,411 bytes）
+
+### 依頼メール文案作成
+`seo/a-truck-php-fpm-restart-request.md` にフル版・短縮版を記載
+
+### NOYUTO側タスク
+1. A-TRUCKサーバー管理者にメール送信
+2. 返信・再起動実施後、俺に「再起動された」と連絡
+3. 俺が即 curl 検証実行
+
+### 先方の作業後の期待結果
+PHP-FPM 再起動後、新しい functions.php の atruck_* 8関数が発火し:
+- LocalBusinessスキーマ全10拠点分出力
+- Serviceスキーマ3本出力
+- FAQPageスキーマ出力
+- AIOSEO title/description補完効果発現
+
+---
+
+## 現在の本番サーバー状態（メール送信前スナップショット）
+
+```
+/httpdocs/wp/wp-content/themes/fcvanilla/
+├── functions.php (29,407B)    ← 修正版（L4 全角→半角）
+└── functions.php.bak-20260411-before-fix (29,411B)  ← オリジナルバックアップ
+
+/httpdocs/wp/wp-content/mu-plugins/   ← 存在せず（削除済み）
+/httpdocs/wp/wp-content/plugins/atruck-*   ← 存在せず
+/httpdocs/wp/wp-content/uploads/atruck-*   ← 存在せず
+/httpdocs/wp/.user.ini   ← 存在せず
+```
+
+サイト動作: 全ページ 200 OK（古い opcache bytecode で稼働中）
+AIOSEO + saswp 既存機能: 完全維持
