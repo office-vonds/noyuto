@@ -8,14 +8,26 @@
 |------|------|
 | リポジトリ | https://github.com/office-vonds/noyuto (Private) |
 | 作業ブランチ | **`main`**（必須・例外なし） |
-| デプロイブランチ | `gh-pages`（GitHub Pages用・手動作業禁止） |
+| GitHub Pages Source | **`main`**（2026-04-11に `gh-pages` から切替。以後 main push で自動ビルド） |
 | Claude Code起動 | `cd ~/projects/vonds && claude` |
 
 ## ブランチ運用ルール
 
 - **全ての作業は `main` ブランチで行う**
-- `gh-pages` はGitHub Pagesのデプロイ専用。手動で書き込まない
+- **GitHub Pages は `main` から直接配信**。mainにpushすれば自動でPagesビルドが走り本番反映される
+- `gh-pages` ブランチは廃止済み（2026-04-11 にmainと統合・Pages sourceも main に切替）
 - 機能追加で `claude/*` 系のブランチができた場合は、mainにmergeしてから作業再開
+
+### Pages source の確認方法
+```bash
+gh api repos/office-vonds/noyuto/pages --jq '{source, build_type}'
+# 期待値: {"source":{"branch":"main","path":"/"},"build_type":"legacy"}
+```
+
+### ビルド状況の確認方法
+```bash
+gh api repos/office-vonds/noyuto/pages/builds --jq '.[0:3] | map({commit: .commit[0:8], status, updated_at})'
+```
 
 ## セッション開始時（必須）
 

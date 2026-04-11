@@ -86,7 +86,46 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-11 13:10 / ブランチ: main**
+**最終更新: 2026-04-11 14:05 / ブランチ: main**
+
+### 【完了・本番反映済】VONDS「山梨 SEO対策」圏外転落 復旧作業（2026-04-11 14:05）
+
+**担当: Claude Opus 4.6**
+
+**何をしたか:**
+1. 診断 — GA4/HTML/sitemap/git履歴を横断調査し、真因を特定（sitemap壊滅・past_work重複・h1キーワード欠如・title連続変更）
+2. 修正 — index.html h1 + サービスカード4本アンカーテキスト強化 + sitemap 4→22URL拡張 + past_work.html削除 + noindex2ファイル追加 + generate_sitemap.py 新規（noindex自動除外付き）
+3. **運用事故発見** — GitHub Pages source が `gh-pages` で、main と 20コミット分岐・main push で本番反映されない状態を発見
+4. **根本解決** — gh-pages を main に `--allow-unrelated-histories` で統合 → 18コンフリクト解決 → **Pages source を `main` に切替** → 以後は main 1本運用
+5. 資料化 — `seo/vonds-seo-recovery-plan-20260411.md` / `.html` (ダッシュボード) 作成
+
+**本番反映確認（2026-04-11 14:00時点・build bf95aa47 built）:**
+- h1 新コピー「山梨の SEO対策 で、集客を結果で変える。」 ✅
+- sitemap 22URL（本丸 /works/seo/ + /works/seo/auto-plan/ 含む）✅
+- アンカーテキスト4本強化版 ✅
+- past_work.html → 404 ✅
+- Pages source: main ✅
+
+**NOYUTO に残っている作業（GSC側）:**
+1. Google Search Console でサイトマップ再送信（`sitemap.xml`）
+2. URL検査ツールで `/` `/works/seo/` `/works/web/` `/works/ads/` `/works/ai/` `/company/` の6ページをインデックス登録リクエスト
+3. 「山梨 SEO対策」「山梨 ホームページ制作」「甲府 SEO」の順位推移を日次観測（復旧目安2-4週間）
+
+**主要コミット:**
+- d679b8a — 初期SEO修正（main）
+- a746bd0 — gh-pages に cherry-pick（後にmerge経由で消化）
+- bf95aa4 — gh-pages を main に統合＋Pages source を main に切替
+
+**新規メモリ2本:**
+- `reference_vonds_deploy.md` — vonds.co.jp デプロイ構成（Pages source = main）
+- `feedback_verify_deploy_target.md` — 本番修正前に Pages source を必ず確認
+
+**関連資料:**
+- `seo/vonds-seo-recovery-plan-20260411.html`（NOYUTO向けダッシュボード）
+- `seo/vonds-seo-recovery-plan-20260411.md`（原本）
+- `session-logs/2026-04-11_1310_vonds-seo-recovery.md`
+
+---
 
 ### 【最優先・進行中】VONDS Google広告監査 商品化 — A-TRUCK試走CSV待ち
 
