@@ -77,21 +77,48 @@ add_action('wp_footer', function () {
     timeEl.value = canRestore ? prev : (timeEl.options[0] ? timeEl.options[0].value : '');
   }
 
+  function hasSlotOnDay(ymdStr, minDate) {
+    var slots = ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00'];
+    for (var i = 0; i < slots.length; i++) {
+      var p = slots[i].split(':');
+      var d = new Date(ymdStr + 'T' + pad(p[0]) + ':' + pad(p[1]) + ':00');
+      if (d.getTime() >= minDate.getTime()) return true;
+    }
+    return false;
+  }
+
+  function firstAvailableYmd(minDate) {
+    var today = new Date();
+    var todayYmd = ymd(today);
+    if (hasSlotOnDay(todayYmd, minDate)) return todayYmd;
+    var tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+    return ymd(tomorrow);
+  }
+
   function applyConstraints() {
     var min = earliest();
-    var minYmd = ymd(min);
+    var firstYmd = firstAvailableYmd(min);
 
     ['1', '2', '3'].forEach(function (n) {
       var dateEl = document.querySelector('input[name="your-date' + n + '"]');
       var timeEl = document.querySelector('select[name="your-time' + n + '"]');
       if (!dateEl || !timeEl) return;
 
-      dateEl.min = minYmd;
-      dateEl.setAttribute('min', minYmd);
+      dateEl.min = firstYmd;
+      dateEl.setAttribute('min', firstYmd);
 
       snapshotOriginal(timeEl, n);
-      var basisDate = dateEl.value || minYmd;
-      rebuild(timeEl, n, basisDate, min, minYmd);
+
+      if (n === '1' && !dateEl.value) {
+        dateEl.value = firstYmd;
+      }
+
+      var basisDate = dateEl.value;
+      if (!basisDate) {
+        rebuild(timeEl, n, '9999-12-31', min, firstYmd);
+        return;
+      }
+      rebuild(timeEl, n, basisDate, min, firstYmd);
     });
   }
 
