@@ -68,7 +68,7 @@ add_action('wp_footer', function () {
     originalOptions[key] = list;
   }
 
-  function rebuild(timeEl, key, basisDate, minDate, minYmd) {
+  function rebuild(timeEl, key, basisDate, minUnixMs, minYmd) {
     var prev = timeEl.value;
     while (timeEl.firstChild) timeEl.removeChild(timeEl.firstChild);
 
@@ -81,8 +81,8 @@ add_action('wp_footer', function () {
           keep = false;
         } else if (basisDate === minYmd) {
           var parts = item.value.split(':');
-          var optDate = new Date(basisDate + 'T' + pad(parts[0]) + ':' + pad(parts[1]) + ':00');
-          keep = optDate.getTime() >= minDate.getTime();
+          var optUnixMs = jstYmdHmToUnixMs(basisDate, +parts[0], +parts[1]);
+          keep = optUnixMs >= minUnixMs;
         }
       }
 
@@ -98,22 +98,20 @@ add_action('wp_footer', function () {
     timeEl.value = canRestore ? prev : (timeEl.options[0] ? timeEl.options[0].value : '');
   }
 
-  function hasSlotOnDay(ymdStr, minDate) {
+  function hasSlotOnDay(ymdStr, minUnixMs) {
     var slots = ['09:00','09:30','10:00','10:30','11:00','11:30','12:00','12:30','13:00','13:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30','18:00','18:30','19:00','19:30','20:00','20:30','21:00'];
     for (var i = 0; i < slots.length; i++) {
       var p = slots[i].split(':');
-      var d = new Date(ymdStr + 'T' + pad(p[0]) + ':' + pad(p[1]) + ':00');
-      if (d.getTime() >= minDate.getTime()) return true;
+      if (jstYmdHmToUnixMs(ymdStr, +p[0], +p[1]) >= minUnixMs) return true;
     }
     return false;
   }
 
-  function firstAvailableYmd(minDate) {
-    var today = new Date();
-    var todayYmd = ymd(today);
-    if (hasSlotOnDay(todayYmd, minDate)) return todayYmd;
-    var tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
-    return ymd(tomorrow);
+  function firstAvailableYmd(minUnixMs) {
+    var todayYmd = unixMsToJstYmd(unixNowMs());
+    if (hasSlotOnDay(todayYmd, minUnixMs)) return todayYmd;
+    var tomorrowYmd = unixMsToJstYmd(unixNowMs() + 24 * 60 * 60 * 1000);
+    return tomorrowYmd;
   }
 
   function showPlaceholderOnly(timeEl) {
