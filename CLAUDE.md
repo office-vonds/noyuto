@@ -100,8 +100,11 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 - 監査レポート雛形9セクション・74チェック項目日本語対訳
 - A-TRUCK試走用 `ads-audit/samples/a-truck/EXPORT_CHECKLIST.md`
 
-**NOYUTO待ちタスク（10-15分）:**
-Google広告UIから7本のCSVをダウンロード → `ads-audit/samples/a-truck/data/` に配置（ディレクトリ未作成・NOYUTO置き次第自動生成）
+**⚡ 試走1号機変更（2026-04-11 NOYUTO判断）: A-TRUCK → ストレッチゼロ（Google Ads ID: 854-911-4235）**
+
+**NOYUTO待ちタスク（10-15分・会社メインPCで実施）:**
+Google広告UIから7本のCSVをダウンロード → `ads-audit/samples/stretchzero/data/` に配置
+手順書: `ads-audit/samples/stretchzero/EXPORT_CHECKLIST.md`
 
 **CSV設置後の自動化フロー:**
 1. `audit-google` エージェント起動 → 74チェック走査
@@ -111,7 +114,7 @@ Google広告UIから7本のCSVをダウンロード → `ads-audit/samples/a-tru
 
 **デッドライン: 2026-04-15 SEO面談** で既存客アップセル提案に使える状態。
 
-**⚠️ 要確認事項:** `~/.claude/skills/ads/` と `~/.claude/agents/` がこのマシン（GALLERIA XT）に**存在しない**。昨夜のsession-logは install 成功と記録しているが物理的に無い。ノートPC側配置か install 失敗の可能性。試走実行前に再インストール判定が必要。
+**⚠️ 実行環境の注意:** `claude-ads` スキル（17サブスキル・10エージェント）は**会社のメインPC**にインストール済。家のGALLERIA XT・ノートPCには無い。A-TRUCK試走の監査実行は必ず**会社PCで**行うこと。家側では雛形作成・レポート仕上げのみ可能。
 
 **memory参照:**
 - `project_vonds_ads_audit_product.md` — 商品化の全体構造

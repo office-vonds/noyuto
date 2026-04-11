@@ -26,3 +26,7 @@ scripts/node_modules/
 node_modules/
 .venv-ga4/
 .venv/
+
+# ads-audit: クライアントのGoogle広告データはcommit禁止
+ads-audit/samples/*/data/*
+!ads-audit/samples/*/data/.gitkeep
