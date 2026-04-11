@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ストレッチゼロ SEO戦略｜現場写真を武器にする記事運用のご提案</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 landscape;margin:0}
+:root{
+  --teal:#0a5d5d;
+  --teal-light:#14807f;
+  --orange:#ee7c3b;
+  --cream:#fdf8f3;
+  --g50:#f8fafc;
+  --g100:#eef2f4;
+  --g200:#e2e8f0;
+  --g500:#64748b;
+  --g600:#475569;
+  --g800:#1e293b;
+  --w:#fff;
+  --red:#dc2626;
+  --green:#15803d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--g800);background:#e8e8e8;-webkit-font-smoothing:antialiased}
+.slide{width:1123px;height:794px;margin:20px auto;background:var(--w);box-shadow:0 4px 24px rgba(0,0,0,.12);overflow:hidden;position:relative;page-break-after:always;display:flex;flex-direction:column}
+.slide-num{position:absolute;bottom:16px;right:24px;font-size:11px;color:rgba(0,0,0,.3);font-weight:500;letter-spacing:.05em}
+.slide-footer{position:absolute;bottom:16px;left:24px;font-size:10px;color:rgba(0,0,0,.25);font-weight:500;letter-spacing:.08em}
+
+/* Cover */
+.cover{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-light) 60%,#1a9a8e 100%);color:var(--w);justify-content:center;align-items:flex-start;text-align:left;padding:80px 100px;position:relative}
+.cover::before{content:'';position:absolute;top:0;right:0;width:45%;height:100%;background:radial-gradient(circle at 70% 50%,rgba(238,124,59,.25) 0%,transparent 70%)}
+.cover .tag{background:var(--orange);color:var(--w);font-size:12px;font-weight:700;padding:6px 20px;border-radius:24px;display:inline-block;margin-bottom:28px;letter-spacing:.08em;position:relative}
+.cover h1{font-size:46px;font-weight:900;line-height:1.35;margin-bottom:20px;position:relative;letter-spacing:-.01em}
+.cover h1 .em{color:var(--orange);text-shadow:0 0 30px rgba(238,124,59,.3)}
+.cover .sub{font-size:17px;opacity:.9;margin-bottom:48px;line-height:1.8;position:relative;max-width:720px}
+.cover .meta-box{background:rgba(255,255,255,.1);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.2);padding:20px 28px;border-radius:12px;position:relative;display:inline-block}
+.cover .meta-box .to{font-size:11px;opacity:.7;margin-bottom:6px;letter-spacing:.1em}
+.cover .meta-box .name{font-size:18px;font-weight:700;margin-bottom:12px}
+.cover .meta-box .from{font-size:12px;opacity:.85;line-height:1.6}
+
+/* Standard slide */
+.std{padding:52px 72px}
+.std .slide-title{font-size:28px;font-weight:900;color:var(--teal);margin-bottom:6px;letter-spacing:-.01em}
+.std .slide-subtitle{font-size:13px;color:var(--g500);margin-bottom:8px;font-weight:500}
+.std .slide-title-bar{width:56px;height:4px;background:var(--orange);border-radius:2px;margin-bottom:32px}
+.std .content{flex:1;overflow:hidden}
+
+/* Section divider */
+.divider{background:linear-gradient(135deg,var(--teal) 0%,var(--teal-light) 100%);color:var(--w);justify-content:center;align-items:center;text-align:center;padding:60px;position:relative}
+.divider::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cpath fill='%23ffffff' fill-opacity='0.03' d='M30 0l30 30-30 30L0 30z'/%3E%3C/svg%3E")}
+.divider .section-num{font-size:13px;letter-spacing:6px;opacity:.6;margin-bottom:16px;position:relative}
+.divider h2{font-size:44px;font-weight:900;position:relative;margin-bottom:16px;letter-spacing:-.01em}
+.divider .section-sub{font-size:16px;opacity:.85;position:relative;max-width:700px;line-height:1.8}
+.divider .section-line{width:64px;height:3px;background:var(--orange);margin:20px auto;position:relative}
+
+/* Components */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.two-col-7-5{display:grid;grid-template-columns:7fr 5fr;gap:36px}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
+.four-col{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px}
+.card{background:var(--g50);border-radius:12px;padding:24px}
+.card h3{font-size:16px;font-weight:700;color:var(--teal);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.card h3 .num{display:inline-flex;width:26px;height:26px;border-radius:50%;background:var(--orange);color:var(--w);align-items:center;justify-content:center;font-size:13px;font-weight:900}
+.card p{font-size:13px;color:var(--g600);line-height:1.8}
+.card.accent{background:linear-gradient(135deg,var(--cream),var(--w));border:2px solid var(--orange)}
+.card.dark{background:var(--teal);color:var(--w)}
+.card.dark h3{color:var(--w)}
+.card.dark p{color:rgba(255,255,255,.85)}
+
+.big-num{font-size:56px;font-weight:900;color:var(--orange);line-height:1;letter-spacing:-.02em}
+.big-num .unit{font-size:20px;color:var(--g500);font-weight:700;margin-left:4px}
+.big-num.teal{color:var(--teal)}
+
+.stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px}
+.stat-box{text-align:center;padding:24px 16px;background:var(--g50);border-radius:12px;border-top:4px solid var(--orange)}
+.stat-box .num{font-size:40px;font-weight:900;color:var(--teal);line-height:1;margin-bottom:8px}
+.stat-box .num .small{font-size:18px}
+.stat-box .label{font-size:12px;color:var(--g600);font-weight:500;line-height:1.5}
+
+table.data{width:100%;border-collapse:collapse;font-size:13px}
+table.data th{background:var(--teal);color:var(--w);padding:12px 14px;text-align:left;font-weight:700;font-size:12px}
+table.data td{padding:12px 14px;border-bottom:1px solid var(--g100)}
+table.data tr:nth-child(even) td{background:var(--g50)}
+.tag-good{background:#dcfce7;color:var(--green);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;white-space:nowrap}
+.tag-bad{background:#fee2e2;color:var(--red);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;white-space:nowrap}
+.tag-hot{background:var(--orange);color:var(--w);padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;white-space:nowrap}
+.tag-new{background:#dbeafe;color:#1e40af;padding:3px 10px;border-radius:12px;font-size:11px;font-weight:700;white-space:nowrap}
+
+.highlight-box{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:var(--w);border-radius:12px;padding:28px 32px;text-align:center;margin-top:24px;position:relative;overflow:hidden}
+.highlight-box::before{content:'';position:absolute;top:-50%;right:-20%;width:300px;height:300px;background:radial-gradient(circle,rgba(238,124,59,.25),transparent 70%)}
+.highlight-box h3{font-size:22px;font-weight:900;margin-bottom:10px;position:relative}
+.highlight-box p{font-size:14px;opacity:.9;position:relative;line-height:1.7}
+
+ul.check{list-style:none;font-size:14px}
+ul.check li{padding:8px 0;padding-left:28px;position:relative;line-height:1.6}
+ul.check li::before{content:'';position:absolute;left:0;top:12px;width:16px;height:16px;background:var(--orange);border-radius:50%}
+ul.check li::after{content:'✓';position:absolute;left:3px;top:9px;color:var(--w);font-weight:900;font-size:11px}
+
+ul.cross{list-style:none;font-size:14px}
+ul.cross li{padding:8px 0;padding-left:28px;position:relative;line-height:1.6;color:var(--g600)}
+ul.cross li::before{content:'×';position:absolute;left:4px;top:6px;color:var(--red);font-weight:900;font-size:18px}
+
+.quote{border-left:4px solid var(--orange);padding:18px 24px;background:var(--cream);border-radius:0 10px 10px 0;font-size:15px;color:var(--g800);margin:20px 0;line-height:1.8;font-weight:500}
+
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.timeline-item{padding:24px 20px;background:var(--g50);border-radius:12px;position:relative;border-top:4px solid var(--g200)}
+.timeline-item.a{border-top-color:var(--orange)}
+.timeline-item.b{border-top-color:var(--teal-light)}
+.timeline-item.c{border-top-color:var(--teal)}
+.timeline-item .phase{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--orange);margin-bottom:6px}
+.timeline-item .period{font-size:14px;font-weight:700;color:var(--g800);margin-bottom:4px}
+.timeline-item h4{font-size:17px;font-weight:900;color:var(--teal);margin-bottom:12px}
+.timeline-item .count{font-size:28px;font-weight:900;color:var(--orange);margin-bottom:8px}
+.timeline-item .desc{font-size:12px;color:var(--g600);line-height:1.7}
+
+.compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:0;align-items:stretch}
+.compare-box{padding:28px;border-radius:12px}
+.compare-box.bad{background:#fef2f2;border:2px solid #fecaca}
+.compare-box.good{background:#f0fdf4;border:2px solid #bbf7d0}
+.compare-box h3{font-size:16px;font-weight:900;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.compare-box.bad h3{color:var(--red)}
+.compare-box.good h3{color:var(--green)}
+.compare-box ul{list-style:none;font-size:13px;line-height:1.9}
+.compare-box li{padding-left:20px;position:relative;color:var(--g800)}
+.compare-box.bad li::before{content:'×';position:absolute;left:0;color:var(--red);font-weight:900}
+.compare-box.good li::before{content:'○';position:absolute;left:0;color:var(--green);font-weight:900}
+.compare-arrow{display:flex;align-items:center;justify-content:center;font-size:40px;color:var(--orange);font-weight:900}
+
+.ops-flow{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.ops-step{flex:1;background:var(--w);border:2px solid var(--g200);border-radius:12px;padding:20px 16px;text-align:center;position:relative}
+.ops-step.active{border-color:var(--orange);background:var(--cream)}
+.ops-step .num{display:inline-flex;width:32px;height:32px;border-radius:50%;background:var(--teal);color:var(--w);align-items:center;justify-content:center;font-size:14px;font-weight:900;margin-bottom:10px}
+.ops-step h4{font-size:14px;font-weight:900;color:var(--teal);margin-bottom:6px}
+.ops-step p{font-size:11px;color:var(--g600);line-height:1.6}
+.ops-arrow{color:var(--orange);font-size:24px;font-weight:900}
+
+.kpi-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.kpi-table th{background:var(--teal);color:var(--w);padding:14px 16px;text-align:center;font-weight:700;font-size:12px}
+.kpi-table th:first-child{text-align:left}
+.kpi-table td{padding:14px 16px;text-align:center;border-bottom:1px solid var(--g100);background:var(--w)}
+.kpi-table td:first-child{text-align:left;font-weight:700;color:var(--teal);background:var(--g50)}
+.kpi-table tr:last-child td{border-bottom:none;font-weight:900;color:var(--orange);font-size:15px}
+.kpi-table tr:last-child td:first-child{color:var(--teal)}
+
+.ask-card{background:linear-gradient(135deg,var(--cream),var(--w));border:3px solid var(--orange);border-radius:16px;padding:32px;position:relative}
+.ask-card .ask-num{position:absolute;top:-20px;left:32px;background:var(--orange);color:var(--w);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:900}
+.ask-card h3{font-size:18px;font-weight:900;color:var(--teal);margin-bottom:10px;margin-top:8px}
+.ask-card p{font-size:13px;color:var(--g600);line-height:1.8;margin-bottom:12px}
+.ask-card .effort{display:inline-block;background:var(--teal);color:var(--w);font-size:11px;font-weight:700;padding:4px 12px;border-radius:12px}
+
+.final-msg{text-align:center;padding:60px 40px}
+.final-msg h2{font-size:40px;font-weight:900;color:var(--teal);line-height:1.4;margin-bottom:24px;letter-spacing:-.01em}
+.final-msg h2 .em{color:var(--orange)}
+.final-msg p{font-size:16px;color:var(--g600);line-height:2;max-width:800px;margin:0 auto 32px}
+.final-msg .signature{margin-top:40px;padding-top:32px;border-top:2px solid var(--g100);font-size:13px;color:var(--g500)}
+
+@media print{
+  body{background:#fff}
+  .slide{box-shadow:none;margin:0;page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== SLIDE 1: COVER ===== -->
+<div class="slide cover">
+  <span class="tag">ご提案書</span>
+  <h1>ストレッチゼロを<br>山梨県内<span class="em">検索1位</span>の<br>ストレッチ専門店にする。</h1>
+  <p class="sub">現場写真を武器にした「SEO記事運用」で、<br>広告費に頼らない集客の柱を6ヶ月で作り上げます。</p>
+  <div class="meta-box">
+    <div class="to">ご提案先</div>
+    <div class="name">株式会社SANKEN　中込 雄輝 様</div>
+    <div class="from">2026年4月10日　株式会社オフィスVONDS</div>
+  </div>
+  <div class="slide-num">1 / 18</div>
+</div>
+
+<!-- ===== SLIDE 2: AGENDA ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">AGENDA</div>
+  <div class="slide-title">本日お伝えしたいこと</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <table class="data" style="max-width:780px">
+      <tr><td style="width:60px;text-align:center;font-weight:900;color:var(--orange);font-size:20px">01</td><td><strong>現状と機会</strong> — ストレッチゼロはすでに "勝てる位置" にいる</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--orange);font-size:20px">02</td><td><strong>戦略の核</strong> — 症状別SEO記事 × 現場写真という最強の組み合わせ</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--orange);font-size:20px">03</td><td><strong>運用設計</strong> — 続けられる仕組み（週1回・3枚・30秒ルール）</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--orange);font-size:20px">04</td><td><strong>ロードマップ</strong> — 6ヶ月・48記事・KPI予測</td></tr>
+      <tr><td style="text-align:center;font-weight:900;color:var(--orange);font-size:20px">05</td><td><strong>SANKEN様にお願いしたいこと</strong> — たった3つだけ</td></tr>
+    </table>
+    <div class="quote" style="margin-top:36px">
+      本日の結論：<strong>御社の現場写真は "億の価値" を持ちます。</strong>それをSEOの武器に変える仕組みを、こちらで全てご用意します。
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">2 / 18</div>
+</div>
+
+<!-- ===== SLIDE 3: SECTION 01 ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 01</div>
+  <h2>ストレッチゼロの現状と機会</h2>
+  <div class="section-line"></div>
+  <p class="section-sub">すでに土台は完成しています。<br>あとは "正しい方向に伸ばす" だけ。</p>
+  <div class="slide-num">3 / 18</div>
+</div>
+
+<!-- ===== SLIDE 4: CURRENT STATE ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">01　現状</div>
+  <div class="slide-title">この2日間で完了した "土台工事"</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="num">5<span class="small">本</span></div>
+        <div class="label">症状別LP着地済<br>（肩こり/腰痛/首こり/骨盤/パーソナル）</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">4<span class="small">店舗</span></div>
+        <div class="label">NAP情報を正規住所に修正<br>MEO基盤を整備完了</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">100<span class="small">%</span></div>
+        <div class="label">CV計測環境<br>GA4＋Google Ads連携完了</div>
+      </div>
+      <div class="stat-box">
+        <div class="num">17<span class="small">枚</span></div>
+        <div class="label">既存画像アップ済<br>店舗・記事ページに活用中</div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <h3>結論：ストレッチゼロは "戦える状態" に仕上がっています</h3>
+      <p>あとは「何を」「どれだけ」「どう積み上げるか」だけ。そして、その答えが本日のご提案です。</p>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">4 / 18</div>
+</div>
+
+<!-- ===== SLIDE 5: OPPORTUNITY ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">01　機会</div>
+  <div class="slide-title">山梨で "検索ストレッチ市場" はまだ空白地帯</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:15px;color:var(--g800);margin-bottom:16px">現状、検索結果はこうなっています</h3>
+        <ul class="cross">
+          <li>「甲府 肩こり ストレッチ」で上位に来るのは整体院ばかり</li>
+          <li>ストレッチ専門店の情報がほぼ無い</li>
+          <li>症状別の専門解説ページを持つ店舗は皆無</li>
+          <li>現場写真を使った記事を出す店舗はゼロ</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="font-size:15px;color:var(--g800);margin-bottom:16px">つまり、これは何を意味するか</h3>
+        <ul class="check">
+          <li>先行者利益が丸ごと取れる市場</li>
+          <li>競合不在のうちに独占地位が作れる</li>
+          <li>一度上位を取れば簡単には抜かれない</li>
+          <li>広告費をかけなくても集客できる未来が作れる</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote">
+      <strong>今この瞬間、山梨県内で症状別×現場写真のSEO記事を本気でやる店舗は一社もありません。</strong><br>
+      動けば勝てる、動かなければ誰か他社が来年やります。
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">5 / 18</div>
+</div>
+
+<!-- ===== SLIDE 6: SECTION 02 ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 02</div>
+  <h2>戦略の核</h2>
+  <div class="section-line"></div>
+  <p class="section-sub">症状別SEO記事 × 現場写真。<br>なぜこの組み合わせが "破壊的に強い" のか。</p>
+  <div class="slide-num">6 / 18</div>
+</div>
+
+<!-- ===== SLIDE 7: WHY SYMPTOM ARTICLES ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">02　戦略①</div>
+  <div class="slide-title">症状別記事が集客の入口になる理由</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="two-col-7-5">
+      <div>
+        <p style="font-size:14px;line-height:1.9;color:var(--g600);margin-bottom:20px">
+          お客様は「ストレッチゼロに行きたい」と検索しません。<br>
+          「<strong style="color:var(--teal)">肩こり 治し方</strong>」「<strong style="color:var(--teal)">腰痛 甲府</strong>」で検索します。<br>
+          この "症状キーワード" を全て押さえれば、<br>
+          毎日新しいお客様が勝手にサイトに流入してきます。
+        </p>
+        <div class="three-col">
+          <div class="card card-navy">
+            <h3><span class="num">1</span>症状軸</h3>
+            <p>肩こり・腰痛・首こり・骨盤・猫背・坐骨神経痛など</p>
+          </div>
+          <div class="card card-navy">
+            <h3><span class="num">2</span>地域軸</h3>
+            <p>甲府・甲斐・南アルプス・韮崎（4店舗全展開）</p>
+          </div>
+          <div class="card card-navy">
+            <h3><span class="num">3</span>意図軸</h3>
+            <p>原因・治し方・整体との違い・費用・口コミ</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="card accent" style="padding:28px">
+          <h3 style="font-size:17px;margin-bottom:16px"><span class="num">∑</span>掛け合わせの威力</h3>
+          <div class="big-num" style="margin-bottom:8px">50<span class="unit">本</span></div>
+          <p style="font-size:13px;color:var(--g600);line-height:1.8">
+            症状10 × 地域4 × 意図3<br>
+            これで約50記事 = topical authority（専門権威）が発生。<br>
+            Googleが「このサイトはストレッチの専門家だ」と認識するラインです。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">7 / 18</div>
+</div>
+
+<!-- ===== SLIDE 8: WHY PHOTOS ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">02　戦略②</div>
+  <div class="slide-title">そしてここが、今日の本題です</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="quote" style="font-size:18px;padding:28px 32px;margin:8px 0 28px">
+      記事だけでは競合に勝てません。<br>
+      でも <strong style="color:var(--orange);font-size:20px">"現場写真 × 記事"</strong> なら、競合は誰も追いつけません。
+    </div>
+    <div class="three-col">
+      <div class="card">
+        <h3><span class="num">1</span>E-E-A-Tが満点になる</h3>
+        <p>Googleが2023年以降最重視する「Experience（実体験）」の証拠。ストック画像や整体院の一般論では出せない決定的シグナル。</p>
+      </div>
+      <div class="card">
+        <h3><span class="num">2</span>検索KWが二重に効く</h3>
+        <p>画像alt属性に「甲府上石田店で肩こり改善ストレッチを受けるお客様」と入れれば、本文＋画像検索の両方でヒット。</p>
+      </div>
+      <div class="card">
+        <h3><span class="num">3</span>滞在時間が跳ね上がる</h3>
+        <p>現場写真がある記事は離脱率が下がり、スクロール率が上がる。UX指標改善 → Googleがさらに評価 → 順位上昇の好循環。</p>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <h3>競合整体院のSEO記事はほぼ100%フリー素材です</h3>
+      <p>ストレッチゼロ4店舗の "本物の現場写真" は、競合が絶対に真似できない武器になります。</p>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">8 / 18</div>
+</div>
+
+<!-- ===== SLIDE 9: COMPARISON ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">02　戦略③</div>
+  <div class="slide-title">フリー素材記事 vs 現場写真記事</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="compare">
+      <div class="compare-box bad">
+        <h3>❌ 一般的な整体院SEO記事</h3>
+        <ul>
+          <li>フリー素材のストック画像</li>
+          <li>AI生成画像・イラスト</li>
+          <li>内容は他サイトの焼き直し</li>
+          <li>Googleに「薄い」と判定されがち</li>
+          <li>滞在時間が短い</li>
+          <li>検索順位が安定しない</li>
+          <li>競合と差別化できない</li>
+        </ul>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-box good">
+        <h3>⭕ ストレッチゼロの現場写真記事</h3>
+        <ul>
+          <li>4店舗の実在する施術シーン</li>
+          <li>施術者・お客様の実体験</li>
+          <li>本物の "一次情報" が満載</li>
+          <li>Googleに「信頼できる」と高評価</li>
+          <li>滞在時間が長い（写真で離脱防止）</li>
+          <li>検索順位が安定して上がる</li>
+          <li>競合は絶対に真似できない</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quote" style="margin-top:24px">
+      この差は <strong>1ヶ月目は小さく、6ヶ月後には "越えられない壁"</strong> になります。
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">9 / 18</div>
+</div>
+
+<!-- ===== SLIDE 10: SECTION 03 ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 03</div>
+  <h2>運用設計 — 続けられる仕組み</h2>
+  <div class="section-line"></div>
+  <p class="section-sub">良いアイデアも、続かなければゼロ。<br>SANKEN様の負担を最小化する "鉄壁のオペレーション" をご用意します。</p>
+  <div class="slide-num">10 / 18</div>
+</div>
+
+<!-- ===== SLIDE 11: WEEKLY OPS ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">03　運用①</div>
+  <div class="slide-title">SANKEN様の負担は "週1回・3枚・30秒"</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="ops-flow">
+      <div class="ops-step active">
+        <div class="num">1</div>
+        <h4>金曜夕方</h4>
+        <p>店舗スタッフが<br>スマホで施術シーンを<br><strong>3枚</strong>撮影</p>
+      </div>
+      <div class="ops-arrow">→</div>
+      <div class="ops-step active">
+        <div class="num">2</div>
+        <h4>専用フォーム</h4>
+        <p>Googleフォームで<br>画像アップ＋<br><strong>穴埋めキャプション</strong></p>
+      </div>
+      <div class="ops-arrow">→</div>
+      <div class="ops-step">
+        <div class="num">3</div>
+        <h4>VONDS側</h4>
+        <p>Google Driveに自動保存<br>→ 記事に組み込み<br>→ alt属性自動生成</p>
+      </div>
+      <div class="ops-arrow">→</div>
+      <div class="ops-step">
+        <div class="num">4</div>
+        <h4>翌週公開</h4>
+        <p>月・水・金に<br><strong>週3本</strong>の<br>記事を自動公開</p>
+      </div>
+    </div>
+    <div class="two-col" style="margin-top:28px">
+      <div class="card accent">
+        <h3 style="margin-bottom:12px">✨ キャプションは "穴埋め式"</h3>
+        <p style="font-size:12px;line-height:1.8">□ 肩こり改善ストレッチの施術中<br>□ 腰痛の原因となる姿勢チェック<br>□ 骨盤矯正の施術準備<br>□ 施術後のアフターカウンセリング<br><br><strong>自由記述なし。選ぶだけ。</strong></p>
+      </div>
+      <div class="card accent">
+        <h3 style="margin-bottom:12px">🛡 肖像権・同意書も全てこちらで</h3>
+        <p style="font-size:12px;line-height:1.8">お客様向け同意書テンプレ<br>撮影ガイド1枚紙<br>顔出しNG時の撮り方マニュアル<br><br><strong>全部こちらで用意してお渡しします。</strong></p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">11 / 18</div>
+</div>
+
+<!-- ===== SLIDE 12: MONTHLY REPORT ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">03　運用②</div>
+  <div class="slide-title">月次フィードバックで "成果が見える"</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="two-col-7-5">
+      <div>
+        <p style="font-size:14px;color:var(--g600);line-height:1.9;margin-bottom:20px">
+          SEOは効果が出るまで時間がかかります。<br>
+          だからこそ、<strong style="color:var(--teal)">毎月きちんと成果をご報告</strong>します。<br>
+          送っていただいた写真がどの記事に使われ、<br>
+          どれだけ検索で表示されたか、全てレポート化します。
+        </p>
+        <table class="data">
+          <tr><th>レポート項目</th><th>内容</th></tr>
+          <tr><td>公開記事一覧</td><td>今月公開した記事＋使用写真</td></tr>
+          <tr><td>検索順位推移</td><td>狙ったキーワードの順位変化</td></tr>
+          <tr><td>流入数・CV数</td><td>記事経由の予約件数</td></tr>
+          <tr><td>人気記事TOP5</td><td>最も読まれた記事とその理由</td></tr>
+          <tr><td>次月の計画</td><td>来月公開予定の記事テーマ</td></tr>
+        </table>
+      </div>
+      <div>
+        <div class="card dark" style="padding:28px">
+          <h3 style="font-size:18px;margin-bottom:16px">📊 なぜフィードバックが重要か</h3>
+          <p style="line-height:1.9;font-size:13px">
+            「写真を送る意味」が見えないと、<br>
+            どんなに良い仕組みでも3週間で止まります。<br><br>
+            <strong style="color:var(--orange)">「甲府上石田店の施術写真が〇位になりました」</strong><br>
+            この一言があるから、店舗スタッフも継続できます。<br><br>
+            成果を可視化することは、<br>
+            運用を継続させる唯一の方法です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">12 / 18</div>
+</div>
+
+<!-- ===== SLIDE 13: SECTION 04 ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 04</div>
+  <h2>ロードマップと成果予測</h2>
+  <div class="section-line"></div>
+  <p class="section-sub">6ヶ月・48記事。<br>いつ、何本、どんな成果が出るか。全て数字で示します。</p>
+  <div class="slide-num">13 / 18</div>
+</div>
+
+<!-- ===== SLIDE 14: ROADMAP ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">04　ロードマップ</div>
+  <div class="slide-title">6ヶ月・3フェーズの段階的展開</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="timeline">
+      <div class="timeline-item a">
+        <div class="phase">PHASE A</div>
+        <div class="period">第1〜8週（2ヶ月）</div>
+        <h4>クラスタ構築期</h4>
+        <div class="count">週3本 × 24本</div>
+        <div class="desc">症状軸を一気に面で埋めて、Googleに「このサイトはストレッチ専門家だ」と認識させる。土台を作る最重要期間。</div>
+      </div>
+      <div class="timeline-item b">
+        <div class="phase">PHASE B</div>
+        <div class="period">第9〜16週（2ヶ月）</div>
+        <h4>地域拡張期</h4>
+        <div class="count">週2本 × 16本</div>
+        <div class="desc">店舗 × 症状の地域ロングテール記事を投入。「甲府 肩こり」「韮崎 腰痛」などで地域検索を総取り。</div>
+      </div>
+      <div class="timeline-item c">
+        <div class="phase">PHASE C</div>
+        <div class="period">第17〜24週（2ヶ月）</div>
+        <h4>深化・最適化期</h4>
+        <div class="count">新規8本 + 既存リライト16本</div>
+        <div class="desc">既存記事のCTR改善・E-E-A-T強化。Googleアルゴリズム変動への対応力も身につける。</div>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <h3>合計：新規記事48本 + リライト16本 = 64本の資産</h3>
+      <p>この資産は、広告と違って "出し続ければ残り続けます"。6ヶ月後も、1年後も、検索からお客様を連れてきます。</p>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">14 / 18</div>
+</div>
+
+<!-- ===== SLIDE 15: KPI ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">04　成果予測</div>
+  <div class="slide-title">6ヶ月後、こうなっている予測です</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <table class="kpi-table">
+      <thead>
+        <tr>
+          <th>KPI指標</th>
+          <th>1ヶ月後</th>
+          <th>2ヶ月後</th>
+          <th>4ヶ月後</th>
+          <th>6ヶ月後</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>記事インデックス数</td>
+          <td>12本</td>
+          <td>24本</td>
+          <td>40本</td>
+          <td>48本</td>
+        </tr>
+        <tr>
+          <td>10位以内キーワード数</td>
+          <td>3個</td>
+          <td>10個</td>
+          <td>30個</td>
+          <td>60個</td>
+        </tr>
+        <tr>
+          <td>オーガニック月間流入</td>
+          <td>50</td>
+          <td>200</td>
+          <td>600</td>
+          <td>1,500</td>
+        </tr>
+        <tr>
+          <td>フォーム経由の予約数/月</td>
+          <td>1件</td>
+          <td>3件</td>
+          <td>10件</td>
+          <td>25件</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="two-col" style="margin-top:24px">
+      <div class="card accent">
+        <h3>💰 広告費換算の価値</h3>
+        <p>月1,500流入をGoogle広告で取ると概算<strong style="color:var(--orange);font-size:15px">月45〜75万円</strong>の広告費が必要。<br>SEO記事はこれを "資産化" します。</p>
+      </div>
+      <div class="card accent">
+        <h3>📈 1年後のポテンシャル</h3>
+        <p>6ヶ月目の流入は「通過点」にすぎません。継続すれば<strong style="color:var(--orange);font-size:15px">1年後に月3,000〜5,000流入</strong>も現実的な数字です。</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">15 / 18</div>
+</div>
+
+<!-- ===== SLIDE 16: SECTION 05 ===== -->
+<div class="slide divider">
+  <div class="section-num">SECTION 05</div>
+  <h2>SANKEN様にお願いしたいこと</h2>
+  <div class="section-line"></div>
+  <p class="section-sub">必要なことは、たった3つだけです。</p>
+  <div class="slide-num">16 / 18</div>
+</div>
+
+<!-- ===== SLIDE 17: THREE ASKS ===== -->
+<div class="slide std">
+  <div class="slide-subtitle">05　お願い</div>
+  <div class="slide-title">御社にお願いしたい3つのこと</div>
+  <div class="slide-title-bar"></div>
+  <div class="content">
+    <div class="three-col" style="margin-top:32px">
+      <div class="ask-card">
+        <div class="ask-num">1</div>
+        <h3>週1回・3枚の写真送付</h3>
+        <p>毎週金曜の夕方、各店舗で施術シーンを3枚スマホで撮影し、専用Googleフォームから送信するだけです。</p>
+        <span class="effort">所要時間：約30秒/週</span>
+      </div>
+      <div class="ask-card">
+        <div class="ask-num">2</div>
+        <h3>施術者プロフィール写真</h3>
+        <p>各店舗の施術者1人につき1枚、プロフィール写真をご提供ください。一度撮影いただければ半年間使い回せます。</p>
+        <span class="effort">所要時間：初回のみ30分</span>
+      </div>
+      <div class="ask-card">
+        <div class="ask-num">3</div>
+        <h3>月次ミーティング（30分）</h3>
+        <p>月1回、Zoomで成果レポートをご報告させてください。順位推移・流入・CV数を一緒に確認しましょう。</p>
+        <span class="effort">所要時間：月1回・30分</span>
+      </div>
+    </div>
+    <div class="highlight-box">
+      <h3>上記以外のことは、全てこちらで対応します</h3>
+      <p>記事企画・執筆・SEO設定・構造化データ・内部リンク・フォーム構築・同意書作成・店舗スタッフ向けマニュアル作成 — 全て。</p>
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">17 / 18</div>
+</div>
+
+<!-- ===== SLIDE 18: CLOSING ===== -->
+<div class="slide">
+  <div class="final-msg" style="flex:1;display:flex;flex-direction:column;justify-content:center">
+    <div style="font-size:13px;letter-spacing:.2em;color:var(--orange);font-weight:700;margin-bottom:24px">CLOSING MESSAGE</div>
+    <h2>
+      ストレッチゼロには、<br>
+      広告に頼らない <span class="em">"自走する集客装置"</span> を<br>
+      作れるだけの素材が、もう揃っています。
+    </h2>
+    <p>
+      4店舗の現場、真剣に施術する施術者、改善を実感したお客様。<br>
+      これらは競合が絶対に手に入れられない、SANKEN様だけの資産です。<br>
+      <br>
+      この資産を "検索で見つけてもらえる形" に変換する仕事を、<br>
+      オフィスVONDSに任せていただけませんか。
+    </p>
+    <div class="signature">
+      2026年4月10日　株式会社オフィスVONDS<br>
+      代表取締役　小沢 宗弘
+    </div>
+  </div>
+  <div class="slide-footer">VONDS × STRETCH ZERO</div>
+  <div class="slide-num">18 / 18</div>
+</div>
+
+</body>
+</html>

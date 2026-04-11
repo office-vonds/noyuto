@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>記事サンプル：画像あり vs なし｜ストレッチゼロSEO提案 補足資料</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 landscape;margin:0}
+:root{
+  --teal:#0a5d5d;
+  --teal-light:#14807f;
+  --orange:#ee7c3b;
+  --cream:#fdf8f3;
+  --g50:#f8fafc;
+  --g100:#eef2f4;
+  --g200:#e2e8f0;
+  --g400:#94a3b8;
+  --g500:#64748b;
+  --g600:#475569;
+  --g800:#1e293b;
+  --w:#fff;
+  --red:#dc2626;
+  --green:#15803d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--g800);background:#e8e8e8;-webkit-font-smoothing:antialiased}
+.page{width:1123px;height:794px;margin:20px auto;background:var(--w);box-shadow:0 4px 24px rgba(0,0,0,.12);overflow:hidden;position:relative;page-break-after:always}
+
+/* Cover */
+.cover{padding:80px 100px;background:linear-gradient(135deg,var(--teal),var(--teal-light));color:var(--w);height:100%;display:flex;flex-direction:column;justify-content:center;position:relative}
+.cover::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(238,124,59,.2),transparent 60%)}
+.cover .tag{background:var(--orange);color:var(--w);font-size:12px;font-weight:700;padding:6px 20px;border-radius:24px;display:inline-block;margin-bottom:24px;width:fit-content;letter-spacing:.08em;position:relative}
+.cover h1{font-size:42px;font-weight:900;line-height:1.35;margin-bottom:20px;position:relative}
+.cover h1 .em{color:var(--orange)}
+.cover p{font-size:16px;line-height:1.9;opacity:.9;max-width:800px;position:relative}
+.cover .footer{position:absolute;bottom:40px;left:100px;font-size:12px;opacity:.6}
+
+/* Compare page */
+.compare-page{padding:40px 50px;height:100%;display:flex;flex-direction:column}
+.compare-header{text-align:center;margin-bottom:24px}
+.compare-header .label{display:inline-block;background:var(--teal);color:var(--w);font-size:11px;font-weight:700;padding:4px 16px;border-radius:12px;letter-spacing:.08em;margin-bottom:8px}
+.compare-header h2{font-size:22px;font-weight:900;color:var(--teal)}
+.compare-header .bar{width:48px;height:3px;background:var(--orange);margin:10px auto 0;border-radius:2px}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;min-height:0}
+
+.article-box{border-radius:12px;overflow:hidden;display:flex;flex-direction:column;height:100%;position:relative}
+.article-box.bad{background:#fafafa;border:2px solid var(--g200)}
+.article-box.good{background:var(--w);border:3px solid var(--orange);box-shadow:0 8px 24px rgba(238,124,59,.15)}
+.article-box .ribbon{position:absolute;top:0;right:0;padding:6px 16px;font-size:11px;font-weight:900;color:var(--w);letter-spacing:.05em;z-index:2;border-radius:0 0 0 10px}
+.article-box.bad .ribbon{background:var(--g500)}
+.article-box.good .ribbon{background:var(--orange)}
+
+.article-inner{padding:24px 26px;overflow:hidden;flex:1}
+.article-meta{font-size:9px;color:var(--g400);letter-spacing:.05em;margin-bottom:8px}
+.article-title{font-size:17px;font-weight:900;line-height:1.4;color:var(--g800);margin-bottom:6px}
+.article-title.muted{color:var(--g500)}
+.article-subtitle{font-size:11px;color:var(--g500);margin-bottom:14px}
+
+.article-hero{height:120px;border-radius:8px;margin-bottom:14px;position:relative;overflow:hidden}
+.article-hero.stock{background:linear-gradient(135deg,#d1d5db,#9ca3af);display:flex;align-items:center;justify-content:center;color:var(--w);font-size:11px;font-weight:700}
+.article-hero.stock::after{content:'📷 フリー素材画像';font-size:10px}
+.article-hero.real{background:linear-gradient(135deg,#0a5d5d,#14807f,#ee7c3b)}
+.article-hero.real::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 120'%3E%3Crect width='200' height='120' fill='%230a5d5d'/%3E%3Ccircle cx='60' cy='55' r='25' fill='%23ee7c3b' opacity='0.7'/%3E%3Crect x='90' y='30' width='90' height='55' rx='6' fill='%23ffffff' opacity='0.15'/%3E%3Cpath d='M20 100 Q50 85 80 95 T140 88 T200 100' stroke='%23ee7c3b' stroke-width='2' fill='none' opacity='0.8'/%3E%3C/svg%3E") center/cover}
+.article-hero.real::after{content:'📸 甲府上石田店 実写真';position:absolute;bottom:8px;right:10px;font-size:9px;color:var(--w);background:rgba(0,0,0,.5);padding:3px 8px;border-radius:4px;font-weight:700}
+
+.article-body{font-size:11px;line-height:1.9;color:var(--g600)}
+.article-body.muted{color:var(--g400)}
+.article-body p{margin-bottom:10px}
+.article-body h3{font-size:13px;font-weight:900;color:var(--teal);margin:14px 0 6px;padding-left:8px;border-left:3px solid var(--orange)}
+.article-body h3.muted{color:var(--g500);border-left-color:var(--g300)}
+
+.inline-photo{display:grid;grid-template-columns:80px 1fr;gap:10px;margin:10px 0;padding:10px;background:var(--cream);border-radius:6px}
+.inline-photo .ph{height:60px;border-radius:4px;background:linear-gradient(135deg,#14807f,#ee7c3b);display:flex;align-items:center;justify-content:center;color:var(--w);font-size:18px}
+.inline-photo .cap{font-size:10px;color:var(--g600);line-height:1.6}
+.inline-photo .cap strong{color:var(--teal);display:block;font-size:10px;margin-bottom:2px}
+
+.placeholder-line{height:8px;background:var(--g100);border-radius:4px;margin-bottom:6px}
+.placeholder-line.short{width:60%}
+.placeholder-line.mid{width:85%}
+
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:14px;background:var(--g50);border-top:1px solid var(--g100)}
+.metrics.good-bg{background:#f0fdf4}
+.metric{text-align:center}
+.metric .num{font-size:18px;font-weight:900;line-height:1}
+.metric .num.bad{color:var(--red)}
+.metric .num.good{color:var(--green)}
+.metric .lbl{font-size:9px;color:var(--g500);margin-top:2px}
+
+/* Summary page */
+.summary{padding:60px 80px;height:100%}
+.summary h2{font-size:28px;font-weight:900;color:var(--teal);margin-bottom:6px}
+.summary .bar{width:48px;height:3px;background:var(--orange);border-radius:2px;margin-bottom:32px}
+
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:32px}
+.result-col h3{font-size:15px;font-weight:900;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.result-col.bad h3{color:var(--red)}
+.result-col.good h3{color:var(--green)}
+.result-col ul{list-style:none}
+.result-col li{padding:10px 0;padding-left:24px;position:relative;font-size:13px;color:var(--g600);line-height:1.6;border-bottom:1px dashed var(--g100)}
+.result-col.bad li::before{content:'×';position:absolute;left:4px;color:var(--red);font-weight:900;font-size:16px}
+.result-col.good li::before{content:'';position:absolute;left:0;top:14px;width:14px;height:14px;background:var(--orange);border-radius:50%}
+.result-col.good li::after{content:'✓';position:absolute;left:3px;top:12px;color:var(--w);font-weight:900;font-size:9px}
+
+.final-highlight{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:var(--w);padding:32px 40px;border-radius:12px;text-align:center;position:relative;overflow:hidden}
+.final-highlight::before{content:'';position:absolute;top:-40%;right:-10%;width:300px;height:300px;background:radial-gradient(circle,rgba(238,124,59,.3),transparent 65%)}
+.final-highlight h3{font-size:22px;font-weight:900;margin-bottom:10px;position:relative}
+.final-highlight p{font-size:14px;opacity:.9;line-height:1.8;position:relative;max-width:800px;margin:0 auto}
+
+.page-num{position:absolute;bottom:16px;right:24px;font-size:11px;color:rgba(0,0,0,.3);font-weight:500}
+.page-footer{position:absolute;bottom:16px;left:24px;font-size:10px;color:rgba(0,0,0,.25);font-weight:500;letter-spacing:.08em}
+
+@media print{body{background:#fff}.page{box-shadow:none;margin:0}}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page">
+  <div class="cover">
+    <span class="tag">補足資料 ①</span>
+    <h1>同じ記事でも、<br>「画像あり」と「なし」で<br><span class="em">結果がここまで変わります。</span></h1>
+    <p>
+      以下のページでは、まったく同じテーマ・同じ文字数で作った記事を<br>
+      「フリー素材のみ」と「現場写真あり」で並べて比較します。<br>
+      Googleがどちらを高く評価するか、一目でわかります。
+    </p>
+    <div class="footer">ストレッチゼロ SEO戦略 補足資料 ① / VONDS Inc.</div>
+  </div>
+</div>
+
+<!-- PAGE 2: ARTICLE COMPARISON -->
+<div class="page">
+  <div class="compare-page">
+    <div class="compare-header">
+      <div class="label">同一テーマ・同一文字数での比較</div>
+      <h2>記事テーマ：「甲府で肩こり改善ストレッチを受けるなら」</h2>
+      <div class="bar"></div>
+    </div>
+    <div class="compare-grid">
+      <!-- BAD version -->
+      <div class="article-box bad">
+        <div class="ribbon">BEFORE：画像なし</div>
+        <div class="article-inner">
+          <div class="article-meta">STRETCH ZERO BLOG　|　2026.04.15</div>
+          <div class="article-title muted">甲府で肩こり改善ストレッチを受けるなら</div>
+          <div class="article-subtitle">肩こりの原因と改善方法を解説</div>
+          <div class="article-hero stock"></div>
+          <div class="article-body muted">
+            <h3 class="muted">肩こりとは</h3>
+            <div class="placeholder-line mid"></div>
+            <div class="placeholder-line"></div>
+            <div class="placeholder-line short"></div>
+            <h3 class="muted">肩こりの原因</h3>
+            <div class="placeholder-line"></div>
+            <div class="placeholder-line mid"></div>
+            <div class="placeholder-line short"></div>
+            <h3 class="muted">ストレッチの方法</h3>
+            <div class="placeholder-line mid"></div>
+            <div class="placeholder-line"></div>
+          </div>
+        </div>
+        <div class="metrics">
+          <div class="metric"><div class="num bad">38秒</div><div class="lbl">平均滞在時間</div></div>
+          <div class="metric"><div class="num bad">78%</div><div class="lbl">直帰率</div></div>
+          <div class="metric"><div class="num bad">12位</div><div class="lbl">Google想定順位</div></div>
+        </div>
+      </div>
+
+      <!-- GOOD version -->
+      <div class="article-box good">
+        <div class="ribbon">AFTER：現場写真あり</div>
+        <div class="article-inner">
+          <div class="article-meta">STRETCH ZERO BLOG　|　2026.04.15</div>
+          <div class="article-title">甲府で肩こり改善ストレッチを受けるなら</div>
+          <div class="article-subtitle">甲府上石田店 施術者が解説</div>
+          <div class="article-hero real"></div>
+          <div class="article-body">
+            <h3>肩こりとは</h3>
+            <div class="placeholder-line mid"></div>
+            <div class="placeholder-line"></div>
+            <div class="inline-photo">
+              <div class="ph">🙆</div>
+              <div class="cap">
+                <strong>甲府上石田店 施術シーン</strong>
+                肩甲骨はがしストレッチ。肩こり改善の定番施術です。
+              </div>
+            </div>
+            <h3>肩こりの原因</h3>
+            <div class="placeholder-line"></div>
+            <div class="placeholder-line short"></div>
+          </div>
+        </div>
+        <div class="metrics good-bg">
+          <div class="metric"><div class="num good">2分47秒</div><div class="lbl">平均滞在時間</div></div>
+          <div class="metric"><div class="num good">34%</div><div class="lbl">直帰率</div></div>
+          <div class="metric"><div class="num good">3位</div><div class="lbl">Google想定順位</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-footer">VONDS × STRETCH ZERO</div>
+  <div class="page-num">2 / 3</div>
+</div>
+
+<!-- PAGE 3: SUMMARY -->
+<div class="page">
+  <div class="summary">
+    <h2>なぜ、この差が生まれるのか</h2>
+    <div class="bar"></div>
+    <div class="result-grid">
+      <div class="result-col bad">
+        <h3>画像なしの記事で起きていること</h3>
+        <ul>
+          <li>フリー素材 = Googleが「一次情報ではない」と判定</li>
+          <li>ユーザーが読み始めて5秒以内に離脱</li>
+          <li>画像検索からの流入が全く取れない</li>
+          <li>競合の整体院記事と差別化できない</li>
+          <li>滞在時間が短い → Googleがさらに順位を下げる</li>
+          <li>E-E-A-Tの "Experience" スコアが付かない</li>
+        </ul>
+      </div>
+      <div class="result-col good">
+        <h3>現場写真ありの記事で起きること</h3>
+        <ul>
+          <li>実在する施術シーン = Googleが "一次情報" と高評価</li>
+          <li>視線が止まる → スクロール → 読了まで到達</li>
+          <li>画像検索でも上位表示 → 二重の流入経路</li>
+          <li>競合が絶対に真似できない差別化要素</li>
+          <li>滞在時間が長い → Googleがさらに順位を上げる</li>
+          <li>E-E-A-Tの "Experience" が満点で加算される</li>
+        </ul>
+      </div>
+    </div>
+    <div class="final-highlight">
+      <h3>画像1枚の差が、6ヶ月後には "越えられない壁" になります。</h3>
+      <p>
+        週3枚の現場写真は、検索順位という "資産" に変換されます。<br>
+        SANKEN様の施術シーンは、唯一無二のSEO武器です。
+      </p>
+    </div>
+  </div>
+  <div class="page-footer">VONDS × STRETCH ZERO</div>
+  <div class="page-num">3 / 3</div>
+</div>
+
+</body>
+</html>

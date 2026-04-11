@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>店舗スタッフ向け 撮影ガイド｜ストレッチゼロ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 portrait;margin:0}
+:root{
+  --teal:#0a5d5d;
+  --teal-light:#14807f;
+  --orange:#ee7c3b;
+  --cream:#fdf8f3;
+  --g50:#f8fafc;
+  --g100:#eef2f4;
+  --g200:#e2e8f0;
+  --g500:#64748b;
+  --g600:#475569;
+  --g800:#1e293b;
+  --w:#fff;
+  --red:#dc2626;
+  --green:#15803d;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--g800);background:#e8e8e8;-webkit-font-smoothing:antialiased}
+.page{width:794px;height:1123px;margin:20px auto;background:var(--w);box-shadow:0 4px 24px rgba(0,0,0,.12);position:relative;page-break-after:always;padding:40px 48px;overflow:hidden}
+
+/* Header */
+.doc-header{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:var(--w);padding:24px 28px;border-radius:12px;margin-bottom:22px;position:relative;overflow:hidden}
+.doc-header::before{content:'';position:absolute;top:-30%;right:-10%;width:240px;height:240px;background:radial-gradient(circle,rgba(238,124,59,.3),transparent 65%)}
+.doc-header .brand{font-size:10px;font-weight:700;letter-spacing:.15em;opacity:.8;margin-bottom:6px;position:relative}
+.doc-header h1{font-size:26px;font-weight:900;line-height:1.3;margin-bottom:6px;position:relative}
+.doc-header h1 .em{color:var(--orange)}
+.doc-header p{font-size:12px;opacity:.9;position:relative;line-height:1.7}
+
+/* Quick rule box */
+.quick-rule{background:var(--cream);border:2px solid var(--orange);border-radius:10px;padding:14px 20px;margin-bottom:22px;display:flex;align-items:center;gap:20px}
+.quick-rule .big{font-size:26px;font-weight:900;color:var(--orange);line-height:1;white-space:nowrap}
+.quick-rule .txt{font-size:11px;color:var(--g600);line-height:1.7}
+.quick-rule .txt strong{color:var(--teal);font-size:12px;display:block;margin-bottom:2px}
+
+/* Section */
+.sec{margin-bottom:18px}
+.sec-title{font-size:13px;font-weight:900;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-title .num{display:inline-flex;width:24px;height:24px;border-radius:50%;background:var(--orange);color:var(--w);align-items:center;justify-content:center;font-size:12px;font-weight:900}
+
+/* What to shoot */
+.shot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.shot-card{background:var(--g50);border-radius:8px;padding:12px 14px;border-top:3px solid var(--teal-light);position:relative}
+.shot-card .icon{font-size:22px;margin-bottom:4px}
+.shot-card h4{font-size:11px;font-weight:900;color:var(--teal);margin-bottom:3px}
+.shot-card p{font-size:10px;color:var(--g600);line-height:1.6}
+
+/* OK NG grid */
+.okng-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.okng-box{border-radius:10px;padding:14px 16px}
+.okng-box.ok{background:#f0fdf4;border:2px solid #bbf7d0}
+.okng-box.ng{background:#fef2f2;border:2px solid #fecaca}
+.okng-box h4{font-size:12px;font-weight:900;margin-bottom:8px}
+.okng-box.ok h4{color:var(--green)}
+.okng-box.ng h4{color:var(--red)}
+.okng-box ul{list-style:none}
+.okng-box li{padding:4px 0;padding-left:18px;position:relative;font-size:10px;color:var(--g600);line-height:1.6}
+.okng-box.ok li::before{content:'○';position:absolute;left:0;color:var(--green);font-weight:900}
+.okng-box.ng li::before{content:'×';position:absolute;left:0;color:var(--red);font-weight:900}
+
+/* Flow */
+.flow{display:grid;grid-template-columns:repeat(4,1fr) 12px repeat(0,1fr);gap:6px;align-items:stretch;margin-top:4px}
+.flow-step{background:var(--w);border:2px solid var(--g200);border-radius:8px;padding:10px 8px;text-align:center;position:relative}
+.flow-step.active{border-color:var(--orange);background:var(--cream)}
+.flow-step .step-num{display:inline-flex;width:20px;height:20px;border-radius:50%;background:var(--teal);color:var(--w);align-items:center;justify-content:center;font-size:10px;font-weight:900;margin-bottom:4px}
+.flow-step h5{font-size:10px;font-weight:900;color:var(--teal);margin-bottom:2px}
+.flow-step p{font-size:9px;color:var(--g600);line-height:1.5}
+.flow-arrow{display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:14px;font-weight:900}
+
+/* Caption checkbox */
+.caption-box{background:var(--g50);border-radius:8px;padding:12px 16px;border-left:4px solid var(--teal)}
+.caption-box p{font-size:10px;color:var(--g600);line-height:1.7;margin-bottom:6px}
+.caption-box .caps{display:grid;grid-template-columns:1fr 1fr;gap:4px 14px}
+.caption-box .caps li{list-style:none;font-size:10px;color:var(--g800);padding:3px 0;padding-left:18px;position:relative}
+.caption-box .caps li::before{content:'☐';position:absolute;left:0;top:1px;color:var(--teal);font-size:12px;font-weight:900}
+
+/* Highlight */
+.highlight{background:linear-gradient(135deg,var(--teal),var(--teal-light));color:var(--w);padding:16px 22px;border-radius:10px;text-align:center;margin-top:10px;position:relative;overflow:hidden}
+.highlight::before{content:'';position:absolute;top:-50%;right:-15%;width:220px;height:220px;background:radial-gradient(circle,rgba(238,124,59,.25),transparent 65%)}
+.highlight h3{font-size:13px;font-weight:900;margin-bottom:4px;position:relative}
+.highlight p{font-size:10px;opacity:.9;position:relative;line-height:1.7}
+
+/* Footer */
+.doc-footer{position:absolute;bottom:18px;left:48px;right:48px;padding-top:10px;border-top:1px solid var(--g100);display:flex;justify-content:space-between;font-size:9px;color:var(--g500)}
+.doc-footer .left{font-weight:700;color:var(--teal)}
+
+@media print{body{background:#fff}.page{box-shadow:none;margin:0}}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="doc-header">
+    <div class="brand">STRETCH ZERO　|　STAFF SHOOTING GUIDE</div>
+    <h1>店舗スタッフ向け<br><span class="em">撮影ガイド</span></h1>
+    <p>毎週金曜、30秒で終わります。この紙1枚でOKです。</p>
+  </div>
+
+  <div class="quick-rule">
+    <div class="big">週1・3枚・金曜</div>
+    <div class="txt">
+      <strong>ルールはこれだけ</strong>
+      毎週金曜の夕方、施術シーンを3枚だけスマホで撮影して、専用フォームから送ってください。難しい撮影技術は一切不要です。
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span class="num">1</span>何を撮ればいいか（3枚の内訳）</div>
+    <div class="shot-grid">
+      <div class="shot-card">
+        <div class="icon">💆</div>
+        <h4>① 施術中の写真</h4>
+        <p>肩甲骨はがし・腰ストレッチなど、施術中のシーンを1枚</p>
+      </div>
+      <div class="shot-card">
+        <div class="icon">📋</div>
+        <h4>② カウンセリング</h4>
+        <p>姿勢チェック・カウンセリングのシーンを1枚</p>
+      </div>
+      <div class="shot-card">
+        <div class="icon">🙌</div>
+        <h4>③ 施術後 or 店内</h4>
+        <p>施術後の笑顔、または店内の雰囲気が伝わる写真1枚</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span class="num">2</span>撮影のOK・NG</div>
+    <div class="okng-grid">
+      <div class="okng-box ok">
+        <h4>✓ これはOK</h4>
+        <ul>
+          <li>手元・背中・脚の施術シーン</li>
+          <li>施術者の表情・動き</li>
+          <li>店内の雰囲気・内装</li>
+          <li>同意書を得たお客様の横顔</li>
+          <li>横向き・斜めアングル</li>
+          <li>自然光が入る明るい写真</li>
+        </ul>
+      </div>
+      <div class="okng-box ng">
+        <h4>✗ これはNG</h4>
+        <ul>
+          <li>同意書なしのお客様の顔</li>
+          <li>お客様の持ち物が写り込む</li>
+          <li>ブレている・暗すぎる写真</li>
+          <li>他社の商品・ポスターが写る</li>
+          <li>個人情報（氏名札・問診票等）</li>
+          <li>施術台の乱れ・汚れが目立つ</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span class="num">3</span>送信フロー（30秒で完了）</div>
+    <div style="display:grid;grid-template-columns:1fr 14px 1fr 14px 1fr 14px 1fr;gap:6px;align-items:stretch">
+      <div class="flow-step active">
+        <div class="step-num">1</div>
+        <h5>スマホで撮影</h5>
+        <p>金曜夕方に3枚</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step active">
+        <div class="step-num">2</div>
+        <h5>フォームを開く</h5>
+        <p>QRコード or URL</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step active">
+        <div class="step-num">3</div>
+        <h5>画像を選択</h5>
+        <p>3枚まとめて</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step active">
+        <div class="step-num">4</div>
+        <h5>キャプション選択</h5>
+        <p>チェックするだけ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-title"><span class="num">4</span>キャプションは選ぶだけ（自由記述なし）</div>
+    <div class="caption-box">
+      <p>「この写真は何のシーンですか？」— 下から当てはまるものを1つ選んでチェックするだけです。</p>
+      <ul class="caps">
+        <li>肩こり改善ストレッチの施術中</li>
+        <li>腰痛の原因となる姿勢チェック</li>
+        <li>首こり改善の施術</li>
+        <li>骨盤矯正の施術準備</li>
+        <li>カウンセリング・ヒアリング中</li>
+        <li>施術後のアフターカウンセリング</li>
+        <li>店内の受付・待合スペース</li>
+        <li>施術ベッド・施術ルームの雰囲気</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <h3>お客様の同意書なしに顔を撮らないでください</h3>
+    <p>顔が写らなければ手元・背中・脚だけでOK。同意書の運用は VONDS が完全サポートします。</p>
+  </div>
+
+  <div class="doc-footer">
+    <div class="left">STRETCH ZERO STAFF GUIDE</div>
+    <div class="right">運営：株式会社SANKEN　|　作成：株式会社オフィスVONDS</div>
+  </div>
+</div>
+
+</body>
+</html>

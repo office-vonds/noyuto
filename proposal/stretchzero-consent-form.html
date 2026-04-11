@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>施術シーン撮影・掲載に関する同意書｜ストレッチゼロ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+@page{size:A4 portrait;margin:0}
+:root{
+  --teal:#0a5d5d;
+  --teal-light:#14807f;
+  --orange:#ee7c3b;
+  --cream:#fdf8f3;
+  --g50:#f8fafc;
+  --g100:#eef2f4;
+  --g200:#e2e8f0;
+  --g500:#64748b;
+  --g600:#475569;
+  --g800:#1e293b;
+  --w:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--g800);background:#e8e8e8;-webkit-font-smoothing:antialiased}
+.page{width:794px;height:1123px;margin:20px auto;background:var(--w);box-shadow:0 4px 24px rgba(0,0,0,.12);position:relative;page-break-after:always;padding:50px 56px}
+
+/* Header */
+.doc-header{border-bottom:3px solid var(--teal);padding-bottom:20px;margin-bottom:28px;position:relative}
+.doc-header::after{content:'';position:absolute;bottom:-3px;left:0;width:80px;height:3px;background:var(--orange)}
+.doc-header .brand{font-size:11px;color:var(--orange);font-weight:700;letter-spacing:.15em;margin-bottom:6px}
+.doc-header h1{font-size:26px;font-weight:900;color:var(--teal);line-height:1.4;margin-bottom:6px}
+.doc-header .subtitle{font-size:12px;color:var(--g500)}
+
+/* Intro */
+.intro{background:var(--cream);border-left:4px solid var(--orange);padding:18px 22px;border-radius:0 8px 8px 0;margin-bottom:24px;font-size:12px;line-height:1.9;color:var(--g600)}
+.intro strong{color:var(--teal)}
+
+/* Sections */
+.sec-title{font-size:13px;font-weight:900;color:var(--teal);margin-bottom:10px;padding-left:12px;border-left:4px solid var(--orange);display:flex;align-items:center;gap:8px}
+.sec-title .num{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--teal);color:var(--w);align-items:center;justify-content:center;font-size:11px;font-weight:900}
+
+.sec-body{font-size:11px;line-height:1.9;color:var(--g600);margin-bottom:18px;padding-left:12px}
+.sec-body p{margin-bottom:6px}
+
+/* Checkboxes for usage scope */
+.scope-list{margin:8px 0 16px 12px}
+.scope-list li{list-style:none;padding:6px 0;padding-left:28px;position:relative;font-size:11px;color:var(--g600);line-height:1.6}
+.scope-list li::before{content:'☑';position:absolute;left:0;top:5px;color:var(--teal);font-size:14px;font-weight:900}
+
+/* Protection promises */
+.protect-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 16px 12px}
+.protect-item{background:var(--g50);padding:12px 14px;border-radius:8px;border-top:3px solid var(--teal-light);font-size:10px;line-height:1.7;color:var(--g600)}
+.protect-item strong{display:block;color:var(--teal);font-size:11px;margin-bottom:4px}
+
+/* Signature area */
+.sign-area{margin-top:24px;background:var(--g50);padding:22px 24px;border-radius:10px;border:2px dashed var(--teal-light)}
+.sign-title{font-size:12px;font-weight:900;color:var(--teal);margin-bottom:14px;text-align:center}
+.sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:14px}
+.sign-field{font-size:11px;color:var(--g600)}
+.sign-field label{display:block;font-weight:700;color:var(--g800);margin-bottom:4px;font-size:10px}
+.sign-field .line{border-bottom:1.5px solid var(--g800);height:28px}
+.sign-full{margin-top:8px}
+.sign-full label{display:block;font-weight:700;color:var(--g800);margin-bottom:4px;font-size:10px}
+.sign-full .line{border-bottom:1.5px solid var(--g800);height:28px;position:relative}
+.sign-full .line::after{content:'印';position:absolute;right:10px;top:2px;color:var(--g500);font-size:10px;border:1px dashed var(--g500);padding:2px 6px;border-radius:50%}
+
+.opt-line{margin-top:12px;padding:10px 12px;background:var(--w);border-radius:6px;font-size:10px;color:var(--g600);line-height:1.7}
+.opt-line strong{color:var(--teal)}
+
+/* Footer */
+.doc-footer{position:absolute;bottom:30px;left:56px;right:56px;padding-top:14px;border-top:1px solid var(--g100);display:flex;justify-content:space-between;align-items:center;font-size:9px;color:var(--g500)}
+.doc-footer .left{font-weight:700;color:var(--teal)}
+.doc-footer .right{opacity:.7}
+
+@media print{body{background:#fff}.page{box-shadow:none;margin:0}}
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="doc-header">
+    <div class="brand">STRETCH ZERO　|　撮影同意書</div>
+    <h1>施術シーン撮影・掲載に関する同意書</h1>
+    <div class="subtitle">本書面は、お客様のプライバシーを最大限尊重するために作成されています。</div>
+  </div>
+
+  <div class="intro">
+    いつもストレッチゼロをご利用いただきありがとうございます。当店では、より多くの方にストレッチの魅力をお伝えするため、<strong>施術シーンの写真をホームページ・ブログに掲載</strong>させていただいております。掲載にあたっては、お客様のプライバシーを守るため下記のルールを厳守します。ご確認のうえ、ご同意いただける場合はご署名をお願いいたします。
+  </div>
+
+  <div class="sec-title"><span class="num">1</span>掲載の目的と使用範囲</div>
+  <div class="sec-body">
+    <p>お客様を撮影した写真は、以下の目的のみに使用いたします。これ以外の用途では使用いたしません。</p>
+    <ul class="scope-list">
+      <li>ストレッチゼロ公式ホームページ・ブログ記事への掲載</li>
+      <li>Google・Yahoo!等の検索エンジンでの表示（SEO対策の一環）</li>
+      <li>店舗紹介資料・パンフレットへの使用</li>
+    </ul>
+  </div>
+
+  <div class="sec-title"><span class="num">2</span>プライバシー保護のお約束</div>
+  <div class="sec-body">
+    <p>お客様の個人が特定されないよう、以下の加工を必ず行います。</p>
+    <div class="protect-grid">
+      <div class="protect-item"><strong>顔のぼかし加工</strong>顔・目元はモザイク/ぼかし処理を施し、個人が特定できない状態にします。</div>
+      <div class="protect-item"><strong>氏名は非表示</strong>お客様のお名前・個人情報は一切掲載いたしません。</div>
+      <div class="protect-item"><strong>服装・持ち物に配慮</strong>特徴的な持ち物や制服等はトリミング・加工で配慮します。</div>
+      <div class="protect-item"><strong>同意なく撮影しない</strong>本同意書へのご署名後のみ撮影を行います。</div>
+    </div>
+  </div>
+
+  <div class="sec-title"><span class="num">3</span>掲載取り下げのご依頼について</div>
+  <div class="sec-body">
+    <p>ご同意後であっても、お客様のご要望によりいつでも掲載を取り下げることができます。取り下げをご希望の際は、店舗スタッフまたは下記ホームページのお問い合わせフォームよりご連絡ください。確認後、速やかに該当写真を削除いたします。</p>
+  </div>
+
+  <div class="sign-area">
+    <div class="sign-title">下記にご同意いただける場合、ご署名をお願いいたします</div>
+    <div class="sign-grid">
+      <div class="sign-field">
+        <label>同意日</label>
+        <div class="line"></div>
+      </div>
+      <div class="sign-field">
+        <label>ご利用店舗</label>
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="sign-full">
+      <label>お客様ご署名</label>
+      <div class="line"></div>
+    </div>
+    <div class="opt-line">
+      <strong>任意</strong>：特にご希望がございましたらご記入ください（例：「顔は絶対に写さないでほしい」「腰の施術のみ可」など）
+      <div style="border-bottom:1px solid var(--g200);height:20px;margin-top:6px"></div>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <div class="left">STRETCH ZERO</div>
+    <div class="right">運営：株式会社SANKEN　|　本書式：株式会社オフィスVONDS作成</div>
+  </div>
+</div>
+
+</body>
+</html>
