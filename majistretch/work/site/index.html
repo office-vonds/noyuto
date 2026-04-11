@@ -241,8 +241,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       background: #1A1A1A;
     }
 
-    /* レスポンシブ */
-    @media (max-width: 480px) {
+    /* レスポンシブ SP */
+    @media (max-width: 767px) {
+      .p-hero__review {
+        position: static !important;
+        transform: none !important;
+        width: auto !important;
+        max-width: 100% !important;
+      }
       .p-reservation__form {
         padding: 24px 16px;
       }
@@ -251,6 +257,112 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
       .p-reservation__date-row .p-reservation__select {
         flex: 1 1 100%;
+      }
+    }
+
+    /* ===== PC版レイアウト（768px以上） ===== */
+    @media (min-width: 768px) {
+      body {
+        background: #f0f0f0 !important;
+        margin: 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        box-shadow: none !important;
+      }
+      .l-side-nav { display: none !important; }
+      main {
+        width: 800px !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
+        background: #fff !important;
+        box-shadow: 0 0 40px rgba(0,0,0,0.12) !important;
+      }
+      .l-header {
+        width: 800px !important;
+        max-width: 800px !important;
+        position: fixed !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 100 !important;
+        background: #fff !important;
+      }
+      .l-header__inner {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+      }
+      .p-hero__visual { width: 100% !important; max-width: 100% !important; position: relative !important; }
+      .p-hero__img { width: 100% !important; height: auto !important; display: block !important; }
+      .p-hero__content { padding-top: 80px !important; }
+      .p-hero__logo-mark { margin-top: 30px !important; margin-bottom: 20px !important; }
+
+      /* 口コミバッジ：FV画像上部に大きく配置 */
+      .p-hero__photo {
+        position: relative !important;
+      }
+      .p-hero__review {
+        position: absolute !important;
+        top: -580px !important;
+        bottom: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        display: flex !important;
+        align-items: center !important;
+        background: rgba(255,255,255,0.97) !important;
+        border-radius: 20px !important;
+        padding: 28px 36px !important;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.22) !important;
+        z-index: 30 !important;
+        width: 580px !important;
+        max-width: 85% !important;
+      }
+      .p-hero__review-inner {
+        display: flex !important;
+        align-items: center !important;
+        gap: 20px !important;
+        width: 100% !important;
+      }
+      .p-hero__review-icon {
+        width: 76px !important;
+        height: 76px !important;
+        border-radius: 50% !important;
+        flex-shrink: 0 !important;
+      }
+      .p-hero__review-title {
+        font-weight: 900 !important;
+        font-size: 28px !important;
+        color: #E8527A !important;
+        margin: 0 0 6px !important;
+      }
+      .p-hero__review-text {
+        font-size: 20px !important;
+        font-weight: 700 !important;
+        color: #222 !important;
+        margin: 0 !important;
+      }
+
+      .p-hero__photo { margin-top: -2px !important; }
+
+      /* 固定バナー：PC非表示 */
+      .p-fixed-banner,
+      .p-fixed-banner--dual {
+        display: none !important;
+      }
+
+      /* セクション内幅 */
+      .p-qualify__inner, .p-program__inner, .p-price__inner,
+      .p-guarantee__inner, .p-faq__inner, .p-results__inner,
+      .p-shop__inner, .p-shop-map__inner, .p-symptoms__inner,
+      .p-chain__overlay, .p-benefits__inner, .p-compare__inner,
+      .p-cta2__inner, .p-final-cta__content,
+      .p-reservation__inner {
+        max-width: 100% !important; width: 100% !important;
+      }
+      .l-footer {
+        width: 800px !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
       }
     }
   </style>
@@ -320,10 +432,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="p-hero__answer">状態、原因を数値化</p>
         <p class="p-hero__booking">精密姿勢診断 予約受付中！</p>
         <div class="p-hero__cta">
-          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-fv" data-gtm-tel="fv">精密姿勢診断を予約する</a>
+          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-fv" data-gtm-tel="fv"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>精密姿勢診断を予約する</a>
           <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-fv">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            WEB予約する
+            WEB予約
           </a>
           <p class="c-btn__note">毎月限定12名様</p>
         </div>
@@ -562,10 +674,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <span class="p-cta2__deco p-cta2__deco--right" aria-hidden="true">/</span>
           </div>
-          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-guarantee" data-gtm-tel="guarantee">精密姿勢診断を予約する</a>
+          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-guarantee" data-gtm-tel="guarantee"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>精密姿勢診断を予約する</a>
           <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-guarantee">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            WEB予約する
+            WEB予約
           </a>
         </div>
       </div>
@@ -578,7 +690,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="p-results__list">
           <div class="p-results__card">
             <img src="images/ba_image_01.webp" alt="前屈のビフォーアフター" class="p-results__img" width="400" height="300" loading="lazy">
-            <p class="p-results__caption">前屈＋10cm！</p>
+            <p class="p-results__caption">前屈＋22cm！</p>
           </div>
           <div class="p-results__card">
             <img src="images/ba_image_02.webp" alt="肩可動域のビフォーアフター" class="p-results__img" width="400" height="300" loading="lazy">
@@ -634,7 +746,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <p class="p-benefits__title">ご新規様限定の<br>お得な<br><em class="u-color-primary">継続特典あり</em></p>
               </div>
             </div>
-            <p class="p-benefits__desc">継続のご褒美として、9回目はサービス！</p>
+            <p class="p-benefits__desc">初回限定！通いやすい特別割引の回数券あり！</p>
           </div>
 
           <div class="p-benefits__group">
@@ -699,6 +811,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <p class="p-faq__answer">生活習慣の積み重ねです。1回の施術で一時的に楽になりますが、体は元のクセに戻ろうとする性質があります。正しい状態を体に覚えさせるためには複数回の施術が必要になります。</p>
             </div>
           </div>
+
+          <div class="p-faq__item">
+            <span class="p-faq__num">Q6</span>
+            <div class="p-faq__content">
+              <p class="p-faq__question">8回券67,200円以外に費用はかかりますか？</p>
+              <p class="p-faq__answer">担当したトレーナーの指名を希望されるお客様は指名料金が別途発生いたします。<br>（※男性のお客様 4,000円(税込) 女性のお客様 2,000円(税込)）</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -712,11 +832,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="p-final-cta__message"><em class="p-final-cta__em">本気</em>で<br>身体を変えたい<br>方のための枠だけを<br><em class="p-final-cta__accent">毎月12名様限定</em>で<br>確保しています。</p>
             <a href="tel:05088848993" class="c-btn c-btn--primary p-final-cta__btn" data-gtm-click="cta-final" data-gtm-tel="final">
               <span class="p-final-cta__btn-sub">毎月12名様限定！</span>
-              <span class="p-final-cta__btn-main">精密姿勢診断を予約する</span>
+              <span class="p-final-cta__btn-main"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;margin-right:4px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>精密姿勢診断を予約する</span>
             </a>
             <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-final" style="margin-top:12px;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              WEB予約する
+              WEB予約
             </a>
           </div>
         </div>
@@ -1043,7 +1163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </a>
     <a href="#reservation" class="p-fixed-banner__btn p-fixed-banner__btn--web" data-gtm-click="cta-fixed-sp-web">
       <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      WEB予約する
+      WEB予約
     </a>
   </div>
 
@@ -1078,7 +1198,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       var formData = new FormData(form);
 
-      fetch('reservation.php', {
+      fetch('/lp/reservation.php', {
         method: 'POST',
         body: formData
       })
@@ -1086,7 +1206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .then(function(data) {
         if (data.success) {
           // サンクスページへリダイレクト
-          window.location.href = 'thanks.html';
+          window.location.href = 'lp/thanks.html';
           return;
         } else {
           result.className = 'p-reservation__result p-reservation__result--error';
