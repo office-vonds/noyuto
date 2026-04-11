@@ -124,8 +124,8 @@ add_action('wp_footer', function () {
   }
 
   function applyConstraints() {
-    var min = earliest();
-    var firstYmd = firstAvailableYmd(min);
+    var minUnixMs = earliestUnixMs();
+    var firstYmd = firstAvailableYmd(minUnixMs);
 
     ['1', '2', '3'].forEach(function (n) {
       var dateEl = document.querySelector('input[name="your-date' + n + '"]');
@@ -143,7 +143,7 @@ add_action('wp_footer', function () {
       }
 
       timeEl.disabled = false;
-      rebuild(timeEl, n, dateEl.value, min, firstYmd);
+      rebuild(timeEl, n, dateEl.value, minUnixMs, firstYmd);
     });
   }
 
