@@ -23,19 +23,40 @@ const SZ_FORM_ID = 1354;
 add_action('wp_footer', function () {
     if (!is_page('contact')) return;
     $lead = (int) SZ_LEAD_HOURS;
+    $tz = new DateTimeZone('Asia/Tokyo');
+    $server_now = new DateTime('now', $tz);
+    $server_unix_ms = ((int) $server_now->getTimestamp()) * 1000;
     ?>
 <script>
 (function () {
   var LEAD_HOURS = <?php echo $lead; ?>;
+  var SERVER_UNIX_MS = <?php echo $server_unix_ms; ?>;
+  var LOAD_CLIENT_MS = Date.now();
+  var JST_OFFSET_MS = 9 * 60 * 60 * 1000;
   var originalOptions = {};
 
   function pad(n) { return n < 10 ? '0' + n : '' + n; }
-  function ymd(d) { return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()); }
 
-  function earliest() {
-    var d = new Date();
-    d.setMinutes(d.getMinutes() + LEAD_HOURS * 60);
-    return d;
+  // Returns true unix ms (timezone-independent), synced to server at page load.
+  function unixNowMs() {
+    return SERVER_UNIX_MS + (Date.now() - LOAD_CLIENT_MS);
+  }
+
+  // Unix ms for "JST ymd H:M:00"
+  function jstYmdHmToUnixMs(ymdStr, hh, mm) {
+    var p = ymdStr.split('-');
+    // Date.UTC treats its args as UTC. We want JST → subtract 9h.
+    return Date.UTC(+p[0], +p[1] - 1, +p[2], hh, mm, 0) - JST_OFFSET_MS;
+  }
+
+  // JST ymd string for a given unix ms
+  function unixMsToJstYmd(unixMs) {
+    var d = new Date(unixMs + JST_OFFSET_MS);
+    return d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate());
+  }
+
+  function earliestUnixMs() {
+    return unixNowMs() + LEAD_HOURS * 60 * 60 * 1000;
   }
 
   function snapshotOriginal(timeEl, key) {
