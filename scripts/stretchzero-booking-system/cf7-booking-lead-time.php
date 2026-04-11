@@ -135,8 +135,22 @@ add_action('wp_footer', function () {
     });
   }
 
+  function injectNotice() {
+    var dateEl = document.querySelector('input[name="your-date1"]');
+    if (!dateEl) return;
+    if (document.getElementById('sz-leadtime-notice')) return;
+    var p = dateEl.closest('p') || dateEl.parentNode;
+    if (!p || !p.parentNode) return;
+    var note = document.createElement('p');
+    note.id = 'sz-leadtime-notice';
+    note.style.cssText = 'margin:8px 0 16px;padding:10px 14px;background:#fff5e6;border-left:4px solid #e67e22;color:#8a4a00;font-size:14px;line-height:1.5;';
+    note.textContent = '※ ネット予約は現在時刻から3時間後以降の日時のみお選びいただけます。お急ぎの場合は店舗へお電話ください。';
+    p.parentNode.insertBefore(note, p);
+  }
+
   function init() {
     bind();
+    injectNotice();
     applyConstraints();
     setInterval(applyConstraints, 60 * 1000);
   }
