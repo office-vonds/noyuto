@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>VONDS SEO復旧計画 ─「山梨 SEO対策」圏外転落</title>
+<style>
+  :root {
+    --bg: #0b1220;
+    --bg-card: #111a2e;
+    --bg-card-2: #162039;
+    --border: #1f2d4e;
+    --text: #e6edf7;
+    --text-dim: #8ea2c4;
+    --text-muted: #5e7196;
+    --accent: #3b82f6;
+    --accent-2: #60a5fa;
+    --danger: #ef4444;
+    --danger-bg: rgba(239,68,68,0.1);
+    --warn: #f59e0b;
+    --warn-bg: rgba(245,158,11,0.1);
+    --ok: #10b981;
+    --ok-bg: rgba(16,185,129,0.1);
+    --purple: #a855f7;
+    --purple-bg: rgba(168,85,247,0.1);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif; line-height: 1.7; font-size: 15px; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 32px 20px 80px; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); border: 1px solid var(--border); border-radius: 16px; padding: 40px 36px; margin-bottom: 28px; position: relative; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; top: -60px; right: -60px; width: 240px; height: 240px; background: radial-gradient(circle, rgba(239,68,68,0.18) 0%, transparent 70%); }
+  .hero-badge { display: inline-block; background: var(--danger-bg); color: var(--danger); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(239,68,68,0.3); margin-bottom: 16px; }
+  .hero h1 { font-size: 32px; line-height: 1.3; margin: 0 0 12px; font-weight: 800; letter-spacing: -0.01em; }
+  .hero h1 .kw { color: #fca5a5; }
+  .hero .lead { color: var(--text-dim); font-size: 16px; margin: 0 0 24px; max-width: 720px; }
+  .hero-meta { display: flex; gap: 20px; font-size: 12px; color: var(--text-muted); flex-wrap: wrap; }
+  .hero-meta span strong { color: var(--text); font-weight: 600; }
+
+  /* TL;DR CARD */
+  .tldr { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; margin-bottom: 28px; }
+  .tldr h2 { font-size: 11px; color: var(--accent-2); text-transform: uppercase; letter-spacing: 0.15em; margin: 0 0 14px; font-weight: 700; }
+  .tldr ol { margin: 0; padding-left: 20px; }
+  .tldr ol li { margin-bottom: 10px; font-size: 15px; }
+  .tldr ol li strong { color: #fca5a5; }
+  .tldr ol li.ok strong { color: #6ee7b7; }
+
+  /* GRID CARDS */
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 28px; }
+  @media (max-width: 760px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+  .stat { background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .stat .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .stat .value { font-size: 24px; font-weight: 800; color: var(--text); }
+  .stat .hint { font-size: 12px; color: var(--text-dim); margin-top: 2px; }
+  .stat.danger .value { color: #fca5a5; }
+  .stat.ok .value { color: #6ee7b7; }
+  .stat.warn .value { color: #fcd34d; }
+
+  /* SECTION */
+  section { margin-bottom: 36px; }
+  section > h2 { font-size: 20px; margin: 0 0 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; font-weight: 700; }
+  section > h2 .num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; background: var(--accent); color: #fff; border-radius: 8px; font-size: 13px; font-weight: 800; }
+
+  /* CAUSE LIST */
+  .causes { display: flex; flex-direction: column; gap: 12px; }
+  .cause { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--border); border-radius: 10px; padding: 18px 22px; }
+  .cause.critical { border-left-color: var(--danger); }
+  .cause.high { border-left-color: var(--warn); }
+  .cause.mid { border-left-color: var(--accent); }
+  .cause .head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .cause .tag { font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+  .cause.critical .tag { background: var(--danger-bg); color: var(--danger); border: 1px solid rgba(239,68,68,0.3); }
+  .cause.high .tag { background: var(--warn-bg); color: var(--warn); border: 1px solid rgba(245,158,11,0.3); }
+  .cause.mid .tag { background: rgba(59,130,246,0.1); color: var(--accent-2); border: 1px solid rgba(59,130,246,0.3); }
+  .cause h3 { margin: 0; font-size: 16px; font-weight: 700; }
+  .cause p { margin: 6px 0 0; color: var(--text-dim); font-size: 14px; }
+  .cause .evidence { margin-top: 10px; padding: 10px 14px; background: #0a1120; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; color: var(--text-dim); font-family: "SF Mono", Consolas, Monaco, monospace; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; font-size: 13px; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { background: var(--bg-card-2); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); font-weight: 700; }
+  tr:last-child td { border-bottom: none; }
+  td .bad { color: #fca5a5; font-weight: 600; }
+  td .good { color: #6ee7b7; font-weight: 600; }
+  td .warn { color: #fcd34d; font-weight: 600; }
+
+  /* FIXES */
+  .fixes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  @media (max-width: 760px) { .fixes { grid-template-columns: 1fr; } }
+  .fix { background: var(--bg-card); border: 1px solid var(--border); border-left: 4px solid var(--ok); border-radius: 10px; padding: 16px 20px; }
+  .fix .check { color: var(--ok); font-weight: 800; font-size: 14px; }
+  .fix h4 { margin: 4px 0 6px; font-size: 14px; }
+  .fix p { margin: 0; font-size: 13px; color: var(--text-dim); }
+  .fix code { background: #0a1120; padding: 2px 6px; border-radius: 4px; font-size: 12px; color: #93c5fd; }
+
+  /* INCIDENT BOX */
+  .incident { background: linear-gradient(135deg, rgba(239,68,68,0.08), rgba(239,68,68,0.02)); border: 1px solid rgba(239,68,68,0.3); border-radius: 14px; padding: 24px 28px; }
+  .incident .tag { display: inline-block; background: var(--danger-bg); color: var(--danger); font-size: 10px; font-weight: 800; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .incident h3 { margin: 0 0 10px; font-size: 18px; }
+  .incident p { color: var(--text-dim); margin: 6px 0; }
+  .incident .diag { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 16px; }
+  @media (max-width: 700px) { .incident .diag { grid-template-columns: 1fr; } }
+  .incident .diag > div { background: #0a1120; border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .incident .diag h4 { margin: 0 0 8px; font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+  .incident .diag code { color: #fca5a5; font-size: 12px; }
+  .incident .diag ul { margin: 4px 0 0; padding-left: 18px; font-size: 13px; }
+  .incident .diag ul li { margin: 3px 0; color: var(--text-dim); }
+
+  /* OPTIONS */
+  .options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  @media (max-width: 900px) { .options { grid-template-columns: 1fr; } }
+  .opt { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; position: relative; display: flex; flex-direction: column; }
+  .opt.recommended { border-color: var(--ok); background: linear-gradient(180deg, rgba(16,185,129,0.06), var(--bg-card)); }
+  .opt .star { position: absolute; top: -12px; right: 16px; background: var(--ok); color: #032017; font-size: 10px; font-weight: 800; padding: 5px 12px; border-radius: 999px; letter-spacing: 0.08em; }
+  .opt .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .opt h3 { margin: 0 0 10px; font-size: 18px; }
+  .opt .sub { font-size: 13px; color: var(--text-dim); margin-bottom: 14px; min-height: 36px; }
+  .opt .kv { display: flex; justify-content: space-between; font-size: 12px; padding: 6px 0; border-top: 1px dashed var(--border); }
+  .opt .kv:first-of-type { border-top: none; }
+  .opt .kv .k { color: var(--text-muted); }
+  .opt .kv .v { color: var(--text); font-weight: 600; }
+  .opt .kv .v.fast { color: #6ee7b7; }
+  .opt .kv .v.slow { color: #fcd34d; }
+  .opt .kv .v.risk-low { color: #6ee7b7; }
+  .opt .kv .v.risk-mid { color: #fcd34d; }
+  .opt .kv .v.risk-high { color: #fca5a5; }
+
+  /* QUESTIONS */
+  .questions { background: var(--bg-card); border: 2px solid var(--accent); border-radius: 14px; padding: 24px 28px; }
+  .questions h2 { margin-top: 0; color: var(--accent-2); font-size: 18px; border: none; padding: 0; }
+  .questions ol { margin: 12px 0 0; padding-left: 24px; }
+  .questions ol li { margin-bottom: 10px; font-size: 15px; }
+  .questions ol li strong { color: #fff; }
+
+  /* GSC */
+  .gsc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; }
+  .gsc h3 { margin-top: 0; font-size: 16px; }
+  .gsc ul { margin: 0; padding-left: 0; list-style: none; }
+  .gsc ul li { padding: 10px 14px; margin: 6px 0; background: #0a1120; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; position: relative; padding-left: 38px; }
+  .gsc ul li::before { content: "☐"; position: absolute; left: 14px; top: 8px; font-size: 16px; color: var(--text-muted); }
+  .gsc ul li strong { color: #fcd34d; }
+  .gsc ul li code { background: #111a2e; padding: 2px 6px; border-radius: 4px; font-size: 12px; color: #93c5fd; }
+
+  /* APPENDIX */
+  details { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 0; margin-top: 10px; overflow: hidden; }
+  details summary { padding: 14px 20px; cursor: pointer; font-weight: 600; font-size: 14px; color: var(--text-dim); user-select: none; }
+  details summary:hover { background: var(--bg-card-2); }
+  details[open] summary { border-bottom: 1px solid var(--border); color: var(--text); }
+  details .body { padding: 16px 20px; font-size: 13px; }
+  details pre { background: #0a1120; border: 1px solid var(--border); border-radius: 6px; padding: 14px 16px; overflow-x: auto; font-size: 12px; color: #93c5fd; margin: 8px 0; }
+
+  /* FOOT */
+  footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); text-align: center; }
+
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; margin-right: 4px; }
+  .pill.danger { background: var(--danger-bg); color: var(--danger); }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); }
+  .pill.ok { background: var(--ok-bg); color: var(--ok); }
+  .pill.info { background: rgba(59,130,246,0.1); color: var(--accent-2); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-badge">● 判断待ち・本番未反映</div>
+    <h1>VONDS SEO復旧計画<br><span class="kw">「山梨 SEO対策」6位 → 圏外</span> 原因分析と修正</h1>
+    <p class="lead">リニューアル後の順位急落の真因を特定し、修正はmain上で完了。しかし本番デプロイの運用事故により反映保留中。NOYUTOの判断で即復旧できる状態。</p>
+    <div class="hero-meta">
+      <span>📅 作成: <strong>2026-04-11</strong></span>
+      <span>🎯 対象: <strong>vonds.co.jp</strong></span>
+      <span>💾 コミット: <strong>d679b8a</strong> (main・push済)</span>
+      <span>⏸ 本番反映: <strong>保留中</strong></span>
+    </div>
+  </div>
+
+  <!-- TLDR -->
+  <div class="tldr">
+    <h2>● 3行で結論</h2>
+    <ol>
+      <li><strong>真因は4つ複合</strong>。①sitemap.xmlに本丸 /works/seo/ が入っていない ②/past_work.html の重複 ③トップh1に「SEO対策」完全一致なし ④title連続変更で Google再評価中。①が致命。</li>
+      <li class="ok"><strong>修正はmainで完了済</strong>。sitemap 6→21URL拡張、h1修正、内部リンク4本強化、重複削除、noindex追加、自動生成スクリプト化。コミット <code style="background:#0a1120;padding:2px 6px;border-radius:4px;color:#93c5fd;">d679b8a</code> にまとまっている。</li>
+      <li><strong>本番未反映</strong>。GitHub Pagesの配信元が main ではなく <code style="background:#0a1120;padding:2px 6px;border-radius:4px;color:#fca5a5;">gh-pages</code> で、両ブランチが 20コミットずつ分岐していた運用事故。mainへのpushはPagesビルドをトリガーしない状態で1日以上放置されていた。</li>
+    </ol>
+  </div>
+
+  <!-- STATS -->
+  <div class="grid-4">
+    <div class="stat danger">
+      <div class="label">山梨 SEO対策</div>
+      <div class="value">圏外</div>
+      <div class="hint">前: 約6位</div>
+    </div>
+    <div class="stat warn">
+      <div class="label">sitemap登録URL</div>
+      <div class="value">6 → 21</div>
+      <div class="hint">本丸 /works/seo/ 追加</div>
+    </div>
+    <div class="stat danger">
+      <div class="label">GA4 ER (28d)</div>
+      <div class="value">23.8%</div>
+      <div class="hint">直帰率 76%</div>
+    </div>
+    <div class="stat warn">
+      <div class="label">Pages最終ビルド</div>
+      <div class="value">4/10 朝</div>
+      <div class="hint">mainのpush無反映</div>
+    </div>
+  </div>
+
+  <!-- 真因 -->
+  <section>
+    <h2><span class="num">1</span>真因分析（優先度順）</h2>
+    <div class="causes">
+
+      <div class="cause critical">
+        <div class="head"><span class="tag">CRITICAL</span><h3>sitemap.xmlが壊滅的に不完全</h3></div>
+        <p>修正前の sitemap.xml はたった6URL。「山梨 SEO対策」完全一致h1を持つ本丸ページ <code style="color:#fca5a5">/works/seo/</code> が含まれていない。SEO会社が自社看板キーワード用ページをGoogleに存在さえ知らせていない自殺行為。</p>
+        <div class="evidence">/ &nbsp; /column/ &nbsp; /past_work.html &nbsp; /column/seo-howto-guide/ &nbsp; /column/yamanashi-seo/ &nbsp; /column/what-is-seo/</div>
+      </div>
+
+      <div class="cause high">
+        <div class="head"><span class="tag">HIGH</span><h3>/past_work.html と /past_work/ の重複コンテンツ</h3></div>
+        <p>両方が200で返る。sitemap側は .html、内部リンク・canonical側は / 版。Googleは重複として両方の評価を下げる。</p>
+      </div>
+
+      <div class="cause high">
+        <div class="head"><span class="tag">HIGH</span><h3>トップh1に「SEO対策」完全一致フレーズが不在</h3></div>
+        <p>title は「山梨県の<strong>SEO対策</strong>・…」で完全一致あり。しかし h1 は「山梨の集客を、SEOの力で変える。」で完全一致なし。title と h1 の一貫性が崩壊している。</p>
+      </div>
+
+      <div class="cause high">
+        <div class="head"><span class="tag">HIGH</span><h3>title連続変更によるGoogle再評価期間</h3></div>
+        <p>リニューアル本体の後、「全ページSEO改修 title統一」と「SEO改善 メタ情報最適化」の2回連続でtitle改修が走った。GA4に3種類のtitleが計上されている。Googleは「このサイトは不安定」と判定して順位をフラット化し再計算中。</p>
+      </div>
+
+      <div class="cause mid">
+        <div class="head"><span class="tag">MID</span><h3>内部リンクのアンカーテキストが弱い</h3></div>
+        <p>サービスカード4本のリンクテキストが全部「詳しく見る →」という汎用アンカー。Googleは内部リンクのアンカーテキストも評価シグナルとして使うが、キーワードが渡されていない。</p>
+      </div>
+
+      <div class="cause mid">
+        <div class="head"><span class="tag">MID</span><h3>旧コンテンツ群と新トップの内部リンク断絶</h3></div>
+        <p>/seo/report1/, /seo/semantic/, /net_biz/corona/, /kokodake/* は生きているがナビ刷新で新トップとの相互リンクが薄い。旧ページが蓄積してきたドメイン権威が新トップに流れない。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 実施済み修正 -->
+  <section>
+    <h2><span class="num">2</span>実施済み修正（main上・コミット d679b8a）</h2>
+    <div class="fixes">
+      <div class="fix">
+        <span class="check">✓ 完了</span>
+        <h4>sitemap.xml 全面再生成</h4>
+        <p>6URL → <strong>21URL</strong>。本丸 <code>/works/seo/</code> 含め主要サービスページ5本・会社情報・実績・旧コラム群を網羅。</p>
+      </div>
+      <div class="fix">
+        <span class="check">✓ 完了</span>
+        <h4>トップ h1 修正</h4>
+        <p>「山梨の集客を、SEOの力で変える。」→「<strong>山梨の SEO対策 で、集客を結果で変える。</strong>」完全一致追加。</p>
+      </div>
+      <div class="fix">
+        <span class="check">✓ 完了</span>
+        <h4>サービスカード アンカーテキスト強化</h4>
+        <p>「詳しく見る」→「<strong>山梨 SEO対策の詳細を見る</strong>」等、4本すべて完全一致キーワード化。</p>
+      </div>
+      <div class="fix">
+        <span class="check">✓ 完了</span>
+        <h4>past_work.html 削除</h4>
+        <p>重複コンテンツ解消。<code>/past_work/</code> に一本化。</p>
+      </div>
+      <div class="fix">
+        <span class="check">✓ 完了</span>
+        <h4>noindex 追加</h4>
+        <p><code>hearing_work/hearing/</code> と <code>column/sample-preview/</code> にロボットメタ追加。インデックス汚染防止。</p>
+      </div>
+      <div class="fix">
+        <span class="check">✓ 完了</span>
+        <h4>scripts/generate_sitemap.py 新規</h4>
+        <p>全index.html走査 + noindex自動除外 + git lastmod取得。今後 <code>python3 scripts/generate_sitemap.py</code> 一発で再生成可能。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCIDENT -->
+  <section>
+    <h2><span class="num">3</span>本番反映ブロッカー ─ 運用事故</h2>
+    <div class="incident">
+      <span class="tag">● INCIDENT</span>
+      <h3>GitHub Pages 配信元が main ではなく gh-pages ブランチ</h3>
+      <p>mainへのpushはPagesビルドをトリガーせず、本番は 2026-04-10 08:50 UTC のビルドのまま凍結。main→gh-pagesの自動同期機構は存在せず、今日のSEO修正含む全Claude作業が本番未反映。</p>
+
+      <div class="diag">
+        <div>
+          <h4>main だけに存在する20コミット</h4>
+          <ul>
+            <li>今回のSEO修正 d679b8a</li>
+            <li>他Claude: 本気ストレッチLP改修</li>
+            <li>他Claude: ads-audit 商品化</li>
+            <li>他Claude: majistretch広告CSV</li>
+            <li>proposal/stretchzero 資料群</li>
+          </ul>
+        </div>
+        <div>
+          <h4>gh-pages だけに存在する20コミット</h4>
+          <ul>
+            <li><code>works/seo/auto-plan/</code> 追加（4/10朝）</li>
+            <li><code>subsidy/docs/令和6年度VONDS.csv</code></li>
+            <li><code>subsidy/docs/再開手順.md</code></li>
+            <li>経営計画書_様式2.md 更新</li>
+            <li>補助事業計画書_様式3.md 更新</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONS -->
+  <section>
+    <h2><span class="num">4</span>復旧オプション</h2>
+    <div class="options">
+
+      <div class="opt recommended">
+        <span class="star">★ RECOMMENDED</span>
+        <div class="label">Option A</div>
+        <h3>緊急 Cherry-Pick</h3>
+        <div class="sub">gh-pagesブランチに d679b8a だけを持っていき単体pushで即反映。</div>
+        <div class="kv"><span class="k">所要時間</span><span class="v fast">5〜15分</span></div>
+        <div class="kv"><span class="k">リスク</span><span class="v risk-mid">中（コンフリクト可）</span></div>
+        <div class="kv"><span class="k">影響範囲</span><span class="v">俺の6ファイルのみ</span></div>
+        <div class="kv"><span class="k">副作用</span><span class="v">main/gh-pages分岐は残る</span></div>
+        <div class="kv"><span class="k">破壊的操作</span><span class="v risk-low">なし</span></div>
+      </div>
+
+      <div class="opt">
+        <div class="label">Option B</div>
+        <h3>根本統合＋運用刷新</h3>
+        <div class="sub">両ブランチをmainに統合、gh-pages廃止、Pagesソースをmainへ切替。</div>
+        <div class="kv"><span class="k">所要時間</span><span class="v slow">1〜2時間</span></div>
+        <div class="kv"><span class="k">リスク</span><span class="v risk-high">高（20×20マージ）</span></div>
+        <div class="kv"><span class="k">影響範囲</span><span class="v">リポジトリ全体</span></div>
+        <div class="kv"><span class="k">副作用</span><span class="v">二度と同じ事故は起きない</span></div>
+        <div class="kv"><span class="k">破壊的操作</span><span class="v risk-high">force-with-lease</span></div>
+      </div>
+
+      <div class="opt">
+        <div class="label">Option C</div>
+        <h3>社長主導・手動</h3>
+        <div class="sub">手順書だけClaudeが作成し、NOYUTOがGitHub管理画面で実作業。</div>
+        <div class="kv"><span class="k">所要時間</span><span class="v slow">数時間〜</span></div>
+        <div class="kv"><span class="k">リスク</span><span class="v risk-low">低</span></div>
+        <div class="kv"><span class="k">影響範囲</span><span class="v">社長の手作業次第</span></div>
+        <div class="kv"><span class="k">副作用</span><span class="v">SEOダメージ継続</span></div>
+        <div class="kv"><span class="k">破壊的操作</span><span class="v risk-low">社長判断</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 推奨アクション -->
+  <section>
+    <h2><span class="num">5</span>推奨アクション</h2>
+    <table>
+      <thead><tr><th>フェーズ</th><th>アクション</th><th>担当</th><th>目的</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill danger">今日</span></td><td>Option A 実行：d679b8a を gh-pages に cherry-pick & push</td><td>Claude</td><td>SEO修正を即本番反映</td></tr>
+        <tr><td><span class="pill danger">今日</span></td><td>GSC で sitemap.xml 再送信</td><td>NOYUTO</td><td>Googleに新URL群を通知</td></tr>
+        <tr><td><span class="pill danger">今日</span></td><td>GSC URL検査ツールで <code>/</code> と <code>/works/seo/</code> をインデックス登録リクエスト</td><td>NOYUTO</td><td>再クロール促進</td></tr>
+        <tr><td><span class="pill warn">今週</span></td><td>Option B 実行：main と gh-pages 統合、Pages source を main へ切替</td><td>Claude</td><td>運用事故の根本解決</td></tr>
+        <tr><td><span class="pill warn">今週</span></td><td>WORKING_PROTOCOL.md 更新（gh-pages廃止を明記）</td><td>Claude</td><td>運用ルール整合</td></tr>
+        <tr><td><span class="pill info">2〜4週</span></td><td>GSCで「山梨 SEO対策」「甲府 SEO」等の表示回数・順位推移を追跡</td><td>NOYUTO</td><td>回復確認</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- QUESTIONS -->
+  <section>
+    <div class="questions">
+      <h2>● NOYUTO への質問 5点</h2>
+      <ol>
+        <li><strong>Option A（今日中の緊急cherry-pick反映）</strong>を実行していいか？</li>
+        <li><strong>Option B（main統合＋Pages source切替）</strong>はいつ着手するか？（今週中推奨）</li>
+        <li>gh-pages側にしかない <code>works/seo/auto-plan/</code> の扱いは？mainに取り込んで継続運用するか？</li>
+        <li>補助金書類（gh-pages側 <code>subsidy/docs/*</code>）はmainマージしていいか？ 機密性の観点で判断要</li>
+        <li>ブランチ統合作業は俺主導で進めていいか？ それとも社長自身が管理画面で？</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- GSC -->
+  <section>
+    <h2><span class="num">6</span>NOYUTO が Search Console でやること</h2>
+    <div class="gsc">
+      <ul>
+        <li><strong>sitemap再送信</strong>：GSC → サイトマップ → <code>sitemap.xml</code> を入力して送信。新21URLが通知される。</li>
+        <li><strong>URL検査・手動インデックス登録</strong>：トップ <code>/</code>・<code>/works/seo/</code>・<code>/works/web/</code>・<code>/works/ads/</code>・<code>/works/ai/</code>・<code>/company/</code> の6ページで「インデックス登録をリクエスト」を押す</li>
+        <li><strong>カバレッジレポート確認</strong>：「検出 - インデックス未登録」「クロール済み - インデックス未登録」の件数を記録しておく。復旧過程の定点観測点になる。</li>
+        <li><strong>パフォーマンスレポート監視</strong>：「山梨 SEO対策」「山梨 ホームページ制作」「甲府 SEO」の平均掲載順位・表示回数・CTRを日次で追跡。復旧目安2〜4週間。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- APPENDIX -->
+  <section>
+    <h2><span class="num">7</span>付録（折りたたみ）</h2>
+
+    <details>
+      <summary>📊 GA4実データ（直近28日）</summary>
+      <div class="body">
+        <p><strong>vonds.co.jp KPI</strong></p>
+        <table>
+          <tbody>
+            <tr><td>Users</td><td>393</td></tr>
+            <tr><td>Sessions</td><td>433</td></tr>
+            <tr><td>ER</td><td><span class="bad">23.8%（危険信号）</span></td></tr>
+            <tr><td>直帰率</td><td><span class="bad">76%</span></td></tr>
+            <tr><td>Conversions</td><td><span class="bad">0（イベント未設定）</span></td></tr>
+            <tr><td>平均滞在</td><td>80秒</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:16px"><strong>チャネル内訳</strong></p>
+        <table>
+          <thead><tr><th>Channel</th><th>Sessions</th><th>ER</th><th>所見</th></tr></thead>
+          <tbody>
+            <tr><td>Direct</td><td>354 (82%)</td><td><span class="bad">17.5%</span></td><td>ボット・自動巡回混入疑い</td></tr>
+            <tr><td>Organic Search</td><td>53</td><td><span class="good">66%</span></td><td>本物の自然流入はこっち</td></tr>
+            <tr><td>Referral</td><td>8</td><td><span class="good">75%</span></td><td>健全</td></tr>
+            <tr><td>Organic Social</td><td>1</td><td>0%</td><td>ほぼゼロ</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+    <details>
+      <summary>🔧 実施済み修正の diff（代表例）</summary>
+      <div class="body">
+        <p><strong>index.html ─ h1変更</strong></p>
+<pre>- &lt;h1 class="hero-title"&gt;
+-   山梨の集客を、&lt;br&gt;
+-   &lt;span class="hero-accent"&gt;SEOの力&lt;/span&gt;で変える。
+- &lt;/h1&gt;
++ &lt;h1 class="hero-title"&gt;
++   山梨の&lt;span class="hero-accent"&gt;SEO対策&lt;/span&gt;で、&lt;br&gt;
++   集客を結果で変える。
++ &lt;/h1&gt;</pre>
+        <p><strong>index.html ─ アンカーテキスト4本</strong></p>
+<pre>- &lt;a href="/works/seo/"&gt;詳しく見る →&lt;/a&gt;
++ &lt;a href="/works/seo/"&gt;山梨 SEO対策の詳細を見る →&lt;/a&gt;
+
+- &lt;a href="/works/web/"&gt;詳しく見る →&lt;/a&gt;
++ &lt;a href="/works/web/"&gt;山梨のホームページ制作の詳細を見る →&lt;/a&gt;
+
+- &lt;a href="/works/ads/"&gt;詳しく見る →&lt;/a&gt;
++ &lt;a href="/works/ads/"&gt;山梨のGoogle広告運用の詳細を見る →&lt;/a&gt;
+
+- &lt;a href="/works/ai/"&gt;詳しく見る →&lt;/a&gt;
++ &lt;a href="/works/ai/"&gt;AI活用支援の詳細を見る →&lt;/a&gt;</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>🗺 新sitemap.xml 登録URL（21本）</summary>
+      <div class="body">
+<pre>優先度 1.0: /
+優先度 0.9: /works/  /works/ads/  /works/ai/  /works/seo/  /works/web/
+優先度 0.8: /column/
+優先度 0.7: /company/  /past_work/
+優先度 0.6: /column/seo-howto-guide/  /column/what-is-seo/  /column/yamanashi-seo/
+優先度 0.5: /kokodake/  /kokodake/fan/  /kokodake/report1-2/  /kokodake/seikou/
+           /seo/  /seo/report1/  /seo/semantic/
+優先度 0.4: /net_biz/  /net_biz/corona/
+
+※ /column/sample-preview/ は noindex のため自動除外</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>💾 バックアップと再現コマンド</summary>
+      <div class="body">
+        <p><strong>作業前バックアップ</strong></p>
+<pre>/tmp/vonds_backup_20260411_1305/
+├── index.html      (54,511 bytes)
+├── sitemap.xml     (1,108 bytes)
+└── past_work.html  (26,787 bytes)</pre>
+        <p><strong>GA4スナップショット再取得</strong></p>
+<pre>cd ~/projects/vonds
+GOOGLE_APPLICATION_CREDENTIALS=/home/ozawakiryu0902/credentials/ga4-mcp.json \
+  .venv-ga4/bin/python scripts/ga4_snapshot.py &gt; data/ga4/snapshot_28d.json</pre>
+        <p><strong>sitemap.xml 自動再生成</strong></p>
+<pre>cd ~/projects/vonds
+python3 scripts/generate_sitemap.py</pre>
+        <p><strong>Option A の cherry-pick コマンド（参考）</strong></p>
+<pre>cd ~/projects/vonds
+git fetch origin gh-pages
+git checkout -b temp-recovery origin/gh-pages
+git cherry-pick d679b8a
+# コンフリクト時: gh-pages側の最新を基に俺の6ファイル分を手動再適用
+git push origin temp-recovery:gh-pages</pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>🔍 現地確認データ一覧</summary>
+      <div class="body">
+        <p><strong>生HTML確認（curl直接取得）</strong></p>
+        <table>
+          <tbody>
+            <tr><td>&lt;title&gt;</td><td><span class="good">✓ あり</span></td></tr>
+            <tr><td>&lt;meta description&gt;</td><td><span class="good">✓ あり</span></td></tr>
+            <tr><td>canonical</td><td><span class="good">✓ あり</span></td></tr>
+            <tr><td>OGP一式</td><td><span class="good">✓ あり</span></td></tr>
+            <tr><td>JSON-LD</td><td><span class="good">✓ 5種</span></td></tr>
+            <tr><td>h1 に「SEO対策」完全一致</td><td><span class="bad">✗ なし（修正済・本番未反映）</span></td></tr>
+            <tr><td>robots.txt</td><td><span class="good">✓ 正常</span></td></tr>
+          </tbody>
+        </table>
+        <p><strong>旧URL応答状況</strong></p>
+        <table>
+          <thead><tr><th>URL</th><th>ステータス</th></tr></thead>
+          <tbody>
+            <tr><td>/company</td><td><span class="good">200</span></td></tr>
+            <tr><td>/past_work.html</td><td><span class="warn">200（重複）</span></td></tr>
+            <tr><td>/past_work/</td><td><span class="good">200</span></td></tr>
+            <tr><td>/works/seo</td><td><span class="good">200</span></td></tr>
+            <tr><td>/seo/report1</td><td><span class="good">200</span></td></tr>
+            <tr><td>/seo/semantic</td><td><span class="good">200</span></td></tr>
+            <tr><td>/partner_companies</td><td><span class="bad">404</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+
+  </section>
+
+  <footer>
+    VONDS SEO復旧計画 / 作成: Claude Opus 4.6 (Claude Code) / 2026-04-11<br>
+    原本: <code>seo/vonds-seo-recovery-plan-20260411.md</code> &nbsp;·&nbsp; このHTML: <code>seo/vonds-seo-recovery-plan-20260411.html</code>
+  </footer>
+
+</div>
+</body>
+</html>
