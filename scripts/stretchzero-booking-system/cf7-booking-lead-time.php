@@ -48,18 +48,20 @@ add_action('wp_footer', function () {
       if (!dateEl || !timeEl) return;
 
       dateEl.min = minYmd;
+      dateEl.setAttribute('min', minYmd);
 
       var selectedDate = dateEl.value;
+      var basisDate = selectedDate || minYmd;
+
       Array.prototype.forEach.call(timeEl.options, function (opt) {
         if (!opt.value || opt.value === '時間を選択') { opt.disabled = false; return; }
-        if (!selectedDate) { opt.disabled = false; return; }
 
-        if (selectedDate === minYmd) {
-          var parts = opt.value.split(':');
-          var optDate = new Date(selectedDate + 'T' + pad(parts[0]) + ':' + pad(parts[1]) + ':00');
-          opt.disabled = optDate.getTime() < min.getTime();
-        } else if (selectedDate < minYmd) {
+        if (basisDate < minYmd) {
           opt.disabled = true;
+        } else if (basisDate === minYmd) {
+          var parts = opt.value.split(':');
+          var optDate = new Date(basisDate + 'T' + pad(parts[0]) + ':' + pad(parts[1]) + ':00');
+          opt.disabled = optDate.getTime() < min.getTime();
         } else {
           opt.disabled = false;
         }
