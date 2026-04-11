@@ -86,9 +86,53 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-11 15:30 / ブランチ: main**
+**最終更新: 2026-04-11 16:50 / ブランチ: main**
 
-### 【完了・GitHub Pages反映待ち】VONDS SEO最適化第2弾 — フッター内部リンク+sitemap+キーワード密度（2026-04-11 15:30）
+### 【完了・Google判定待ち】VONDS SEO最適化第2弾 + NOYUTO手動URL登録（2026-04-11 16:50）
+
+**担当: Claude Opus 4.6 + NOYUTO手動15分**
+
+**最終状態（commit 8de9971時点）:**
+8本のキーURLが「Discovered, not indexed」→ **「Crawled, currently not indexed」** に遷移。
+最大の山「Discovered → Crawled」は突破。あとはGoogle判定待ち（24-72h）。
+
+| URL | 状態 |
+|---|---|
+| / | ✅ Submitted and indexed |
+| /works/seo/ /web/ /ads/ /ai/ /works/ /works/seo/auto-plan/ /column/ /column/yamanashi-seo/ | ⏳ Crawled - currently not indexed (lastCrawl=2026-04-11) |
+| /company/ | ⚠️ Duplicate canonical (Googleが /company slashなし版を選択中) |
+
+**実行内容:**
+1. 全22HTMLのfooter-nav置換 → 4サービス直接リンク（被リンク3-4→22ページ）
+2. sitemap.xml lastmod統一 + Webmasters API再送信
+3. /works/seo/ /ads/ /ai/ のキーワード密度・タイトル強化
+4. NOYUTOがGSC UI で10URLを手動「インデックス登録をリクエスト」
+5. /company/ canonical重複対策: AboutPage JSON-LDに @id + mainEntityOfPage 追加
+
+**「インデックス登録API」が存在しない事実の実証:**
+- サービスアカウント `ga4-mcp@potent-impulse-165116.iam.gserviceaccount.com` は5サイト全て `siteFullUser`
+- Search Console API は searchanalytics / sitemaps / urlInspection.inspect(read-only) のみ
+- Indexing API は JobPosting/BroadcastEvent専用（403 + 規約違反リスク）
+- → サイト改修はAPI、URL登録はNOYUTO手動が**唯一の正解**
+
+**次にやること（観測フェーズ）:**
+- [ ] **2026-04-12 朝**: `gsc_force_index.py` Step3再実行 → Crawled→Indexed遷移確認
+- [ ] **2026-04-14**: 8本全部 indexed 想定
+- [ ] **2026-04-25**: 「seo会社 山梨」順位 25.4→15以下を目標観測
+- [ ] /company/ slashなし版を NOYUTO が GSC でライブテストのみ実行（任意・30秒）
+
+**主要コミット:** 21a536a → 43b3fc5 → 2a25233 → 8de9971
+
+**関連:**
+- session-logs/2026-04-11_1500_vonds-seo-optimization-v2.md
+- data/gsc/vonds_snapshot_20260411.json / force_index_20260411.json
+- data/ga4/snapshot_20260411.json
+- scripts/seo_footer_update.py / scripts/gsc_force_index.py
+- seo/url-inspection-list-20260411.md
+
+---
+
+### 【完了・本番反映済】VONDS SEO最適化第2弾（v1記録・15:30時点）
 
 **担当: Claude Opus 4.6**
 

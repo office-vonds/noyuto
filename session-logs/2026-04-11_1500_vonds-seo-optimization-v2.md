@@ -33,19 +33,53 @@
 5. **/works/ai/** title/description/h1/h2に「山梨」「AI導入支援」追記（山梨×8→12）
 6. **seo/url-inspection-list-20260411.md** 新規 — NOYUTO手動GSC作業手順書（10URL/15分）
 
-## NOYUTO手動タスク（必須）
-1. GSC URL検査ツールで以下10本を順次「インデックス登録をリクエスト」
-   - /works/seo/ /works/web/ /works/ads/ /works/ai/ /company/ /works/
-   - /works/seo/auto-plan/ /column/ /column/yamanashi-seo/ /
-   - 詳細手順: `seo/url-inspection-list-20260411.md`
-2. GSC「サイトマップ」→ sitemap.xml 「︙」→ 「テスト」→ 「再送信」
+## NOYUTO手動タスク（実施完了 16:40）
+1. ✅ GSC URL検査ツールで10本「インデックス登録をリクエスト」実施完了
+2. ✅ サイトマップ再送信（API側でも実施済）
+
+## NOYUTO手動クリック後の状態変化（実測 / commit 8de9971時点）
+| URL | Before | After |
+|---|---|---|
+| /works/seo/ | Discovered, NEVER | **Crawled** 2026-04-11 |
+| /works/web/ | URL unknown | **Crawled** 2026-04-11 |
+| /works/ads/ | Discovered, NEVER | **Crawled** 2026-04-11 |
+| /works/ai/ | Discovered, NEVER | **Crawled** 2026-04-11 |
+| /works/ | (未) | **Crawled** 2026-04-11 |
+| /works/seo/auto-plan/ | (未) | **Crawled** 2026-04-11 |
+| /column/ | (未) | **Crawled** 2026-04-11 |
+| /column/yamanashi-seo/ | (未) | **Crawled** 2026-04-11 |
+| /company/ | Discovered | ⚠️ Duplicate canonical |
+| / | indexed | indexed |
+
+→ **Discovered → Crawled の最大の山は突破**（手動クリックでしか起こせないジャンプ）。
+あとはGoogleの判定待ち（通常24-72h）。
+
+## 残課題1個: /company/ canonical重複
+- googleCanonical=`/company`（slashなし）/ userCanonical=`/company/`
+- 過去履歴の引きずり。リダイレクト・内部リンクは全部正しい
+- 追加対策: AboutPage JSON-LDに `@id` + `mainEntityOfPage` 明示（commit 8de9971）
+- NOYUTO任意タスク: GSC URL検査で `https://vonds.co.jp/company` (slashなし) を「ライブテスト」のみ実行 → Googleに「これは旧URL」と再学習させる
 
 ## 次にやること
-- [ ] 1週間後（2026-04-18）: GSC再取得 → /works/* のインデックス状態確認
-- [ ] 2週間後（2026-04-25）: 「seo会社 山梨」の順位推移確認・25.4 → 15以下が目標
-- [ ] /works/seo/ にローカル(甲府/中央市/南アルプス市)別の小セクション追加検討（更なる地域SEO強化）
+- [ ] **24時間後（4/12 朝）**: gsc_force_index.py Step 3 を再実行 → Crawled → Indexed の遷移確認
+- [ ] **72時間後（4/14）**: 8本全部 indexed 想定
+- [ ] **2週間後（4/25）**: 「seo会社 山梨」順位 25.4 → 15以下を目標に観測
+- [ ] /works/seo/ にローカル(甲府/中央市/南アルプス市)別の小セクション追加検討
 
 ## 関連ファイル
-- 27 files changed (commit 21a536a)
-- データ: data/gsc/vonds_snapshot_20260411.json / data/ga4/snapshot_20260411.json
+- HTML: 27 files changed (commit 21a536a) + company canonical対策 (commit 8de9971)
+- スクリプト: scripts/seo_footer_update.py / scripts/gsc_force_index.py
+- データ: data/gsc/vonds_snapshot_20260411.json / data/gsc/force_index_20260411.json / data/ga4/snapshot_20260411.json
 - 手順書: seo/url-inspection-list-20260411.md
+
+## 主要コミット
+- 21a536a — SEO最適化第2弾本体（HTML 22 + sitemap + script）
+- 43b3fc5 — session log + CLAUDE.md
+- 2a25233 — gsc_force_index.py（API強制試行・sitemap再送信成功・Indexing API 403）
+- 8de9971 — /company/ canonical重複対策
+
+## 学んだこと（メモリ追記候補）
+- GSC「インデックス登録をリクエスト」相当のAPIは**Google公式が世界中の誰にも提供していない**
+- searchanalytics / sitemaps / urlInspection.inspect(read-only) のみ
+- Indexing API はJobPosting/BroadcastEvent専用・一般Webページ非対応
+- → サイト改修はAPI、最終的なインデックス登録はNOYUTOの15分手動が最適解
