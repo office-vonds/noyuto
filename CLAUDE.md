@@ -86,7 +86,52 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-11 14:05 / ブランチ: main**
+**最終更新: 2026-04-11 15:30 / ブランチ: main**
+
+### 【完了・GitHub Pages反映待ち】VONDS SEO最適化第2弾 — フッター内部リンク+sitemap+キーワード密度（2026-04-11 15:30）
+
+**担当: Claude Opus 4.6**
+
+**入力データ（GSC/GA4 28d 実測）:**
+- VONDS: 17 clicks / 886 imp / pos 14.1 / sitemap submitted=22 **indexed=0**（"/" のみ）
+- 新規6ページ全部 "Discovered, not indexed" or "URL unknown"
+- 最大impクエリ「seo会社 山梨」imp125 pos25.4 / 「seo対策 山梨」imp147 pos18.6
+
+**真因（3点）:**
+1. クロール待ち（時間で解決）
+2. **内部リンク不平等** — /works/seo/ /works/web/ /works/ads/ /works/ai/ がフッター不在で被リンク3-4ページのみ
+3. **クエリ-ページ意味のズレ** — H1は「SEO対策」だが検索クエリは「SEO会社」
+
+**実行内容（commit 21a536a / 27 files / 297 insertions）:**
+1. 全22HTMLのfooter-nav置換 → 4サービス直接リンクを追加（被リンク3-4→22ページ）
+2. sitemap.xml 全URL lastmod → 2026-04-11 統一
+3. /works/seo/ 強化: title/description/h1/H2/FAQ/JSON-LD全部に「SEO会社」追加（山梨×36→45）
+4. /works/ads/ 強化: title/h1/h2に「山梨」「リスティング広告」（山梨×8→13）
+5. /works/ai/ 強化: title/h1/h2に「山梨」「AI導入支援」（山梨×8→12）
+6. seo/url-inspection-list-20260411.md 新規 — NOYUTO手動GSC作業手順書
+
+**NOYUTO手動タスク（必須・15分）:**
+1. GSCで以下10URLを順次「インデックス登録をリクエスト」
+   - /works/seo/ /works/web/ /works/ads/ /works/ai/ /company/ /works/
+   - /works/seo/auto-plan/ /column/ /column/yamanashi-seo/ /
+   - 手順: `seo/url-inspection-list-20260411.md`
+2. GSC「サイトマップ」→ sitemap.xml 「︙」→ 「テスト」→ 「再送信」
+
+**復旧目安:** 2-4週間で順位改善・4-8週間でクリック増。
+
+**観測ポイント（1-2週間後）:**
+- /works/seo/ の表示回数増
+- 「seo会社 山梨」順位 25.4 → 15以下
+- /works/web/ /works/ads/ /works/ai/ が出現
+
+**主要コミット:** 21a536a [vonds] SEO最適化第2弾
+
+**関連:**
+- session-logs/2026-04-11_1500_vonds-seo-optimization-v2.md
+- data/gsc/vonds_snapshot_20260411.json
+- data/ga4/snapshot_20260411.json
+
+---
 
 ### 【完了・本番反映済】VONDS「山梨 SEO対策」圏外転落 復旧作業（2026-04-11 14:05）
 
