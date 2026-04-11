@@ -19,6 +19,8 @@ data/
 debug_note*.py
 # SMTP認証情報（パスワード含むためgit管理対象外）
 **/mail-config.php
+# 本番からFTPで落としたバックアップ（認証情報含む・ローカル保管のみ）
+**/_backup_*/
 auto-repair/.env
 scripts/node_modules/
 node_modules/

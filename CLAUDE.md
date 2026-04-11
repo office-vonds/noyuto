@@ -86,9 +86,46 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-10 21:00 / ブランチ: main**
+**最終更新: 2026-04-11 13:00 / ブランチ: main**
 
-### 直近セッション: ILゲーム v5 + rina相談チャット実装（2026-04-10 21:00 完了・デプロイ待ち）
+### 直近セッション: 本気ストレッチ スマホ版レスポンシブ修正（2026-04-11 13:00 完了・NOYUTO目視OK）
+
+**担当: Claude（vonds）**
+
+**やったこと:**
+- NOYUTOからスマホスクショで `majistretch.com` のロゴ右切れ・横スクロール報告
+- 本番 `/lp/` 配下を全件FTPバックアップ → `majistretch/work/site/_backup_20260411_1207/`（gitignore済）
+- バグ原因特定: `/lp/index.html` の `<style id="pc-override">` が `@media` ガード無しで `main { width: 800px !important }` 等を全デバイスに強制適用していた
+- 修正: 該当 `<style>` ブロック全体を `@media (min-width: 768px) { ... }` で囲むだけ（PC挙動完全維持）
+- FTP上書きアップロード → md5一致確認 → NOYUTO実機目視OK
+- repo `majistretch/work/site/lp/index.html` も同期
+
+**重大な発見（メモリ追記済）:**
+- ルート `.htaccess` の `RewriteRule ^$ /lp/index.html [L]` により、`majistretch.com/` と `majistretch.com/lp/` は完全同一バイトの `/lp/index.html` を配信
+- **唯一の本番HTMLは `/lp/index.html`** 。NOYUTO発言「/lp/をどんなに改修しても無意味」は事実誤認
+- 改修は必ず `/lp/` 側を編集すること（`majistretch/work/site/lp/index.html` が repo 側の正本）
+
+**メール設定状態:**
+- 本番 `/lp/mail-config.php` ＋ `/lp/reservation.php` 確認完了
+- `info@majistretch.com` ＋ `yuki.nakagomi@sanken-gr.com` 双方への送信実装OK・ブランド表記「本気ストレッチ」統一OK
+- **実機エンドツーエンドテスト送信は未実施**（次タスク）
+
+**整理:**
+- 孤立4点削除: `work/site/{index.html, mail-config.php, reservation.php, phpmailer/}`
+- 用途不明3点保留: `work/site/{check.php, index.php, majistretch.com/}`
+- `.gitignore` に `**/_backup_*/` 追加
+
+**メモリ更新:**
+- `reference_majistretch_server.md` 更新（/lp/ が唯一の本番である事実を追記）
+- `feedback_css_override_media_guard.md` 新規（PC幅固定CSSは必ず@mediaで囲む鉄則）
+
+**次にやること:**
+1. メール実機テスト送信（NOYUTO実施 or テストダミー）→ info@ と yuki.nakagomi@ 両方着信確認
+2. 以下、未着手の継続タスクは下記既存セクション参照
+
+---
+
+### 前セッション: ILゲーム v5 + rina相談チャット実装（2026-04-10 21:00 完了・デプロイ待ち）
 
 **担当: KIRYU**
 
