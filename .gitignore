@@ -22,3 +22,5 @@ debug_note*.py
 auto-repair/.env
 scripts/node_modules/
 node_modules/
+.venv-ga4/
+.venv/
