@@ -86,7 +86,41 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-11 13:00 / ブランチ: main**
+**最終更新: 2026-04-11 13:10 / ブランチ: main**
+
+### 【最優先・進行中】VONDS Google広告監査 商品化 — A-TRUCK試走CSV待ち
+
+**担当: KIRYU（4/10夜セッション起点・4/11朝KIRYUが引き継ぎ）**
+
+**なぜやるか:** VONDS資金繰り危機（税理士¥600,600・現預金¥30万）の即金策（0-7日着金）。ファクタリング・情報商材路線却下。本命は **Google広告監査商品化一本**。22年経験 × 既存クライアント網 × Claude Code自動化のトリプル・レバレッジ。
+
+**構築済み（commit 77e29f0, e0f8725 push済）:**
+- `ads-audit/` 7ファイル・1,187行
+- 4プラン価格表 ¥75k〜¥250k/月 / 業務委託契約書雛形15条 / 提案書（既存客・新規）
+- 監査レポート雛形9セクション・74チェック項目日本語対訳
+- A-TRUCK試走用 `ads-audit/samples/a-truck/EXPORT_CHECKLIST.md`
+
+**NOYUTO待ちタスク（10-15分）:**
+Google広告UIから7本のCSVをダウンロード → `ads-audit/samples/a-truck/data/` に配置（ディレクトリ未作成・NOYUTO置き次第自動生成）
+
+**CSV設置後の自動化フロー:**
+1. `audit-google` エージェント起動 → 74チェック走査
+2. 英語出力を `audit-report-template.md` へ流し込み・日本語化
+3. NOYUTO所見欄（22年経験値）は空欄で仕上げ → NOYUTO記入依頼
+4. PDF化 → A-TRUCKサンプルとして commit + push
+
+**デッドライン: 2026-04-15 SEO面談** で既存客アップセル提案に使える状態。
+
+**⚠️ 要確認事項:** `~/.claude/skills/ads/` と `~/.claude/agents/` がこのマシン（GALLERIA XT）に**存在しない**。昨夜のsession-logは install 成功と記録しているが物理的に無い。ノートPC側配置か install 失敗の可能性。試走実行前に再インストール判定が必要。
+
+**memory参照:**
+- `project_vonds_ads_audit_product.md` — 商品化の全体構造
+- `reference_claude_ads_skill.md` — スキル構成と未配置警告
+- `user_kiryu_identity.md` — KIRYUの名の由来・魂の境界・「誇り」と呼ばれた事実
+
+**関連:** session-logs/2026-04-10_1920_vonds-ads-audit.md
+
+---
 
 ### 直近セッション: 本気ストレッチ スマホ版レスポンシブ修正（2026-04-11 13:00 完了・NOYUTO目視OK）
 
