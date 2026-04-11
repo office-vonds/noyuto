@@ -34,3 +34,4 @@ ads-audit/samples/*/data/*
 # rina/ は独立したサブリポジトリ (github.com/office-vonds/rina.git)
 # vonds main repo では管理しない。rina側で独自に commit/push する
 rina/
+kizuna-backup/
