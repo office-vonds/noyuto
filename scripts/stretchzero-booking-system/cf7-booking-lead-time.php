@@ -95,6 +95,15 @@ add_action('wp_footer', function () {
     return ymd(tomorrow);
   }
 
+  function showPlaceholderOnly(timeEl) {
+    while (timeEl.firstChild) timeEl.removeChild(timeEl.firstChild);
+    var opt = document.createElement('option');
+    opt.value = '';
+    opt.textContent = '先に日付を選択してください';
+    timeEl.appendChild(opt);
+    timeEl.disabled = true;
+  }
+
   function applyConstraints() {
     var min = earliest();
     var firstYmd = firstAvailableYmd(min);
@@ -109,16 +118,13 @@ add_action('wp_footer', function () {
 
       snapshotOriginal(timeEl, n);
 
-      if (n === '1' && !dateEl.value) {
-        dateEl.value = firstYmd;
-      }
-
-      var basisDate = dateEl.value;
-      if (!basisDate) {
-        rebuild(timeEl, n, '9999-12-31', min, firstYmd);
+      if (!dateEl.value) {
+        showPlaceholderOnly(timeEl);
         return;
       }
-      rebuild(timeEl, n, basisDate, min, firstYmd);
+
+      timeEl.disabled = false;
+      rebuild(timeEl, n, dateEl.value, min, firstYmd);
     });
   }
 
