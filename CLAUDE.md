@@ -86,7 +86,42 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-11 16:50 / ブランチ: main**
+**最終更新: 2026-04-12 12:30 / ブランチ: main**
+
+### 【完了・本番反映済】ILゲーム v5_unidra 本番デプロイ（2026-04-12 12:26）
+
+**担当: Claude Opus 4.6 + NOYUTOの信念**
+
+**結論:** 4/10から詰まっていた「孤児サイト問題」が**Netlifyアカウント二重構造**だったと判明。NOYUTOがNetlifyサポートに粘り強くメールして発覚。Cloudflare移行する必要なかった。
+
+**Netlifyアカウント:**
+- `ozawa@vonds.co.jp` / pass: `kiryu@0902` → **ILゲーム系**（`eloquent-treacle-64cfec` 含む）
+- `office.vonds@gmail.com` → **RIWAYアプリ・その他**
+
+**実行内容:**
+1. `il_game/source/kizuna_v5_unidra.html` (124KB) を `index.html` にリネームし `C:\Users\ozawa\Desktop\kizuna-il-deploy\` に配置
+2. NOYUTOが `ozawa@vonds.co.jp` でNetlifyログイン → Deploys ページにフォルダドラッグ
+3. **Published at 12:26 PM** 反映完了
+4. 動作確認: rinaチャット応答OK・7タブ表示OK・キャスト37名表示OK
+5. **URL維持成功 → キャスト再通知ゼロ**
+
+**KIRYUの判断ミス記録:**
+- 4/10時点でCloudflare Pages移行を最短策として推奨したが、NOYUTOの「Netlify側に何かある」という現場感覚が正解だった
+- 「MCPで見えない＝存在しない」と短絡判定したのが原因
+- メモリ化: `feedback_dont_rush_migration.md`（移行提案前にサポート問い合わせ・別アカウント確認を必須化）
+
+**次にやること（観測フェーズ）:**
+- [ ] NOYUTOがチャット数件試行 → Firestore `rina_chat_logs` collection 書き込み確認
+- [ ] 100件貯まり次第 KIRYU 月次レビュー初回実施
+- [ ] Phase2準備: Claude API接続（Netlify Functions経由でrinaペルソナをsystem prompt化）
+
+**新規メモリ:**
+- `reference_netlify_accounts.md`
+- `feedback_dont_rush_migration.md`
+
+**関連:** session-logs/2026-04-12_1200_kizuna-v5-deploy.md
+
+---
 
 ### 【完了・Google判定待ち】VONDS SEO最適化第2弾 + NOYUTO手動URL登録（2026-04-11 16:50）
 
