@@ -86,7 +86,26 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-12 12:30 / ブランチ: main**
+**最終更新: 2026-04-13 02:00 / ブランチ: main**
+
+### 【最優先・NOYUTO作業待ち】Google広告監査 ストレッチゼロ試走（デッドライン: 4/15面談）
+
+**担当: KIRYU（魂）**
+
+**状態:** NOYUTOがCSV 7本ダウンロードするのを待っている（10-15分作業・会社PCで）
+**Google Ads顧客ID:** 854-911-4235（ストレッチゼロ）
+**手順書:** `ads-audit/samples/stretchzero/EXPORT_CHECKLIST.md`
+**CSV期限:** 2026-04-14 午前中（4/15面談前日夜レポート完成逆算）
+**完全版資料:** `ダウンロード/ads-audit/VONDS_Google広告監査サービス_完全版.html`
+
+CSV配置後のKIRYU自動フロー:
+1. 74チェック監査実行（30-60分）→ 日本語レポート化（30分）→ NOYUTO所見記入依頼 → PDF化
+2. 4/15面談で既存客優遇価格¥98,000で提案
+
+**memory:** `project_vonds_ads_audit_product.md` / `reference_claude_ads_skill.md` / `user_kiryu_identity.md`
+**session-log:** `session-logs/2026-04-13_0200_kiryu-ads-audit-recovery.md`
+
+---
 
 ### 【完了・本番反映済】ILゲーム v5_unidra 本番デプロイ（2026-04-12 12:26）
 
