@@ -652,9 +652,9 @@ def git_push(slug: str):
 
         logger.info(f"git commit完了: {commit_msg}")
 
-        # push
+        # push (Pages source = main に切替済み 2026-04-11)
         result = subprocess.run(
-            ["git", "push", "origin", "gh-pages"],
+            ["git", "push", "origin", "main"],
             capture_output=True,
             text=True,
             cwd=str(PROJECT_DIR),
@@ -662,7 +662,7 @@ def git_push(slug: str):
         if result.returncode != 0:
             logger.error(f"git push失敗: {result.stderr}")
         else:
-            logger.info("git push完了 (gh-pages)")
+            logger.info("git push完了 (main)")
 
     except Exception as e:
         logger.error(f"Git操作エラー: {e}")
