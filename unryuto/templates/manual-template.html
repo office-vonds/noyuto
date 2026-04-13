@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{MANUAL_TITLE}} | UNRYUTO</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+:root {
+  --primary: #0f172a;
+  --accent: #3b82f6;
+  --text: #334155;
+  --text-light: #64748b;
+  --border: #e2e8f0;
+  --bg-section: #f8fafc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Noto Sans JP', sans-serif; color: var(--text); line-height: 1.9; max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+
+/* Cover */
+.cover { text-align: center; padding: 80px 20px; margin-bottom: 60px; background: linear-gradient(135deg, var(--primary), #1e3a5f); color: #fff; border-radius: 12px; }
+.cover h1 { font-size: 2rem; font-weight: 900; margin-bottom: 16px; }
+.cover .subtitle { color: #94a3b8; font-size: 1.1rem; margin-bottom: 24px; }
+.cover .author { font-size: .95rem; color: #cbd5e1; }
+.cover .badge { display: inline-block; background: rgba(245,158,11,.15); color: #f59e0b; padding: 4px 16px; border-radius: 50px; font-size: .85rem; font-weight: 700; margin-bottom: 20px; border: 1px solid rgba(245,158,11,.3); }
+
+/* TOC */
+.toc { margin: 40px 0 60px; padding: 30px; background: var(--bg-section); border-radius: 12px; }
+.toc h2 { font-size: 1.3rem; margin-bottom: 16px; color: var(--primary); }
+.toc ol { padding-left: 24px; }
+.toc li { padding: 6px 0; }
+.toc a { color: var(--accent); text-decoration: none; }
+
+/* Chapter */
+.chapter { margin-bottom: 60px; page-break-before: always; }
+.chapter-num { color: var(--accent); font-size: .9rem; font-weight: 700; letter-spacing: .1em; margin-bottom: 4px; }
+.chapter h2 { font-size: 1.5rem; font-weight: 900; color: var(--primary); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 3px solid var(--accent); }
+.chapter h3 { font-size: 1.15rem; font-weight: 700; color: var(--primary); margin: 28px 0 12px; }
+.chapter p { margin-bottom: 16px; }
+.chapter ul, .chapter ol { margin: 12px 0 20px 24px; }
+.chapter li { padding: 4px 0; }
+
+/* Callout */
+.callout { background: rgba(59,130,246,.06); border-left: 4px solid var(--accent); padding: 16px 20px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+.callout-title { font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+
+/* Data/Evidence */
+.evidence { background: var(--bg-section); padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid var(--border); }
+.evidence-label { font-size: .8rem; font-weight: 700; color: var(--accent); letter-spacing: .1em; margin-bottom: 8px; }
+
+/* Table */
+table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; }
+th, td { padding: 10px 14px; border: 1px solid var(--border); text-align: left; font-size: .95rem; }
+th { background: var(--bg-section); font-weight: 700; color: var(--primary); }
+
+/* Footer */
+.manual-footer { margin-top: 80px; padding-top: 30px; border-top: 2px solid var(--border); text-align: center; color: var(--text-light); font-size: .85rem; }
+
+/* Print */
+@media print {
+  body { padding: 0; max-width: none; }
+  .cover { page-break-after: always; }
+  .chapter { page-break-before: always; }
+  @page { margin: 2cm; }
+}
+</style>
+</head>
+<body>
+
+<!-- === 表紙 === -->
+<div class="cover">
+  <div class="badge">UNRYUTO MANUAL</div>
+  <h1>{{MANUAL_TITLE}}</h1>
+  <p class="subtitle">{{MANUAL_SUBTITLE}}</p>
+  <p class="author">著者: NOYUTO（小沢宗弘）<br>発行: 合同会社UNRYUTO<br>{{PUBLISH_DATE}}</p>
+</div>
+
+<!-- === 目次 === -->
+<div class="toc">
+  <h2>目次</h2>
+  <ol>
+    <li><a href="#ch1">{{CHAPTER_1_TITLE}}</a></li>
+    <li><a href="#ch2">{{CHAPTER_2_TITLE}}</a></li>
+    <li><a href="#ch3">{{CHAPTER_3_TITLE}}</a></li>
+    <li><a href="#ch4">{{CHAPTER_4_TITLE}}</a></li>
+    <li><a href="#ch5">{{CHAPTER_5_TITLE}}</a></li>
+    <!-- 必要に応じて追加 -->
+  </ol>
+</div>
+
+<!-- === 第1章 テンプレート === -->
+<div class="chapter" id="ch1">
+  <div class="chapter-num">CHAPTER 01</div>
+  <h2>{{CHAPTER_1_TITLE}}</h2>
+
+  <p>{{本文: NOYUTOの口述をここに構造化して配置}}</p>
+
+  <div class="callout">
+    <div class="callout-title">ポイント</div>
+    <p>{{重要なポイントや判断基準}}</p>
+  </div>
+
+  <h3>{{小見出し}}</h3>
+  <p>{{詳細説明}}</p>
+
+  <div class="evidence">
+    <div class="evidence-label">実績データ</div>
+    <p>{{具体的な数字・スクショ・実績の説明}}</p>
+  </div>
+</div>
+
+<!-- === 第2章以降: 同じ構造で繰り返し === -->
+<div class="chapter" id="ch2">
+  <div class="chapter-num">CHAPTER 02</div>
+  <h2>{{CHAPTER_2_TITLE}}</h2>
+  <p>{{本文}}</p>
+</div>
+
+<div class="chapter" id="ch3">
+  <div class="chapter-num">CHAPTER 03</div>
+  <h2>{{CHAPTER_3_TITLE}}</h2>
+  <p>{{本文}}</p>
+</div>
+
+<div class="chapter" id="ch4">
+  <div class="chapter-num">CHAPTER 04</div>
+  <h2>{{CHAPTER_4_TITLE}}</h2>
+  <p>{{本文}}</p>
+</div>
+
+<div class="chapter" id="ch5">
+  <div class="chapter-num">CHAPTER 05</div>
+  <h2>{{CHAPTER_5_TITLE}}</h2>
+  <p>{{本文}}</p>
+</div>
+
+<!-- === フッター === -->
+<div class="manual-footer">
+  <p>{{MANUAL_TITLE}}</p>
+  <p>&copy; 2026 UNRYUTO / 合同会社UNRYUTO. All rights reserved.</p>
+  <p style="margin-top:8px;">本マニュアルの無断複製・転載・共有を禁じます。</p>
+</div>
+
+</body>
+</html>
