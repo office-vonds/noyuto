@@ -1,0 +1,100 @@
+{
+  "checked_at": "2026-04-13T20:14:04.242629+09:00",
+  "total": 14,
+  "indexed": 7,
+  "not_indexed": [
+    "https://vonds.co.jp/company/",
+    "https://vonds.co.jp/column/seo-howto-guide/",
+    "https://vonds.co.jp/column/what-is-seo/",
+    "https://vonds.co.jp/column/web-design-guide/",
+    "https://vonds.co.jp/column/google-ads-guide/",
+    "https://vonds.co.jp/column/ai-business-guide/",
+    "https://vonds.co.jp/column/local-seo-strategy/"
+  ],
+  "results": [
+    {
+      "url": "https://vonds.co.jp/",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/works/seo/",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/works/web/",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/works/ads/",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/works/ai/",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/company/",
+      "verdict": "NEUTRAL",
+      "coverage": "Duplicate, Google chose different canonical than user",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/column/",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/column/seo-howto-guide/",
+      "verdict": "NEUTRAL",
+      "coverage": "Discovered - currently not indexed",
+      "crawl": "NEVER"
+    },
+    {
+      "url": "https://vonds.co.jp/column/yamanashi-seo/",
+      "verdict": "PASS",
+      "coverage": "Submitted and indexed",
+      "crawl": "2026-04-11"
+    },
+    {
+      "url": "https://vonds.co.jp/column/what-is-seo/",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "crawl": "NEVER"
+    },
+    {
+      "url": "https://vonds.co.jp/column/web-design-guide/",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "crawl": "NEVER"
+    },
+    {
+      "url": "https://vonds.co.jp/column/google-ads-guide/",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "crawl": "NEVER"
+    },
+    {
+      "url": "https://vonds.co.jp/column/ai-business-guide/",
+      "verdict": "NEUTRAL",
+      "coverage": "URL is unknown to Google",
+      "crawl": "NEVER"
+    },
+    {
+      "url": "https://vonds.co.jp/column/local-seo-strategy/",
+      "verdict": "NEUTRAL",
+      "coverage": "Discovered - currently not indexed",
+      "crawl": "NEVER"
+    }
+  ]
+}
