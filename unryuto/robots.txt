@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /css/
+
+Sitemap: https://unryuto.jp/sitemap.xml
