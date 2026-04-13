@@ -1,63 +1,32 @@
 /**
- * UNRYUTO Stripe Checkout Integration
+ * UNRYUTO Stripe決済
+ *
+ * 実装方式: Stripe Payment Links（コードゼロ・URL貼るだけ）
+ * KIRYUのec-stripe-plan.mdに基づく最小実装。
  *
  * 使い方:
- * 1. Stripeアカウント開設後、publishable keyを設定
- * 2. Netlify Functionsに checkout-session.js を配置
- * 3. 商品のprice_idをStripeダッシュボードから取得して設定
+ * 1. NOYUTOがStripeアカウント開設（個人事業主・屋号UNRYUTO）
+ * 2. Stripeダッシュボードで商品作成 → Payment Link取得
+ * 3. 下のURLを差し替え
+ * 4. index.htmlの料金ボタンにonclick="checkout('recruitment')"等を追加
  *
- * NOYUTOへ: Stripeアカウント開設が必要。個人事業主（屋号: UNRYUTO）で申請。
+ * 初期は少量なので手動メール対応でもOK。
+ * スケール時: Zapier or Make でWebhook→自動DLリンクメール送付（月¥2,000〜）
  */
 
-// Stripe publishable key（開設後に差し替え）
-const STRIPE_PK = 'pk_live_XXXXXXXXXXXXXXXXXXXXXXXX';
-
-// 商品ID（Stripe Dashboard で作成後に差し替え）
-const PRODUCTS = {
-  recruitment_manual: {
-    name: '求人AI戦略マニュアル',
-    price_id: 'price_XXXXXXXX', // Stripeで作成後に設定
-  },
-  sales_manual: {
-    name: '営業戦略マニュアル',
-    price_id: 'price_XXXXXXXX',
-  },
-  membership: {
-    name: 'メンバーシップ（月額）',
-    price_id: 'price_XXXXXXXX', // recurring
-  }
+const PAYMENT_LINKS = {
+  recruitment: 'https://buy.stripe.com/XXXXXXXX', // 求人AI戦略マニュアル
+  sales:       'https://buy.stripe.com/XXXXXXXX', // 営業戦略マニュアル
+  membership:  'https://buy.stripe.com/XXXXXXXX', // メンバーシップ月額
 };
 
-/**
- * Stripe Checkoutセッションを作成してリダイレクト
- * @param {string} productKey - PRODUCTS のキー
- */
-async function checkout(productKey) {
-  const product = PRODUCTS[productKey];
-  if (!product) {
-    alert('商品が見つかりません。');
-    return;
-  }
-
-  try {
-    const res = await fetch('/.netlify/functions/create-checkout', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        price_id: product.price_id,
-        mode: productKey === 'membership' ? 'subscription' : 'payment',
-        success_url: window.location.origin + '/thanks.html',
-        cancel_url: window.location.origin + '/#pricing',
-      })
-    });
-
-    const data = await res.json();
-    if (data.url) {
-      window.location.href = data.url;
-    } else {
-      alert('決済ページの作成に失敗しました。しばらくしてから再度お試しください。');
-    }
-  } catch (err) {
-    alert('通信エラーが発生しました。しばらくしてから再度お試しください。');
+function checkout(productKey) {
+  const url = PAYMENT_LINKS[productKey];
+  if (url && !url.includes('XXXXXXXX')) {
+    window.location.href = url;
+  } else {
+    // Payment Link未設定時はメール問い合わせにフォールバック
+    window.location.href = 'mailto:office.vonds@gmail.com?subject=' +
+      encodeURIComponent('UNRYUTO商品について問い合わせ');
   }
 }
