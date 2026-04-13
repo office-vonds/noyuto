@@ -10,6 +10,17 @@ argument-hint: "[対象プロジェクトパス（省略時はカレントディ
 
 ## 取得する情報
 
+### 0. origin を必ず最初に fetch（最重要・事故防止）
+**catchup の第一ステップは必ず `git fetch` から始めること。** ローカル HEAD だけで判断するとブランチが遅れていても「最新」と誤判定する（2026-04-13 事故で 25 コミット見落とし）。
+
+```bash
+git fetch origin --quiet
+git rev-list --count HEAD..origin/main  # 0でなければ遅延
+git log HEAD..origin/main --oneline | head -10  # 遅延内容
+```
+
+**遅延が検出されたら、catchup の出力冒頭で必ず警告すること。**「origin/main が N コミット先行・作業前に merge 必須」と明示する。
+
 ### 1. Git状態
 ```bash
 git branch --show-current
@@ -65,8 +76,9 @@ done
 ## 出力フォーマット
 
 ```
+🚨 origin遅延: [origin/main より N コミット遅延 / 同期済み]
 📍 現在地: [ブランチ名] @ [最新コミットハッシュ]
-📝 直近の作業: [最新コミットメッセージ3つ]
+📝 直近の作業: [最新コミットメッセージ3つ（origin/main 最新を含む）]
 🔧 未コミット変更: [変更ファイル数と一覧]
 📦 stash: [あり/なし（ある場合は内容）]
 ⚠️ 未解決: [TODO/FIXME数]
