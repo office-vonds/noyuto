@@ -6,7 +6,7 @@
  * 2. Netlify Functionsに checkout-session.js を配置
  * 3. 商品のprice_idをStripeダッシュボードから取得して設定
  *
- * NOYUTOへ: Stripeアカウント開設が必要。株式会社オフィスVONDS名義で申請。
+ * NOYUTOへ: Stripeアカウント開設が必要。個人事業主（屋号: UNRYUTO）で申請。
  */
 
 // Stripe publishable key（開設後に差し替え）
