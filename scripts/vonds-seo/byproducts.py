@@ -338,10 +338,61 @@ def send_weekly_digest():
 
 
 # ==============================================================================
-# 6. Google Search Console ping（インデックス促進）
+# 6. インデックス促進（GSC sitemap再送信 + IndexNow + URL検査）
 # ==============================================================================
+INDEXNOW_KEY = "vonds2026seo"
+GSC_SITE = "https://vonds.co.jp/"
+GSC_SITEMAP = "https://vonds.co.jp/sitemap.xml"
+GSC_CRED_PATH = Path.home() / "credentials" / "ga4-mcp.json"
+
+
+def _get_gsc_service(scope: str):
+    """GSC API サービスを取得"""
+    try:
+        from google.oauth2 import service_account
+        from googleapiclient.discovery import build
+        creds = service_account.Credentials.from_service_account_file(
+            str(GSC_CRED_PATH), scopes=[scope]
+        )
+        return build("searchconsole", "v1", credentials=creds, cache_discovery=False)
+    except Exception as e:
+        logger.warning(f"GSC認証失敗: {e}")
+        return None
+
+
+def resubmit_sitemap():
+    """GSC API でsitemap.xmlを再送信"""
+    svc = _get_gsc_service("https://www.googleapis.com/auth/webmasters")
+    if not svc:
+        return
+    try:
+        svc.sitemaps().submit(siteUrl=GSC_SITE, feedpath=GSC_SITEMAP).execute()
+        logger.info(f"GSC sitemap再送信成功: {GSC_SITEMAP}")
+    except Exception as e:
+        logger.warning(f"GSC sitemap再送信失敗: {e}")
+
+
+def inspect_new_url(article_url: str):
+    """GSC URL検査APIで新記事のインデックス状態を確認（ログ記録用）"""
+    svc = _get_gsc_service("https://www.googleapis.com/auth/webmasters.readonly")
+    if not svc:
+        return
+    try:
+        r = svc.urlInspection().index().inspect(body={
+            "inspectionUrl": article_url,
+            "siteUrl": GSC_SITE,
+        }).execute()
+        idx = r.get("inspectionResult", {}).get("indexStatusResult", {})
+        verdict = idx.get("verdict", "?")
+        cov = idx.get("coverageState", "?")
+        crawl = (idx.get("lastCrawlTime") or "NEVER")[:10]
+        logger.info(f"URL検査: {verdict} / {cov} / crawl={crawl} / {article_url}")
+    except Exception as e:
+        logger.warning(f"URL検査失敗: {e}")
+
+
 def ping_search_engines():
-    """IndexNow API でBingにインデックス登録を通知"""
+    """IndexNow + GSC sitemap再送信 + URL検査"""
     import urllib.request
     state = load_json(STATE_PATH)
     published = state.get("published", [])
@@ -351,14 +402,22 @@ def ping_search_engines():
     latest = published[-1]
     article_url = f"{SITE_URL}/column/{latest['slug']}/"
 
-    # IndexNow (Bing/Yandex対応)
+    # 1. IndexNow (Bing/Yandex対応)
     try:
-        indexnow_url = f"https://www.bing.com/indexnow?url={article_url}&key=vonds2026seo"
+        indexnow_url = f"https://api.indexnow.org/indexnow?url={article_url}&key={INDEXNOW_KEY}"
         req = urllib.request.Request(indexnow_url, method="GET")
         with urllib.request.urlopen(req, timeout=10) as resp:
             logger.info(f"IndexNow通知: {article_url} → {resp.status}")
     except Exception as e:
         logger.info(f"IndexNow通知スキップ: {e}")
+
+    # 2. GSC sitemap再送信
+    resubmit_sitemap()
+
+    # 3. 新記事のURL検査（状態ログ記録）
+    inspect_new_url(article_url)
+    # コラム一覧も確認
+    inspect_new_url(f"{SITE_URL}/column/")
 
 
 # ==============================================================================
