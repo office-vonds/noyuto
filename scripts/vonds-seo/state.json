@@ -34,6 +34,39 @@
       "published_at": "2026-04-10T06:02:30.754258+09:00"
     },
     {
+      "slug": "web-design-guide",
+      "keyword": "ホームページ制作 中小企業",
+      "title": "ホームページ制作で失敗しない｜中小企業が知るべき発注・運用の全知識",
+      "category_id": "web",
+      "category_label": "Web制作",
+      "meta_description": "中小企業のホームページ制作で失敗しないための完全ガイド。制作の流れ・費用相場・制作会社の選び方・運用のコツまで、20年以上の実績を持つWeb制作会社が実践的に解説します。",
+      "date": "2026-04-13",
+      "date_jp": "2026年4月13日",
+      "published_at": "2026-04-13T03:00:00+09:00"
+    },
+    {
+      "slug": "google-ads-guide",
+      "keyword": "Google広告 始め方",
+      "title": "Google広告の始め方｜中小企業が少額予算で成果を出すための実践ガイド",
+      "category_id": "ads",
+      "category_label": "広告運用",
+      "meta_description": "Google広告（リスティング広告）を月3〜5万円の少額予算で始める方法を解説。中小企業がGoogle広告で成果を出すためのキーワード選定・広告文・LP改善・運用代行の判断基準まで網羅。",
+      "date": "2026-04-13",
+      "date_jp": "2026年4月13日",
+      "published_at": "2026-04-13T03:00:00+09:00"
+    },
+    {
+      "slug": "ai-business-guide",
+      "keyword": "AI活用 中小企業",
+      "title": "中小企業のAI活用｜業務効率化から売上アップまで実践事例で解説",
+      "category_id": "ai",
+      "category_label": "AI活用",
+      "meta_description": "中小企業がAIを活用して業務効率化・コスト削減・売上向上を実現する方法を、具体的な導入事例とステップで解説。ChatGPTやClaudeなど最新ツールの活用法から費用対効果まで網羅。",
+      "date": "2026-04-13",
+      "date_jp": "2026年4月13日",
+      "published_at": "2026-04-13T03:00:00+09:00"
+    },
+    {
       "slug": "local-seo-strategy",
       "keyword": "ローカルSEO 対策",
       "title": "ローカルSEO完全攻略｜Googleマップで上位表示を獲得する方法",

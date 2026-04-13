@@ -60,17 +60,25 @@ def strip_html(html):
 # 1. sitemap.xml 自動生成
 # ==============================================================================
 def generate_sitemap():
-    """公開済み全記事 + 固定ページからsitemap.xmlを生成"""
+    """公開済み全記事 + 固定ページからsitemap.xmlを生成（サービスページ保持）"""
     state = load_json(STATE_PATH)
     published = state.get("published", [])
     now = datetime.now(JST).strftime("%Y-%m-%d")
 
+    # サービスページ（固定・削除禁止）
     urls = [
         {"loc": f"{SITE_URL}/", "priority": "1.0", "changefreq": "weekly", "lastmod": now},
+        {"loc": f"{SITE_URL}/works/", "priority": "0.9", "changefreq": "monthly", "lastmod": "2026-04-11"},
+        {"loc": f"{SITE_URL}/works/seo/", "priority": "0.9", "changefreq": "weekly", "lastmod": now},
+        {"loc": f"{SITE_URL}/works/web/", "priority": "0.8", "changefreq": "monthly", "lastmod": "2026-04-11"},
+        {"loc": f"{SITE_URL}/works/ads/", "priority": "0.8", "changefreq": "monthly", "lastmod": "2026-04-11"},
+        {"loc": f"{SITE_URL}/works/ai/", "priority": "0.8", "changefreq": "monthly", "lastmod": "2026-04-11"},
+        {"loc": f"{SITE_URL}/works/seo/auto-plan/", "priority": "0.7", "changefreq": "monthly", "lastmod": "2026-04-11"},
+        {"loc": f"{SITE_URL}/company/", "priority": "0.7", "changefreq": "monthly", "lastmod": "2026-04-11"},
         {"loc": f"{SITE_URL}/column/", "priority": "0.8", "changefreq": "daily", "lastmod": now},
-        {"loc": f"{SITE_URL}/past_work.html", "priority": "0.6", "changefreq": "monthly", "lastmod": now},
     ]
 
+    # コラム記事（動的追加）
     for article in published:
         urls.append({
             "loc": f"{SITE_URL}/column/{article['slug']}/",
