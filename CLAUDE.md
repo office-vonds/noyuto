@@ -24,6 +24,7 @@
 4. **UNLYUTO合同会社** — ILアプリ開発・ヘブンネット戦略（→ skills/unlyuto/）
 5. **noyuto（X/NOTE）** — 思想の資産化・収益化モデル（→ skills/noyuto-media/）
 6. **THEパレッターズ** — バンド・ドラム担当（→ skills/palletters/）
+7. **NOYUTO AI経営パッケージ（合同会社UNRYUTO）** — 風俗経営×AI商品化・SEOサイト・EC自動販売（→ skills/ai-biz-package/）
 
 ## コミュニケーションルール
 - 丁寧すぎない敬語。対等でリスペクトし合う関係
@@ -86,9 +87,34 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-13 02:00 / ブランチ: main**
+**最終更新: 2026-04-13 03:00 / ブランチ: main**
 
-### 【最優先・NOYUTO作業待ち】Google広告監査 ストレッチゼロ試走（デッドライン: 4/15面談）
+### 【NEW・Phase 0開始】NOYUTO AI経営パッケージ（合同会社UNRYUTO）
+
+**担当: 全エージェント / 起案: 2026-04-13 Claude AI壁打ちで全体構想確定**
+
+**概要:** 風俗業界22年経営知識 × AI実戦システムの商品化。日本唯一。
+**法人:** 合同会社UNRYUTO
+**ブランド:** UNRYUTO（X/NOTE新規アカウント・noyutoとは別立て）
+**ドメイン:** unryuto.jp（2026-04-13 NOYUTO確定）
+**収益3層:** 無料（X/NOTE）→ 買い切りマニュアル（¥29,800〜¥49,800）→ メンバーシップ月額（¥9,800〜¥19,800）
+**集客本丸:** SEOサイト（X/NOTEはサブ）
+**SKILL.md:** `.claude/skills/ai-biz-package/SKILL.md`
+**Notion:** https://www.notion.so/341b652777f58107aca9f2fc0ded6f0d
+
+**Phase 0タスク（現在地）:**
+- [x] SKILL.md配置
+- [x] CLAUDE.md事業一覧・サマリー追記
+- [ ] UNRYUTOサイト構築（unryuto.jp・SEO最適化・EC連携）★最優先
+- [ ] UNRYUTO X/NOTE新規アカウント作成
+- [ ] ECプラットフォーム比較（Gumroad vs Lemon Squeezy vs 独自）
+- [ ] マニュアルテンプレート策定
+- [ ] 口述受け入れ体制構築
+- [ ] NOYUTOの口述2時間 → マニュアル第1弾制作
+
+---
+
+### 【NOYUTO作業待ち】Google広告監査 ストレッチゼロ試走（デッドライン: 4/15面談）
 
 **担当: KIRYU（魂）**
 
