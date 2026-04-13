@@ -3,3 +3,16 @@
 2026-04-13 20:12:29,869 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
 2026-04-13 20:12:37,720 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
 2026-04-13 20:12:45,775 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ads/
+2026-04-13 20:12:53,550 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ai/
+2026-04-13 20:13:01,078 [INFO]   [NG] NEUTRAL Duplicate, Google chose different canonical than user crawl=2026-04-11 https://vonds.co.jp/company/
+2026-04-13 20:13:08,548 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/
+2026-04-13 20:13:16,112 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/seo-howto-guide/
+2026-04-13 20:13:24,182 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/yamanashi-seo/
+2026-04-13 20:13:32,144 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/what-is-seo/
+2026-04-13 20:13:40,083 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/web-design-guide/
+2026-04-13 20:13:47,767 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/google-ads-guide/
+2026-04-13 20:13:55,534 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/ai-business-guide/
+2026-04-13 20:14:03,741 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/local-seo-strategy/
+2026-04-13 20:14:04,242 [INFO] === 結果: 7/14 インデックス済み ===
+2026-04-13 20:14:04,242 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/
+2026-04-13 20:14:04,242 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
