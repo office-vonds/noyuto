@@ -1,0 +1,5 @@
+2026-04-13 20:12:14,332 [INFO] === インデックス状態チェック開始: 14URL ===
+2026-04-13 20:12:21,979 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/
+2026-04-13 20:12:29,869 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
+2026-04-13 20:12:37,720 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
+2026-04-13 20:12:45,775 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ads/
