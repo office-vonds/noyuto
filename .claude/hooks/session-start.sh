@@ -41,12 +41,42 @@ if [ -n "$REMOTE_MAIN" ]; then
   AHEAD=${AHEAD:-0}
 
   if [ "$BEHIND" -gt 0 ]; then
-    echo ""
-    echo "🚨 origin/main が $BEHIND コミット先行している"
-    echo "   → 作業前に必ず pull / merge すること"
-    echo ""
-    echo "   直近の origin/main コミット:"
-    git log HEAD..origin/main --oneline 2>/dev/null | head -5 | sed 's/^/     /'
+    # --- auto-pull 判定（3条件全部クリアした時だけ実行）---
+    # 条件1: 未コミット変更ゼロ
+    # 条件2: 現在ブランチが main である（他ブランチでは安全のため auto-pull しない）
+    # 条件3: fast-forward 可能（HEAD が origin/main の祖先）
+    DIRTY_COUNT=$(git status --porcelain 2>/dev/null | wc -l)
+    CAN_FF=1
+    git merge-base --is-ancestor HEAD origin/main 2>/dev/null || CAN_FF=0
+
+    if [ "$DIRTY_COUNT" -eq 0 ] && [ "$CUR_BRANCH" = "main" ] && [ "$CAN_FF" -eq 1 ]; then
+      echo ""
+      echo "🔄 auto-pull: 安全条件クリア（clean + main + ff）→ 自動 pull 実行"
+      PULL_OUT=$(git merge --ff-only origin/main 2>&1)
+      PULL_RC=$?
+      if [ $PULL_RC -eq 0 ]; then
+        NEW_HEAD=$(git rev-parse HEAD 2>/dev/null)
+        echo "✅ auto-pull 成功: ${LOCAL_HEAD:0:7} → ${NEW_HEAD:0:7}（$BEHIND コミット取り込み）"
+        LOCAL_HEAD="$NEW_HEAD"
+        BEHIND=0
+      else
+        echo "⚠️  auto-pull 失敗 — 手動で pull 必要"
+        echo "   詳細: $PULL_OUT"
+      fi
+    else
+      # auto-pull 不可の理由を明示
+      echo ""
+      echo "🚨 origin/main が $BEHIND コミット先行している"
+      echo "   → 作業前に必ず pull / merge すること"
+      REASONS=""
+      [ "$DIRTY_COUNT" -gt 0 ] && REASONS="$REASONS 未コミット変更($DIRTY_COUNT)"
+      [ "$CUR_BRANCH" != "main" ] && REASONS="$REASONS 非mainブランチ($CUR_BRANCH)"
+      [ "$CAN_FF" -eq 0 ] && REASONS="$REASONS ff不可(履歴分岐)"
+      [ -n "$REASONS" ] && echo "   auto-pull 不可の理由:$REASONS"
+      echo ""
+      echo "   直近の origin/main コミット:"
+      git log HEAD..origin/main --oneline 2>/dev/null | head -5 | sed 's/^/     /'
+    fi
   else
     echo "✅ origin/main と同期済み"
   fi
