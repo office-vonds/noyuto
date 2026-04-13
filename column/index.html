@@ -83,42 +83,62 @@
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 24px;
     }
-    .column-card {
+    a.column-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
       border: 1px solid #e5e7eb;
       border-radius: 12px;
       overflow: hidden;
       transition: box-shadow 0.2s, transform 0.2s;
+      background: #fff;
     }
     .column-card:hover {
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       transform: translateY(-4px);
     }
-    .column-card a {
-      display: block;
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
+    .column-card-thumb {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+    .column-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .column-card:hover .column-card-thumb img {
+      transform: scale(1.05);
+    }
+    .column-card-thumb .column-card-cat {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1;
     }
     .column-card-cat {
+      display: inline-block;
       font-size: 0.75rem;
       font-weight: 700;
-      color: #1a56db;
-      margin-bottom: 8px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+    .column-card-cat--seo { background: #dcfce7; color: #166534; }
+    .column-card-cat--web { background: #dbeafe; color: #1e40af; }
+    .column-card-cat--ads { background: #fef3c7; color: #92400e; }
+    .column-card-cat--ai { background: #ede9fe; color: #5b21b6; }
+    .column-card-body {
+      padding: 14px 16px 16px;
     }
     .column-card-title {
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: #111827;
-      line-height: 1.5;
-      margin: 0 0 12px;
-    }
-    .column-card-desc {
-      font-size: 0.85rem;
-      color: #6b7280;
-      line-height: 1.6;
-      margin: 0 0 12px;
+      line-height: 1.55;
+      margin: 0 0 8px;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -168,62 +188,76 @@
   </div>
 
   <div class="column-grid">
-      <article class="column-card" data-cat="web">
-        <a href="/column/web-design-guide/">
-          <div class="column-card-cat">Web制作</div>
+      <a href="/column/web-design-guide/" class="column-card" data-cat="web">
+        <div class="column-card-thumb">
+          <img src="/img/column/web.svg" alt="Web制作" loading="lazy" width="400" height="225">
+          <span class="column-card-cat column-card-cat--web">Web制作</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">ホームページ制作で失敗しない｜中小企業が知るべき発注・運用の全知識</h2>
-          <p class="column-card-desc">中小企業のホームページ制作で失敗しないための完全ガイド。制作の流れ・費用相場・制作会社の選び方・運用のコツまで、20年以上の実績を持つWeb制作会社が実践的に解説します。</p>
-          <time class="column-card-date" datetime="2026-04-13">2026年4月13日</time>
-        </a>
-      </article>
-      <article class="column-card" data-cat="ads">
-        <a href="/column/google-ads-guide/">
-          <div class="column-card-cat">広告運用</div>
+          <time class="column-card-date" datetime="2026-04-13">2026.04.13</time>
+        </div>
+      </a>
+      <a href="/column/google-ads-guide/" class="column-card" data-cat="ads">
+        <div class="column-card-thumb">
+          <img src="/img/column/ads.svg" alt="広告運用" loading="lazy" width="400" height="225">
+          <span class="column-card-cat column-card-cat--ads">広告運用</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">Google広告の始め方｜中小企業が少額予算で成果を出すための実践ガイド</h2>
-          <p class="column-card-desc">Google広告（リスティング広告）を月3〜5万円の少額予算で始める方法を解説。中小企業がGoogle広告で成果を出すためのキーワード選定・広告文・LP改善・運用代行の判断基準まで網羅。</p>
-          <time class="column-card-date" datetime="2026-04-13">2026年4月13日</time>
-        </a>
-      </article>
-      <article class="column-card" data-cat="ai">
-        <a href="/column/ai-business-guide/">
-          <div class="column-card-cat">AI活用</div>
+          <time class="column-card-date" datetime="2026-04-13">2026.04.13</time>
+        </div>
+      </a>
+      <a href="/column/ai-business-guide/" class="column-card" data-cat="ai">
+        <div class="column-card-thumb">
+          <img src="/img/column/ai.svg" alt="AI活用" loading="lazy" width="400" height="225">
+          <span class="column-card-cat column-card-cat--ai">AI活用</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">中小企業のAI活用｜業務効率化から売上アップまで実践事例で解説</h2>
-          <p class="column-card-desc">中小企業がAIを活用して業務効率化・コスト削減・売上向上を実現する方法を、具体的な導入事例とステップで解説。ChatGPTやClaudeなど最新ツールの活用法から費用対効果まで網羅。</p>
-          <time class="column-card-date" datetime="2026-04-13">2026年4月13日</time>
-        </a>
-      </article>
-      <article class="column-card" data-cat="seo">
-        <a href="/column/local-seo-strategy/">
-          <div class="column-card-cat">SEO対策</div>
+          <time class="column-card-date" datetime="2026-04-13">2026.04.13</time>
+        </div>
+      </a>
+      <a href="/column/local-seo-strategy/" class="column-card" data-cat="seo">
+        <div class="column-card-thumb">
+          <img src="/img/column/seo.svg" alt="SEO対策" loading="lazy" width="400" height="225">
+          <span class="column-card-cat column-card-cat--seo">SEO対策</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">ローカルSEO完全攻略｜Googleマップで上位表示を獲得する方法</h2>
-          <p class="column-card-desc">ローカルSEO対策の具体的な手順を解説。Googleビジネスプロフィールの最適化からMEO対策、口コミ戦略まで網羅的に紹介します。</p>
-          <time class="column-card-date" datetime="2026-04-13">2026年4月13日</time>
-        </a>
-      </article>
-      <article class="column-card" data-cat="seo">
-        <a href="/column/what-is-seo/">
-          <div class="column-card-cat">SEO対策</div>
+          <time class="column-card-date" datetime="2026-04-13">2026.04.13</time>
+        </div>
+      </a>
+      <a href="/column/what-is-seo/" class="column-card" data-cat="seo">
+        <div class="column-card-thumb">
+          <img src="/img/column/seo.svg" alt="SEO対策" loading="lazy" width="400" height="225">
+          <span class="column-card-cat column-card-cat--seo">SEO対策</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">SEOとは？わかりやすく基本を解説｜なぜ検索上位が重要なのか</h2>
-          <p class="column-card-desc">SEO（検索エンジン最適化）の基本概念をわかりやすく解説。なぜSEOが重要なのか、検索順位が売上に与える影響を具体的な数字で紹介。</p>
-          <time class="column-card-date" datetime="2026-04-10">2026年4月10日</time>
-        </a>
-      </article>
-      <article class="column-card" data-cat="seo">
-        <a href="/column/yamanashi-seo/">
-          <div class="column-card-cat">SEO対策</div>
+          <time class="column-card-date" datetime="2026-04-10">2026.04.10</time>
+        </div>
+      </a>
+      <a href="/column/yamanashi-seo/" class="column-card" data-cat="seo">
+        <div class="column-card-thumb">
+          <img src="/img/column/seo.svg" alt="SEO対策" loading="lazy" width="400" height="225">
+          <span class="column-card-cat column-card-cat--seo">SEO対策</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">山梨県でSEO対策を依頼するなら｜地域密着型SEOの強みと選び方</h2>
-          <p class="column-card-desc">山梨県の企業がSEO対策で成果を出すための戦略を解説。地域密着型SEOのメリットと、失敗しないSEO会社の選び方を紹介。</p>
-          <time class="column-card-date" datetime="2026-04-09">2026年4月9日</time>
-        </a>
-      </article>
-      <article class="column-card" data-cat="seo">
-        <a href="/column/seo-howto-guide/">
-          <div class="column-card-cat">SEO対策</div>
+          <time class="column-card-date" datetime="2026-04-09">2026.04.09</time>
+        </div>
+      </a>
+      <a href="/column/seo-howto-guide/" class="column-card" data-cat="seo">
+        <div class="column-card-thumb">
+          <img src="/img/column/seo.svg" alt="SEO対策" loading="lazy" width="400" height="225">
+          <span class="column-card-cat column-card-cat--seo">SEO対策</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">【2026年最新】SEO対策の正しいやり方｜初心者でもわかる完全ガイド</h2>
-          <p class="column-card-desc">SEO対策の基本から実践的なやり方まで徹底解説。検索順位を上げるための具体的な手順を初心者にもわかりやすく紹介します。</p>
-          <time class="column-card-date" datetime="2026-04-08">2026年4月8日</time>
-        </a>
-      </article>
+          <time class="column-card-date" datetime="2026-04-08">2026.04.08</time>
+        </div>
+      </a>
   </div>
 
   <footer class="footer">

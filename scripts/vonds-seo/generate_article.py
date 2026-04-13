@@ -374,17 +374,30 @@ def generate_column_index(state: dict, keywords_data: dict):
         if cat_id in used_cats:
             filter_buttons.append(f'      <button class="filter-btn" data-cat="{cat_id}">{cat_label}</button>')
 
-    # 記事カード
+    # カテゴリ→サムネイル画像マッピング
+    cat_thumb = {
+        "seo": "/img/column/seo.svg",
+        "web": "/img/column/web.svg",
+        "ads": "/img/column/ads.svg",
+        "ai": "/img/column/ai.svg",
+    }
+
+    # 記事カード（サムネイル+カテゴリバッジ+タイトル+日付）
     article_cards = []
     for p in published_sorted:
-        card = f"""      <article class="column-card" data-cat="{p.get('category_id', '')}">
-        <a href="/column/{p['slug']}/">
-          <div class="column-card-cat">{p.get('category_label', '')}</div>
+        thumb = cat_thumb.get(p.get("category_id", ""), "/img/column/seo.svg")
+        cat_class = f"column-card-cat--{p.get('category_id', 'seo')}"
+        date_fmt = p.get("date", "").replace("-", ".")
+        card = f"""      <a href="/column/{p['slug']}/" class="column-card" data-cat="{p.get('category_id', '')}">
+        <div class="column-card-thumb">
+          <img src="{thumb}" alt="{p.get('category_label', '')}" loading="lazy" width="400" height="225">
+          <span class="column-card-cat {cat_class}">{p.get('category_label', '')}</span>
+        </div>
+        <div class="column-card-body">
           <h2 class="column-card-title">{p['title']}</h2>
-          <p class="column-card-desc">{p.get('meta_description', '')}</p>
-          <time class="column-card-date" datetime="{p.get('date', '')}">{p.get('date_jp', '')}</time>
-        </a>
-      </article>"""
+          <time class="column-card-date" datetime="{p.get('date', '')}">{date_fmt}</time>
+        </div>
+      </a>"""
         article_cards.append(card)
 
     no_articles = ""
@@ -476,42 +489,62 @@ def generate_column_index(state: dict, keywords_data: dict):
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 24px;
     }}
-    .column-card {{
+    a.column-card {{
+      display: block;
+      text-decoration: none;
+      color: inherit;
       border: 1px solid #e5e7eb;
       border-radius: 12px;
       overflow: hidden;
       transition: box-shadow 0.2s, transform 0.2s;
+      background: #fff;
     }}
     .column-card:hover {{
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       transform: translateY(-4px);
     }}
-    .column-card a {{
-      display: block;
-      padding: 24px;
-      text-decoration: none;
-      color: inherit;
+    .column-card-thumb {{
+      position: relative;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }}
+    .column-card-thumb img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }}
+    .column-card:hover .column-card-thumb img {{
+      transform: scale(1.05);
+    }}
+    .column-card-thumb .column-card-cat {{
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1;
     }}
     .column-card-cat {{
+      display: inline-block;
       font-size: 0.75rem;
       font-weight: 700;
-      color: #1a56db;
-      margin-bottom: 8px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }}
+    .column-card-cat--seo {{ background: #dcfce7; color: #166534; }}
+    .column-card-cat--web {{ background: #dbeafe; color: #1e40af; }}
+    .column-card-cat--ads {{ background: #fef3c7; color: #92400e; }}
+    .column-card-cat--ai {{ background: #ede9fe; color: #5b21b6; }}
+    .column-card-body {{
+      padding: 14px 16px 16px;
     }}
     .column-card-title {{
-      font-size: 1.1rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: #111827;
-      line-height: 1.5;
-      margin: 0 0 12px;
-    }}
-    .column-card-desc {{
-      font-size: 0.85rem;
-      color: #6b7280;
-      line-height: 1.6;
-      margin: 0 0 12px;
+      line-height: 1.55;
+      margin: 0 0 8px;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }}
