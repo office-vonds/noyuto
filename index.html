@@ -180,6 +180,51 @@
     .column-card-cat--kokodake { background: #dbeafe; color: #1e40af; }
     .column-card-cat--seo { background: #dcfce7; color: #166534; }
     .column-card-cat--netbiz { background: #f3e8ff; color: #6b21a8; }
+    .column-card-cat--web { background: #dbeafe; color: #1e40af; }
+    .column-card-cat--ads { background: #fef3c7; color: #92400e; }
+    .column-card-cat--ai { background: #ede9fe; color: #5b21b6; }
+    .column-card-icon {
+      padding: 1.25rem 1.5rem 0;
+    }
+    .column-card-icon svg {
+      width: 36px;
+      height: 36px;
+      color: var(--primary, #2563EB);
+      opacity: 0.7;
+    }
+    .column-card-date {
+      display: block;
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.5rem;
+    }
+    .column-filter-top {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .column-filter-btn {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .column-filter-btn:hover, .column-filter-btn.active {
+      background: var(--primary, #2563EB);
+      color: #fff;
+      border-color: var(--primary, #2563EB);
+    }
+    .column-more {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .column-card.column-hidden { display: none; }
     .column-card-title {
       font-size: 1rem;
       font-weight: 700;
@@ -908,67 +953,104 @@
     <img src="information1600-605.png" alt="インフォメーション" loading="lazy">
   </div>
 
-  <!-- 代表コラムセクション -->
+  <!-- コラムセクション（最新記事） -->
   <section class="column-section" id="column">
     <div class="container">
-      <h2 class="section-title">代表コラム</h2>
-      <p class="section-lead">代表・小沢が20年以上のWEBマーケティング経験から得た知見を発信</p>
+      <h2 class="section-title">コラム</h2>
+      <p class="section-lead">SEO・Web制作・広告運用・AI活用の最新ナレッジをお届けします</p>
+
+      <div class="column-filter-top">
+        <button class="column-filter-btn active" data-cat="all">すべて</button>
+        <button class="column-filter-btn" data-cat="seo">SEO対策</button>
+        <button class="column-filter-btn" data-cat="web">Web制作</button>
+        <button class="column-filter-btn" data-cat="ads">広告運用</button>
+        <button class="column-filter-btn" data-cat="ai">AI活用</button>
+      </div>
+
       <div class="column-grid">
 
-        <div class="column-card">
-          <div class="column-card-body">
-            <span class="column-card-cat column-card-cat--kokodake">ここだけの話</span>
-            <h3 class="column-card-title">ファンを作ることが資産となる時代が到来！？</h3>
-            <p class="column-card-excerpt">SNS時代において、ファンを作ることが最大のデジタル資産に。人的信頼の価値と持続可能な成功の秘訣。</p>
-            <a href="/kokodake/fan/" class="column-card-link">記事を読む →</a>
+        <div class="column-card" data-cat="seo">
+          <div class="column-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
           </div>
-        </div>
-
-        <div class="column-card">
-          <div class="column-card-body">
-            <span class="column-card-cat column-card-cat--kokodake">ここだけの話</span>
-            <h3 class="column-card-title">WEBにおいての成功の秘訣</h3>
-            <p class="column-card-excerpt">検索結果1ページ目に表示されないサイトは9割のユーザーを逃す。正しい情報収集が成功の第一歩。</p>
-            <a href="/kokodake/seikou/" class="column-card-link">記事を読む →</a>
-          </div>
-        </div>
-
-        <div class="column-card">
-          <div class="column-card-body">
-            <span class="column-card-cat column-card-cat--netbiz">ネットビジネス</span>
-            <h3 class="column-card-title">コロナウイルスの影響を受けない業種を考えてみた</h3>
-            <p class="column-card-excerpt">不確実な時代でも、正しい情報収集能力の習得が事業継続の鍵になる。</p>
-            <a href="/net_biz/corona/" class="column-card-link">記事を読む →</a>
-          </div>
-        </div>
-
-        <div class="column-card">
           <div class="column-card-body">
             <span class="column-card-cat column-card-cat--seo">SEO対策</span>
-            <h3 class="column-card-title">SEOに効果あり！セマンティック〇〇とは！？</h3>
-            <p class="column-card-excerpt">セマンティックコーディングでHTMLを最適化。クローラーの可読性と表示速度が劇的に向上する理由。</p>
-            <a href="/seo/semantic/" class="column-card-link">記事を読む →</a>
+            <h3 class="column-card-title">ローカルSEO完全攻略｜Googleマップで上位表示を獲得する方法</h3>
+            <p class="column-card-excerpt">ローカルSEO対策の具体的な手順を解説。Googleビジネスプロフィールの最適化からMEO対策、口コミ戦略まで。</p>
+            <time class="column-card-date">2026年4月13日</time>
+            <a href="/column/local-seo-strategy/" class="column-card-link">記事を読む →</a>
           </div>
         </div>
 
-        <div class="column-card">
+        <div class="column-card" data-cat="web">
+          <div class="column-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
           <div class="column-card-body">
-            <span class="column-card-cat column-card-cat--kokodake">ここだけの話</span>
-            <h3 class="column-card-title">WEBに二匹目のドジョウはいない</h3>
-            <p class="column-card-excerpt">ビッグキーワードを追うな。ニッチキーワード戦略でコンバージョン率を最大化する発想法。</p>
-            <a href="/kokodake/report1-2/" class="column-card-link">記事を読む →</a>
+            <span class="column-card-cat column-card-cat--web">Web制作</span>
+            <h3 class="column-card-title">ホームページ制作で失敗しない｜中小企業が知るべき発注・運用の全知識</h3>
+            <p class="column-card-excerpt">制作の流れ・費用相場・制作会社の選び方・運用のコツまで、20年以上の実績を持つWeb制作会社が解説。</p>
+            <time class="column-card-date">2026年4月13日</time>
+            <a href="/column/web-design-guide/" class="column-card-link">記事を読む →</a>
           </div>
         </div>
 
-        <div class="column-card">
+        <div class="column-card" data-cat="ads">
+          <div class="column-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+          </div>
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--ads">広告運用</span>
+            <h3 class="column-card-title">Google広告の始め方｜中小企業が少額予算で成果を出すための実践ガイド</h3>
+            <p class="column-card-excerpt">月3〜5万円の少額予算で始めるGoogle広告。キーワード選定・広告文・LP改善まで網羅。</p>
+            <time class="column-card-date">2026年4月13日</time>
+            <a href="/column/google-ads-guide/" class="column-card-link">記事を読む →</a>
+          </div>
+        </div>
+
+        <div class="column-card" data-cat="ai">
+          <div class="column-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4z"/><path d="M16 14a4 4 0 0 1 4 4v2H4v-2a4 4 0 0 1 4-4"/><circle cx="9" cy="9" r="1"/><circle cx="15" cy="9" r="1"/></svg>
+          </div>
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--ai">AI活用</span>
+            <h3 class="column-card-title">中小企業のAI活用｜業務効率化から売上アップまで実践事例で解説</h3>
+            <p class="column-card-excerpt">ChatGPTやClaudeなど最新ツールの活用法から費用対効果まで、具体的な導入事例とステップで解説。</p>
+            <time class="column-card-date">2026年4月13日</time>
+            <a href="/column/ai-business-guide/" class="column-card-link">記事を読む →</a>
+          </div>
+        </div>
+
+        <div class="column-card" data-cat="seo">
+          <div class="column-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
           <div class="column-card-body">
             <span class="column-card-cat column-card-cat--seo">SEO対策</span>
-            <h3 class="column-card-title">継続は力なり！</h3>
-            <p class="column-card-excerpt">SEO対策の成否はサイト育成の最初の1年で決まる。地道な努力を継続した者だけが勝つ。</p>
-            <a href="/seo/report1/" class="column-card-link">記事を読む →</a>
+            <h3 class="column-card-title">SEOとは？わかりやすく基本を解説｜なぜ検索上位が重要なのか</h3>
+            <p class="column-card-excerpt">SEOの基本概念をわかりやすく解説。検索順位が売上に与える影響を具体的な数字で紹介。</p>
+            <time class="column-card-date">2026年4月10日</time>
+            <a href="/column/what-is-seo/" class="column-card-link">記事を読む →</a>
           </div>
         </div>
 
+        <div class="column-card" data-cat="seo">
+          <div class="column-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div class="column-card-body">
+            <span class="column-card-cat column-card-cat--seo">SEO対策</span>
+            <h3 class="column-card-title">山梨県でSEO対策を依頼するなら｜地域密着型SEOの強みと選び方</h3>
+            <p class="column-card-excerpt">山梨県の企業がSEO対策で成果を出すための戦略。地域密着型SEOのメリットと失敗しない選び方。</p>
+            <time class="column-card-date">2026年4月9日</time>
+            <a href="/column/yamanashi-seo/" class="column-card-link">記事を読む →</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="column-more">
+        <a href="/column/" class="btn btn--outline">コラム一覧を見る →</a>
       </div>
     </div>
   </section>
@@ -1263,6 +1345,24 @@
         if (!isOpen) {
           item.classList.add('is-open');
         }
+      });
+    });
+  })();
+
+  // コラムカテゴリフィルタ
+  (function() {
+    document.querySelectorAll('.column-filter-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.column-filter-btn').forEach(function(b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var cat = this.getAttribute('data-cat');
+        document.querySelectorAll('.column-card[data-cat]').forEach(function(card) {
+          if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+            card.classList.remove('column-hidden');
+          } else {
+            card.classList.add('column-hidden');
+          }
+        });
       });
     });
   })();
