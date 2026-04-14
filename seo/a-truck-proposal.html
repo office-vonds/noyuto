@@ -76,39 +76,10 @@ ul.check li::before{content:'✓';position:absolute;left:0;color:var(--navy);fon
 .timeline-item p{font-size:11px;opacity:.7}
 
 @media print{
-@page{size:A4 landscape;margin:8mm 10mm}
+@page{size:A4 landscape;margin:0}
 body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
-.slide{box-shadow:none;margin:0;width:100%;min-height:0;page-break-after:always;page-break-inside:avoid;overflow:hidden}
+.slide{box-shadow:none;margin:0 auto;width:960px;min-height:540px;page-break-after:always;page-break-inside:avoid}
 .slide:last-child{page-break-after:auto}
-.cover{padding:32px 44px;min-height:0}
-.cover h1{font-size:30px}
-.cover .sub{font-size:14px;margin-bottom:28px}
-.std{padding:24px 36px}
-.std .slide-title{font-size:19px;margin-bottom:2px}
-.std .slide-title-bar{margin-bottom:16px}
-.std .content{flex:1}
-.divider{min-height:0;padding:40px}
-.divider h2{font-size:26px}
-table.data{font-size:11px}
-table.data th,table.data td{padding:5px 8px}
-.big-num{font-size:32px}
-.big-num span{font-size:16px}
-.two-col{gap:16px}
-.three-col{gap:12px}
-.card{padding:12px}
-.card h3{font-size:13px;margin-bottom:4px}
-.card p{font-size:11px;line-height:1.5}
-ul.check{font-size:12px}
-ul.check li{padding:3px 0;padding-left:20px}
-.highlight-box{padding:12px;margin-top:12px}
-.highlight-box h3{font-size:15px;margin-bottom:4px}
-.highlight-box p{font-size:11px}
-.timeline{gap:8px;margin-top:12px}
-.timeline-item{padding:10px 8px}
-.timeline-item h4{font-size:11px}
-.timeline-item p{font-size:9px}
-.quote{font-size:12px;padding:10px 14px;margin:10px 0}
-.slide-num{font-size:9px;bottom:6px;right:10px}
 }
 </style>
 </head>

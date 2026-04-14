@@ -16,7 +16,7 @@ const path = require('path');
     format: 'A4',
     landscape: true,
     printBackground: true,
-    margin: { top: '10mm', bottom: '10mm', left: '10mm', right: '10mm' },
+    margin: { top: '0mm', bottom: '0mm', left: '0mm', right: '0mm' },
     preferCSSPageSize: false
   });
 
