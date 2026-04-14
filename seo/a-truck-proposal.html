@@ -6,7 +6,7 @@
 <title>A-TRUCK SEO改善提案書｜VONDS</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-@page{size:A4 landscape;margin:0}
+@page{size:A4 landscape;margin:10mm}
 :root{--navy:#053980;--red:#e8302a;--gold:#FDD65F;--g50:#f8f9fc;--g100:#eef1f6;--g600:#6b7280;--g800:#1f2937;--w:#fff}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Noto Sans JP',sans-serif;color:var(--g800);background:#e8e8e8;-webkit-font-smoothing:antialiased}
@@ -76,8 +76,39 @@ ul.check li::before{content:'✓';position:absolute;left:0;color:var(--navy);fon
 .timeline-item p{font-size:11px;opacity:.7}
 
 @media print{
-body{background:#fff}
-.slide{box-shadow:none;margin:0;page-break-inside:avoid}
+@page{size:A4 landscape;margin:8mm 10mm}
+body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+.slide{box-shadow:none;margin:0;width:100%;min-height:0;page-break-after:always;page-break-inside:avoid;overflow:hidden}
+.slide:last-child{page-break-after:auto}
+.cover{padding:32px 44px;min-height:0}
+.cover h1{font-size:30px}
+.cover .sub{font-size:14px;margin-bottom:28px}
+.std{padding:24px 36px}
+.std .slide-title{font-size:19px;margin-bottom:2px}
+.std .slide-title-bar{margin-bottom:16px}
+.std .content{flex:1}
+.divider{min-height:0;padding:40px}
+.divider h2{font-size:26px}
+table.data{font-size:11px}
+table.data th,table.data td{padding:5px 8px}
+.big-num{font-size:32px}
+.big-num span{font-size:16px}
+.two-col{gap:16px}
+.three-col{gap:12px}
+.card{padding:12px}
+.card h3{font-size:13px;margin-bottom:4px}
+.card p{font-size:11px;line-height:1.5}
+ul.check{font-size:12px}
+ul.check li{padding:3px 0;padding-left:20px}
+.highlight-box{padding:12px;margin-top:12px}
+.highlight-box h3{font-size:15px;margin-bottom:4px}
+.highlight-box p{font-size:11px}
+.timeline{gap:8px;margin-top:12px}
+.timeline-item{padding:10px 8px}
+.timeline-item h4{font-size:11px}
+.timeline-item p{font-size:9px}
+.quote{font-size:12px;padding:10px 14px;margin:10px 0}
+.slide-num{font-size:9px;bottom:6px;right:10px}
 }
 </style>
 </head>
@@ -147,22 +178,22 @@ body{background:#fff}
   <div class="slide-title">実測データで見る現状（Google Search Console / 過去28日）</div>
   <div class="slide-title-bar"></div>
   <div class="content">
-    <p style="font-size:13px;color:var(--g600);margin-bottom:16px">ご提案の前に、A-TRUCK様の<strong>現状の強み</strong>を実計測データでご確認ください。</p>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px">
-      <div style="background:var(--g50);border-radius:10px;padding:16px;text-align:center">
-        <div class="big-num big-num-navy" style="font-size:30px">6,207</div>
+    <p style="font-size:13px;color:var(--g600);margin-bottom:10px">ご提案の前に、A-TRUCK様の<strong>現状の強み</strong>を実計測データでご確認ください。</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px">
+      <div style="background:var(--g50);border-radius:10px;padding:12px;text-align:center">
+        <div class="big-num big-num-navy" style="font-size:28px">6,207</div>
         <p style="font-size:11px;color:var(--g600);margin-top:4px;font-weight:700">月間検索クリック</p>
       </div>
-      <div style="background:var(--g50);border-radius:10px;padding:16px;text-align:center">
-        <div class="big-num big-num-navy" style="font-size:30px">202,071</div>
+      <div style="background:var(--g50);border-radius:10px;padding:12px;text-align:center">
+        <div class="big-num big-num-navy" style="font-size:28px">202,071</div>
         <p style="font-size:11px;color:var(--g600);margin-top:4px;font-weight:700">月間表示回数</p>
       </div>
-      <div style="background:var(--g50);border-radius:10px;padding:16px;text-align:center">
-        <div class="big-num big-num-navy" style="font-size:30px">5.7<span style="font-size:14px">位</span></div>
+      <div style="background:var(--g50);border-radius:10px;padding:12px;text-align:center">
+        <div class="big-num big-num-navy" style="font-size:28px">5.7<span style="font-size:14px">位</span></div>
         <p style="font-size:11px;color:var(--g600);margin-top:4px;font-weight:700">平均検索順位</p>
       </div>
-      <div style="background:var(--g50);border-radius:10px;padding:16px;text-align:center">
-        <div class="big-num big-num-navy" style="font-size:30px">3.07<span style="font-size:14px">%</span></div>
+      <div style="background:var(--g50);border-radius:10px;padding:12px;text-align:center">
+        <div class="big-num big-num-navy" style="font-size:28px">3.07<span style="font-size:14px">%</span></div>
         <p style="font-size:11px;color:var(--g600);margin-top:4px;font-weight:700">クリック率(CTR)</p>
       </div>
     </div>
@@ -189,8 +220,8 @@ body{background:#fff}
         <p style="font-size:11px;color:var(--g600);margin-top:8px">※ モバイルCTR 2.81% / デスクトップCTR 3.75% → モバイルに改善余地</p>
       </div>
     </div>
-    <div class="highlight-box" style="padding:16px">
-      <p style="font-size:14px;opacity:1">「直すべきところ」ではなく「積み増せる余地」のご提案です</p>
+    <div class="highlight-box" style="padding:10px;margin-top:10px">
+      <p style="font-size:13px;opacity:1">「直すべきところ」ではなく「積み増せる余地」のご提案です</p>
     </div>
   </div>
   <div class="slide-num">5 / 18</div>
@@ -223,24 +254,24 @@ body{background:#fff}
   <div class="slide-title">地域×サービス検索の捕捉実態</div>
   <div class="slide-title-bar"></div>
   <div class="content">
-    <p style="font-size:13px;color:var(--g600);margin-bottom:16px">
+    <p style="font-size:12px;color:var(--g600);margin-bottom:10px">
       エリアLP戦略のターゲットとなる「地域×サービス」系の検索クエリ77パターンを実計測した結果：
     </p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:20px">
-      <div style="text-align:center;background:var(--g50);padding:24px;border-radius:10px">
-        <div class="big-num" style="font-size:52px">21<span style="font-size:18px">/77</span></div>
-        <p style="font-size:13px;color:var(--g600);margin-top:4px">表示されているKW数</p>
-        <p style="font-size:11px;color:var(--g600)">※うち1位獲得はわずか1件</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:12px">
+      <div style="text-align:center;background:var(--g50);padding:14px;border-radius:10px">
+        <div class="big-num" style="font-size:40px">21<span style="font-size:16px">/77</span></div>
+        <p style="font-size:12px;color:var(--g600);margin-top:2px">表示されているKW数</p>
+        <p style="font-size:10px;color:var(--g600)">※うち1位獲得はわずか1件</p>
       </div>
-      <div style="text-align:center;background:#fef2f2;padding:24px;border-radius:10px">
-        <div class="big-num" style="font-size:52px">56<span style="font-size:18px">/77</span></div>
-        <p style="font-size:13px;color:var(--g600);margin-top:4px">完全未捕捉のKW数</p>
+      <div style="text-align:center;background:#fef2f2;padding:14px;border-radius:10px">
+        <div class="big-num" style="font-size:40px">56<span style="font-size:16px">/77</span></div>
+        <p style="font-size:12px;color:var(--g600);margin-top:2px">完全未捕捉のKW数</p>
         <p style="font-size:11px;color:var(--red);font-weight:700">= 72% が機会損失</p>
       </div>
     </div>
 
-    <h3 style="font-size:14px;color:var(--navy);margin-bottom:8px">すでに表示はされているが 6〜9位で止まっているKW（抜粋）</h3>
-    <table class="data" style="margin-bottom:12px">
+    <h3 style="font-size:13px;color:var(--navy);margin-bottom:6px">すでに表示はされているが 6〜9位で止まっているKW（抜粋）</h3>
+    <table class="data" style="margin-bottom:8px">
       <tr><th>キーワード</th><th style="text-align:right">表示回数</th><th style="text-align:right">クリック</th><th style="text-align:right">現在順位</th></tr>
       <tr><td>トラックレンタル 大阪</td><td style="text-align:right">73</td><td style="text-align:right">1</td><td style="text-align:right">6.1位</td></tr>
       <tr><td>トラック レンタカー 大阪</td><td style="text-align:right">49</td><td style="text-align:right">0</td><td style="text-align:right">8.6位</td></tr>
@@ -249,8 +280,8 @@ body{background:#fff}
       <tr><td>トラックレンタル 神奈川</td><td style="text-align:right">21</td><td style="text-align:right">0</td><td style="text-align:right">8.8位</td></tr>
       <tr><td>トラック レンタル 名古屋</td><td style="text-align:right">21</td><td style="text-align:right">0</td><td style="text-align:right">8.4位</td></tr>
     </table>
-    <div style="background:#fef3c7;border-left:4px solid var(--gold);padding:14px 18px;border-radius:0 8px 8px 0">
-      <p style="font-size:13px;margin:0"><strong>決定的な証拠：</strong>「<strong>冷蔵車 レンタル 大阪</strong>」は<strong>既に2.2位・CTR 33%</strong>で勝っている。この1件は<strong>エリア×サービス戦略が機能する実証サンプル</strong>。同型の受け皿を他拠点×他サービスで作れば、同等の勝率を期待できる。</p>
+    <div style="background:#fef3c7;border-left:4px solid var(--gold);padding:10px 14px;border-radius:0 8px 8px 0">
+      <p style="font-size:12px;margin:0"><strong>決定的な証拠：</strong>「<strong>冷蔵車 レンタル 大阪</strong>」は<strong>既に2.2位・CTR 33%</strong>で勝っている。この1件は<strong>エリア×サービス戦略が機能する実証サンプル</strong>。同型の受け皿を他拠点×他サービスで作れば、同等の勝率を期待できる。</p>
     </div>
   </div>
   <div class="slide-num">7 / 18</div>
@@ -563,7 +594,7 @@ body{background:#fff}
       <div class="timeline-item"><h4>STEP 5</h4><p>効果測定・<br>改善サイクル開始</p></div>
     </div>
 
-    <div class="two-col" style="margin-top:28px">
+    <div class="two-col" style="margin-top:16px">
       <div>
         <h3 style="font-size:15px;color:var(--navy);margin-bottom:12px">既に完了していること</h3>
         <ul class="check">
