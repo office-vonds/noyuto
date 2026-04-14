@@ -35,3 +35,7 @@ ads-audit/samples/*/data/*
 # vonds main repo では管理しない。rina側で独自に commit/push する
 rina/
 kizuna-backup/
+
+# UNRYUTO X API credentials
+unryuto/.env
+unryuto/x-posts/.env
