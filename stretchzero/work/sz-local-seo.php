@@ -1,12 +1,13 @@
 <?php
 /**
  * Plugin Name: ストレッチゼロ Local SEO Enhancement
- * Description: Google Maps上位表示のための構造化データ・地図埋め込み
- * Version: 1.0.0
+ * Description: Google Maps上位表示のための構造化データ・地図埋め込み・タグnoindex
+ * Version: 1.1.0
  * Author: VONDS
  */
 
 if (!defined('ABSPATH')) exit;
+
 
 // 店舗データ定義
 function sz_get_stores() {
@@ -231,4 +232,16 @@ function sz_add_google_map($content) {
     $map_html .= '</div>';
 
     return $content . $map_html;
+}
+
+// Tag archives noindex - WordPress native wp_robots filter (5.7+)
+add_filter('wp_robots', 'sz_tag_noindex_robots');
+function sz_tag_noindex_robots($robots) {
+    if (is_tag()) {
+        $robots['noindex'] = true;
+        $robots['follow'] = true;
+        // Remove index if set
+        unset($robots['index']);
+    }
+    return $robots;
 }
