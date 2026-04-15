@@ -34,8 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
-  <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="css/style-pc.css">
   <!-- 予約フォーム用スタイル -->
   <style>
     /* ===== 予約フォームセクション ===== */
@@ -198,49 +197,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       display: block;
     }
 
-    /* WEB予約ボタン */
-    .c-btn--web {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      max-width: 340px;
-      padding: 16px 24px;
-      background: #E51F5E;
-      color: #fff;
-      font-size: 1.1rem;
-      font-weight: 700;
-      font-family: 'Noto Sans JP', sans-serif;
-      text-decoration: none;
-      border-radius: 50px;
-      box-shadow: 0 4px 12px rgba(229,31,94,.3);
-      transition: background .2s, transform .1s;
-      margin-top: 8px;
-    }
-    .c-btn--web:hover {
-      background: #C91850;
-      transform: translateY(-1px);
-    }
-    .c-btn--web svg {
-      flex-shrink: 0;
-    }
-
-    /* SP固定バナー2カラム */
-    .p-fixed-banner--dual {
-      display: flex;
-      gap: 0;
-    }
-    .p-fixed-banner--dual .p-fixed-banner__btn {
-      flex: 1;
-    }
-    .p-fixed-banner--dual .p-fixed-banner__btn--web {
-      background: #E51F5E;
-    }
-    .p-fixed-banner--dual .p-fixed-banner__btn--tel {
-      background: #1A1A1A;
-    }
-
     /* レスポンシブ */
     @media (max-width: 480px) {
       .p-reservation__form {
@@ -253,6 +209,121 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         flex: 1 1 100%;
       }
     }
+
+    /* ===== サンクスページ ===== */
+    .p-thanks {
+      background: #FFF5F8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .p-thanks__inner {
+      max-width: 560px;
+      width: 100%;
+      background: #fff;
+      border-radius: 12px;
+      padding: 48px 32px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      text-align: center;
+    }
+    .p-thanks__icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      background: #E8F5E9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .p-thanks__icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: #2E7D32;
+    }
+    .p-thanks__heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1A1A1A;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    .p-thanks__sub {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 32px;
+    }
+    .p-thanks__message {
+      text-align: left;
+      font-size: 0.92rem;
+      color: #333;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      padding: 0 8px;
+    }
+    .p-thanks__message strong {
+      font-weight: 700;
+    }
+    .p-thanks__important {
+      background: #FFF8E1;
+      border: 1px solid #FFD54F;
+      border-radius: 8px;
+      padding: 20px 24px;
+      text-align: left;
+      margin-bottom: 32px;
+    }
+    .p-thanks__important-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #E65100;
+      margin-bottom: 8px;
+    }
+    .p-thanks__important-body {
+      font-size: 0.85rem;
+      color: #333;
+      line-height: 1.7;
+    }
+    .p-thanks__tel {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #E51F5E;
+      letter-spacing: 0.05em;
+      margin: 4px 0;
+    }
+    .p-thanks__btn {
+      display: inline-block;
+      width: 100%;
+      max-width: 300px;
+      padding: 16px 24px;
+      background: #E51F5E;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      font-family: 'Noto Sans JP', sans-serif;
+      text-decoration: none;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background .2s, transform .1s;
+      box-shadow: 0 4px 12px rgba(229,31,94,.3);
+      margin-top: 8px;
+    }
+    .p-thanks__btn:hover {
+      background: #C91850;
+      transform: translateY(-1px);
+    }
+    @media (max-width: 600px) {
+      .p-thanks__inner {
+        padding: 36px 20px;
+      }
+      .p-thanks__heading {
+        font-size: 1.3rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -261,6 +332,52 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- ===== サンクスページ（?reserved=1 で表示） ===== -->
+<div id="thanksPage" style="display:none;">
+  <div class="p-thanks">
+    <div class="p-thanks__inner">
+      <div class="p-thanks__icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h1 class="p-thanks__heading">ご予約リクエスト<br>ありがとうございます。</h1>
+      <p class="p-thanks__sub">（送信完了）</p>
+      <div class="p-thanks__message">
+        <p>この度は、本気ストレッチへご予約のリクエストをいただき、誠にありがとうございます。</p>
+        <br>
+        <p><strong>こちらは「仮予約」として受け付けさせていただきました。</strong></p>
+        <br>
+        <p>担当スタッフが空き状況を確認のうえ、追ってご連絡いたします。<br>店舗からの「予約確定メール」または「お電話」をもって、正式なご予約完了となります。</p>
+        <br>
+        <p>ホットペッパー等のリアルタイム予約とタイムラグがあるため、ご希望に添えない場合がございます。あらかじめご了承ください。</p>
+      </div>
+      <div class="p-thanks__important">
+        <p class="p-thanks__important-title">&#9632; 重要：お電話番号について</p>
+        <p class="p-thanks__important-body">
+          担当者より、以下の電話番号からご連絡いたします。<br><br>
+          <span class="p-thanks__tel">TEL: 050-8884-8993</span><br><br>
+          ※知らない番号からの着信を警戒される方が増えております。恐れ入りますが、スムーズにご連絡できるよう、<strong>上記番号からの着信にはご対応いただけますようお願いいたします。</strong>
+        </p>
+      </div>
+      <a href="./" class="p-thanks__btn">TOPへ戻る</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  if (new URLSearchParams(window.location.search).get('reserved') === '1') {
+    document.getElementById('thanksPage').style.display = 'block';
+    var mainContent = document.getElementById('mainContent');
+    if (mainContent) mainContent.style.display = 'none';
+    document.title = 'ご予約ありがとうございます｜本気ストレッチ 甲府上阿原店';
+    if (window.dataLayer) {
+      window.dataLayer.push({ event: 'reservation_submit', reservation_status: 'success' });
+    }
+  }
+})();
+</script>
+
+<div id="mainContent">
   <!-- ===== ヘッダー ===== -->
   <header class="l-header" id="header">
     <div class="l-header__inner">
@@ -320,18 +437,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="p-hero__answer">状態、原因を数値化</p>
         <p class="p-hero__booking">精密姿勢診断 予約受付中！</p>
         <div class="p-hero__cta">
-          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-fv" data-gtm-tel="fv">精密姿勢診断を予約する</a>
-          <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-fv">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            WEB予約する
-          </a>
+          <a href="#reservation" class="c-btn c-btn--primary" data-gtm-click="cta-fv">お問い合わせはこちら</a>
           <p class="c-btn__note">毎月限定12名様</p>
         </div>
       </div>
     </section>
 
     <!-- ===== 適合条件 ===== -->
-    <section class="p-qualify">
+    <section class="p-qualify js-fade-in">
       <div class="p-qualify__inner">
         <h2 class="p-qualify__heading">ご予約前にご確認ください</h2>
         <ul class="p-qualify__list">
@@ -353,7 +466,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== 症状チェック ===== -->
-    <section class="p-symptoms">
+    <section class="p-symptoms js-fade-in">
       <div class="p-symptoms__inner">
         <h2 class="p-symptoms__heading">こんな感覚、<br>ありませんか？</h2>
 
@@ -395,7 +508,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== 連鎖を止める + 深層筋説明 + 3つのアプローチ ===== -->
-    <section class="p-chain">
+    <section class="p-chain js-fade-in">
       <!-- 1枚の縦長背景（CSSで background-image として設定） -->
       <!-- オーバーレイ -->
       <div class="p-chain__overlay">
@@ -450,7 +563,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== 8回の処方箋 ===== -->
-    <section class="p-program">
+    <section class="p-program js-fade-in">
       <div class="p-program__inner">
         <!-- 施術写真 -->
         <div class="p-program__photo">
@@ -483,7 +596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== 利用料金 ===== -->
-    <section class="p-price">
+    <section class="p-price js-fade-in">
       <div class="p-price__inner">
         <h2 class="p-price__heading">利用料金</h2>
         <div class="p-price__table">
@@ -504,7 +617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== 比較アンカー ===== -->
-    <section class="p-compare">
+    <section class="p-compare js-fade-in">
       <!-- 上部：薄ピンク背景 -->
       <div class="p-compare__upper">
         <div class="p-compare__inner">
@@ -541,7 +654,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== 返金保証 ===== -->
-    <section class="p-guarantee">
+    <section class="p-guarantee js-fade-in">
       <div class="p-guarantee__inner">
         <h2 class="p-guarantee__heading">返金保証</h2>
         <p class="p-guarantee__text">3回目終了時点で、<br>同一条件の測定で改善が<br>確認できなければ返金します。</p>
@@ -550,7 +663,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== CTA② ===== -->
-    <section class="p-cta2">
+    <section class="p-cta2 js-fade-in">
       <!-- 背景はCSSで bg_04.webp を設定 -->
       <div class="p-cta2__overlay">
         <div class="p-cta2__inner">
@@ -562,17 +675,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <span class="p-cta2__deco p-cta2__deco--right" aria-hidden="true">/</span>
           </div>
-          <a href="tel:05088848993" class="c-btn c-btn--primary" data-gtm-click="cta-guarantee" data-gtm-tel="guarantee">精密姿勢診断を予約する</a>
-          <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-guarantee">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            WEB予約する
-          </a>
+          <a href="#reservation" class="c-btn c-btn--primary" data-gtm-click="cta-guarantee">お問い合わせはこちら</a>
         </div>
       </div>
     </section>
 
     <!-- ===== 利用者の変化 ===== -->
-    <section class="p-results">
+    <section class="p-results js-fade-in">
       <div class="p-results__inner">
         <h2 class="p-results__heading">利用者の<br>驚きの変化続々！</h2>
         <div class="p-results__list">
@@ -593,7 +702,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== 特典 ===== -->
-    <section class="p-benefits">
+    <section class="p-benefits js-fade-in">
       <div class="p-benefits__inner">
         <h2 class="p-benefits__heading">今日から開始される<br>方への特典</h2>
         <div class="p-benefits__list">
@@ -655,7 +764,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ===== よくある質問 ===== -->
-    <section class="p-faq">
+    <section class="p-faq js-fade-in">
       <div class="p-faq__inner">
         <h2 class="p-faq__heading"><span>よくある質問</span></h2>
 
@@ -710,13 +819,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <img src="images/bg_g_02.webp" alt="女性トレーナー" class="p-final-cta__photo p-final-cta__photo--right" width="200" height="400" loading="lazy">
           <div class="p-final-cta__content">
             <p class="p-final-cta__message"><em class="p-final-cta__em">本気</em>で<br>身体を変えたい<br>方のための枠だけを<br><em class="p-final-cta__accent">毎月12名様限定</em>で<br>確保しています。</p>
-            <a href="tel:05088848993" class="c-btn c-btn--primary p-final-cta__btn" data-gtm-click="cta-final" data-gtm-tel="final">
+            <a href="#reservation" class="c-btn c-btn--primary p-final-cta__btn" data-gtm-click="cta-final">
               <span class="p-final-cta__btn-sub">毎月12名様限定！</span>
-              <span class="p-final-cta__btn-main">精密姿勢診断を予約する</span>
-            </a>
-            <a href="#reservation" class="c-btn--web" data-gtm-click="cta-web-final" style="margin-top:12px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-              WEB予約する
+              <span class="p-final-cta__btn-main">お問い合わせはこちら</span>
             </a>
           </div>
         </div>
@@ -922,7 +1027,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="p-shop__logo">
       <img src="images/logo_p.webp" alt="MAJI STRETCH" class="p-shop__logo-img" width="120" height="120" loading="lazy">
     </div>
-    <section class="p-shop">
+    <section class="p-shop js-fade-in">
       <div class="p-shop__inner">
         <!-- ロゴはセクション外に配置済み -->
 
@@ -1035,17 +1140,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- ===== SP固定バナー ===== -->
-  <div class="p-fixed-banner p-fixed-banner--dual">
-    <a href="tel:05088848993" class="p-fixed-banner__btn p-fixed-banner__btn--tel" data-gtm-click="cta-fixed-sp" data-gtm-tel="fixed-sp">
-      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      電話予約
-    </a>
-    <a href="#reservation" class="p-fixed-banner__btn p-fixed-banner__btn--web" data-gtm-click="cta-fixed-sp-web">
-      <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      WEB予約する
-    </a>
-  </div>
+
+</div><!-- /mainContent -->
 
   <!-- JS -->
   <script src="js/main.js"></script>
@@ -1085,8 +1181,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       .then(function(res) { return res.json(); })
       .then(function(data) {
         if (data.success) {
-          // サンクスページへリダイレクト
-          window.location.href = 'thanks.html';
+          window.location.href = '?reserved=1';
           return;
         } else {
           result.className = 'p-reservation__result p-reservation__result--error';
@@ -1113,5 +1208,90 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
   })();
   </script>
+
+<style id="pc-override">
+@media (min-width: 768px) {
+body { background: #f0f0f0 !important; margin: 0 !important; }
+.l-side-nav { display: none !important; }
+main {
+  width: 800px !important;
+  max-width: 800px !important;
+  margin: 0 auto !important;
+  background: #fff !important;
+  box-shadow: 0 0 40px rgba(0,0,0,0.12) !important;
+}
+.l-header {
+  width: 800px !important;
+  max-width: 800px !important;
+  position: fixed !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 100 !important;
+  background: #fff !important;
+}
+.l-header__inner {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+.p-hero__visual { width: 100% !important; max-width: 100% !important; position: relative !important; }
+.p-hero__img { width: 100% !important; height: auto !important; display: block !important; }
+.p-hero__content { padding-top: 80px !important; }
+.p-hero__logo-mark { margin-top: 30px !important; margin-bottom: 20px !important; }
+
+/* 口コミバッジ：FV画像の中央上寄りに配置・大きく */
+.p-hero__review {
+  position: absolute !important;
+  bottom: 530px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  background: rgba(255,255,255,0.97) !important;
+  border-radius: 20px !important;
+  padding: 28px 36px !important;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.22) !important;
+  z-index: 30 !important;
+  width: 580px !important;
+  max-width: 85% !important;
+}
+.p-hero__review-inner {
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  width: 100% !important;
+}
+.p-hero__review-icon {
+  width: 76px !important;
+  height: 76px !important;
+  border-radius: 50% !important;
+  flex-shrink: 0 !important;
+}
+.p-hero__review-title {
+  font-weight: 900 !important;
+  font-size: 28px !important;
+  color: #E8527A !important;
+  margin: 0 0 6px !important;
+}
+.p-hero__review-text {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #222 !important;
+  margin: 0 !important;
+}
+
+.p-hero__photo { margin-top: -2px !important; }
+.p-qualify__inner, .p-program__inner, .p-price__inner,
+.p-guarantee__inner, .p-faq__inner, .p-results__inner,
+.p-shop__inner, .p-shop-map__inner, .p-symptoms__inner,
+.p-chain__overlay, .p-benefits__inner, .p-compare__inner,
+.p-cta2__inner, .p-final-cta__content {
+  max-width: 100% !important; width: 100% !important;
+}
+.l-footer { width: 800px !important; max-width: 800px !important; margin: 0 auto !important; }
+.pc-side-cta { display: none !important; }
+}
+</style>
 </body>
 </html>
