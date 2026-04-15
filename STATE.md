@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-15 10:45 / 更新者: KIRYU
+最終更新: 2026-04-15 11:45 / 更新者: KIRYU
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -15,23 +15,24 @@
 | 2 | VONDS広告監査 | CSV未取得 | NOYUTO | ストレッチゼロCSV 7本DL（会社PC） | [state/vonds-ads-audit.md](state/vonds-ads-audit.md) |
 | 3 | UNRYUTO Phase 0 | サイト構築済・外部連携待ち | NOYUTO | DNS確認 / Stripe開設 / X API鍵発行 | [state/unryuto.md](state/unryuto.md) |
 | 4 | VONDS SEO | Crawled→Indexed遷移待ち | Google | GSCでインデックス状態確認 | [state/vonds-seo.md](state/vonds-seo.md) |
+| 5 | 絆JOB SEO | **Phase2完了（meta/canonical/OGP/記事8本）** | NOYUTO | GSCで6URL手動インデックス登録（15分） | [session-logs/2026-04-15_1140_kizuna-seo-phase2.md](session-logs/2026-04-15_1140_kizuna-seo-phase2.md) |
 
 ## 観測中
 
 | # | プロジェクト | 状態 | 次の確認 | 詳細 |
 |---|-------------|------|---------|------|
-| 5 | ILゲーム v5 | 本番稼働中（Netlify） | Firestoreログ100件で月次レビュー | [state/il-game.md](state/il-game.md) |
-| 6 | 本気ストレッチ | スマホ修正完了・メール未テスト | メール実機テスト送信 | [state/majistretch.md](state/majistretch.md) |
+| 6 | ILゲーム v5 | 本番稼働中（Netlify） | Firestoreログ100件で月次レビュー | [state/il-game.md](state/il-game.md) |
+| 7 | 本気ストレッチ | スマホ修正完了・メール未テスト | メール実機テスト送信 | [state/majistretch.md](state/majistretch.md) |
 
 ## 保留
 
 | # | プロジェクト | 理由 | 再開条件 |
 |---|-------------|------|---------|
-| 7 | VONDS決算・補助金 | 資金繰り優先 | 税理士¥600,600支払い後 |
-| 8 | 資金繰り対策 | レオ引継ぎ済 | レオが三井住友カード枠確認後 |
-| 9 | なみAI画像 | ラップトップ確認待ち | topless系の生成ルート特定 |
-| 10 | ILゲーム事業分析 | NOYUTO口頭待ち | 5つの質問への回答 |
-| 11 | 情報共有最適化 | Phase 2実行中（今） | STATE.md完成で完了 |
+| 8 | VONDS決算・補助金 | 資金繰り優先 | 税理士¥600,600支払い後 |
+| 9 | 資金繰り対策 | レオ引継ぎ済 | レオが三井住友カード枠確認後 |
+| 10 | なみAI画像 | ラップトップ確認待ち | topless系の生成ルート特定 |
+| 11 | ILゲーム事業分析 | NOYUTO口頭待ち | 5つの質問への回答 |
+| 12 | 情報共有最適化 | Phase 2実行中（今） | STATE.md完成で完了 |
 
 ---
 
