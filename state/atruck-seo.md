@@ -24,6 +24,29 @@
 - header.phpのハードコード`<title>`削除
 - 鈑金塗装ページのコンテンツ拡充
 
+## GTM調査結果（2026-04-15 KIRYU調査）
+
+3重読込 確定。以下のIDがhead内に並列埋込み:
+
+| # | ID | 種別 |
+|---|---|---|
+| 1 | GTM-5X6GWL4 | GTMコンテナ |
+| 2 | GTM-PG3FF87 | GTMコンテナ |
+| 3 | GTM-5PNW7CC3 | GTMコンテナ |
+| 4 | UA-47832247-1 | Universal Analytics（HTML直書き・GTM外） |
+| 5 | AW-817161945 | Google Ads（HTML直書き・GTM外・CV重複あり） |
+
+**追加発見:**
+- GA4 (G-XXXXXXX) が**未導入**（UAは2024/7終了済み）
+- コンバージョンタグ `q3qDCIrW9_cBENnN04UD` が2回発火（重複）
+- SSL証明書期限切れ
+
+**対応方針（NOYUTO確認後）:**
+1. GTM管理画面で3コンテナの中身を確認→1つに統合
+2. UA/AWの直書きタグを削除→GTM内で一元管理
+3. GA4新規設定→GTM経由で配信
+4. CV重複修正
+
 ## デプロイ結果（2026-04-15）
 
 - LocalBusiness: 10拠点全て出力
