@@ -2,11 +2,11 @@
 
 ## 現在地（2026-04-15更新）
 
-- **状態**: サーバー移行済み — SEOコード再デプロイ待ち
-- **旧サーバー**: svw06.server-can.net (IP: 218.216.115.36) — ここにSEOコードをアップした
-- **新サーバー**: IP 218.216.115.31 (www) / 218.216.115.70 (naked) — 相沢さん連絡で移行完了
-- **PHP**: 本番レスポンス X-Powered-By: PHP/7.4.33
-- **functions.php**: 旧サーバーに修正版あり。新サーバー未確認
+- **状態**: 本番稼働中 — SEOコード全機能発火確認済み（2026-04-15 10:45）
+- **新サーバー**: IP 218.216.115.31 (www) / FTP同じ認証情報で接続可
+- **旧サーバー**: svw06.server-can.net (IP: 218.216.115.36) — 移行元
+- **PHP**: X-Powered-By: PHP/7.4.33
+- **functions.php**: 29,407B（修正版）デプロイ済み / バックアップ: functions.php.bak-before-seo-20260415
 
 ## 実装済みSEOコード（functions.php内 atruck_*関数8個）
 
@@ -24,12 +24,19 @@
 - header.phpのハードコード`<title>`削除
 - 鈑金塗装ページのコンテンツ拡充
 
-## 次のアクション
+## デプロイ結果（2026-04-15）
 
-1. **相沢さんから新サーバーFTP/Plesk情報取得**（NOYUTO依頼）
-2. 新サーバーのfunctions.phpを確認（SEOコード有無）
-3. 無ければ再デプロイ → 新サーバーならopcache問題なしで即反映の可能性大
-4. curl検証 → LocalBusinessスキーマ発火確認
+- LocalBusiness: 10拠点全て出力
+- Service: 3本（レンタル・鈑金・中古車）出力
+- FAQPage: 出力
+- 既存スキーマ（BreadcrumbList/Organization/WebPage/WebSite）: 維持
+
+## 次のアクション（残タスク）
+
+1. GTM3重読込の統合（コンテナID確認後）
+2. header.phpのハードコード`<title>`削除（AIOSEOに委任）
+3. 鈑金塗装ページのコンテンツ拡充（要コンテンツ作成）
+4. Google構造化データテストツールで検証 → LocalBusinessスキーマ発火確認
 
 ## 旧サーバー情報（使えなくなった可能性あり）
 

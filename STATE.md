@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-15 10:30 / 更新者: KIRYU
+最終更新: 2026-04-15 10:45 / 更新者: KIRYU
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -11,7 +11,7 @@
 
 | # | プロジェクト | 状態 | ボール | 次のアクション | 詳細 |
 |---|-------------|------|--------|---------------|------|
-| 1 | A-TRUCK SEO | サーバー移行判明・再デプロイ待ち | NOYUTO→相沢 | 新サーバーFTP情報を相沢さんに聞く | [state/atruck-seo.md](state/atruck-seo.md) |
+| 1 | A-TRUCK SEO | **本番稼働中（4/15デプロイ完了）** | KIRYU | 残タスク: GTM統合・title修正・鈑金コンテンツ | [state/atruck-seo.md](state/atruck-seo.md) |
 | 2 | VONDS広告監査 | CSV未取得 | NOYUTO | ストレッチゼロCSV 7本DL（会社PC） | [state/vonds-ads-audit.md](state/vonds-ads-audit.md) |
 | 3 | UNRYUTO Phase 0 | サイト構築済・外部連携待ち | NOYUTO | DNS確認 / Stripe開設 / X API鍵発行 | [state/unryuto.md](state/unryuto.md) |
 | 4 | VONDS SEO | Crawled→Indexed遷移待ち | Google | GSCでインデックス状態確認 | [state/vonds-seo.md](state/vonds-seo.md) |
