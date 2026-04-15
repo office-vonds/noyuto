@@ -35,3 +35,7 @@
 2026-04-14 10:04:47,334 [INFO] === 結果: 7/15 インデックス済み ===
 2026-04-14 10:04:47,334 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/
 2026-04-14 10:04:47,335 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
+2026-04-15 10:02:50,213 [INFO] === インデックス状態チェック開始: 16URL ===
+2026-04-15 10:02:57,627 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-13 https://vonds.co.jp/
+2026-04-15 10:03:05,099 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
+2026-04-15 10:03:12,885 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
