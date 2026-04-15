@@ -93,14 +93,22 @@ if [ -n "$LAST_PUSH" ]; then
   echo "🖥  最終 origin/main push: $LAST_PUSH"
 fi
 
-# 4. 直近 session-logs 3本
+# 4. STATE.md（単一の真実）の最終更新を表示
+if [ -f STATE.md ]; then
+  STATE_UPDATE=$(head -3 STATE.md | grep -o '最終更新.*' || echo "不明")
+  echo ""
+  echo "📋 STATE.md: $STATE_UPDATE"
+  echo "   → 起動後は STATE.md を読めば全プロジェクトの現在地がわかる"
+fi
+
+# 5. 直近 session-logs 3本
 if [ -d session-logs ]; then
   echo ""
   echo "📄 直近 session-logs（3件）:"
   ls -t session-logs/*.md 2>/dev/null | head -3 | sed 's|^|   |'
 fi
 
-# 5. 未コミット変更（あれば）
+# 6. 未コミット変更（あれば）
 DIRTY=$(git status --porcelain 2>/dev/null | wc -l)
 if [ "$DIRTY" -gt 0 ]; then
   echo ""
