@@ -1,0 +1,287 @@
+{
+  "11": {
+    "id": 11,
+    "slug": "elementor-11",
+    "link": "https://stretchzero.jp/",
+    "title": "ストレッチゼロ｜ストレッチ専門店【肩こり・腰痛対応】",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "666": {
+    "id": 666,
+    "slug": "shop",
+    "link": "https://stretchzero.jp/shop/",
+    "title": "ストレッチゼロ-店舗一覧",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "2745": {
+    "id": 2745,
+    "slug": "renewal",
+    "link": "https://stretchzero.jp/renewal/",
+    "title": "屋号変更のお知らせ",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "647": {
+    "id": 647,
+    "slug": "trainer",
+    "link": "https://stretchzero.jp/trainer/",
+    "title": "トレーナー紹介｜理学療法士・柔道整復師在籍｜ストレッチゼロ",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "2807": {
+    "id": 2807,
+    "slug": "company",
+    "link": "https://stretchzero.jp/company/",
+    "title": "会社概要｜SANKEN株式会社（ストレッチゼロ運営）",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "1406": {
+    "id": 1406,
+    "slug": "contact",
+    "link": "https://stretchzero.jp/contact/",
+    "title": "ご予約・お問い合わせ｜ストレッチゼロ",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3149": {
+    "id": 3149,
+    "slug": "column",
+    "link": "https://stretchzero.jp/column/",
+    "title": "コラム・お悩み別ガイド",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3059": {
+    "id": 3059,
+    "slug": "shop-kai-hibikigaoka",
+    "link": "https://stretchzero.jp/shop/shop-kai-hibikigaoka/",
+    "title": "甲斐市のストレッチ専門店｜ストレッチゼロ 甲斐響が丘店",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3058": {
+    "id": 3058,
+    "slug": "shop-nirasaki",
+    "link": "https://stretchzero.jp/shop/shop-nirasaki/",
+    "title": "韮崎のストレッチ専門店｜ストレッチゼロ 韮崎店",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3057": {
+    "id": 3057,
+    "slug": "shop-minami-alps",
+    "link": "https://stretchzero.jp/shop/shop-minami-alps/",
+    "title": "南アルプスのストレッチ専門店｜ストレッチゼロ 南アルプス店",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3056": {
+    "id": 3056,
+    "slug": "shop-kofu",
+    "link": "https://stretchzero.jp/shop/shop-kofu/",
+    "title": "甲府のストレッチ専門店｜ストレッチゼロ 甲府上石田店",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3074": {
+    "id": 3074,
+    "slug": "kofu-stretch-hikaku",
+    "link": "https://stretchzero.jp/column/kofu-stretch-hikaku/",
+    "title": "甲府のストレッチ・整体・マッサージを徹底比較｜あなたに合うのは？",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3073": {
+    "id": 3073,
+    "slug": "stretch-kouka-yamanashi",
+    "link": "https://stretchzero.jp/column/stretch-kouka-yamanashi/",
+    "title": "ストレッチの効果とは？山梨のプロが医学的根拠をもとに解説",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3072": {
+    "id": 3072,
+    "slug": "nirasaki-seitai-massage-guide",
+    "link": "https://stretchzero.jp/column/nirasaki-seitai-massage-guide/",
+    "title": "韮崎で整体・マッサージをお探しの方へ｜ストレッチ専門店という選択肢",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3071": {
+    "id": 3071,
+    "slug": "minami-alps-seitai-stretch",
+    "link": "https://stretchzero.jp/column/minami-alps-seitai-stretch/",
+    "title": "南アルプス市で整体をお探しの方へ｜ストレッチという選択肢",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3070": {
+    "id": 3070,
+    "slug": "yotsu-kofu-stretch",
+    "link": "https://stretchzero.jp/column/yotsu-kofu-stretch/",
+    "title": "甲府で腰痛にお悩みの方へ｜ストレッチで根本改善する方法",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3062": {
+    "id": 3062,
+    "slug": "katakori-kofu-stretch",
+    "link": "https://stretchzero.jp/column/katakori-kofu-stretch/",
+    "title": "甲府で肩こりにお悩みの方へ｜ストレッチで根本改善する方法",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3061": {
+    "id": 3061,
+    "slug": "shisei-kaizen-kofu",
+    "link": "https://stretchzero.jp/column/shisei-kaizen-kofu/",
+    "title": "甲府で姿勢改善するなら？ストレッチ専門店が教える正しいアプローチ",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  },
+  "3060": {
+    "id": 3060,
+    "slug": "nekoze-stretch-yamanashi",
+    "link": "https://stretchzero.jp/column/nekoze-stretch-yamanashi/",
+    "title": "猫背はストレッチで改善できる？山梨のプロが解説｜ストレッチゼロ",
+    "yoast_head_json": {},
+    "meta": {
+      "om_disable_all_campaigns": false,
+      "_monsterinsights_skip_tracking": false,
+      "_monsterinsights_sitenote_active": false,
+      "_monsterinsights_sitenote_note": "",
+      "_monsterinsights_sitenote_category": 0,
+      "footnotes": ""
+    }
+  }
+}
