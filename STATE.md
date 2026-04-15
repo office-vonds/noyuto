@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-15 11:45 / 更新者: KIRYU
+最終更新: 2026-04-15 18:40 / 更新者: KIRYU
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -16,13 +16,14 @@
 | 3 | UNRYUTO Phase 0 | サイト構築済・外部連携待ち | NOYUTO | DNS確認 / Stripe開設 / X API鍵発行 | [state/unryuto.md](state/unryuto.md) |
 | 4 | VONDS SEO | Crawled→Indexed遷移待ち | Google | GSCでインデックス状態確認 | [state/vonds-seo.md](state/vonds-seo.md) |
 | 5 | 絆JOB SEO | **Phase2完了（meta/canonical/OGP/記事8本）** | NOYUTO | GSCで6URL手動インデックス登録（15分） | [session-logs/2026-04-15_1140_kizuna-seo-phase2.md](session-logs/2026-04-15_1140_kizuna-seo-phase2.md) |
+| 6 | 絆バニラ最適化 | **6/7ページ更新完了** | NOYUTO | 画像素材提供→空き枠追加 / 口コミ返信手動投稿 | [session-logs/2026-04-15_1840_vanilla-optimize.md](session-logs/2026-04-15_1840_vanilla-optimize.md) |
 
 ## 観測中
 
 | # | プロジェクト | 状態 | 次の確認 | 詳細 |
 |---|-------------|------|---------|------|
-| 6 | ILゲーム v5 | 本番稼働中（Netlify） | Firestoreログ100件で月次レビュー | [state/il-game.md](state/il-game.md) |
-| 7 | 本気ストレッチ | スマホ修正完了・メール未テスト | メール実機テスト送信 | [state/majistretch.md](state/majistretch.md) |
+| 7 | ILゲーム v5 | 本番稼働中（Netlify） | Firestoreログ100件で月次レビュー | [state/il-game.md](state/il-game.md) |
+| 8 | 本気ストレッチ | スマホ修正完了・メール未テスト | メール実機テスト送信 | [state/majistretch.md](state/majistretch.md) |
 
 ## 保留
 

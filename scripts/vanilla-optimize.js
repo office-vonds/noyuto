@@ -173,11 +173,26 @@ async function clickTopButton(page, topUrl, buttonName, buttonValue) {
 }
 
 async function submitConfirm(page) {
-  // 「確認する」ボタンをクリック
-  const confirmBtn = await page.$('input[name="confirm"], input[value="確認する"]');
-  if (!confirmBtn) throw new Error('確認ボタンが見つからない');
-  await confirmBtn.click();
-  await page.waitForLoadState('networkidle', { timeout: 20000 });
+  // 「確認する」ボタンをクリック（type=button/submitの両方に対応）
+  const confirmBtn = await page.$('input[name="confirm"], input[value="確認する"]:not([name="apply"])');
+  if (!confirmBtn) {
+    // フォームのsubmitボタンを探す（ページ内のフォームで最後のsubmit）
+    const altBtn = await page.$('form input[type="submit"][value="確認する"]');
+    if (altBtn) {
+      await altBtn.click();
+      await page.waitForLoadState('networkidle', { timeout: 20000 });
+    } else {
+      throw new Error('確認ボタンが見つからない');
+    }
+  } else {
+    // type=button の場合は submit に変換してからクリック
+    await page.evaluate(() => {
+      const btn = document.querySelector('input[name="confirm"], input[value="確認する"]:not([name="apply"])');
+      if (btn && btn.type === 'button') btn.type = 'submit';
+    });
+    await confirmBtn.click();
+    await page.waitForLoadState('networkidle', { timeout: 20000 });
+  }
 
   // 確認ページで「変更する」「登録する」等をクリック
   const submitBtn = await page.$('input[name="complete"], input[value="変更する"], input[value="登録する"], input[value="投稿する"]');
@@ -264,7 +279,31 @@ async function optimizePic(page, topUrl) {
   }
 
   if (execute) {
-    await submitConfirm(page);
+    // picページは「登録する」ボタン（type=button）
+    // type変換してsubmitを発火 + ナビゲーション待機
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'networkidle', timeout: 30000 }),
+      page.evaluate(() => {
+        const btns = document.querySelectorAll('input[type="button"][value="登録する"]');
+        const target = btns.length > 1 ? btns[1] : btns[0];
+        if (target) {
+          target.type = 'submit';
+          target.click();
+        }
+      }),
+    ]);
+
+    // 確認ページの完了ボタン
+    const completeBtn = await page.$('input[value="変更する"], input[value="登録する"], input[name="complete"]');
+    if (completeBtn) {
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'networkidle', timeout: 30000 }).catch(() => {}),
+        page.evaluate(() => {
+          const btn = document.querySelector('input[value="変更する"], input[value="登録する"], input[name="complete"]');
+          if (btn) { if (btn.getAttribute('onclick')) btn.removeAttribute('onclick'); btn.type = 'submit'; btn.click(); }
+        }),
+      ]);
+    }
     console.log('  → 更新完了');
   } else {
     await page.screenshot({ path: '/tmp/vanilla-opt-pic.png', fullPage: true });
@@ -279,32 +318,29 @@ async function optimizeSaiyo(page, topUrl) {
 
   const data = OPTIMIZE.saiyo;
 
-  // バック率
-  await page.fill('#backrate_minute', data.backrate_minute);
-  await page.fill('#backrate_money', data.backrate_money);
-  console.log(`  バック率: ${data.backrate_minute}分 / ${data.backrate_money}円`);
+  // 全フィールドをevaluate()で直接設定（非表示フィールド対応）
+  await page.evaluate((d) => {
+    // バック率（非表示フィールドのため直接設定）
+    const bm = document.querySelector('#backrate_minute');
+    if (bm) bm.value = d.backrate_minute;
+    const bmoney = document.querySelector('#backrate_money');
+    if (bmoney) bmoney.value = d.backrate_money;
 
-  // テキスト
-  await page.evaluate(({ backrate_text, daywage_text, provision }) => {
+    // テキストエリア
     const bt = document.querySelector('#backrate_text');
-    if (bt) bt.value = backrate_text;
+    if (bt) bt.value = d.backrate_text;
     const dt = document.querySelector('#daywage_text');
-    if (dt) dt.value = daywage_text;
+    if (dt) dt.value = d.daywage_text;
     const pv = document.querySelector('#provision');
-    if (pv) pv.value = provision;
-  }, data);
-  console.log('  バック率テキスト更新');
-  console.log('  日給テキスト更新');
-  console.log('  待遇テキスト更新');
+    if (pv) pv.value = d.provision;
 
-  // チェックボックス有効化
-  for (const cb of data.checkboxes_to_enable) {
-    await page.evaluate((name) => {
-      const el = document.querySelector(`input[name="${name}"]`);
+    // チェックボックス有効化
+    for (const cb of d.checkboxes_to_enable) {
+      const el = document.querySelector(`input[name="${cb}"]`);
       if (el && !el.checked) el.checked = true;
-    }, cb);
-    console.log(`  チェック: ${cb}`);
-  }
+    }
+  }, data);
+  console.log('  日給テキスト・バック率・待遇テキスト・チェックボックス更新');
 
   if (execute) {
     await submitConfirm(page);
@@ -395,7 +431,7 @@ async function optimizeReviewReply(page, topUrl) {
   // 返信リンクを確認
   const replyLinks = await page.evaluate(() => {
     return Array.from(document.querySelectorAll('a')).filter(a =>
-      a.textContent.includes('口コミに返信')
+      a.textContent.includes('返信')
     ).map(a => ({ text: a.textContent.trim(), href: a.href }));
   });
 
@@ -419,7 +455,7 @@ async function optimizeReviewReply(page, topUrl) {
     if (execute) {
       try {
         // 返信リンクをクリック
-        await page.click(`a:has-text("口コミに返信"):nth-match(a, ${i + 1})`);
+        await page.click(`a:has-text("返信する"):nth-match(a, ${i + 1})`);
         await page.waitForLoadState('networkidle', { timeout: 15000 });
 
         // 返信フォームにテキスト入力
