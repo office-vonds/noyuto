@@ -93,12 +93,12 @@ if [ -n "$LAST_PUSH" ]; then
   echo "🖥  最終 origin/main push: $LAST_PUSH"
 fi
 
-# 4. STATE.md（単一の真実）の最終更新を表示
+# 4. STATE.md の全内容をコンテキストに注入（別途読み込み不要）
 if [ -f STATE.md ]; then
-  STATE_UPDATE=$(head -3 STATE.md | grep -o '最終更新.*' || echo "不明")
   echo ""
-  echo "📋 STATE.md: $STATE_UPDATE"
-  echo "   → 起動後は STATE.md を読めば全プロジェクトの現在地がわかる"
+  echo "━━━━━━━━━━ STATE.md ここから ━━━━━━━━━━"
+  cat STATE.md
+  echo "━━━━━━━━━━ STATE.md ここまで ━━━━━━━━━━"
 fi
 
 # 5. 直近 session-logs 3本
