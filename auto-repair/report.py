@@ -121,7 +121,7 @@ def build_email_html(request_data, result):
 
 <p style="color:#888;font-size:13px;margin-top:24px;">
 株式会社オフィスVONDS<br>
-TEL: 050-8884-8993<br>
+TEL: 055-269-7220<br>
 MAIL: office.vonds@gmail.com
 </p>
 
@@ -164,7 +164,7 @@ def build_inquiry_email_html(request_data, result):
 
 <p style="color:#888;font-size:13px;margin-top:24px;">
 株式会社オフィスVONDS<br>
-TEL: 050-8884-8993<br>
+TEL: 055-269-7220<br>
 MAIL: office.vonds@gmail.com
 </p>
 
