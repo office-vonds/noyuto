@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-04-14T10:04:47.335603+09:00",
-  "total": 15,
+  "checked_at": "2026-04-15T10:04:51.728355+09:00",
+  "total": 16,
   "indexed": 7,
   "not_indexed": [
     "https://vonds.co.jp/company/",
@@ -10,7 +10,8 @@
     "https://vonds.co.jp/column/google-ads-guide/",
     "https://vonds.co.jp/column/ai-business-guide/",
     "https://vonds.co.jp/column/local-seo-strategy/",
-    "https://vonds.co.jp/column/website-cost-guide/"
+    "https://vonds.co.jp/column/website-cost-guide/",
+    "https://vonds.co.jp/column/lp-design-tips/"
   ],
   "results": [
     {
@@ -76,29 +77,35 @@
     {
       "url": "https://vonds.co.jp/column/web-design-guide/",
       "verdict": "NEUTRAL",
-      "coverage": "URL is unknown to Google",
+      "coverage": "Discovered - currently not indexed",
       "crawl": "NEVER"
     },
     {
       "url": "https://vonds.co.jp/column/google-ads-guide/",
       "verdict": "NEUTRAL",
-      "coverage": "URL is unknown to Google",
+      "coverage": "Discovered - currently not indexed",
       "crawl": "NEVER"
     },
     {
       "url": "https://vonds.co.jp/column/ai-business-guide/",
       "verdict": "NEUTRAL",
-      "coverage": "URL is unknown to Google",
+      "coverage": "Discovered - currently not indexed",
       "crawl": "NEVER"
     },
     {
       "url": "https://vonds.co.jp/column/local-seo-strategy/",
       "verdict": "NEUTRAL",
-      "coverage": "URL is unknown to Google",
+      "coverage": "Discovered - currently not indexed",
       "crawl": "NEVER"
     },
     {
       "url": "https://vonds.co.jp/column/website-cost-guide/",
+      "verdict": "NEUTRAL",
+      "coverage": "Discovered - currently not indexed",
+      "crawl": "NEVER"
+    },
+    {
+      "url": "https://vonds.co.jp/column/lp-design-tips/",
       "verdict": "NEUTRAL",
       "coverage": "URL is unknown to Google",
       "crawl": "NEVER"
