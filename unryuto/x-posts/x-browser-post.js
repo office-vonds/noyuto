@@ -71,30 +71,16 @@ async function doLogin() {
 
     // ユーザー名入力
     log('ユーザー名を入力中...');
-    const usernameInput = await page.waitForSelector('input[autocomplete="username"]', { timeout: 15000 });
+    const usernameInput = await page.waitForSelector('input[name="text"], input[autocomplete="username"]', { timeout: 15000 });
+    await usernameInput.click();
+    await page.waitForTimeout(300);
     await usernameInput.fill(username || 'unryuto_ai');
     await page.waitForTimeout(500);
 
-    // 「次へ」ボタン
-    const nextButtons = await page.$$('button');
-    for (const btn of nextButtons) {
-      const text = await btn.textContent();
-      if (text && text.includes('次へ')) {
-        await btn.click();
-        break;
-      }
-    }
-    // 英語UIの場合
-    if (!(await page.$('input[type="password"]'))) {
-      for (const btn of nextButtons) {
-        const text = await btn.textContent();
-        if (text && text.includes('Next')) {
-          await btn.click();
-          break;
-        }
-      }
-    }
-    await page.waitForTimeout(2000);
+    // 「Next」ボタン — テキストマッチではなくrole+位置で特定
+    log('Nextボタンをクリック...');
+    await page.click('button:has-text("Next"), button:has-text("次へ")');
+    await page.waitForTimeout(3000);
 
     // 追加認証（メールアドレスや電話番号の確認が求められる場合）
     const extraInput = await page.$('input[data-testid="ocfEnterTextTextInput"]');
@@ -102,32 +88,19 @@ async function doLogin() {
       log('追加認証が求められています。メールアドレスまたは電話番号を入力してください:');
       const extraValue = await ask('メールアドレス or 電話番号: ');
       await extraInput.fill(extraValue);
-      const confirmBtns = await page.$$('button');
-      for (const btn of confirmBtns) {
-        const text = await btn.textContent();
-        if (text && (text.includes('次へ') || text.includes('Next'))) {
-          await btn.click();
-          break;
-        }
-      }
+      await page.click('button:has-text("Next"), button:has-text("次へ")');
       await page.waitForTimeout(2000);
     }
 
     // パスワード入力
     log('パスワードを入力中...');
-    const passwordInput = await page.waitForSelector('input[type="password"]', { timeout: 10000 });
+    const passwordInput = await page.waitForSelector('input[name="password"], input[type="password"]', { timeout: 15000 });
     await passwordInput.fill(password);
     await page.waitForTimeout(500);
 
     // ログインボタン
-    const loginBtns = await page.$$('button');
-    for (const btn of loginBtns) {
-      const testId = await btn.getAttribute('data-testid');
-      if (testId === 'LoginForm_Login_Button') {
-        await btn.click();
-        break;
-      }
-    }
+    log('ログインボタンをクリック...');
+    await page.click('[data-testid="LoginForm_Login_Button"], button:has-text("Log in"), button:has-text("ログイン")');
     await page.waitForTimeout(5000);
 
     // ログイン確認
