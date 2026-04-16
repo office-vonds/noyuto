@@ -4,8 +4,9 @@
 
 - **状態**: サイト構築済み・外部連携待ち
 - **法人形態**: 個人事業主（屋号: UNRYUTO）※法人化は軌道に乗ってから
-- **ドメイン**: unryuto.jp（DNS反映待ち確認必要）
-- **ホスティング**: Netlify接続済み
+- **ドメイン**: unryuto.jp — **DNS完了・サイト表示確認済み（2026-04-16）**
+- **SSL**: 発行中（数分〜1時間で完了予定）
+- **ホスティング**: Netlify（fancy-bonbon-304f5c / office-vondsチーム / mainブランチ / Publish dir: unryuto）
 - **EC**: Stripe確定（3.6%・JPY直接）
 - **X**: @un_Ryuto_ai 開設済み
 
@@ -18,8 +19,8 @@
 
 ## NOYUTO待ちタスク
 
-1. **DNS反映確認** → https://unryuto.jp アクセス確認
-2. **X Developer Portal** でAPI鍵4つ発行 → KIRYUに渡す
+1. ~~DNS反映確認~~ → **完了（2026-04-16）**
+2. **X Developer Portal** でAPI鍵再生成 → KIRYUに渡す（rina:401 / UNRYUTO:402 両方修復必要）
 3. **Stripeアカウント開設**（本人確認・口座登録）
 4. ストレッチゼロCSV（ads-audit兼用）
 
