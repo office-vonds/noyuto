@@ -166,3 +166,79 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 2026-04-16 10:00:01,343 [INFO] ============================================================
 2026-04-16 10:00:01,346 [INFO] 選択キーワード: ホームページ リニューアル タイミング (slug: website-renewal-timing)
 2026-04-16 10:00:01,347 [INFO] claude --print 実行 (試行1/3): ホームページ リニューアル タイミング
+2026-04-16 10:02:03,017 [INFO] 記事生成完了: 5651文字
+2026-04-16 10:02:03,021 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-16 10:02:03,021 [INFO] 品質スコア: 100点 (合格)
+2026-04-16 10:02:03,021 [INFO] 品質基準クリア（100点）
+2026-04-16 10:02:03,024 [INFO] 記事HTML保存: /home/ozawakiryu0902/projects/vonds/column/website-renewal-timing/index.html
+2026-04-16 10:02:03,027 [INFO] state.json更新完了
+2026-04-16 10:02:03,027 [INFO] コラム一覧ページ更新: /home/ozawakiryu0902/projects/vonds/column/index.html (10記事)
+2026-04-16 10:02:03,053 [INFO] ============================================================
+2026-04-16 10:02:03,053 [INFO] 副産物生成 開始
+2026-04-16 10:02:03,053 [INFO] ============================================================
+2026-04-16 10:02:03,054 [INFO] sitemap.xml更新: 19URL
+2026-04-16 10:02:03,054 [INFO] robots.txt更新
+2026-04-16 10:02:03,054 [INFO] X投稿素材生成: 3パターン → sns_website-renewal-timing.json
+2026-04-16 10:02:03,055 [WARNING] 副産物生成スキップ: look-behind requires fixed-width pattern
+2026-04-16 10:02:03,090 [INFO] git commit完了: SEOコラム自動投稿: website-renewal-timing
+2026-04-16 10:02:04,098 [INFO] git push完了 (main)
+2026-04-16 10:02:04,099 [INFO] ============================================================
+2026-04-16 10:02:04,099 [INFO] 投稿完了: ホームページリニューアルの最適なタイミングと進め方｜失敗しないポイント
+2026-04-16 10:02:04,099 [INFO] URL: https://vonds.co.jp/column/website-renewal-timing/
+2026-04-16 10:02:04,099 [INFO] 文字数: 5651文字
+2026-04-16 10:02:04,099 [INFO] ============================================================
+2026-04-16 10:02:04,101 [INFO] 学習分析を実行中...
+2026-04-16 10:02:04,104 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-16 10:02:04,104 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-16 10:02:04,105 [INFO] [91点] 【2026年最新】SEO対策の正しいやり方｜初心者でもわかる完全ガイド
+2026-04-16 10:02:04,107 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-16 10:02:04,108 [INFO] [100点] 山梨県でSEO対策を依頼するなら｜地域密着型SEOの強みと選び方
+2026-04-16 10:02:04,111 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-16 10:02:04,111 [INFO] [100点] SEOとは？わかりやすく基本を解説｜なぜ検索上位が重要なのか
+2026-04-16 10:02:04,114 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-16 10:02:04,114 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-16 10:02:04,115 [INFO] [91点] ホームページ制作で失敗しない｜中小企業が知るべき発注・運用の全知識
+2026-04-16 10:02:04,117 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-16 10:02:04,117 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-16 10:02:04,118 [INFO] [91点] Google広告の始め方｜中小企業が少額予算で成果を出すための実践ガイド
+2026-04-16 10:02:04,120 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-16 10:02:04,120 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-16 10:02:04,120 [INFO] [91点] 中小企業のAI活用｜業務効率化から売上アップまで実践事例で解説
+2026-04-16 10:02:04,122 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-16 10:02:04,122 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-16 10:02:04,122 [INFO] [91点] ローカルSEO完全攻略｜Googleマップで上位表示を獲得する方法
+2026-04-16 10:02:04,124 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-16 10:02:04,124 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-16 10:02:04,125 [INFO] [91点] ホームページ制作の費用相場｜目的別の料金目安と賢い依頼方法
+2026-04-16 10:02:04,126 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-16 10:02:04,126 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-16 10:02:04,127 [INFO] [91点] 成果が出るLP制作のコツ｜コンバージョン率を上げる設計の基本
+2026-04-16 10:02:04,128 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-16 10:02:04,128 [INFO] [100点] ホームページリニューアルの最適なタイミングと進め方｜失敗しないポイント
+2026-04-16 10:02:04,128 [INFO] 勝ちパターン更新: 10件
+2026-04-16 10:02:04,128 [INFO] 平均スコア: 93.7点 (10記事)
+2026-04-16 10:02:04,129 [INFO] learned_patterns.json更新完了
+2026-04-16 10:02:04,129 [INFO] 学習パターン更新完了 → 次回の記事生成に反映されます
+2026-04-16 10:02:04 [CATCHUP] 記事生成完了。インデックスモニタリング開始。
+2026-04-16 10:02:04,365 [INFO] === インデックス状態チェック開始: 17URL ===
+2026-04-16 10:02:11,944 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-15 https://vonds.co.jp/
+2026-04-16 10:02:19,697 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
+2026-04-16 10:02:27,403 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
+2026-04-16 10:02:35,160 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ads/
+2026-04-16 10:02:42,853 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ai/
+2026-04-16 10:02:50,508 [INFO]   [NG] NEUTRAL Duplicate, Google chose different canonical than user crawl=2026-04-11 https://vonds.co.jp/company/
+2026-04-16 10:02:58,009 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/
+2026-04-16 10:03:05,343 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/seo-howto-guide/
+2026-04-16 10:03:13,026 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/yamanashi-seo/
+2026-04-16 10:03:20,601 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/what-is-seo/
+2026-04-16 10:03:28,077 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/web-design-guide/
+2026-04-16 10:03:35,688 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/google-ads-guide/
+2026-04-16 10:03:43,215 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/ai-business-guide/
+2026-04-16 10:03:50,736 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/local-seo-strategy/
+2026-04-16 10:03:58,039 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/website-cost-guide/
+2026-04-16 10:04:05,616 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/lp-design-tips/
+2026-04-16 10:04:12,883 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/website-renewal-timing/
+2026-04-16 10:04:13,384 [INFO] === 結果: 7/17 インデックス済み ===
+2026-04-16 10:04:13,384 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/
+2026-04-16 10:04:13,386 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
+2026-04-16 10:04:13 [CATCHUP] インデックスモニタリング完了。
