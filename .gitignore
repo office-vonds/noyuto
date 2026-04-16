@@ -40,3 +40,8 @@ kizuna-backup/
 # UNRYUTO X API credentials
 unryuto/.env
 unryuto/x-posts/.env
+
+# dto画像パイプライン（生成画像・状態ファイルはローカルのみ）
+scripts/dto-variations/
+scripts/dto-pipeline-state.json
+scripts/dto-hash-db.json
