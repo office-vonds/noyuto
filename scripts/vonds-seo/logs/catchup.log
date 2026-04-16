@@ -160,3 +160,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 2026-04-15 10:04:51,727 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/
 2026-04-15 10:04:51,728 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
 2026-04-15 10:04:51 [CATCHUP] インデックスモニタリング完了。
+2026-04-16 10:00:01 [CATCHUP] 本日の記事未生成。生成開始。
+2026-04-16 10:00:01,342 [INFO] ============================================================
+2026-04-16 10:00:01,343 [INFO] VONDS SEO記事自動投稿 開始
+2026-04-16 10:00:01,343 [INFO] ============================================================
+2026-04-16 10:00:01,346 [INFO] 選択キーワード: ホームページ リニューアル タイミング (slug: website-renewal-timing)
+2026-04-16 10:00:01,347 [INFO] claude --print 実行 (試行1/3): ホームページ リニューアル タイミング
