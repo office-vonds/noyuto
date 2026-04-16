@@ -22,6 +22,7 @@ debug_note*.py
 # 本番からFTPで落としたバックアップ（認証情報含む・ローカル保管のみ）
 **/_backup_*/
 auto-repair/.env
+auto-repair/logs/*.log
 scripts/node_modules/
 node_modules/
 .venv-ga4/
