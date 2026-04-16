@@ -91,12 +91,12 @@ function postTweet(authToken, ct0, text) {
         responsive_web_graphql_timeline_navigation_enabled: true,
         responsive_web_enhance_cards_enabled: false,
       },
-      queryId: 'mnCM0-KxBCMuRYIT_MSTng',
+      queryId: 'c50A_puUoQGK_4SXseYz3A',
     });
 
     const options = {
       hostname: 'x.com',
-      path: '/i/api/graphql/mnCM0-KxBCMuRYIT_MSTng/CreateTweet',
+      path: '/i/api/graphql/c50A_puUoQGK_4SXseYz3A/CreateTweet',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
