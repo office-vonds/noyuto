@@ -1,0 +1,1928 @@
+{
+  "totalEntries": 150,
+  "generatedAt": "2026-04-16T17:55:45.115Z",
+  "areas": {
+    "東京": {
+      "count": 30,
+      "bodyLength": {
+        "min": 27,
+        "max": 683,
+        "avg": 244,
+        "median": 226,
+        "distribution": {
+          "0-100": 1,
+          "101-200": 2,
+          "201-300": 4,
+          "301-500": 0,
+          "501-1000": 1,
+          "1001+": 0
+        }
+      },
+      "timeDistribution": {
+        "0": 2,
+        "1": 0,
+        "2": 1,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 2,
+        "9": 1,
+        "10": 1,
+        "11": 0,
+        "12": 0,
+        "13": 2,
+        "14": 0,
+        "15": 0,
+        "16": 1,
+        "17": 2,
+        "18": 1,
+        "19": 1,
+        "20": 2,
+        "21": 2,
+        "22": 6,
+        "23": 5
+      },
+      "peakHours": [
+        {
+          "hour": 22,
+          "count": 6
+        },
+        {
+          "hour": 23,
+          "count": 5
+        },
+        {
+          "hour": 0,
+          "count": 2
+        },
+        {
+          "hour": 8,
+          "count": 2
+        },
+        {
+          "hour": 13,
+          "count": 2
+        }
+      ],
+      "emojiUsage": {
+        "avgPerPost": 8.8,
+        "postsWithEmoji": 6,
+        "postsWithoutEmoji": 2,
+        "emojiRatio": 75
+      },
+      "topEmojis": [
+        {
+          "emoji": "✨",
+          "count": 9
+        },
+        {
+          "emoji": "️",
+          "count": 6
+        },
+        {
+          "emoji": "🧡",
+          "count": 5
+        },
+        {
+          "emoji": "🤗",
+          "count": 4
+        },
+        {
+          "emoji": "💕",
+          "count": 4
+        },
+        {
+          "emoji": "🌸",
+          "count": 4
+        },
+        {
+          "emoji": "💖",
+          "count": 3
+        },
+        {
+          "emoji": "🌙",
+          "count": 2
+        },
+        {
+          "emoji": "🦑",
+          "count": 2
+        },
+        {
+          "emoji": "‍",
+          "count": 2
+        },
+        {
+          "emoji": "🍀",
+          "count": 2
+        },
+        {
+          "emoji": "💗",
+          "count": 2
+        },
+        {
+          "emoji": "😊",
+          "count": 2
+        },
+        {
+          "emoji": "❣",
+          "count": 2
+        },
+        {
+          "emoji": "♡",
+          "count": 2
+        },
+        {
+          "emoji": "🥰",
+          "count": 2
+        },
+        {
+          "emoji": "☘",
+          "count": 1
+        },
+        {
+          "emoji": "💓",
+          "count": 1
+        },
+        {
+          "emoji": "💦",
+          "count": 1
+        },
+        {
+          "emoji": "💅",
+          "count": 1
+        }
+      ],
+      "titleAnalysis": {
+        "avgLength": 13,
+        "withEmoji": 18,
+        "withoutEmoji": 12,
+        "frequentWords": [
+          {
+            "word": "本日もありが",
+            "count": 3
+          },
+          {
+            "word": "とうございま",
+            "count": 3
+          },
+          {
+            "word": "公休日",
+            "count": 2
+          },
+          {
+            "word": "削除",
+            "count": 1
+          },
+          {
+            "word": "下着をお潮で",
+            "count": 1
+          },
+          {
+            "word": "汚しながら",
+            "count": 1
+          },
+          {
+            "word": "ボイスメッセ",
+            "count": 1
+          },
+          {
+            "word": "ージ",
+            "count": 1
+          },
+          {
+            "word": "時間消去",
+            "count": 1
+          },
+          {
+            "word": "ムッチリ",
+            "count": 1
+          },
+          {
+            "word": "限定削除",
+            "count": 1
+          },
+          {
+            "word": "私の",
+            "count": 1
+          },
+          {
+            "word": "で温めてあげ",
+            "count": 1
+          },
+          {
+            "word": "仲良しな",
+            "count": 1
+          },
+          {
+            "word": "実りのある休",
+            "count": 1
+          },
+          {
+            "word": "穏やかなご縁",
+            "count": 1
+          },
+          {
+            "word": "にありがとう",
+            "count": 1
+          },
+          {
+            "word": "昨日のありが",
+            "count": 1
+          },
+          {
+            "word": "とう",
+            "count": 1
+          },
+          {
+            "word": "・゜゜・",
+            "count": 1
+          }
+        ]
+      },
+      "topShops": [
+        {
+          "name": "華恋人（カレント）",
+          "count": 3
+        },
+        {
+          "name": "奥鉄オクテツ東京店（デリヘル市場）",
+          "count": 3
+        },
+        {
+          "name": "人妻花かんざし",
+          "count": 2
+        },
+        {
+          "name": "ふうりん～風鈴～",
+          "count": 2
+        },
+        {
+          "name": "素人妻専門店　ミセス・グランデ",
+          "count": 2
+        },
+        {
+          "name": "鶯谷倶楽部 愛",
+          "count": 2
+        },
+        {
+          "name": "ミセスラウンジ東京",
+          "count": 2
+        },
+        {
+          "name": "鶯谷・上野ＣＬＵＢ Ａ(クラブエー)",
+          "count": 1
+        },
+        {
+          "name": "熟女デリヘル倶楽部",
+          "count": 1
+        },
+        {
+          "name": "人妻壱番館",
+          "count": 1
+        }
+      ],
+      "likes": {
+        "min": 0,
+        "max": 28,
+        "avg": 7.8,
+        "median": 7
+      }
+    },
+    "大阪": {
+      "count": 30,
+      "bodyLength": {
+        "min": 39,
+        "max": 489,
+        "avg": 176,
+        "median": 156,
+        "distribution": {
+          "0-100": 3,
+          "101-200": 6,
+          "201-300": 3,
+          "301-500": 1,
+          "501-1000": 0,
+          "1001+": 0
+        }
+      },
+      "timeDistribution": {
+        "0": 4,
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 1,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0,
+        "12": 0,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 3,
+        "17": 2,
+        "18": 0,
+        "19": 2,
+        "20": 2,
+        "21": 1,
+        "22": 5,
+        "23": 7
+      },
+      "peakHours": [
+        {
+          "hour": 23,
+          "count": 7
+        },
+        {
+          "hour": 22,
+          "count": 5
+        },
+        {
+          "hour": 0,
+          "count": 4
+        },
+        {
+          "hour": 16,
+          "count": 3
+        },
+        {
+          "hour": 17,
+          "count": 2
+        }
+      ],
+      "emojiUsage": {
+        "avgPerPost": 8.8,
+        "postsWithEmoji": 12,
+        "postsWithoutEmoji": 1,
+        "emojiRatio": 92
+      },
+      "topEmojis": [
+        {
+          "emoji": "💕",
+          "count": 14
+        },
+        {
+          "emoji": "︎",
+          "count": 11
+        },
+        {
+          "emoji": "♡",
+          "count": 9
+        },
+        {
+          "emoji": "💗",
+          "count": 8
+        },
+        {
+          "emoji": "️",
+          "count": 6
+        },
+        {
+          "emoji": "🏻",
+          "count": 5
+        },
+        {
+          "emoji": "✨",
+          "count": 4
+        },
+        {
+          "emoji": "♪",
+          "count": 4
+        },
+        {
+          "emoji": "💦",
+          "count": 3
+        },
+        {
+          "emoji": "❣",
+          "count": 3
+        },
+        {
+          "emoji": "✌",
+          "count": 2
+        },
+        {
+          "emoji": "🫶",
+          "count": 2
+        },
+        {
+          "emoji": "🥲",
+          "count": 2
+        },
+        {
+          "emoji": "🌸",
+          "count": 2
+        },
+        {
+          "emoji": "😤",
+          "count": 2
+        },
+        {
+          "emoji": "💓",
+          "count": 2
+        },
+        {
+          "emoji": "😴",
+          "count": 1
+        },
+        {
+          "emoji": "💤",
+          "count": 1
+        },
+        {
+          "emoji": "✯",
+          "count": 1
+        },
+        {
+          "emoji": "🤍",
+          "count": 1
+        }
+      ],
+      "titleAnalysis": {
+        "avgLength": 11,
+        "withEmoji": 22,
+        "withoutEmoji": 8,
+        "frequentWords": [
+          {
+            "word": "ありがとう",
+            "count": 2
+          },
+          {
+            "word": "ちゅー",
+            "count": 2
+          },
+          {
+            "word": "完売",
+            "count": 2
+          },
+          {
+            "word": "満足",
+            "count": 1
+          },
+          {
+            "word": "アリです",
+            "count": 1
+          },
+          {
+            "word": "すわほー",
+            "count": 1
+          },
+          {
+            "word": "次はー",
+            "count": 1
+          },
+          {
+            "word": "ハマる要素し",
+            "count": 1
+          },
+          {
+            "word": "かない",
+            "count": 1
+          },
+          {
+            "word": "って",
+            "count": 1
+          },
+          {
+            "word": "顔出し",
+            "count": 1
+          },
+          {
+            "word": "やばいって",
+            "count": 1
+          },
+          {
+            "word": "しゃぶり舐め",
+            "count": 1
+          },
+          {
+            "word": "きゃ",
+            "count": 1
+          },
+          {
+            "word": "奥までドクド",
+            "count": 1
+          },
+          {
+            "word": "感じ取らせて",
+            "count": 1
+          },
+          {
+            "word": "やっと逢えた",
+            "count": 1
+          },
+          {
+            "word": "ラスト枠お誘",
+            "count": 1
+          },
+          {
+            "word": "いしてくださ",
+            "count": 1
+          },
+          {
+            "word": "ったお兄さん",
+            "count": 1
+          }
+        ]
+      },
+      "topShops": [
+        {
+          "name": "Linda&Linda",
+          "count": 4
+        },
+        {
+          "name": "一夜妻",
+          "count": 4
+        },
+        {
+          "name": "クラブバレンタイン大阪店",
+          "count": 3
+        },
+        {
+          "name": "Club NANA",
+          "count": 2
+        },
+        {
+          "name": "素人美少女専門デリヘル ～After School～",
+          "count": 2
+        },
+        {
+          "name": "MUTEKI人妻倶楽部",
+          "count": 2
+        },
+        {
+          "name": "Platinum Legend(プラチナム レジェンド)",
+          "count": 2
+        },
+        {
+          "name": "人妻が愛人",
+          "count": 2
+        },
+        {
+          "name": "KISEKI",
+          "count": 1
+        },
+        {
+          "name": "ミセスサマンサPLUS",
+          "count": 1
+        }
+      ],
+      "likes": {
+        "min": 0,
+        "max": 3,
+        "avg": 0.5,
+        "median": 0
+      }
+    },
+    "愛知（名古屋）": {
+      "count": 30,
+      "bodyLength": {
+        "min": 40,
+        "max": 448,
+        "avg": 168,
+        "median": 144,
+        "distribution": {
+          "0-100": 3,
+          "101-200": 7,
+          "201-300": 4,
+          "301-500": 1,
+          "501-1000": 0,
+          "1001+": 0
+        }
+      },
+      "timeDistribution": {
+        "0": 0,
+        "1": 3,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 1,
+        "9": 0,
+        "10": 1,
+        "11": 0,
+        "12": 1,
+        "13": 0,
+        "14": 0,
+        "15": 0,
+        "16": 3,
+        "17": 0,
+        "18": 5,
+        "19": 3,
+        "20": 1,
+        "21": 3,
+        "22": 6,
+        "23": 2
+      },
+      "peakHours": [
+        {
+          "hour": 22,
+          "count": 6
+        },
+        {
+          "hour": 18,
+          "count": 5
+        },
+        {
+          "hour": 1,
+          "count": 3
+        },
+        {
+          "hour": 16,
+          "count": 3
+        },
+        {
+          "hour": 19,
+          "count": 3
+        }
+      ],
+      "emojiUsage": {
+        "avgPerPost": 3.1,
+        "postsWithEmoji": 8,
+        "postsWithoutEmoji": 7,
+        "emojiRatio": 53
+      },
+      "topEmojis": [
+        {
+          "emoji": "♡",
+          "count": 8
+        },
+        {
+          "emoji": "♥",
+          "count": 5
+        },
+        {
+          "emoji": "✨",
+          "count": 3
+        },
+        {
+          "emoji": "️",
+          "count": 3
+        },
+        {
+          "emoji": "🥰",
+          "count": 3
+        },
+        {
+          "emoji": "☆",
+          "count": 2
+        },
+        {
+          "emoji": "💕",
+          "count": 2
+        },
+        {
+          "emoji": "🤍",
+          "count": 2
+        },
+        {
+          "emoji": "😅",
+          "count": 1
+        },
+        {
+          "emoji": "🤗",
+          "count": 1
+        },
+        {
+          "emoji": "♪",
+          "count": 1
+        },
+        {
+          "emoji": "✿",
+          "count": 1
+        },
+        {
+          "emoji": "😭",
+          "count": 1
+        },
+        {
+          "emoji": "😤",
+          "count": 1
+        },
+        {
+          "emoji": "❤",
+          "count": 1
+        },
+        {
+          "emoji": "😝",
+          "count": 1
+        },
+        {
+          "emoji": "🌟",
+          "count": 1
+        },
+        {
+          "emoji": "💚",
+          "count": 1
+        },
+        {
+          "emoji": "🌸",
+          "count": 1
+        },
+        {
+          "emoji": "💭",
+          "count": 1
+        }
+      ],
+      "titleAnalysis": {
+        "avgLength": 9,
+        "withEmoji": 9,
+        "withoutEmoji": 21,
+        "frequentWords": [
+          {
+            "word": "さん",
+            "count": 1
+          },
+          {
+            "word": "ラストのちょ",
+            "count": 1
+          },
+          {
+            "word": "いとお久しぶ",
+            "count": 1
+          },
+          {
+            "word": "りサマ",
+            "count": 1
+          },
+          {
+            "word": "何握ってるの",
+            "count": 1
+          },
+          {
+            "word": "シリーズ笑",
+            "count": 1
+          },
+          {
+            "word": "愛娘のために",
+            "count": 1
+          },
+          {
+            "word": "唾液",
+            "count": 1
+          },
+          {
+            "word": "アイマスク",
+            "count": 1
+          },
+          {
+            "word": "手枷",
+            "count": 1
+          },
+          {
+            "word": "昨夜はありが",
+            "count": 1
+          },
+          {
+            "word": "とうございま",
+            "count": 1
+          },
+          {
+            "word": "赤池",
+            "count": 1
+          },
+          {
+            "word": "ぴえん",
+            "count": 1
+          },
+          {
+            "word": "さまへ",
+            "count": 1
+          },
+          {
+            "word": "駅ちか限定",
+            "count": 1
+          },
+          {
+            "word": "夕刻です",
+            "count": 1
+          },
+          {
+            "word": "深夜の",
+            "count": 1
+          },
+          {
+            "word": "個人イベント",
+            "count": 1
+          },
+          {
+            "word": "今日も一日お",
+            "count": 1
+          }
+        ]
+      },
+      "topShops": [
+        {
+          "name": "逢って30秒で即尺 東海本店",
+          "count": 10
+        },
+        {
+          "name": "熟年カップル",
+          "count": 9
+        },
+        {
+          "name": "熟女の風俗最終章 名古屋店",
+          "count": 4
+        },
+        {
+          "name": "こあくまな熟女たち　三河店（KOAKUMAグループ）",
+          "count": 3
+        },
+        {
+          "name": "MELT☆UP-メルト・アップ-名古屋",
+          "count": 2
+        },
+        {
+          "name": "ドＭバスターズ岡崎・安城・豊田店",
+          "count": 1
+        },
+        {
+          "name": "アリス女学院　名古屋校",
+          "count": 1
+        }
+      ],
+      "likes": {
+        "min": 0,
+        "max": 2,
+        "avg": 0.1,
+        "median": 0
+      }
+    },
+    "福岡": {
+      "count": 30,
+      "bodyLength": {
+        "min": 17,
+        "max": 598,
+        "avg": 180,
+        "median": 114,
+        "distribution": {
+          "0-100": 3,
+          "101-200": 8,
+          "201-300": 0,
+          "301-500": 0,
+          "501-1000": 2,
+          "1001+": 0
+        }
+      },
+      "timeDistribution": {
+        "0": 2,
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 1,
+        "9": 0,
+        "10": 1,
+        "11": 0,
+        "12": 3,
+        "13": 1,
+        "14": 0,
+        "15": 1,
+        "16": 2,
+        "17": 1,
+        "18": 0,
+        "19": 0,
+        "20": 4,
+        "21": 4,
+        "22": 6,
+        "23": 2
+      },
+      "peakHours": [
+        {
+          "hour": 22,
+          "count": 6
+        },
+        {
+          "hour": 20,
+          "count": 4
+        },
+        {
+          "hour": 21,
+          "count": 4
+        },
+        {
+          "hour": 12,
+          "count": 3
+        },
+        {
+          "hour": 0,
+          "count": 2
+        }
+      ],
+      "emojiUsage": {
+        "avgPerPost": 4.8,
+        "postsWithEmoji": 10,
+        "postsWithoutEmoji": 3,
+        "emojiRatio": 77
+      },
+      "topEmojis": [
+        {
+          "emoji": "♡",
+          "count": 10
+        },
+        {
+          "emoji": "🤍",
+          "count": 9
+        },
+        {
+          "emoji": "😭",
+          "count": 6
+        },
+        {
+          "emoji": "🫧",
+          "count": 4
+        },
+        {
+          "emoji": "😪",
+          "count": 4
+        },
+        {
+          "emoji": "🩷",
+          "count": 3
+        },
+        {
+          "emoji": "️",
+          "count": 3
+        },
+        {
+          "emoji": "🥺",
+          "count": 2
+        },
+        {
+          "emoji": "❌",
+          "count": 2
+        },
+        {
+          "emoji": "🥰",
+          "count": 2
+        },
+        {
+          "emoji": "★",
+          "count": 2
+        },
+        {
+          "emoji": "🌹",
+          "count": 2
+        },
+        {
+          "emoji": "💕",
+          "count": 2
+        },
+        {
+          "emoji": "💓",
+          "count": 1
+        },
+        {
+          "emoji": "🌟",
+          "count": 1
+        },
+        {
+          "emoji": "🙆",
+          "count": 1
+        },
+        {
+          "emoji": "‍",
+          "count": 1
+        },
+        {
+          "emoji": "♀",
+          "count": 1
+        },
+        {
+          "emoji": "😼",
+          "count": 1
+        },
+        {
+          "emoji": "♩",
+          "count": 1
+        }
+      ],
+      "titleAnalysis": {
+        "avgLength": 9,
+        "withEmoji": 16,
+        "withoutEmoji": 14,
+        "frequentWords": [
+          {
+            "word": "出勤",
+            "count": 3
+          },
+          {
+            "word": "ありがとうご",
+            "count": 2
+          },
+          {
+            "word": "ざいました",
+            "count": 2
+          },
+          {
+            "word": "お題",
+            "count": 2
+          },
+          {
+            "word": "おっぱい好き",
+            "count": 1
+          },
+          {
+            "word": "は挙手",
+            "count": 1
+          },
+          {
+            "word": "寝る前に",
+            "count": 1
+          },
+          {
+            "word": "昼の女",
+            "count": 1
+          },
+          {
+            "word": "忘れてた",
+            "count": 1
+          },
+          {
+            "word": "報告",
+            "count": 1
+          },
+          {
+            "word": "足がつる",
+            "count": 1
+          },
+          {
+            "word": "次回",
+            "count": 1
+          },
+          {
+            "word": "こんばんは",
+            "count": 1
+          },
+          {
+            "word": "おやすみい",
+            "count": 1
+          },
+          {
+            "word": "ご予約有難う",
+            "count": 1
+          },
+          {
+            "word": "ございます",
+            "count": 1
+          },
+          {
+            "word": "ありがち",
+            "count": 1
+          },
+          {
+            "word": "今日は",
+            "count": 1
+          },
+          {
+            "word": "お疲れ様",
+            "count": 1
+          },
+          {
+            "word": "焦らされたい",
+            "count": 1
+          }
+        ]
+      },
+      "topShops": [
+        {
+          "name": "姫1",
+          "count": 10
+        },
+        {
+          "name": "Mrs.姫1",
+          "count": 8
+        },
+        {
+          "name": "こあくまな人妻・熟女たち小倉店（KOAKUMAグループ）",
+          "count": 4
+        },
+        {
+          "name": "人妻王～オプション使いたい放題～",
+          "count": 3
+        },
+        {
+          "name": "癒しの姫1",
+          "count": 3
+        },
+        {
+          "name": "わっしょい 元祖廃男コース専門店",
+          "count": 2
+        }
+      ],
+      "likes": {
+        "min": 0,
+        "max": 0,
+        "avg": 0,
+        "median": 0
+      }
+    },
+    "神奈川（横浜）": {
+      "count": 30,
+      "bodyLength": {
+        "min": 89,
+        "max": 593,
+        "avg": 239,
+        "median": 166,
+        "distribution": {
+          "0-100": 1,
+          "101-200": 4,
+          "201-300": 2,
+          "301-500": 1,
+          "501-1000": 1,
+          "1001+": 0
+        }
+      },
+      "timeDistribution": {
+        "0": 3,
+        "1": 2,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 1,
+        "9": 0,
+        "10": 0,
+        "11": 0,
+        "12": 3,
+        "13": 0,
+        "14": 3,
+        "15": 2,
+        "16": 2,
+        "17": 0,
+        "18": 1,
+        "19": 1,
+        "20": 1,
+        "21": 1,
+        "22": 3,
+        "23": 5
+      },
+      "peakHours": [
+        {
+          "hour": 23,
+          "count": 5
+        },
+        {
+          "hour": 0,
+          "count": 3
+        },
+        {
+          "hour": 12,
+          "count": 3
+        },
+        {
+          "hour": 14,
+          "count": 3
+        },
+        {
+          "hour": 22,
+          "count": 3
+        }
+      ],
+      "emojiUsage": {
+        "avgPerPost": 12.3,
+        "postsWithEmoji": 9,
+        "postsWithoutEmoji": 0,
+        "emojiRatio": 100
+      },
+      "topEmojis": [
+        {
+          "emoji": "️",
+          "count": 14
+        },
+        {
+          "emoji": "✨",
+          "count": 8
+        },
+        {
+          "emoji": "❤",
+          "count": 8
+        },
+        {
+          "emoji": "💕",
+          "count": 7
+        },
+        {
+          "emoji": "❛",
+          "count": 6
+        },
+        {
+          "emoji": "♡",
+          "count": 6
+        },
+        {
+          "emoji": "😊",
+          "count": 4
+        },
+        {
+          "emoji": "★",
+          "count": 4
+        },
+        {
+          "emoji": "😍",
+          "count": 4
+        },
+        {
+          "emoji": "☺",
+          "count": 3
+        },
+        {
+          "emoji": "💖",
+          "count": 3
+        },
+        {
+          "emoji": "🔥",
+          "count": 3
+        },
+        {
+          "emoji": "🔁",
+          "count": 3
+        },
+        {
+          "emoji": "🩷",
+          "count": 2
+        },
+        {
+          "emoji": "🔔",
+          "count": 2
+        },
+        {
+          "emoji": "😘",
+          "count": 2
+        },
+        {
+          "emoji": "💌",
+          "count": 2
+        },
+        {
+          "emoji": "🫨",
+          "count": 2
+        },
+        {
+          "emoji": "⏳",
+          "count": 2
+        },
+        {
+          "emoji": "🌟",
+          "count": 2
+        }
+      ],
+      "titleAnalysis": {
+        "avgLength": 12,
+        "withEmoji": 20,
+        "withoutEmoji": 10,
+        "frequentWords": [
+          {
+            "word": "こっそり",
+            "count": 1
+          },
+          {
+            "word": "見逃さないで",
+            "count": 1
+          },
+          {
+            "word": "お礼写メ日記",
+            "count": 1
+          },
+          {
+            "word": "本日の御礼",
+            "count": 1
+          },
+          {
+            "word": "次回",
+            "count": 1
+          },
+          {
+            "word": "ラストのみ",
+            "count": 1
+          },
+          {
+            "word": "のお誘いお待",
+            "count": 1
+          },
+          {
+            "word": "ちしてます",
+            "count": 1
+          },
+          {
+            "word": "甘い雰囲気で",
+            "count": 1
+          },
+          {
+            "word": "お休み",
+            "count": 1
+          },
+          {
+            "word": "旅の途中",
+            "count": 1
+          },
+          {
+            "word": "立てなくなっ",
+            "count": 1
+          },
+          {
+            "word": "ちゃうから",
+            "count": 1
+          },
+          {
+            "word": "これおすすめ",
+            "count": 1
+          },
+          {
+            "word": "来週シフト",
+            "count": 1
+          },
+          {
+            "word": "きらら",
+            "count": 1
+          },
+          {
+            "word": "刺激を求めち",
+            "count": 1
+          },
+          {
+            "word": "ゃっていい",
+            "count": 1
+          },
+          {
+            "word": "休憩",
+            "count": 1
+          },
+          {
+            "word": "ありがとう",
+            "count": 1
+          }
+        ]
+      },
+      "topShops": [
+        {
+          "name": "abc+",
+          "count": 3
+        },
+        {
+          "name": "恋する人妻",
+          "count": 3
+        },
+        {
+          "name": "One More奥様　厚木店",
+          "count": 2
+        },
+        {
+          "name": "フィーリングin厚木",
+          "count": 2
+        },
+        {
+          "name": "小田原人妻城",
+          "count": 2
+        },
+        {
+          "name": "厚木デリヘル　女々艶　厚木店",
+          "count": 1
+        },
+        {
+          "name": "こあくまな熟女たち本厚木店(KOAKUMAグループ)",
+          "count": 1
+        },
+        {
+          "name": "One More奥様　町田相模原店",
+          "count": 1
+        },
+        {
+          "name": "タイタニック",
+          "count": 1
+        },
+        {
+          "name": "相模原人妻城",
+          "count": 1
+        }
+      ],
+      "likes": {
+        "min": 0,
+        "max": 22,
+        "avg": 6.1,
+        "median": 4
+      }
+    }
+  },
+  "overall": {
+    "count": 150,
+    "bodyLength": {
+      "min": 17,
+      "max": 683,
+      "avg": 194,
+      "median": 154,
+      "distribution": {
+        "0-100": 11,
+        "101-200": 27,
+        "201-300": 13,
+        "301-500": 3,
+        "501-1000": 4,
+        "1001+": 0
+      }
+    },
+    "timeDistribution": {
+      "0": 11,
+      "1": 6,
+      "2": 1,
+      "3": 0,
+      "4": 0,
+      "5": 1,
+      "6": 0,
+      "7": 0,
+      "8": 5,
+      "9": 1,
+      "10": 3,
+      "11": 0,
+      "12": 7,
+      "13": 3,
+      "14": 3,
+      "15": 3,
+      "16": 11,
+      "17": 5,
+      "18": 7,
+      "19": 7,
+      "20": 10,
+      "21": 11,
+      "22": 26,
+      "23": 21
+    },
+    "peakHours": [
+      {
+        "hour": 22,
+        "count": 26
+      },
+      {
+        "hour": 23,
+        "count": 21
+      },
+      {
+        "hour": 0,
+        "count": 11
+      },
+      {
+        "hour": 16,
+        "count": 11
+      },
+      {
+        "hour": 21,
+        "count": 11
+      }
+    ],
+    "emojiUsage": {
+      "avgPerPost": 7,
+      "postsWithEmoji": 45,
+      "postsWithoutEmoji": 13,
+      "emojiRatio": 78
+    },
+    "topEmojis": [
+      {
+        "emoji": "♡",
+        "count": 35
+      },
+      {
+        "emoji": "️",
+        "count": 32
+      },
+      {
+        "emoji": "💕",
+        "count": 29
+      },
+      {
+        "emoji": "✨",
+        "count": 24
+      },
+      {
+        "emoji": "🤍",
+        "count": 12
+      },
+      {
+        "emoji": "💗",
+        "count": 11
+      },
+      {
+        "emoji": "︎",
+        "count": 11
+      },
+      {
+        "emoji": "🥰",
+        "count": 9
+      },
+      {
+        "emoji": "😭",
+        "count": 9
+      },
+      {
+        "emoji": "❤",
+        "count": 9
+      },
+      {
+        "emoji": "💖",
+        "count": 8
+      },
+      {
+        "emoji": "😊",
+        "count": 8
+      },
+      {
+        "emoji": "💦",
+        "count": 7
+      },
+      {
+        "emoji": "🌸",
+        "count": 7
+      },
+      {
+        "emoji": "★",
+        "count": 6
+      },
+      {
+        "emoji": "❛",
+        "count": 6
+      },
+      {
+        "emoji": "💓",
+        "count": 5
+      },
+      {
+        "emoji": "‍",
+        "count": 5
+      },
+      {
+        "emoji": "🧡",
+        "count": 5
+      },
+      {
+        "emoji": "🤗",
+        "count": 5
+      }
+    ],
+    "titleAnalysis": {
+      "avgLength": 11,
+      "withEmoji": 85,
+      "withoutEmoji": 65,
+      "frequentWords": [
+        {
+          "word": "とうございま",
+          "count": 5
+        },
+        {
+          "word": "出勤",
+          "count": 4
+        },
+        {
+          "word": "本日もありが",
+          "count": 4
+        },
+        {
+          "word": "次回",
+          "count": 3
+        },
+        {
+          "word": "ありがとう",
+          "count": 3
+        },
+        {
+          "word": "とう",
+          "count": 2
+        },
+        {
+          "word": "公休日",
+          "count": 2
+        },
+        {
+          "word": "ちゅー",
+          "count": 2
+        },
+        {
+          "word": "完売",
+          "count": 2
+        },
+        {
+          "word": "ありがとうご",
+          "count": 2
+        },
+        {
+          "word": "ざいました",
+          "count": 2
+        },
+        {
+          "word": "お題",
+          "count": 2
+        },
+        {
+          "word": "日お礼",
+          "count": 2
+        },
+        {
+          "word": "様へ",
+          "count": 2
+        },
+        {
+          "word": "削除",
+          "count": 1
+        },
+        {
+          "word": "下着をお潮で",
+          "count": 1
+        },
+        {
+          "word": "汚しながら",
+          "count": 1
+        },
+        {
+          "word": "ボイスメッセ",
+          "count": 1
+        },
+        {
+          "word": "ージ",
+          "count": 1
+        },
+        {
+          "word": "時間消去",
+          "count": 1
+        }
+      ]
+    },
+    "topShops": [
+      {
+        "name": "逢って30秒で即尺 東海本店",
+        "count": 10
+      },
+      {
+        "name": "姫1",
+        "count": 10
+      },
+      {
+        "name": "熟年カップル",
+        "count": 9
+      },
+      {
+        "name": "Mrs.姫1",
+        "count": 8
+      },
+      {
+        "name": "Linda&Linda",
+        "count": 4
+      },
+      {
+        "name": "一夜妻",
+        "count": 4
+      },
+      {
+        "name": "熟女の風俗最終章 名古屋店",
+        "count": 4
+      },
+      {
+        "name": "こあくまな人妻・熟女たち小倉店（KOAKUMAグループ）",
+        "count": 4
+      },
+      {
+        "name": "華恋人（カレント）",
+        "count": 3
+      },
+      {
+        "name": "奥鉄オクテツ東京店（デリヘル市場）",
+        "count": 3
+      }
+    ],
+    "likes": {
+      "min": 0,
+      "max": 28,
+      "avg": 2.2,
+      "median": 0
+    }
+  },
+  "topPosts": [
+    {
+      "rank": 13,
+      "area": "東京",
+      "title": "静かな夜に",
+      "shopName": "メリハリ",
+      "castName": "リサ",
+      "likes": 28,
+      "bodyLength": 27,
+      "postedTime": "4月16日(木) 20:31",
+      "emojiCount": 0
+    },
+    {
+      "rank": 15,
+      "area": "神奈川（横浜）",
+      "title": "休憩(〃ω〃)💗",
+      "shopName": "恋する人妻",
+      "castName": "みよ",
+      "likes": 22,
+      "bodyLength": 118,
+      "postedTime": "4月16日(木) 12:25",
+      "emojiCount": 5
+    },
+    {
+      "rank": 15,
+      "area": "東京",
+      "title": "公休日🐥⸒⸒",
+      "shopName": "鶯谷倶楽部 愛",
+      "castName": "さなえ",
+      "likes": 18,
+      "bodyLength": 226,
+      "postedTime": "4月16日(木) 08:53",
+      "emojiCount": 5
+    },
+    {
+      "rank": 1,
+      "area": "神奈川（横浜）",
+      "title": "こっそり／／／見逃さないで",
+      "shopName": "厚木デリヘル　女々艶　厚木店",
+      "castName": "智依（ちい）",
+      "likes": 10,
+      "bodyLength": 152,
+      "postedTime": "4月16日(木) 22:10",
+      "emojiCount": 6
+    },
+    {
+      "rank": 5,
+      "area": "東京",
+      "title": "仲良しな、実りのある休日🍀✨",
+      "shopName": "人妻花かんざし",
+      "castName": "よしか",
+      "likes": 9,
+      "bodyLength": 683,
+      "postedTime": "4月16日(木) 21:46",
+      "emojiCount": 24
+    },
+    {
+      "rank": 10,
+      "area": "東京",
+      "title": "やっぱり逢えると嬉しいねっ💗",
+      "shopName": "鶯谷倶楽部 愛",
+      "castName": "すみれ",
+      "likes": 7,
+      "bodyLength": 245,
+      "postedTime": "4月17日(金) 00:11",
+      "emojiCount": 15
+    },
+    {
+      "rank": 2,
+      "area": "神奈川（横浜）",
+      "title": "【お礼写メ日記】",
+      "shopName": "こあくまな熟女たち本厚木店(KOAKUMAグループ)",
+      "castName": "大石 しずか",
+      "likes": 7,
+      "bodyLength": 241,
+      "postedTime": "4月16日(木) 23:05",
+      "emojiCount": 7
+    },
+    {
+      "rank": 14,
+      "area": "神奈川（横浜）",
+      "title": "【X（旧Twitter）】徐々に…❤️",
+      "shopName": "abc+",
+      "castName": "かれん",
+      "likes": 5,
+      "bodyLength": 411,
+      "postedTime": "4月16日(木) 15:22",
+      "emojiCount": 35
+    },
+    {
+      "rank": 4,
+      "area": "神奈川（横浜）",
+      "title": "次回AM2時〜⏳️ラストのみ🈳枠🦄💕",
+      "shopName": "abc+",
+      "castName": "ゆず",
+      "likes": 4,
+      "bodyLength": 89,
+      "postedTime": "4月16日(木) 23:50",
+      "emojiCount": 10
+    },
+    {
+      "rank": 7,
+      "area": "神奈川（横浜）",
+      "title": "お休み💤",
+      "shopName": "相模原人妻城",
+      "castName": "平(たいら)",
+      "likes": 4,
+      "bodyLength": 228,
+      "postedTime": "4月16日(木) 22:57",
+      "emojiCount": 7
+    },
+    {
+      "rank": 12,
+      "area": "大阪",
+      "title": "奥までドクドク...感じ取らせて...？",
+      "shopName": "Muteki Platinum",
+      "castName": "琥珀/こはく・即 即電マ無料",
+      "likes": 3,
+      "bodyLength": 251,
+      "postedTime": "4月16日(木) 17:47",
+      "emojiCount": 18
+    },
+    {
+      "rank": 10,
+      "area": "愛知（名古屋）",
+      "title": "(駅ちか限定)夕刻です♪",
+      "shopName": "熟年カップル",
+      "castName": "なつみ(昭和54年生まれ)",
+      "likes": 2,
+      "bodyLength": 144,
+      "postedTime": "4月16日(木) 18:45",
+      "emojiCount": 0
+    },
+    {
+      "rank": 6,
+      "area": "神奈川（横浜）",
+      "title": "‪‪❤︎‬18日(土)のお誘いお待ちしてます☺️甘い雰囲気でね🍫",
+      "shopName": "タイタニック",
+      "castName": "かえで☆神奈川の細身ロリ巨乳",
+      "likes": 2,
+      "bodyLength": 166,
+      "postedTime": "4月17日(金) 00:19",
+      "emojiCount": 7
+    },
+    {
+      "rank": 1,
+      "area": "大阪",
+      "title": "満足🤍🤍🤍",
+      "shopName": "Linda&Linda",
+      "castName": "えれな★動画顔出OK",
+      "likes": 1,
+      "bodyLength": 128,
+      "postedTime": "4月16日(木) 19:55",
+      "emojiCount": 8
+    },
+    {
+      "rank": 2,
+      "area": "大阪",
+      "title": "アリです🖊️",
+      "shopName": "Club NANA",
+      "castName": "ミサキ",
+      "likes": 1,
+      "bodyLength": 156,
+      "postedTime": "4月16日(木) 20:00",
+      "emojiCount": 8
+    },
+    {
+      "rank": 5,
+      "area": "大阪",
+      "title": "ハマる要素しかない❣️って🙈💕",
+      "shopName": "素人美少女専門デリヘル ～After School～",
+      "castName": "ことり【☆年間連続No.1☆】",
+      "likes": 1,
+      "bodyLength": 228,
+      "postedTime": "4月16日(木) 23:58",
+      "emojiCount": 16
+    },
+    {
+      "rank": 13,
+      "area": "大阪",
+      "title": "やっと逢えたね❣️",
+      "shopName": "素人美少女専門デリヘル ～After School～",
+      "castName": "りり",
+      "likes": 1,
+      "bodyLength": 233,
+      "postedTime": "46分前",
+      "emojiCount": 10
+    },
+    {
+      "rank": 8,
+      "area": "神奈川（横浜）",
+      "title": "旅の途中✨",
+      "shopName": "藤沢人妻城",
+      "castName": "ひなた★イラマお任せの美熟女",
+      "likes": 1,
+      "bodyLength": 155,
+      "postedTime": "4月16日(木) 12:07",
+      "emojiCount": 10
+    },
+    {
+      "rank": 6,
+      "area": "東京",
+      "title": "穏やかなご縁にありがとう…✨💖",
+      "shopName": "人妻花かんざし",
+      "castName": "新人・れな",
+      "likes": 0,
+      "bodyLength": 217,
+      "postedTime": "4月16日(木) 23:55",
+      "emojiCount": 11
+    },
+    {
+      "rank": 9,
+      "area": "東京",
+      "title": "お礼💌",
+      "shopName": "素人妻専門店　ミセス・グランデ",
+      "castName": "目黒（めぐろ）",
+      "likes": 0,
+      "bodyLength": 134,
+      "postedTime": "4月16日(木) 21:36",
+      "emojiCount": 0
+    }
+  ]
+}
