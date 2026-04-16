@@ -26,7 +26,7 @@ function checkout(productKey) {
     window.location.href = url;
   } else {
     // Payment Link未設定時はメール問い合わせにフォールバック
-    window.location.href = 'mailto:office.vonds@gmail.com?subject=' +
+    window.location.href = 'mailto:info@unryuto.jp?subject=' +
       encodeURIComponent('UNRYUTO商品について問い合わせ');
   }
 }
