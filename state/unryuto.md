@@ -20,7 +20,7 @@
 ## NOYUTO待ちタスク
 
 1. ~~DNS反映確認~~ → **完了（2026-04-16）**
-2. **X Developer Portal** でAPI鍵再生成 → KIRYUに渡す（rina:401 / UNRYUTO:402 両方修復必要）
+2. **X自動投稿** — API課金制のためCookie方式に切替。`x-cookie-post.js --setup` でauth_token+ct0を入力（DevToolsから1分）
 3. **Stripeアカウント開設**（本人確認・口座登録）
 4. ストレッチゼロCSV（ads-audit兼用）
 

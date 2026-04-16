@@ -52,16 +52,48 @@ function moveToPosted(filename) {
 }
 
 async function doLogin() {
-  const username = await ask('Xユーザー名 (@unryuto_ai): ');
-  const password = await ask('パスワード: ');
+  // --login user pass 形式 or 対話入力
+  let username, password;
+  const loginIdx = args.indexOf('--login');
+  if (args[loginIdx + 1] && args[loginIdx + 2]) {
+    username = args[loginIdx + 1];
+    password = args[loginIdx + 2];
+  } else {
+    username = await ask('Xユーザー名 (@unryuto_ai): ');
+    password = await ask('パスワード: ');
+  }
 
   log('ヘッドレスブラウザでログイン中...');
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({
+    headless: false,
+    args: [
+      '--disable-blink-features=AutomationControlled',
+      '--no-sandbox',
+      '--disable-dev-shm-usage',
+      '--disable-infobars',
+      '--window-size=1280,800',
+    ],
+  });
   const context = await browser.newContext({
     viewport: { width: 1280, height: 800 },
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    locale: 'en-US',
+    timezoneId: 'Asia/Tokyo',
   });
+
+  // webdriver検知を回避
+  await context.addInitScript(() => {
+    Object.defineProperty(navigator, 'webdriver', { get: () => false });
+    Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3] });
+    Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en', 'ja'] });
+    const originalQuery = window.navigator.permissions.query;
+    window.navigator.permissions.query = (params) =>
+      params.name === 'notifications'
+        ? Promise.resolve({ state: Notification.permission })
+        : originalQuery(params);
+  });
+
   const page = await context.newPage();
 
   try {
@@ -71,16 +103,39 @@ async function doLogin() {
 
     // ユーザー名入力
     log('ユーザー名を入力中...');
-    const usernameInput = await page.waitForSelector('input[name="text"], input[autocomplete="username"]', { timeout: 15000 });
+    // 入力フィールドを探す（複数セレクタ対応）
+    await page.waitForSelector('input', { timeout: 15000 });
+    const inputs = await page.$$('input');
+    let usernameInput = null;
+    for (const inp of inputs) {
+      const type = await inp.getAttribute('type');
+      const name = await inp.getAttribute('name');
+      const ac = await inp.getAttribute('autocomplete');
+      if (type === 'text' || name === 'text' || ac === 'username') {
+        usernameInput = inp;
+        break;
+      }
+    }
+    if (!usernameInput) {
+      // フォールバック: 最初の可視inputを使う
+      usernameInput = inputs[0];
+    }
     await usernameInput.click();
     await page.waitForTimeout(300);
-    await usernameInput.fill(username || 'unryuto_ai');
+    await page.keyboard.type(username || 'unryuto_ai', { delay: 50 });
     await page.waitForTimeout(500);
 
-    // 「Next」ボタン — テキストマッチではなくrole+位置で特定
+    // スクショで状態確認
+    await page.screenshot({ path: path.join(__dirname, 'debug-after-username.png') });
+
+    // 「Next」ボタン
     log('Nextボタンをクリック...');
-    await page.click('button:has-text("Next"), button:has-text("次へ")');
+    // Enterキーで送信（ボタンクリックより確実）
+    await page.keyboard.press('Enter');
     await page.waitForTimeout(3000);
+
+    // スクショで状態確認
+    await page.screenshot({ path: path.join(__dirname, 'debug-after-next.png') });
 
     // 追加認証（メールアドレスや電話番号の確認が求められる場合）
     const extraInput = await page.$('input[data-testid="ocfEnterTextTextInput"]');
@@ -95,12 +150,14 @@ async function doLogin() {
     // パスワード入力
     log('パスワードを入力中...');
     const passwordInput = await page.waitForSelector('input[name="password"], input[type="password"]', { timeout: 15000 });
-    await passwordInput.fill(password);
+    await passwordInput.click();
+    await page.waitForTimeout(300);
+    await page.keyboard.type(password, { delay: 50 });
     await page.waitForTimeout(500);
 
-    // ログインボタン
-    log('ログインボタンをクリック...');
-    await page.click('[data-testid="LoginForm_Login_Button"], button:has-text("Log in"), button:has-text("ログイン")');
+    // ログインボタン — Enterで送信
+    log('ログイン実行...');
+    await page.keyboard.press('Enter');
     await page.waitForTimeout(5000);
 
     // ログイン確認
