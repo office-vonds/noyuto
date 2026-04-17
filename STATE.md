@@ -26,7 +26,7 @@
 
 | # | プロジェクト | 状態 | 次の確認 | 詳細 |
 |---|-------------|------|---------|------|
-| 7 | ILゲーム v5 | 本番稼働中（Netlify） | Firestoreログ100件で月次レビュー | [state/il-game.md](state/il-game.md) |
+| 7 | ILゲーム v5 | 本番稼働中（Netlify）・**IL2025理論で教育資料刷新(4/17)** | Firestoreログ100件で月次レビュー / 刷新済み資料のオーナー営業活用 | [state/il-game.md](state/il-game.md) |
 | 8 | 本気ストレッチ | スマホ修正完了・メール未テスト・**Google広告CVタグ実装待ち**・適格性確認プログラム進行中 | メール実機テスト送信 / CVタグ実装 / 代理店書類 / 中込氏クライアント書類待ち | [state/majistretch.md](state/majistretch.md) |
 | 10 | 4/23(木)13:00 Kayoko Ando氏MTG | Google Ads API Basic Access審査期間 | NOYUTO+KIRYU | 質問項目準備・前日リマインダー | [memory/project_vonds_ads_mcc.md](../.claude/projects/-home-ozawakiryu0902-projects-vonds/memory/project_vonds_ads_mcc.md) |
 
