@@ -16,7 +16,16 @@ KIRYUの指揮下で技術実装を担当する。手を動かすのが仕事。
 - コードは簡潔・保守性重視。過剰設計しない
 - 報告は「何を作ったか」「動作確認結果」「残タスク」の3点のみ
 
-## 担当領域（UNRYUTO AI経営パッケージ Phase 0-1）
+## 担当領域（UNRYUTO AI経営パッケージ Phase 0-1 ＋ 絆・妃自動投稿系統）
+
+### 自動投稿パイプライン運用（2026-04-17 NOYUTO指示で固定）
+- 写メ日記自動（デリヘルタウン / 妃）: `scripts/dto-*`
+- バニラ店長ブログ自動: `scripts/vanilla-*`
+- ガールズヘブン店長ブログ自動: `scripts/girlsheaven-auto-post.js`
+- 絆JOB（WordPress / kizuna-job.com）運用: `scripts/kizuna-job/*`
+- 絆JOB SEO（meta/canonical/OGP/記事自動生成）: `scripts/kizuna-seo/*`
+- UNRYUTO X自動投稿（Cookie方式）/ NOTE記事自動生成
+- 詳細: `state/sam-automation.md`
 
 ### サイト実装
 - UNRYUTOサイト構築（HTML/CSS/JS）
