@@ -67,21 +67,134 @@ function ensureDirs() {
   });
 }
 
-// ── generate_post.py を呼び出してスレッド生成 ──
-function generateThread() {
-  log('generate_post.py でスレッド生成中...');
-  try {
-    const result = execSync(
-      `cd "${NOYUTO_SCRIPTS_DIR}" && python3 generate_post.py`,
-      { encoding: 'utf-8', timeout: 120000, env: { ...process.env } }
-    );
-    console.log(result);
-    log('スレッド生成完了');
-    return true;
-  } catch (err) {
-    log(`ERROR: generate_post.py 実行失敗: ${err.message}`);
-    return false;
+// ── テーマプール（思想DB v3 準拠・17テーマ）──
+const THEME_POOL = [
+  { id: 1, theme: '信頼の消費構造', angle: '信頼を語る人間の9割が、信頼を消費している事実', arrow: 'B' },
+  { id: 2, theme: '善意の搾取構造', angle: '善意で動く人間ほど搾取される仕組み', arrow: 'A' },
+  { id: 3, theme: '効率化の逆説', angle: '効率化を語る経営者が、社員の非効率を生んでいる構造', arrow: 'A' },
+  { id: 4, theme: '努力の自己消費ループ', angle: '努力を続ける人間が報われない構造的理由', arrow: 'C' },
+  { id: 5, theme: '正解依存症', angle: '正解を求める人間が正解から最も遠い理由', arrow: 'C' },
+  { id: 6, theme: '矛盾を抱える強さ', angle: '矛盾を許容できない人間は強くなれない', arrow: 'B' },
+  { id: 7, theme: '些事の力', angle: '些事に気を込められない人間が大事を成せるわけがない', arrow: 'C' },
+  { id: 8, theme: '心の積極化', angle: '積極的な心を持つと決めた人間だけが見える景色', arrow: 'B' },
+  { id: 9, theme: '評価経済の崩壊', angle: '評価を追う人間が信用を失う構造', arrow: 'A' },
+  { id: 10, theme: '健康の自己欺瞞', angle: '健康を語りながら体を壊す矛盾を直視できるか', arrow: 'B' },
+  { id: 11, theme: '金と志の関係', angle: '金を稼ぐ理由が自分のためだけなら、その金は腐る', arrow: 'A' },
+  { id: 12, theme: '恩義の循環', angle: '恩を返すのではなく、次に渡す人間が強い', arrow: 'C' },
+  { id: 13, theme: '少数派の生存戦略', angle: '人がやらないことだけを探す人間の共通点', arrow: 'B' },
+  { id: 14, theme: '負の感情の処理構造', angle: '負の感情を人に話す人間は、自分の弱さを増幅している', arrow: 'C' },
+  { id: 15, theme: '自然と不自然', angle: '自然に逆らう生き方が病を生む構造', arrow: 'B' },
+  { id: 16, theme: '結果を出す前に辞める構造', angle: '結果を出す前に辞める人間の共通点', arrow: 'C' },
+  { id: 17, theme: '貧しさの美学', angle: '貧しさは美しい。心が貧しくなければ生きていける', arrow: 'A' },
+];
+
+// ── スレッド構造パーツ（リポスト誘発構造v4準拠）──
+const HOOKS = {
+  A: [
+    (t) => `${t.theme}。\n\nこの言葉の意味を正確に理解している経営者は、100人に1人もいません。\n\n${t.angle}。\n\nこの構造を知らないまま経営を続けている人間がどれだけいるか。`,
+    (t) => `「${t.theme}」という言葉を聞いて、自分は違うと思った人間ほど危険です。\n\n${t.angle}。\n\nこの事実を直視できるかどうかが、経営者としての分岐点です。`,
+    (t) => `経営者の9割が見落としている構造があります。\n\n「${t.theme}」\n\n${t.angle}。\n\nこの構造を放置している限り、組織は内側から壊れ続けます。`,
+  ],
+  B: [
+    (t) => `${t.theme}。\n\nこの構造に気づいている人間は、もう言葉を選んでいます。\n\n${t.angle}。\n\n気づいていない人間は、まだ同じ過ちを繰り返している。`,
+    (t) => `「${t.theme}」\n\nこの言葉を聞いて、誰かの顔が浮かんだ人間は正常です。\n\n${t.angle}。\n\n問題は、浮かんだ顔が自分だった場合です。`,
+    (t) => `${t.theme}について、本気で考えたことがある人間は少ない。\n\n${t.angle}。\n\nこの構造を理解している人間同士は、言葉が少なくても通じ合います。`,
+  ],
+  C: [
+    (t) => `${t.theme}。\n\nこれを20代のうちに理解できるかどうかで、人生の軌道が変わります。\n\n${t.angle}。\n\n知っているか知らないかではない。気づけるかどうかです。`,
+    (t) => `若い人間に一つだけ伝えるなら、「${t.theme}」の話をします。\n\n${t.angle}。\n\nこの構造を知らないまま30歳を迎える人間が多すぎる。`,
+    (t) => `「${t.theme}」\n\n${t.angle}。\n\nこの話を素直に聞ける人間は、5年後に必ず差がつきます。\n\n素直に聞けない人間は、5年後も同じ場所にいます。`,
+  ],
+};
+
+const PROVOKES = [
+  (t) => `「そんなことはない」と思った人間。\n\nあなたのその反応こそが、${t.theme}の証拠です。\n\n反論したくなる構造自体が、この問題の本質。\n\n冷静に自分を見つめ直せるかどうか。それだけです。`,
+  (t) => `この話をすると、必ず2種類の反応が返ってきます。\n\n「確かにそうだ」と黙る人間。\n「いや、自分は違う」と声を上げる人間。\n\n後者の方が、${t.theme}に深く嵌っています。`,
+  (t) => `${t.angle}。\n\nこの事実を認めたくない人間の特徴は、「例外」を探し始めることです。\n\n例外を探す暇があるなら、まず自分の行動を棚卸ししてください。`,
+];
+
+const EVIDENCES = [
+  (t) => `22年、現場を見てきました。\n\n${t.theme}に陥る人間には、共通のパターンがあります。\n\n・口では理想を語る\n・行動は昨日と同じ\n・変化を恐れていることに気づいていない\n\nこの3つが揃った瞬間、構造は固定されます。`,
+  (t) => `数字で語ります。\n\n${t.theme}を理解して行動を変えた人間と、理解しなかった人間。\n\n3年後の差は、能力ではなく「構造への気づき」で決まっていました。\n\n才能の差ではありません。認識の差です。`,
+  (t) => `中村天風はこう言いました。\n\n「些事に気を込めよ」\n\n${t.theme}の解決策は、実はここにあります。\n\n大きなことを変えようとする前に、目の前の些事に全力を注げるかどうか。\n\nそれができない人間が、構造を変えられるわけがない。`,
+];
+
+const LANDINGS = {
+  A: [
+    (t) => `この構造に気づいている経営者は、もう動いています。\n\nあなたの会社の経営者は、この話を聞いてどう反応するでしょうか。\n\n「知っている」と言うか。「考えたこともなかった」と言うか。\n\nその反応が、全てを物語っています。\n\n#${t.theme.replace(/[の・]/g, '')}`,
+    (t) => `あなたの上司にこの話を見せてみてください。\n\n反応を見れば、その人間がどちら側にいるか分かります。\n\n${t.theme}から抜け出すための第一歩は、気づくこと。\n\nその答えは、もうここにある。\n\n#${t.theme.replace(/[の・]/g, '')}`,
+  ],
+  B: [
+    (t) => `この話を読んで、誰かの顔が浮かんだ人間へ。\n\nその人に、この投稿を見せてみてください。\n\n同じ反応が返ってきたら、あなたたちは同じ側にいます。\n\n違う反応が返ってきたら、それもまた答えです。\n\n#${t.theme.replace(/[の・]/g, '')}`,
+    (t) => `${t.theme}に気づいている人間は、もう動いています。\n\nあなたの隣にいる仲間は、まだ気づいていないかもしれません。\n\nその答えは、もうここにある。\n\n#${t.theme.replace(/[の・]/g, '')}`,
+  ],
+  C: [
+    (t) => `この話を、あなたの後輩に見せてみてください。\n\n素直に受け取る人間は、必ず伸びます。\n\n反発する人間は、まだ準備ができていないだけです。\n\nどちらも、間違いではありません。\n\nタイミングは人それぞれです。\n\n#${t.theme.replace(/[の・]/g, '')}`,
+    (t) => `${t.theme}。\n\nこの構造を若いうちに理解できた人間は幸運です。\n\n理解できなくても、この投稿を保存しておいてください。\n\nいつか必ず、意味が分かる日が来ます。\n\n#${t.theme.replace(/[の・]/g, '')}`,
+  ],
+};
+
+function pickRandom(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+// ── 使用済みテーマ管理 ──
+const USED_THEMES_FILE = path.join(SCRIPT_DIR, 'data', 'noyuto-x', 'used-themes.json');
+
+function getUnusedTheme() {
+  let used = [];
+  if (fs.existsSync(USED_THEMES_FILE)) {
+    try { used = JSON.parse(fs.readFileSync(USED_THEMES_FILE, 'utf-8')); } catch (e) { used = []; }
   }
+  const unused = THEME_POOL.filter(t => !used.includes(t.id));
+  if (unused.length === 0) {
+    // 全テーマ使い切り → リセット
+    log('全17テーマ使い切り。リセット');
+    used = [];
+    fs.writeFileSync(USED_THEMES_FILE, '[]', 'utf-8');
+    return pickRandom(THEME_POOL);
+  }
+  const theme = pickRandom(unused);
+  used.push(theme.id);
+  fs.writeFileSync(USED_THEMES_FILE, JSON.stringify(used), 'utf-8');
+  return theme;
+}
+
+// ── スレッド生成（API不要・内蔵エンジン）──
+function generateThread() {
+  log('内蔵エンジンでスレッド生成中...');
+  ensureDirs();
+
+  const theme = getUnusedTheme();
+  log(`テーマ: [${theme.id}] ${theme.theme} (矢印:${theme.arrow})`);
+
+  const hook = pickRandom(HOOKS[theme.arrow])(theme);
+  const provoke = pickRandom(PROVOKES)(theme);
+  const evidence = pickRandom(EVIDENCES)(theme);
+  const landing = pickRandom(LANDINGS[theme.arrow])(theme);
+
+  const thread = [
+    { position: 1, type: 'hook', text: hook },
+    { position: 2, type: 'provoke', text: provoke },
+    { position: 3, type: 'evidence', text: evidence },
+    { position: 4, type: 'landing', text: landing },
+  ];
+
+  const data = {
+    thread,
+    hashtags: [`#${theme.theme.replace(/[の・]/g, '')}`],
+    arrow_direction: theme.arrow,
+    structure_name: theme.theme,
+    generated_at: new Date().toISOString(),
+    engine: 'builtin-v1',
+  };
+
+  // pending_posts/ に保存
+  if (!fs.existsSync(PENDING_POSTS_DIR)) fs.mkdirSync(PENDING_POSTS_DIR, { recursive: true });
+  const fileName = `thread_${Date.now()}.json`;
+  fs.writeFileSync(path.join(PENDING_POSTS_DIR, fileName), JSON.stringify(data, null, 2), 'utf-8');
+
+  log(`生成完了: ${fileName}`);
+  thread.forEach((t, i) => log(`  [${i + 1}] ${t.text.substring(0, 50)}...`));
+  return true;
 }
 
 // ── pending_posts/ から最古のスレッドを取得 ──
