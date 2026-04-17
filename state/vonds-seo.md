@@ -1,10 +1,22 @@
 # VONDS SEO最適化
 
-## 現在地（2026-04-15更新）
+## 現在地（2026-04-17 23:40更新）
 
-- **状態**: 8本のURLが「Crawled, currently not indexed」→ Indexed遷移待ち
-- **最終施策日**: 2026-04-11
-- **経過**: 4日目。通常2-4週間で順位改善
+- **状態**: 18 URL中 7 Indexed / 8コラム「Discovered or Unknown」/ /company/ Duplicate canonical
+- **最終施策日**: 2026-04-17（権威ページ→コラム文脈リンク実装）
+- **経過**: 2-4週間のクロール待ち
+
+## 4/17 実施内容（最新）
+
+- `/works/seo/` → SEO系コラム4本（seo-howto/what-is-seo/yamanashi/local-seo）への文脈リンク
+- `/works/web/` → Web制作系コラム5本（web-design/cost/lp/renewal/no-traffic-fix）
+- `/works/ads/` → google-ads-guide + lp-design-tips
+- `/works/ai/` → ai-business-guide
+- sitemap.xml 再生成（lastmod 2026-04-17統一・32URL）
+
+**狙い**: 8本コラム「Discovered/Unknown to Google」状態から脱却。
+Indexed & 順位10-30位の権威ページからリンクエクイティを流入させ、
+Googleのクロール優先度を上げる。
 
 ## インデックス状態（4/15 KIRYU検証・4/11から大幅改善）
 
