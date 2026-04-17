@@ -1,0 +1,24 @@
+[2026/4/17 22:27:52] === 絆JOB IndexNow 自動送信開始 ===
+[2026/4/17 22:27:52] xmlrpc経由でstaff_blog 20件のURL取得
+[2026/4/17 22:27:52] 送信URL総数: 31
+[2026/4/17 22:27:53] IndexNow結果: HTTP 202
+[2026/4/17 22:27:53] ✅ IndexNow送信成功（Bing/Yandex等に即反映）
+[2026/4/17 22:27:53] sitemap ping Bing: 410
+[2026/4/17 22:27:53] sitemap ping Google: 404
+[2026/4/17 22:27:53] === 終了 ===
+[2026/4/17 22:29:12] === 絆JOB IndexNow 自動送信開始 ===
+[2026/4/17 22:29:12] xmlrpc経由でstaff_blog 20件のURL取得
+[2026/4/17 22:29:12] 送信URL総数: 31
+[2026/4/17 22:29:13] IndexNow結果: HTTP 422 / {"errorCode":"InvalidRequestParameters","message":"One or more URLs are not related to your site verified through the keylocation parameter. Please verify URLs before submitting.","details":null}
+[2026/4/17 22:29:13] ⚠️ 想定外のレスポンス: 422
+[2026/4/17 22:29:13] sitemap ping Bing: 410
+[2026/4/17 22:29:13] sitemap ping Google: 404
+[2026/4/17 22:29:13] === 終了 ===
+[2026/4/17 22:30:34] === 絆JOB IndexNow 自動送信開始 ===
+[2026/4/17 22:30:35] xmlrpc経由でstaff_blog 20件のURL取得
+[2026/4/17 22:30:35] 送信URL総数: 31
+[2026/4/17 22:30:35] IndexNow結果: HTTP 202
+[2026/4/17 22:30:35] ✅ IndexNow送信成功（Bing/Yandex等に即反映）
+[2026/4/17 22:30:35] sitemap ping Bing: 410
+[2026/4/17 22:30:36] sitemap ping Google: 404
+[2026/4/17 22:30:36] === 終了 ===

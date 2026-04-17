@@ -26,8 +26,9 @@ const LOGIN_URL = 'https://admin.dto.jp/a/auth/input?key=000874b3ba76b36a7c53082
 const LOGIN_ID = 'kisaki-no1@au.com';
 const LOGIN_PW = 'kisaki0902';
 
-const IMAGE_DIR = '/home/ozawakiryu0902/noyuto/scripts/dto-images';
-const VARIATION_DIR = '/home/ozawakiryu0902/projects/vonds/scripts/dto-variations';
+// 2026-04-17: AI本番画像参照に一本化（NOYUTO指示 サンプル画像は本番禁止）
+// 旧 IMAGE_DIR / VARIATION_DIR はサンプル/テスト扱いのため廃止
+const PRODUCTION_IMAGE_DIR = path.join(__dirname, 'ai-production');
 const STATE_FILE = path.join(__dirname, 'dto-auto-state.json');
 const ANALYSIS_FILE = path.join(__dirname, 'dto-analysis-result.json');
 
@@ -196,71 +197,39 @@ function getPostSlot(now, postTimes, postedSlots) {
 // 画像選択（完全重複排除）
 // ============================
 function getNextImage(castName, state) {
-  const castDir = path.join(IMAGE_DIR, castName);
-  if (!fs.existsSync(castDir)) return null;
+  const castDir = path.join(PRODUCTION_IMAGE_DIR, castName);
+  if (!fs.existsSync(castDir)) {
+    log(`  ${castName}: ai-production/${castName}/ 未生成 → 投稿スキップ`);
+    return null;
+  }
 
   const allFiles = fs.readdirSync(castDir)
     .filter(f => /\.(jpg|jpeg|png|gif)$/i.test(f))
     .sort();
-  if (allFiles.length === 0) return null;
+  if (allFiles.length === 0) {
+    log(`  ${castName}: 画像0枚 → 投稿スキップ`);
+    return null;
+  }
 
   if (!state.usedImages[castName]) state.usedImages[castName] = [];
   const used = state.usedImages[castName];
-  const unused = allFiles.filter(f => !used.includes(f));
+  let unused = allFiles.filter(f => !used.includes(f));
 
-  if (unused.length > 0) {
-    // ランダムに選択（順番固定だとパターン化するため）
-    const idx = Math.floor(Math.random() * unused.length);
-    const selected = unused[idx];
-    state.usedImages[castName].push(selected);
-    return {
-      file: path.join(castDir, selected),
-      name: selected,
-      remaining: unused.length - 1,
-      source: 'original',
-    };
-  }
-
-  // 全使い切り → バリエーション画像にフォールバック
-  return getVariationImage(castName, state);
-}
-
-function getVariationImage(castName, state) {
-  if (!fs.existsSync(VARIATION_DIR)) return null;
-
-  const prefix = castName + '_';
-  const allVariations = fs.readdirSync(VARIATION_DIR)
-    .filter(f => f.startsWith(prefix) && /\.(jpg|jpeg|png|gif)$/i.test(f))
-    .sort();
-
-  if (allVariations.length === 0) {
-    // バリエーションもない → オリジナル画像をリセットして再利用
-    log(`  ${castName}: 画像全使い切り+バリエーションなし。リセット`);
-    state.usedImages[castName] = [];
-    return getNextImage(castName, state);
-  }
-
-  const usedKey = `${castName}_variations`;
-  if (!state.usedImages[usedKey]) state.usedImages[usedKey] = [];
-  const used = state.usedImages[usedKey];
-  const unused = allVariations.filter(f => !used.includes(f));
-
+  // 全使い切り → リセットして再利用（画像プール有限なので循環）
   if (unused.length === 0) {
-    // バリエーションも使い切り → 全リセット
-    log(`  ${castName}: バリエーションも全使い切り。全リセット`);
+    log(`  ${castName}: 画像全使い切り → リセットして循環利用`);
     state.usedImages[castName] = [];
-    state.usedImages[usedKey] = [];
-    return getNextImage(castName, state);
+    unused = allFiles;
   }
 
   const idx = Math.floor(Math.random() * unused.length);
   const selected = unused[idx];
-  state.usedImages[usedKey].push(selected);
+  state.usedImages[castName].push(selected);
   return {
-    file: path.join(VARIATION_DIR, selected),
+    file: path.join(castDir, selected),
     name: selected,
     remaining: unused.length - 1,
-    source: 'variation',
+    source: 'production',
   };
 }
 
@@ -547,10 +516,10 @@ async function main() {
       try {
         const { start, end, galId } = schedule;
 
-        // 画像フォルダ確認
-        const castImgDir = path.join(IMAGE_DIR, castName);
+        // 画像フォルダ確認（本番AI画像のみ）
+        const castImgDir = path.join(PRODUCTION_IMAGE_DIR, castName);
         if (!fs.existsSync(castImgDir)) {
-          log(`  ${castName}: 画像フォルダなし。スキップ`);
+          log(`  ${castName}: ai-production/${castName}/ なし。スキップ`);
           continue;
         }
 
