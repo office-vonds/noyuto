@@ -27,6 +27,13 @@ scripts/node_modules/
 node_modules/
 .venv-ga4/
 .venv/
+.venv-ads/
+
+# Google Ads API credentials - 絶対commit禁止
+**/google-ads.yaml
+**/ads-oauth-client.json
+credentials/google-ads*
+credentials/ads-oauth*
 
 # ads-audit: クライアントのGoogle広告データはcommit禁止
 ads-audit/samples/*/data/*
