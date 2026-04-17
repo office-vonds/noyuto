@@ -1,7 +1,29 @@
 # SANKEN Google広告プロジェクト
 
-最終更新: 2026-04-17 / 更新者: KIRYU
+最終更新: 2026-04-17 12:40 / 更新者: KIRYU（バナナ実施）
 担当固定: **バナナ君**（NOYUTO指示 / 2026-04-17）
+
+## MCC統合（2026-04-17構築）
+
+- **MCC顧客ID**: `709-306-3546`（VONDS広告運用MCC）
+- 配下3クライアント統合済み:
+  - `136-371-9642` A-TRUCK
+  - `854-911-4235` ストレッチゼロ
+  - `681-110-5790` 本気ストレッチ
+- Basic Access 申請中（4/17提出・1-3営業日審査）
+- 4/23 13:00 Kayoko Ando氏MTG予定
+
+## API実装基盤（2026-04-17整備）
+
+- `scripts/vonds-ads-api/` 作成
+  - README.md / requirements.txt（google-ads v24）
+  - auth_setup.py（OAuth refresh_token取得）
+  - test_connection.py（3クライアント疎通確認）
+  - fetch_reports.py（74チェック用CSV一括取得）
+  - mtg_0423_notes.md（4/23 MTG質問リスト）
+  - .gitignore（秘密情報ブロック）
+- 認証情報は `~/credentials/google-ads.yaml` のみ（リポジトリ不在）
+- Basic Access承認後に即稼働可能
 
 ---
 
@@ -9,10 +31,10 @@
 
 | # | クライアント | ブランド | URL | 状態 |
 |---|------------|---------|-----|------|
-| 1 | SANKEN株式会社 | 買取コンシェルジュ | https://kaitori-concierge.net | 稼働中 |
-| 2 | SANKEN株式会社 | ストレッチゼロ | stretchlabo.jp（LP別） | 稼働中・CSV未取得 |
-| 3 | SANKEN株式会社 | 本気ストレッチ | majistretch.com | 稼働中 |
-| 4 | A-TRUCK株式会社 | A-TRUCK本体 | - | 月額契約・稼働中 |
+| 1 | SANKEN株式会社 | 買取コンシェルジュ | https://kaitori-concierge.net | 稼働中・MCC外（別途判断） |
+| 2 | SANKEN株式会社 | ストレッチゼロ | stretchlabo.jp（LP別） | 稼働中・MCC内・CSV未取得 |
+| 3 | SANKEN株式会社 | 本気ストレッチ | majistretch.com | 稼働中・MCC内 |
+| 4 | A-TRUCK株式会社 | A-TRUCK本体 | - | 月額契約・MCC内 |
 
 ## バナナの責務
 
@@ -30,11 +52,14 @@
 
 ## 直近タスク（2026-04-17時点）
 
-- [ ] **ストレッチゼロCSV 7本DL**（会社PC・NOYUTO作業・`ads-audit/samples/stretchzero/data/`）
-- [ ] CSV着弾後 → 74チェック監査実行 → レポート納品
-- [ ] 本気ストレッチ×ストレッチゼロの除外KW実装状況確認（現状は方針策定のみ）
-- [ ] A-TRUCK月次レポート自動生成仕組みの引継ぎ（構築中）
-- [ ] 買取コンシェルジュのCV計測現状棚卸し
+- [ ] **Developer Token リセット**（最優先・Notionに新Token保管）
+- [ ] Google Cloud `vonds-ads-api` プロジェクト作成 → OAuth Client ID発行
+- [ ] `~/credentials/google-ads.yaml` 配置 → `auth_setup.py` で refresh_token 取得
+- [ ] Basic Access 承認後：`test_connection.py` で3クライアント疎通確認
+- [ ] 承認後：`fetch_reports.py --all` で 74チェック用CSV一括取得（CSV手DLは不要化）
+- [ ] 4/23 MTG事前準備（`scripts/vonds-ads-api/mtg_0423_notes.md`）
+- [ ] 本気ストレッチ×ストレッチゼロの除外KW実装状況確認（API承認後に即検証可）
+- [ ] 買取コンシェルジュのMCC統合要否判断（現状MCC外）
 
 ## 関連
 
@@ -42,6 +67,8 @@
 - 監査商品: `ads-audit/` 配下（templates/pricing/samples/references）
 - KW棲み分け: `memory/project_ads_keyword_separation.md`
 - 監査商品化全体: `memory/project_vonds_ads_audit_product.md`
+- MCC・API基盤: `memory/project_vonds_ads_mcc.md` + `scripts/vonds-ads-api/`
+- 秘密情報ルール: `memory/feedback_secret_handling.md`
 - A-TRUCK: `state/atruck-seo.md`
 - ストレッチゼロサーバー: `memory/reference_stretchzero_server.md`
 - 本気ストレッチサーバー: `memory/reference_majistretch_server.md`

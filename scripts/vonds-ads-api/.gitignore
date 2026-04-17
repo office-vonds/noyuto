@@ -1,0 +1,8 @@
+# 認証情報は ~/credentials/ のみに配置。このディレクトリに置かれてもcommitさせない
+google-ads.yaml
+*.json
+!package.json
+*.pem
+*.key
+refresh_token*
+client_secret*

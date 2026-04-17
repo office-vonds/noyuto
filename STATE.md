@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-17 21:50 / 更新者: KIRYU
+最終更新: 2026-04-17 12:45 / 更新者: バナナ（API基盤整備）
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -19,7 +19,7 @@
 | 5 | 絆JOB SEO | **Phase2完了（meta/canonical/OGP/記事8本）** | NOYUTO | GSCで6URL手動インデックス登録（15分） | [session-logs/2026-04-15_1140_kizuna-seo-phase2.md](session-logs/2026-04-15_1140_kizuna-seo-phase2.md) |
 | 6 | 絆バニラ最適化 | **6/7ページ更新完了** | NOYUTO | 画像素材提供→空き枠追加 / 口コミ返信手動投稿 | [session-logs/2026-04-15_1840_vanilla-optimize.md](session-logs/2026-04-15_1840_vanilla-optimize.md) |
 | 7 | 自動投稿パイプライン統合運用（dto/vanilla/ガールズヘブン/絆JOB） | **サム担当固定（2026-04-17）** | サム | cron棚卸し・認証切れ検知統一・画像プール可視化 | [state/sam-automation.md](state/sam-automation.md) |
-| 8 | VONDS広告運用MCC・Google Ads API統合基盤 | **NOYUTO構築完了(4/17)・Basic Access申請中** | バナナ | Token即リセット→Notion機密DB保管→GCP→OAuth実装 | [memory/project_vonds_ads_mcc.md](../.claude/projects/-home-ozawakiryu0902-projects-vonds/memory/project_vonds_ads_mcc.md) |
+| 8 | VONDS広告運用MCC・Google Ads API統合基盤 | **API実装雛形整備完了(4/17 12:45)・Basic Access申請中** | NOYUTO | Token即リセット→GCP OAuth発行→`~/credentials/google-ads.yaml`配置→auth_setup.py実行 | [state/sanken-ads.md](state/sanken-ads.md) + `scripts/vonds-ads-api/` |
 | 9 | @rina_xxxfree 凍結事故復旧 | **Appeal提出完了(4/17)・返答待ち / ブログ記事化cron稼働中** | X審査(3-14日) | 返答受領後判断 / cron毎朝10:00継続 | [tasks/rina-ban-recovery.md](tasks/rina-ban-recovery.md) |
 
 ## 観測中
