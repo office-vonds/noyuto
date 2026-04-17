@@ -11,7 +11,7 @@
 
 ### 0-A. Developer Token リセット → Notion機密DB保管（承認到着前に即実施可能）
 
-**経緯**: 現行Token `HMxHQc89ZKJ9IWJ_t222LQ` がチャット内で露出 → セキュリティ観点で即リセット必須
+**経緯**: 現行Token（文字列はNotion機密DB参照）がチャット内で露出 → セキュリティ観点で即リセット必須
 **手順**:
 1. Google Ads UI → MCC (709-306-3546) → 管理者 → API Center
 2. Developer Token欄「トークンをリセット」クリック
