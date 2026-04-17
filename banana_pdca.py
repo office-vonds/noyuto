@@ -68,17 +68,30 @@ def load_engagement():
 
 
 def load_weights():
-    """現在のテーマ重みを読み込む"""
+    """現在のテーマ重みを読み込む（{theme: weight} のflat dictで返す）"""
     if WEIGHTS_FILE.exists():
         with open(WEIGHTS_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+        if isinstance(data, dict) and "themes" in data and isinstance(data["themes"], dict):
+            return dict(data["themes"])
+        return data if isinstance(data, dict) else {}
     return {}
 
 
 def save_weights(weights):
-    """テーマ重みを保存"""
+    """テーマ重みを保存（既存メタ情報を保持しつつ themes を更新）"""
+    existing = {}
+    if WEIGHTS_FILE.exists():
+        with open(WEIGHTS_FILE, "r", encoding="utf-8") as f:
+            existing = json.load(f)
+    if isinstance(existing, dict) and "themes" in existing:
+        existing["themes"] = weights
+        existing["updated_at"] = datetime.now().isoformat()
+        out = existing
+    else:
+        out = weights
     with open(WEIGHTS_FILE, "w", encoding="utf-8") as f:
-        json.dump(weights, f, ensure_ascii=False, indent=2)
+        json.dump(out, f, ensure_ascii=False, indent=2)
 
 
 def extract_theme_category(topic):
