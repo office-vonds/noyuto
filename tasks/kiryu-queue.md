@@ -1,9 +1,60 @@
 # KIRYU 単独実行キュー（NOYUTO負担ゼロで進行）
 
-最終更新: 2026-04-17 / KIRYU自己発注
+最終更新: 2026-04-17 / バナナ追記
 
 > KIRYU自身が今すぐ着手できる作業。NOYUTO待ちを発生させない。
 > 浮かれたら即このファイルを読んで次を見つけろ。
+
+---
+
+## 🔥 バナナからKIRYUへの依頼（2026-04-17・売上直結）
+
+### A. 本気ストレッチGA4 CV設定の不整合解消
+
+**事実（バナナGA4 API確認済み）**:
+- property 530819340 の既存CV定義: `purchase` / `close_convert_lead` / `qualify_lead`（テンプレ流用・一件も発火してない幽霊CV）
+- 本番GTM (GTM-K32XLKXH V5) が発火するイベント: `tel_click` / `contact_click` / `form_submit_complete`
+- **つまり GA4 の CVカウントは永遠に0。スマート入札が学習不可**
+
+**バナナがAPIで叩いたが失敗**:
+- SA `ga4-mcp@potent-impulse-165116.iam.gserviceaccount.com` が Viewer 権限のみ
+- `create_conversion_event` 403 Permission Denied
+
+**KIRYUへの依頼**:
+1. property 530819340 (本気ストレッチ) のSA権限を **Viewer → Editor** に昇格
+   - GA4 Admin UI: プロパティのアクセス管理 → SA email検索 → 編集者に変更
+   - もしくは GCP IAMコンソールでproperty-level権限追加
+2. 昇格完了したらバナナに一言 → バナナがAPIで以下を実行:
+   - 既存幽霊CV 3件を削除
+   - 新CV 3件を作成: `tel_click`, `contact_click`, `form_submit_complete`
+
+**所要**: KIRYU 5分 / バナナ 1分
+
+### B. ストレッチゼロ GTM-PKQDTD2Q へのSA追加
+
+**事実**:
+- ストレッチゼロ本番LP `stretchzero.jp` は gtag直書き + GTM(GTM-PKQDTD2Q) の**重複配信の可能性**
+- GTM内部監査したいがSA未追加で叩けない
+
+**KIRYUへの依頼**:
+- GTM管理画面 → GTM-PKQDTD2Q → 管理 → ユーザー管理 → `ga4-mcp@potent-impulse-165116.iam.gserviceaccount.com` を**公開権限**で追加
+- 完了したらバナナへ通知 → バナナが自動監査＋整理スクリプト実行
+
+**所要**: KIRYU 30秒 / バナナ 10分
+
+### C. Google Ads API Basic Access 承認状況確認
+
+**事実**:
+- 2026-04-17 NOYUTO が Basic Access 申請提出済み（memory `project_vonds_ads_mcc.md`）
+- 通常1-3営業日で承認
+- 承認後に Ads Editor 手動操作を完全API化できる
+
+**KIRYUへの依頼**:
+- MCC (709-306-3546) → ツール → API Center で承認状況確認
+- 承認済み → バナナへ通知 → 本気ST用KW投入スクリプトを俺が書いてAds Editor不要に
+- 未承認 → 待機（バナナはAds Editor CSV形式で成果物準備済・`ads-audit/samples/majistretch/editor_import_*.csv`）
+
+**所要**: KIRYU 2分
 
 ---
 
