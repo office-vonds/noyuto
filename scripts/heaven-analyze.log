@@ -1,0 +1,44 @@
+[2026/4/17 23:01:23] === heaven競合分析 開始 ===
+[2026/4/17 23:01:23] 
+--- 東京 ---
+[2026/4/17 23:01:23] 試行: https://www.cityheaven.net/a01/girlsdiary/
+[2026/4/17 23:01:26] 試行: https://www.cityheaven.net/a01/diary_ranking/
+[2026/4/17 23:01:29] 試行: https://www.cityheaven.net/a01/diary/
+[2026/4/17 23:01:32] 
+--- 大阪 ---
+[2026/4/17 23:01:32] 試行: https://www.cityheaven.net/a27/girlsdiary/
+[2026/4/17 23:01:34] 試行: https://www.cityheaven.net/a27/diary_ranking/
+[2026/4/17 23:01:37] 試行: https://www.cityheaven.net/a27/diary/
+[2026/4/17 23:01:40] 
+--- 愛知 ---
+[2026/4/17 23:01:40] 試行: https://www.cityheaven.net/a23/girlsdiary/
+[2026/4/17 23:01:43] 試行: https://www.cityheaven.net/a23/diary_ranking/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a23/diary_ranking/: page.evaluate: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a23/diary/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a23/diary/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 
+--- 福岡 ---
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a40/girlsdiary/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a40/girlsdiary/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a40/diary_ranking/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a40/diary_ranking/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a40/diary/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a40/diary/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 
+--- 神奈川 ---
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a14/girlsdiary/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a14/girlsdiary/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a14/diary_ranking/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a14/diary_ranking/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a14/diary/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a14/diary/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 
+--- 北海道 ---
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a01_hk/girlsdiary/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a01_hk/girlsdiary/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a01_hk/diary_ranking/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a01_hk/diary_ranking/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 試行: https://www.cityheaven.net/a01_hk/diary/
+[2026/4/17 23:01:45]   ✗ https://www.cityheaven.net/a01_hk/diary/: page.goto: Target page, context or browser has been closed
+[2026/4/17 23:01:45] 
+=== 完了 計0件 → /home/ozawakiryu0902/projects/vonds/scripts/heaven-competitor-data.json ===
