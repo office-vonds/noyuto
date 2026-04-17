@@ -1,0 +1,70 @@
+#!/bin/bash
+# VONDS プロジェクト - 秘密情報漏洩防止 pre-commit フック
+# 2026-04-17 バナナ作成 / Developer Token漏洩事故(commit 0b9a5f5)を受けての再発防止
+#
+# 有効化: git config core.hooksPath .githooks
+# 緊急回避: git commit --no-verify (原則禁止)
+
+PATTERNS=(
+  # Anthropic API Key
+  'sk-ant-api03-[A-Za-z0-9_-]{50,}'
+  # GitHub Personal Access Token
+  'ghp_[A-Za-z0-9]{30,}'
+  'gho_[A-Za-z0-9]{30,}'
+  'ghs_[A-Za-z0-9]{30,}'
+  # AWS Access Key
+  'AKIA[0-9A-Z]{16}'
+  # Google API Key
+  'AIza[0-9A-Za-z_-]{35}'
+  # Slack Bot Token
+  'xoxb-[0-9]+-[0-9]+-[A-Za-z0-9]+'
+  # Google Ads 既漏洩Developer Token(無効化後も誤コピペ検出用)
+  'HMxHQc89ZKJ9IWJ_t222LQ'
+  # google-ads.yaml の developer_token 直書き検出
+  '^[[:space:]]*developer_token:[[:space:]]*[A-Za-z0-9_-]{10,}'
+  # OAuth refresh_token 直書き検出
+  '^[[:space:]]*refresh_token:[[:space:]]*[A-Za-z0-9_/.=+-]{30,}'
+  # OAuth client_secret 直書き検出
+  '^[[:space:]]*client_secret:[[:space:]]*[A-Za-z0-9_-]{20,}'
+  # PEM 秘密鍵
+  '-----BEGIN (RSA |EC |)PRIVATE KEY-----'
+  # Stripe Secret Key
+  'sk_live_[A-Za-z0-9]{20,}'
+)
+
+files=$(git diff --cached --name-only --diff-filter=ACM)
+found=0
+
+for file in $files; do
+  # hook自身は検査対象外 (パターン文字列を内包するため)
+  case "$file" in
+    .githooks/*) continue ;;
+  esac
+  if [ -f "$file" ]; then
+    for pattern in "${PATTERNS[@]}"; do
+      match=$(grep -EHn "$pattern" "$file" 2>/dev/null | head -3)
+      if [ -n "$match" ]; then
+        echo "❌ 秘密情報検出: $file"
+        echo "   パターン: $pattern"
+        echo "   該当行:"
+        echo "$match" | sed 's/^/     /'
+        echo ""
+        found=1
+      fi
+    done
+  fi
+done
+
+if [ $found -eq 1 ]; then
+  echo "🚨 commit を拒否しました。秘密情報は絶対にコミットしないこと。"
+  echo ""
+  echo "対応:"
+  echo "  1. 該当ファイルから秘密情報を削除してください"
+  echo "  2. 秘密情報は Notion『各種アカウント』ページに保管"
+  echo "  3. スクリプト等で必要な場合は ~/credentials/ 配下に配置 (gitignore済み)"
+  echo ""
+  echo "どうしても commit したい場合: git commit --no-verify (非推奨・監査ログに残す)"
+  exit 1
+fi
+
+exit 0
