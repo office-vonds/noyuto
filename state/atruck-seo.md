@@ -20,9 +20,9 @@
 
 ## 未実施（別途対応）
 
-- GTM3重読込の統合（コンテナID確認後）
-- header.phpのハードコード`<title>`削除
-- 鈑金塗装ページのコンテンツ拡充
+- GTM3重読込の統合（コンテナID確認後） → `tasks/sam-queue.md` #2
+- header.phpのハードコード`<title>`削除 → `tasks/sam-queue.md` #3
+- ~~鈑金塗装ページのコンテンツ拡充~~ **コンテンツは seo/atruck-repair-content.php に作成済（210行・3000字超）。functions.php統合＋デプロイのみ残** → `tasks/sam-queue.md` #1
 
 ## GTM調査結果（2026-04-15 KIRYU調査）
 

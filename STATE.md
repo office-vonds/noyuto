@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-17 12:55 / 更新者: バナナ
+最終更新: 2026-04-17 13:00 / 更新者: KIRYU（バナナ更新を統合）
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -11,7 +11,7 @@
 
 | # | プロジェクト | 状態 | ボール | 次のアクション | 詳細 |
 |---|-------------|------|--------|---------------|------|
-| 1 | A-TRUCK SEO | **本番稼働中（4/15デプロイ完了）** | KIRYU | 残タスク: GTM統合・title修正・鈑金コンテンツ | [state/atruck-seo.md](state/atruck-seo.md) |
+| 1 | A-TRUCK SEO | **鈑金コンテンツ作成済(210行)/デプロイ待ち** | サム | GTM統合/title修正/鈑金デプロイ → [tasks/sam-queue.md](tasks/sam-queue.md) | [state/atruck-seo.md](state/atruck-seo.md) |
 | 2 | VONDS広告監査 | CSV未取得 | NOYUTO | ストレッチゼロCSV 7本DL（会社PC）→ バナナへ引継ぎ | [state/vonds-ads-audit.md](state/vonds-ads-audit.md) |
 | 2b | SANKEN Google広告（買取/ストレッチ×2 + A-TRUCK） | **バナナ担当固定** / ストレッチゼロKW追加11本＋除外11本作成済 / 本気ST CVタグ指示書作成済 | NOYUTO→サム | NOYUTO:KW投入＋CVアクション4本作成→サム:GTMタグ実装 | [state/sanken-ads.md](state/sanken-ads.md) |
 | 3 | UNRYUTO Phase 0 | サイト構築済・外部連携待ち | NOYUTO | DNS確認 / Stripe開設 / X API鍵発行 | [state/unryuto.md](state/unryuto.md) |
@@ -35,7 +35,7 @@
 | 9 | 資金繰り対策 | レオ引継ぎ済 | レオが三井住友カード枠確認後 |
 | 10 | なみAI画像 | ラップトップ確認待ち | topless系の生成ルート特定 |
 | 11 | ILゲーム事業分析 | NOYUTO口頭待ち | 5つの質問への回答 |
-| 12 | 情報共有最適化 | Phase 2実行中（今） | STATE.md完成で完了 |
+| ~~12~~ | ~~情報共有最適化~~ | ~~完了（2026-04-17: Notion役割分担表・tasks/配備・3エージェント作業キュー）~~ | - |
 
 ---
 
