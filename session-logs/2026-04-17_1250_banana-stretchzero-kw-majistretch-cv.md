@@ -31,6 +31,15 @@ CV設計（メインCV: TEL/フォーム送信 / マイクロCV: CTAクリック
 ## 現在の状態
 完了（バナナ側タスクすべて。以降はNOYUTO管理画面操作＋サム実装）
 
+## 追記（13:20）GTM現物確認
+NOYUTOからGTMコンテナスクショ3枚受領→整理判定実施:
+- TELタップ2重計上（旧タグ + 新タグ）確定→旧停止
+- コンバージョンリンカー2本重複→旧停止
+- 予約ボタントリガーがairrsv.net想定で発火ゼロ（本番は#reservation）→修正
+- メールタップCVタグ未実装→追加必要
+NOYUTO承認済み→確定版指示書作成: `majistretch/tasks/gtm_cleanup_20260417_final.md`
+メールタップCV ID/ラベル提供済み: `18057524680` / `FpUuCN7tzp0cEMjrv6JD`
+
 ## 次にやること
 1. NOYUTOがGoogle広告管理画面でKW/除外投入
 2. NOYUTOがCVアクション4本作成→AW-ID/ラベルをサムへ共有
