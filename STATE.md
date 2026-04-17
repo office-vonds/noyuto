@@ -20,7 +20,7 @@
 | 6 | 絆バニラ最適化 | **6/7ページ更新完了** | NOYUTO | 画像素材提供→空き枠追加 / 口コミ返信手動投稿 | [session-logs/2026-04-15_1840_vanilla-optimize.md](session-logs/2026-04-15_1840_vanilla-optimize.md) |
 | 7 | 自動投稿パイプライン統合運用（dto/vanilla/ガールズヘブン/絆JOB） | **サム担当固定（2026-04-17）** | サム | cron棚卸し・認証切れ検知統一・画像プール可視化 | [state/sam-automation.md](state/sam-automation.md) |
 | 8 | VONDS広告運用MCC・Google Ads API統合基盤 | **NOYUTO構築完了(4/17)・Basic Access申請中** | バナナ | Token即リセット→Notion機密DB保管→GCP→OAuth実装 | [memory/project_vonds_ads_mcc.md](../.claude/projects/-home-ozawakiryu0902-projects-vonds/memory/project_vonds_ads_mcc.md) |
-| 9 | @rina_xxxfree 凍結事故復旧 | **復旧パイプライン稼働中(4/17)** / 1記事投稿成功(Post 431) / 残37本→8記事分 | KIRYU+cron | Appeal文面提出(NOYUTO1分) + cron稼働(10:00/日) | [tasks/rina-ban-recovery.md](tasks/rina-ban-recovery.md) |
+| 9 | @rina_xxxfree 凍結事故復旧 | **Appeal提出完了(4/17)・返答待ち / ブログ記事化cron稼働中** | X審査(3-14日) | 返答受領後判断 / cron毎朝10:00継続 | [tasks/rina-ban-recovery.md](tasks/rina-ban-recovery.md) |
 
 ## 観測中
 

@@ -21,13 +21,17 @@
 
 ## 復旧3案
 
-### A. 凍結解除Appeal ⚡今日中に提出（失うもの無し）
+### A. 凍結解除Appeal ✅**2026-04-17 提出完了**
 
 - X公式フォーム: https://help.x.com/forms/account-access/appeals
-- 登録メールアドレスから申請必須
-- 文面ドラフト（下記）
+- 提出者: NOYUTO（office.vonds@gmail.com経由）
+- 確認: help.x.com/ja/forms/account-access/appeals/thank-you 「ありがとうございます」表示済
+- 返答期限目安: 3-14日
+- 返答チャネル: Xからのメール（届かなければ迷惑メールフォルダ確認）
+- 使用文面: `seo/x-appeal-rina-final.md` 英語版
 - 成功率: 10-30%（新規＋自動化バレなら低い）
 - 成功時の利得: フォロワー・投稿・stock全て復活
+- 却下 or 2週間返答なし → B案（新アカウント1週間ルール）へ移行
 
 ### B. 新アカウント立ち上げ（1週間ルール・慎重）
 
