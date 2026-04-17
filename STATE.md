@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-17 12:20 / 更新者: KIRYU
+最終更新: 2026-04-17 12:55 / 更新者: バナナ
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -13,7 +13,7 @@
 |---|-------------|------|--------|---------------|------|
 | 1 | A-TRUCK SEO | **本番稼働中（4/15デプロイ完了）** | KIRYU | 残タスク: GTM統合・title修正・鈑金コンテンツ | [state/atruck-seo.md](state/atruck-seo.md) |
 | 2 | VONDS広告監査 | CSV未取得 | NOYUTO | ストレッチゼロCSV 7本DL（会社PC）→ バナナへ引継ぎ | [state/vonds-ads-audit.md](state/vonds-ads-audit.md) |
-| 2b | SANKEN Google広告（買取/ストレッチ×2 + A-TRUCK） | **バナナ担当固定（2026-04-17）** | バナナ | KW棲み分け徹底・監査実行・月次レポート | [state/sanken-ads.md](state/sanken-ads.md) |
+| 2b | SANKEN Google広告（買取/ストレッチ×2 + A-TRUCK） | **バナナ担当固定** / ストレッチゼロKW追加11本＋除外11本作成済 / 本気ST CVタグ指示書作成済 | NOYUTO→サム | NOYUTO:KW投入＋CVアクション4本作成→サム:GTMタグ実装 | [state/sanken-ads.md](state/sanken-ads.md) |
 | 3 | UNRYUTO Phase 0 | サイト構築済・外部連携待ち | NOYUTO | DNS確認 / Stripe開設 / X API鍵発行 | [state/unryuto.md](state/unryuto.md) |
 | 4 | VONDS SEO | Crawled→Indexed遷移待ち | Google | GSCでインデックス状態確認 | [state/vonds-seo.md](state/vonds-seo.md) |
 | 5 | 絆JOB SEO | **Phase2完了（meta/canonical/OGP/記事8本）** | NOYUTO | GSCで6URL手動インデックス登録（15分） | [session-logs/2026-04-15_1140_kizuna-seo-phase2.md](session-logs/2026-04-15_1140_kizuna-seo-phase2.md) |
@@ -25,7 +25,7 @@
 | # | プロジェクト | 状態 | 次の確認 | 詳細 |
 |---|-------------|------|---------|------|
 | 7 | ILゲーム v5 | 本番稼働中（Netlify） | Firestoreログ100件で月次レビュー | [state/il-game.md](state/il-game.md) |
-| 8 | 本気ストレッチ | スマホ修正完了・メール未テスト | メール実機テスト送信 | [state/majistretch.md](state/majistretch.md) |
+| 8 | 本気ストレッチ | スマホ修正完了・メール未テスト・**Google広告CVタグ実装待ち** | メール実機テスト送信 / CVタグ実装 | [state/majistretch.md](state/majistretch.md) |
 
 ## 保留
 
