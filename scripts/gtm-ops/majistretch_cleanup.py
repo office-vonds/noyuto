@@ -42,7 +42,9 @@ def build_service():
     creds = service_account.Credentials.from_service_account_file(
         SA_KEY,
         scopes=['https://www.googleapis.com/auth/tagmanager.edit.containers',
-                'https://www.googleapis.com/auth/tagmanager.publish']
+                'https://www.googleapis.com/auth/tagmanager.edit.containerversions',
+                'https://www.googleapis.com/auth/tagmanager.publish',
+                'https://www.googleapis.com/auth/tagmanager.readonly']
     )
     return build('tagmanager', 'v2', credentials=creds)
 

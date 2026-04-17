@@ -1,142 +1,839 @@
 {
-  "exportFormatVersion": 2,
-  "exportTime": "2026-04-01",
-  "containerVersion": {
-    "tag": [
-      {
-        "accountId": "",
-        "containerId": "",
-        "name": "GA4 - TEL タップ",
-        "type": "gaawe",
-        "parameter": [
-          {"type": "TEMPLATE", "key": "eventName", "value": "tel_click"},
-          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-93MZ8ERBW5"},
-          {"type": "LIST", "key": "eventParameters", "list": [
-            {"type": "MAP", "map": [
-              {"type": "TEMPLATE", "key": "name", "value": "link_text"},
-              {"type": "TEMPLATE", "key": "value", "value": "{{Click Text}}"}
-            ]},
-            {"type": "MAP", "map": [
-              {"type": "TEMPLATE", "key": "name", "value": "link_url"},
-              {"type": "TEMPLATE", "key": "value", "value": "{{Click URL}}"}
-            ]},
-            {"type": "MAP", "map": [
-              {"type": "TEMPLATE", "key": "name", "value": "gtm_click"},
-              {"type": "TEMPLATE", "key": "value", "value": "{{gtm-click}}"}
-            ]}
-          ]}
-        ],
-        "firingTriggerId": ["tel_trigger"],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "accountId": "",
-        "containerId": "",
-        "name": "GA4 - お問い合わせボタン タップ",
-        "type": "gaawe",
-        "parameter": [
-          {"type": "TEMPLATE", "key": "eventName", "value": "contact_click"},
-          {"type": "TEMPLATE", "key": "measurementIdOverride", "value": "G-93MZ8ERBW5"},
-          {"type": "LIST", "key": "eventParameters", "list": [
-            {"type": "MAP", "map": [
-              {"type": "TEMPLATE", "key": "name", "value": "link_text"},
-              {"type": "TEMPLATE", "key": "value", "value": "{{Click Text}}"}
-            ]},
-            {"type": "MAP", "map": [
-              {"type": "TEMPLATE", "key": "name", "value": "gtm_click"},
-              {"type": "TEMPLATE", "key": "value", "value": "{{gtm-click}}"}
-            ]}
-          ]}
-        ],
-        "firingTriggerId": ["contact_trigger"],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "accountId": "",
-        "containerId": "",
-        "name": "Google Ads - TEL コンバージョン",
-        "type": "awct",
-        "parameter": [
-          {"type": "TEMPLATE", "key": "conversionId", "value": ""},
-          {"type": "TEMPLATE", "key": "conversionLabel", "value": ""}
-        ],
-        "firingTriggerId": ["tel_trigger"],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "accountId": "",
-        "containerId": "",
-        "name": "Google Ads - お問い合わせ コンバージョン",
-        "type": "awct",
-        "parameter": [
-          {"type": "TEMPLATE", "key": "conversionId", "value": ""},
-          {"type": "TEMPLATE", "key": "conversionLabel", "value": ""}
-        ],
-        "firingTriggerId": ["contact_trigger"],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      }
+  "path": "accounts/6336079067/containers/248047394/versions/5",
+  "accountId": "6336079067",
+  "containerId": "248047394",
+  "containerVersionId": "5",
+  "name": "バナナ自動整理: 旧タグ停止+予約トリガー修正+メールCV追加",
+  "description": "2026-04-17 バナナが自動実行",
+  "container": {
+    "path": "accounts/6336079067/containers/248047394",
+    "accountId": "6336079067",
+    "containerId": "248047394",
+    "name": "majistretch.com",
+    "publicId": "GTM-K32XLKXH",
+    "usageContext": [
+      "web"
     ],
-    "trigger": [
-      {
-        "accountId": "",
-        "containerId": "",
-        "name": "TEL タップ",
-        "type": "LINK_CLICK",
-        "customEventFilter": [],
-        "filter": [
-          {
-            "type": "CONTAINS",
-            "parameter": [
-              {"type": "TEMPLATE", "key": "arg0", "value": "{{Click URL}}"},
-              {"type": "TEMPLATE", "key": "arg1", "value": "tel:"}
-            ]
-          }
-        ],
-        "autoEventFilter": [
-          {
-            "type": "CONTAINS",
-            "parameter": [
-              {"type": "TEMPLATE", "key": "arg0", "value": "{{Click URL}}"},
-              {"type": "TEMPLATE", "key": "arg1", "value": "tel:"}
-            ]
-          }
-        ],
-        "uniqueTriggerId": "tel_trigger",
-        "waitForTags": {"type": "BOOLEAN", "value": "false"},
-        "checkValidation": {"type": "BOOLEAN", "value": "false"},
-        "waitForTagsTimeout": {"type": "TEMPLATE", "value": "2000"}
-      },
-      {
-        "accountId": "",
-        "containerId": "",
-        "name": "お問い合わせボタン タップ",
-        "type": "CLICK",
-        "customEventFilter": [],
-        "filter": [
-          {
-            "type": "MATCH_REGEX",
-            "parameter": [
-              {"type": "TEMPLATE", "key": "arg0", "value": "{{Click Classes}}"},
-              {"type": "TEMPLATE", "key": "arg1", "value": "cta-guarantee|cta-final|cta-fv|p-fixed-banner__btn"}
-            ]
-          }
-        ],
-        "uniqueTriggerId": "contact_trigger"
-      }
-    ],
-    "variable": [
-      {
-        "accountId": "",
-        "containerId": "",
-        "name": "gtm-click",
-        "type": "d",
-        "parameter": [
-          {"type": "INTEGER", "key": "version", "value": "2"},
-          {"type": "TEMPLATE", "key": "component", "value": ""},
-          {"type": "BOOLEAN", "key": "setDefaultValue", "value": "false"},
-          {"type": "TEMPLATE", "key": "attributeName", "value": "data-gtm-click"}
-        ]
-      }
+    "fingerprint": "1775021010113",
+    "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/6336079067/containers/248047394/workspaces?apiLink=container",
+    "features": {
+      "supportUserPermissions": true,
+      "supportEnvironments": true,
+      "supportWorkspaces": true,
+      "supportGtagConfigs": false,
+      "supportBuiltInVariables": true,
+      "supportClients": false,
+      "supportFolders": true,
+      "supportTags": true,
+      "supportTemplates": true,
+      "supportTriggers": true,
+      "supportVariables": true,
+      "supportVersions": true,
+      "supportZones": true,
+      "supportTransformations": false
+    },
+    "tagIds": [
+      "GTM-K32XLKXH"
     ]
-  }
+  },
+  "tag": [
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "3",
+      "name": "本気ストレッチGA4",
+      "type": "googtag",
+      "parameter": [
+        {
+          "type": "template",
+          "key": "tagId",
+          "value": "G-93MZ8ERBW5"
+        }
+      ],
+      "fingerprint": "1775025552860",
+      "firingTriggerId": [
+        "2147479553"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "6",
+      "name": "GA4 - CTA クリック",
+      "type": "gaawe",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "sendEcommerceData",
+          "value": "false"
+        },
+        {
+          "type": "list",
+          "key": "eventSettingsTable",
+          "list": [
+            {
+              "type": "map",
+              "map": [
+                {
+                  "type": "template",
+                  "key": "parameter",
+                  "value": "cta_type"
+                },
+                {
+                  "type": "template",
+                  "key": "parameterValue",
+                  "value": "{{data-gtm-click}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "template",
+          "key": "eventName",
+          "value": "cta_click"
+        },
+        {
+          "type": "template",
+          "key": "measurementIdOverride",
+          "value": "G-93MZ8ERBW5"
+        }
+      ],
+      "fingerprint": "1775027133095",
+      "firingTriggerId": [
+        "5"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "8",
+      "name": "GA4 - 電話タップ",
+      "type": "gaawe",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "sendEcommerceData",
+          "value": "false"
+        },
+        {
+          "type": "list",
+          "key": "eventSettingsTable",
+          "list": [
+            {
+              "type": "map",
+              "map": [
+                {
+                  "type": "template",
+                  "key": "parameter",
+                  "value": "location"
+                },
+                {
+                  "type": "template",
+                  "key": "parameterValue",
+                  "value": "{{data-gtm-tel}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "template",
+          "key": "eventName",
+          "value": "phone_tap"
+        },
+        {
+          "type": "template",
+          "key": "measurementIdOverride",
+          "value": "G-93MZ8ERBW5"
+        }
+      ],
+      "fingerprint": "1775027649835",
+      "firingTriggerId": [
+        "7"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "11",
+      "name": "Google 広告経由でのTELタップ",
+      "type": "awct",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "enableNewCustomerReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableConversionLinker",
+          "value": "true"
+        },
+        {
+          "type": "boolean",
+          "key": "enableProductReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableShippingData",
+          "value": "false"
+        },
+        {
+          "type": "template",
+          "key": "conversionId",
+          "value": "18057524680"
+        },
+        {
+          "type": "template",
+          "key": "conversionLabel",
+          "value": "ecWICLz3r5QcEMjrv6JD"
+        },
+        {
+          "type": "boolean",
+          "key": "rdp",
+          "value": "false"
+        }
+      ],
+      "fingerprint": "1776432180916",
+      "firingTriggerId": [
+        "10"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "paused": true,
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "12",
+      "name": "コンバージョン リンカー",
+      "type": "gclidw",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "enableCrossDomain",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableUrlPassthrough",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableCookieOverrides",
+          "value": "false"
+        }
+      ],
+      "fingerprint": "1776432182004",
+      "firingTriggerId": [
+        "2147479553"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "paused": true,
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "13",
+      "name": "Google広告_コンバージョンリンカー",
+      "type": "gclidw",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "enableCrossDomain",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableUrlPassthrough",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableCookieOverrides",
+          "value": "false"
+        }
+      ],
+      "fingerprint": "1776403323725",
+      "firingTriggerId": [
+        "2147479553"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "15",
+      "name": "Google広告_TELタップ",
+      "type": "awct",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "enableNewCustomerReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableConversionLinker",
+          "value": "true"
+        },
+        {
+          "type": "boolean",
+          "key": "enableProductReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableShippingData",
+          "value": "false"
+        },
+        {
+          "type": "template",
+          "key": "conversionId",
+          "value": "18057524680"
+        },
+        {
+          "type": "template",
+          "key": "conversionLabel",
+          "value": "rr0DCKyKzJ0cEMjrv6JD"
+        },
+        {
+          "type": "boolean",
+          "key": "rdp",
+          "value": "false"
+        }
+      ],
+      "fingerprint": "1776403555668",
+      "firingTriggerId": [
+        "14"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "17",
+      "name": "Google広告_予約ボタンクリック",
+      "type": "awct",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "enableNewCustomerReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableConversionLinker",
+          "value": "true"
+        },
+        {
+          "type": "boolean",
+          "key": "enableProductReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableShippingData",
+          "value": "false"
+        },
+        {
+          "type": "template",
+          "key": "conversionId",
+          "value": "18057524680"
+        },
+        {
+          "type": "template",
+          "key": "conversionLabel",
+          "value": "lJngCJfKzZ0cEMjrv6JD"
+        },
+        {
+          "type": "boolean",
+          "key": "rdp",
+          "value": "false"
+        }
+      ],
+      "fingerprint": "1776403824977",
+      "firingTriggerId": [
+        "16"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "19",
+      "name": "Google広告_フォーム送信完了",
+      "type": "awct",
+      "parameter": [
+        {
+          "type": "boolean",
+          "key": "enableNewCustomerReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableConversionLinker",
+          "value": "true"
+        },
+        {
+          "type": "boolean",
+          "key": "enableProductReporting",
+          "value": "false"
+        },
+        {
+          "type": "boolean",
+          "key": "enableShippingData",
+          "value": "false"
+        },
+        {
+          "type": "template",
+          "key": "conversionId",
+          "value": "18057524680"
+        },
+        {
+          "type": "template",
+          "key": "conversionLabel",
+          "value": "InbpCMnn0p0cEMjrv6JD"
+        },
+        {
+          "type": "boolean",
+          "key": "rdp",
+          "value": "false"
+        }
+      ],
+      "fingerprint": "1776403968765",
+      "firingTriggerId": [
+        "18"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "monitoringMetadata": {
+        "type": "map"
+      },
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "tagId": "21",
+      "name": "Google広告_メールタップ",
+      "type": "awct",
+      "parameter": [
+        {
+          "type": "template",
+          "key": "conversionValue",
+          "value": "500"
+        },
+        {
+          "type": "template",
+          "key": "conversionId",
+          "value": "18057524680"
+        },
+        {
+          "type": "template",
+          "key": "currencyCode",
+          "value": "JPY"
+        },
+        {
+          "type": "template",
+          "key": "conversionLabel",
+          "value": "FpUuCN7tzp0cEMjrv6JD"
+        }
+      ],
+      "fingerprint": "1776432185562",
+      "firingTriggerId": [
+        "20"
+      ],
+      "tagFiringOption": "oncePerEvent",
+      "consentSettings": {
+        "consentStatus": "notSet"
+      }
+    }
+  ],
+  "trigger": [
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "triggerId": "5",
+      "name": "CTA クリック",
+      "type": "click",
+      "filter": [
+        {
+          "type": "cssSelector",
+          "parameter": [
+            {
+              "type": "template",
+              "key": "arg0",
+              "value": "{{Click Element}}"
+            },
+            {
+              "type": "template",
+              "key": "arg1",
+              "value": "[data-gtm-click]"
+            }
+          ]
+        }
+      ],
+      "fingerprint": "1775027103115"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "triggerId": "7",
+      "name": "電話タップ",
+      "type": "linkClick",
+      "filter": [
+        {
+          "type": "contains",
+          "parameter": [
+            {
+              "type": "template",
+              "key": "arg0",
+              "value": "{{Click URL}}"
+            },
+            {
+              "type": "template",
+              "key": "arg1",
+              "value": "tel:"
+            }
+          ]
+        }
+      ],
+      "waitForTags": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "checkValidation": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "waitForTagsTimeout": {
+        "type": "template",
+        "value": "2000"
+      },
+      "uniqueTriggerId": {
+        "type": "template"
+      },
+      "fingerprint": "1775027303976"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "triggerId": "10",
+      "name": "トリガー_TELタップ",
+      "type": "linkClick",
+      "filter": [
+        {
+          "type": "startsWith",
+          "parameter": [
+            {
+              "type": "template",
+              "key": "arg0",
+              "value": "{{Click URL}}"
+            },
+            {
+              "type": "template",
+              "key": "arg1",
+              "value": "tel:"
+            }
+          ]
+        }
+      ],
+      "waitForTags": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "checkValidation": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "waitForTagsTimeout": {
+        "type": "template",
+        "value": "2000"
+      },
+      "uniqueTriggerId": {
+        "type": "template"
+      },
+      "fingerprint": "1775141336485"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "triggerId": "14",
+      "name": "TELタップ_トリガー",
+      "type": "linkClick",
+      "filter": [
+        {
+          "type": "contains",
+          "parameter": [
+            {
+              "type": "template",
+              "key": "arg0",
+              "value": "{{Click URL}}"
+            },
+            {
+              "type": "template",
+              "key": "arg1",
+              "value": "tel:"
+            }
+          ]
+        }
+      ],
+      "waitForTags": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "checkValidation": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "waitForTagsTimeout": {
+        "type": "template",
+        "value": "2000"
+      },
+      "uniqueTriggerId": {
+        "type": "template"
+      },
+      "fingerprint": "1776403525541"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "triggerId": "16",
+      "name": "予約ボタン_トリガー",
+      "type": "linkClick",
+      "filter": [
+        {
+          "type": "contains",
+          "parameter": [
+            {
+              "type": "template",
+              "key": "arg0",
+              "value": "{{Click URL}}"
+            },
+            {
+              "type": "template",
+              "key": "arg1",
+              "value": "#reservation"
+            }
+          ]
+        }
+      ],
+      "waitForTags": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "checkValidation": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "waitForTagsTimeout": {
+        "type": "template",
+        "value": "2000"
+      },
+      "uniqueTriggerId": {
+        "type": "template"
+      },
+      "fingerprint": "1776432208114"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "triggerId": "18",
+      "name": "フォーム送信完了_トリガー",
+      "type": "pageview",
+      "filter": [
+        {
+          "type": "contains",
+          "parameter": [
+            {
+              "type": "template",
+              "key": "arg0",
+              "value": "{{Page URL}}"
+            },
+            {
+              "type": "template",
+              "key": "arg1",
+              "value": "/thanks"
+            }
+          ]
+        }
+      ],
+      "fingerprint": "1776403939197"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "triggerId": "20",
+      "name": "メールタップ_トリガー",
+      "type": "linkClick",
+      "filter": [
+        {
+          "type": "contains",
+          "parameter": [
+            {
+              "type": "template",
+              "key": "arg0",
+              "value": "{{Click URL}}"
+            },
+            {
+              "type": "template",
+              "key": "arg1",
+              "value": "mailto:"
+            }
+          ]
+        }
+      ],
+      "waitForTags": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "checkValidation": {
+        "type": "boolean",
+        "value": "false"
+      },
+      "waitForTagsTimeout": {
+        "type": "template",
+        "value": "2000"
+      },
+      "uniqueTriggerId": {
+        "type": "template"
+      },
+      "fingerprint": "1776432184325"
+    }
+  ],
+  "variable": [
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "variableId": "4",
+      "name": "data-gtm-click",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "template",
+          "key": "javascript",
+          "value": "function() {\n  return {{Click Element}}.getAttribute('data-gtm-click');\n}"
+        }
+      ],
+      "fingerprint": "1775025722235",
+      "formatValue": {}
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "variableId": "9",
+      "name": "data-gtm-tel",
+      "type": "jsm",
+      "parameter": [
+        {
+          "type": "template",
+          "key": "javascript",
+          "value": "function() {\n  var el = {{Click Element}};\n  var target = el.closest('[data-gtm-tel]');\n  return target ? target.getAttribute('data-gtm-tel') : '';\n}"
+        }
+      ],
+      "fingerprint": "1775027753200",
+      "formatValue": {}
+    }
+  ],
+  "builtInVariable": [
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "type": "pageUrl",
+      "name": "Page URL"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "type": "pageHostname",
+      "name": "Page Hostname"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "type": "pagePath",
+      "name": "Page Path"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "type": "referrer",
+      "name": "Referrer"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "type": "event",
+      "name": "Event"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "type": "clickElement",
+      "name": "Click Element"
+    },
+    {
+      "accountId": "6336079067",
+      "containerId": "248047394",
+      "type": "clickUrl",
+      "name": "Click URL"
+    }
+  ],
+  "fingerprint": "1776432209508",
+  "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/6336079067/containers/248047394/versions/5?apiLink=version"
 }
