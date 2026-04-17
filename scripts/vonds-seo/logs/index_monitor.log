@@ -76,3 +76,25 @@
 2026-04-16 10:04:13,384 [INFO] === 結果: 7/17 インデックス済み ===
 2026-04-16 10:04:13,384 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/
 2026-04-16 10:04:13,386 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
+2026-04-17 10:02:13,689 [INFO] === インデックス状態チェック開始: 18URL ===
+2026-04-17 10:02:21,141 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-15 https://vonds.co.jp/
+2026-04-17 10:02:28,885 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
+2026-04-17 10:02:36,556 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
+2026-04-17 10:02:44,290 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ads/
+2026-04-17 10:02:51,998 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ai/
+2026-04-17 10:02:59,533 [INFO]   [NG] NEUTRAL Duplicate, Google chose different canonical than user crawl=2026-04-11 https://vonds.co.jp/company/
+2026-04-17 10:03:06,784 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/
+2026-04-17 10:03:14,307 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/seo-howto-guide/
+2026-04-17 10:03:21,982 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/yamanashi-seo/
+2026-04-17 10:03:29,439 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/what-is-seo/
+2026-04-17 10:03:36,912 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/web-design-guide/
+2026-04-17 10:03:44,541 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/google-ads-guide/
+2026-04-17 10:03:52,046 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/ai-business-guide/
+2026-04-17 10:03:59,525 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/local-seo-strategy/
+2026-04-17 10:04:07,035 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/website-cost-guide/
+2026-04-17 10:04:14,250 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/lp-design-tips/
+2026-04-17 10:04:21,697 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/website-renewal-timing/
+2026-04-17 10:04:29,156 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/website-no-traffic-fix/
+2026-04-17 10:04:29,657 [INFO] === 結果: 7/18 インデックス済み ===
+2026-04-17 10:04:29,657 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/, https://vonds.co.jp/column/website-no-traffic-fix/
+2026-04-17 10:04:29,658 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json

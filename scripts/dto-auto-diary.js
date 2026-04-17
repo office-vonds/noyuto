@@ -150,15 +150,9 @@ async function fetchSchedule(page) {
 
       schedules[castName] = { start, end, galId };
     } else {
-      // 時間が取れなくてもキャスト名がスケジュールに出ていればデフォルト出勤時間で処理
-      const start = new Date(today);
-      start.setHours(18, 0, 0, 0);
-      const end = new Date(today);
-      end.setDate(end.getDate() + 1);
-      end.setHours(2, 0, 0, 0);
-
-      schedules[castName] = { start, end, galId };
-      log(`  ${castName}: 時間帯取得できず。デフォルト(18:00-02:00)を使用`);
+      // 時間帯が取得できないキャストは投稿対象外（出勤時間不明で投稿するのは禁止）
+      log(`  ${castName}: 出勤時間帯を取得できず。投稿対象外`);
+      continue;
     }
   }
 
@@ -569,6 +563,11 @@ async function main() {
         // 既に3回投稿済みならスキップ
         if (todayPost.count >= POSTS_PER_SHIFT) {
           continue; // ログ出さない（毎時間呼ばれるため）
+        }
+
+        // 出勤時間帯の範囲内かチェック（出勤時間外は絶対に投稿しない）
+        if (now < start || now > end) {
+          continue; // 出勤時間外
         }
 
         // 投稿タイミング計算
