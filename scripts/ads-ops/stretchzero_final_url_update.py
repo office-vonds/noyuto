@@ -1,15 +1,19 @@
 #!/usr/bin/env python3
-"""ストレッチゼロ 全KWの最終ページURLを /shop/ に一括変更
+"""ストレッチゼロ KW別 最終ページURL 最適化 (v2)
 
-GA4実データ(2026-04-17分析): Paid Search /shop/ CVR=38.5% vs /(TOP)=0%
-全KWを/shop/に向けるだけで CPA大幅改善期待
+方針 (2026-04-17 GSC+GA4 統合分析):
+  指名KW (ストレッチゼロ/ストレッチラボ 含む)     -> / (TOP)
+  店舗エリアKW (南アルプス/韮崎/甲斐響が丘 含む)   -> /shop/shop-{area}/
+  上記以外 (エリア×悩み/一般整体・マッサージ系)   -> /shop/
+
+GSC実データで指名KWはTOPでCTR20-30%/position#1-2 取得済み → TOP維持
+非指名KWは /shop/ CVR 38-49% の勝ちページへ集中
 
 前提:
-  ~/credentials/google-ads.yaml に有効な Developer Token + OAuth refresh_token が配置済
+  ~/credentials/google-ads.yaml 配置済 (サムPhase2完了後)
   Google Ads API Basic Access 承認済
 
 実行:
-  source ~/projects/vonds/.venv-ads/bin/activate
   python scripts/ads-ops/stretchzero_final_url_update.py --dry-run
   python scripts/ads-ops/stretchzero_final_url_update.py --commit
 """
@@ -18,37 +22,59 @@ import sys
 import argparse
 from pathlib import Path
 
-STRETCHZERO_CUSTOMER_ID = '8549114235'  # 854-911-4235
-NEW_FINAL_URL = 'https://stretchzero.jp/shop/'
+STRETCHZERO_CUSTOMER_ID = '8549114235'
 YAML_PATH = str(Path.home() / 'credentials' / 'google-ads.yaml')
+
+URL_TOP = 'https://stretchzero.jp/'
+URL_SHOP = 'https://stretchzero.jp/shop/'
+
+# エリア別店舗URLマッピング (GSCで確認したURL)
+AREA_SHOP_MAP = [
+    (['南アルプス', 'みなみアルプス'], 'https://stretchzero.jp/shop/shop-minami-alps/'),
+    (['韮崎', 'にらさき'], 'https://stretchzero.jp/shop/shop-nirasaki/'),
+    (['甲斐響が丘', '甲斐市', '響が丘'], 'https://stretchzero.jp/shop/shop-kai-hibikigaoka/'),
+    (['甲府', 'こうふ', '上石田'], 'https://stretchzero.jp/shop/shop-kofu/'),
+]
+
+# 指名KW判定パターン
+BRAND_KEYWORDS = ['ストレッチゼロ', 'ストレッチラボ', 'stretchzero', 'stretchlabo']
+
+
+def classify_kw(kw):
+    """KW文字列から最終URLを決定"""
+    # 1. 指名KW -> TOP
+    for bk in BRAND_KEYWORDS:
+        if bk in kw.lower() or bk in kw:
+            return URL_TOP
+    # 2. 店舗エリア -> 各店舗ページ
+    for areas, url in AREA_SHOP_MAP:
+        for a in areas:
+            if a in kw:
+                return url
+    # 3. その他 -> /shop/
+    return URL_SHOP
 
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--commit', action='store_true', help='本番適用')
-    parser.add_argument('--dry-run', action='store_true', help='変更予定のみ表示')
+    parser.add_argument('--commit', action='store_true')
+    parser.add_argument('--dry-run', action='store_true')
     args = parser.parse_args()
-
-    if not args.commit and not args.dry_run:
+    if not args.commit:
         args.dry_run = True
 
     try:
         from google.ads.googleads.client import GoogleAdsClient
     except ImportError:
         print("❌ google-ads SDK 未インストール")
-        print("   .venv-ads環境を作成:")
-        print("     python3 -m venv ~/projects/vonds/.venv-ads")
-        print("     source ~/projects/vonds/.venv-ads/bin/activate")
-        print("     pip install google-ads")
         sys.exit(1)
 
     if not Path(YAML_PATH).exists():
-        print(f"❌ {YAML_PATH} がない。サムに配置依頼 (google_ads_api_setup_20260417.md)")
+        print(f"❌ {YAML_PATH} がない (サムPhase2完了待ち)")
         sys.exit(1)
 
     client = GoogleAdsClient.load_from_storage(YAML_PATH)
 
-    # 現状KW取得
     ga_service = client.get_service("GoogleAdsService")
     query = """
         SELECT
@@ -70,35 +96,41 @@ def main():
     targets = []
     for batch in response:
         for row in batch.results:
+            kw = row.ad_group_criterion.keyword.text
+            new_url = classify_kw(kw)
             cur = list(row.ad_group_criterion.final_urls)
-            if cur == [NEW_FINAL_URL]:
+            if cur == [new_url]:
                 continue
             targets.append({
                 'resource_name': row.ad_group_criterion.resource_name,
-                'kw': row.ad_group_criterion.keyword.text,
-                'campaign': row.campaign.name,
-                'ad_group': row.ad_group.name,
+                'kw': kw,
+                'new_url': new_url,
                 'current': cur,
             })
 
-    print(f"対象KW: {len(targets)}本 (新URL: {NEW_FINAL_URL})\n")
-    for t in targets[:30]:
-        print(f"  [{t['campaign']}/{t['ad_group']}] {t['kw']}")
-        print(f"    現: {t['current'] or '(未設定)'}")
+    print(f"KW総数: 変更対象 {len(targets)}本\n")
+    from collections import Counter
+    url_counts = Counter(t['new_url'] for t in targets)
+    for u, c in url_counts.most_common():
+        print(f"  → {u}: {c}本")
+    print()
+    for t in targets[:20]:
+        print(f"  [{t['kw']}] {t['current'] or '(未設定)'} → {t['new_url']}")
+    if len(targets) > 20:
+        print(f"  ... 残 {len(targets)-20}本")
 
     if args.dry_run:
         print(f"\n--dry-run完了 (本番適用は --commit)")
         return
 
-    # 本番適用
     agc_service = client.get_service("AdGroupCriterionService")
     operations = []
     for t in targets:
         op = client.get_type("AdGroupCriterionOperation")
         crit = op.update
         crit.resource_name = t['resource_name']
-        crit.final_urls.append(NEW_FINAL_URL)
-        # field_mask update
+        crit.final_urls.clear()
+        crit.final_urls.append(t['new_url'])
         client.copy_from(
             op.update_mask,
             client.get_type("FieldMask", value={"paths": ["final_urls"]})
@@ -106,7 +138,7 @@ def main():
         operations.append(op)
 
     if not operations:
-        print("✅ 全KW既に新URL設定済み")
+        print("✅ 全KW既に最適URL設定済み")
         return
 
     resp = agc_service.mutate_ad_group_criteria(
