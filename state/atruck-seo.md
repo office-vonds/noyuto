@@ -24,7 +24,8 @@
 - header.phpのハードコード`<title>`削除 → `tasks/sam-queue.md` #3（同上）
 - 鈑金塗装ページのコンテンツ拡充 → **⚠️ 確認フェーズ**
   - コンテンツ作成済: `seo/atruck-repair-content.php`（210行・約3,200字）
-  - プレビューHTML: `seo/atruck-repair-preview.html`
+  - プレビューHTML（合体版・メール添付用）: `seo/atruck-repair-preview-full.html`
+  - プレビューHTML（追加部分のみ・参考用）: `seo/atruck-repair-preview.html`
   - 承認依頼メール文面: `seo/a-truck-repair-approval-request.md`
   - **次のアクション**: NOYUTOがA-TRUCK担当者にメール送付 → 承認受領後 `tasks/sam-queue.md` P0#1 を再発注
 
