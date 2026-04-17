@@ -86,7 +86,7 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 ## 最新作業サマリー（別PC引き継ぎ用・毎セッション更新）
 
-**最終更新: 2026-04-11 13:10 / ブランチ: main**
+**最終更新: 2026-04-17 / ブランチ: claude/add-tasks-kiryu-backlog-03Gaw**
 
 ### 【最優先・進行中】VONDS Google広告監査 商品化 — A-TRUCK試走CSV待ち
 
@@ -102,15 +102,29 @@ AIを教育分野に活用し、戦争の種を消す教育に貢献する。
 
 **⚡ 試走1号機変更（2026-04-11 NOYUTO判断）: A-TRUCK → ストレッチゼロ（Google Ads ID: 854-911-4235）**
 
-**NOYUTO待ちタスク（10-15分・会社メインPCで実施）:**
-Google広告UIから7本のCSVをダウンロード → `ads-audit/samples/stretchzero/data/` に配置
-手順書: `ads-audit/samples/stretchzero/EXPORT_CHECKLIST.md`
+**残タスク（KIRYU側 + NOYUTO依頼）:**
 
-**CSV設置後の自動化フロー:**
-1. `audit-google` エージェント起動 → 74チェック走査
-2. 英語出力を `audit-report-template.md` へ流し込み・日本語化
-3. NOYUTO所見欄（22年経験値）は空欄で仕上げ → NOYUTO記入依頼
-4. PDF化 → A-TRUCKサンプルとして commit + push
+#### 【KIRYU側】CSV受領後の自動監査フロー
+▶️ `ads-audit/samples/stretchzero/data/` にCSV7本が揃い次第、
+`audit-google` エージェントで74チェック走査 → 英語出力を `audit-report-template.md` へ
+流し込み日本語化 → NOYUTO所見欄を空欄で仕上げ → PDF化 → commit + push。
+**会社メインPC** で実行（家側にスキル無し）。所要1.5〜2時間。
+
+#### 【NOYUTO依頼①】ストレッチゼロ Google広告 CSV 7本エクスポート
+▶️ **会社メインPC** で Google広告UI（アカウントID: 854-911-4235）にログイン →
+手順書 `ads-audit/samples/stretchzero/EXPORT_CHECKLIST.md` の通り7本のCSVを
+ダウンロード → `ads-audit/samples/stretchzero/data/` に配置 → commit + push。
+所要10-15分。**4/15 SEO面談に間に合わせるため最優先。**
+
+#### 【NOYUTO依頼②】監査レポート所見欄の記入（CSV監査完了後）
+▶️ KIRYU が日本語化したレポートの「NOYUTO所見」欄（22年経験値ベースの定性コメント）を
+NOYUTO本人が記入。Slack/メモアプリ等で口述 → KIRYUがレポートに転記でも可。
+所要30-45分。サンプル品質を決定づける核なので機械生成不可。
+
+#### 【NOYUTO依頼③】中込社長アップセル提案の意思決定
+▶️ ストレッチゼロサンプル完成後、`ads-audit/proposal-existing.md` を中込社長宛に
+カスタマイズしてよいか NOYUTO 判定。価格帯（既存客優遇 ¥98k〜¥150k）の最終決定も依頼。
+所要15分。4/15 SEO面談で口頭提案 or 後日メール送付かの方針も決める。
 
 **デッドライン: 2026-04-15 SEO面談** で既存客アップセル提案に使える状態。
 
