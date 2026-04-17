@@ -9,6 +9,31 @@
 
 ## P0（今日中・クライアント信用に直結）
 
+### 0-2. Google Ads API 認証セットアップ — **新規・NOYUTO指示で着手**
+
+**指示書**: [`majistretch/tasks/google_ads_api_setup_20260417.md`](../majistretch/tasks/google_ads_api_setup_20260417.md)
+
+現状: MCC無し（家/会社PCともAds API認証ゼロ・確認済み 2026-04-17）
+目的: VONDS広告運用の完全プログラマティック化（KW投入・CV計測・監査レポ自動化）
+
+**サムの作業はPhase 2以降**（NOYUTOのMCC作成＋Token承認待ち）:
+- [ ] ① Google Cloud Console で Ads API 有効化＋OAuth Client作成（GCP: potent-impulse-165116 再利用）
+- [ ] ② `scripts/ads-auth/generate_refresh_token.py` 作成＋実行
+- [ ] ③ `~/credentials/google-ads.yaml` 配置（gitignore確認必須）
+- [ ] ④ `scripts/ads-auth/test_connection.py` で4サブアカウント表示確認
+- [ ] ⑤ 完了報告（バナナへ）→ KW投入スクリプトへ引継ぎ
+
+**前提**: NOYUTOから以下を受領してから着手:
+- 新MCC顧客ID
+- Developer Token
+
+**セキュリティ鉄則**:
+- `.gitignore` に `**/google-ads.yaml` `**/ads-oauth-client.json` `.venv-ads/` 追加
+- `/tmp/` 配下でテスト → 本番配置
+- リポジトリへの機密情報コミット絶対禁止
+
+---
+
 ### 0. 本気ストレッチ GTM整理・CVタグ実装 — **新規・NOYUTO承認済み**
 
 **指示書（確定版・このまま実行）**: [`majistretch/tasks/gtm_cleanup_20260417_final.md`](../majistretch/tasks/gtm_cleanup_20260417_final.md)
