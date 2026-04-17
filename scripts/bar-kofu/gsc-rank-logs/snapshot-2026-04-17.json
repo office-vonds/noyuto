@@ -1,0 +1,276 @@
+{
+  "site": "https://bar-kofu.com/",
+  "period": "2026-04-10→2026-04-17",
+  "days": 7,
+  "captured_at": "2026-04-17",
+  "keywords": [
+    {
+      "query": "バー甲府",
+      "clicks": 2,
+      "impressions": 5,
+      "ctr": 0.4,
+      "position": 1.8
+    },
+    {
+      "query": "甲府 バー",
+      "clicks": 2,
+      "impressions": 74,
+      "ctr": 0.02702702702702703,
+      "position": 4.716216216216216
+    },
+    {
+      "query": "甲府 bar",
+      "clicks": 1,
+      "impressions": 50,
+      "ctr": 0.02,
+      "position": 4.279999999999999
+    },
+    {
+      "query": "甲府 カラオケバー",
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.1111111111111111,
+      "position": 7.444444444444445
+    },
+    {
+      "query": "甲府バー",
+      "clicks": 1,
+      "impressions": 13,
+      "ctr": 0.07692307692307693,
+      "position": 6.923076923076923
+    },
+    {
+      "query": "bar",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "query": "bar miko",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "query": "bar on",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "query": "bar カクテル",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "query": "kofu lounge",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "query": "kou",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "query": "koufu",
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "ゆうきタウン",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.333333333333333
+    },
+    {
+      "query": "ゆうきタウン 甲府市",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 6.8
+    },
+    {
+      "query": "カラオケ バー",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "カラオケ 甲府",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "query": "カラオケバー",
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 7.212121212121212
+    },
+    {
+      "query": "コウフ",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "query": "ダイニングバー",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "query": "バー 甲府",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "山梨 カラオケ",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 28
+    },
+    {
+      "query": "山梨 スポーツバー",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "query": "山梨 バー",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "query": "甲府 スープカレー",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "query": "甲府市 バー",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 3.5
+    }
+  ],
+  "pages": [
+    {
+      "url": "https://bar-kofu.com/",
+      "clicks": 16,
+      "impressions": 413,
+      "position": 6.685230024213075
+    },
+    {
+      "url": "https://bar-kofu.com/2025/07/08/%E3%80%90%E3%81%94%E6%8C%A8%E6%8B%B6%E3%80%91bar-kofu-%E5%85%AC%E5%BC%8Fweb%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8C%E3%82%AA%E3%83%BC%E3%83%97%E3%83%B3%E3%81%97%E3%81%BE%E3%81%97%E3%81%9F/",
+      "clicks": 1,
+      "impressions": 6,
+      "position": 7.666666666666667
+    },
+    {
+      "url": "https://bar-kofu.com/2025/07/08/%E2%80%BB%E8%BF%91%E6%97%A5%E5%85%AC%E9%96%8B%E3%80%90%E7%9C%8B%E6%9D%BF%E3%83%A1%E3%83%8B%E3%83%A5%E3%83%BC%E7%99%BB%E5%A0%B4%E3%80%91bar%E3%81%A7%E5%91%B3%E3%82%8F%E3%81%86%E6%9C%AC%E6%A0%BC/",
+      "clicks": 0,
+      "impressions": 3,
+      "position": 3.3333333333333335
+    },
+    {
+      "url": "https://bar-kofu.com/access/",
+      "clicks": 0,
+      "impressions": 49,
+      "position": 8.10204081632653
+    },
+    {
+      "url": "https://bar-kofu.com/contact/",
+      "clicks": 0,
+      "impressions": 1,
+      "position": 9
+    },
+    {
+      "url": "https://bar-kofu.com/info/",
+      "clicks": 0,
+      "impressions": 5,
+      "position": 6.6
+    }
+  ],
+  "devices": [
+    {
+      "device": "MOBILE",
+      "clicks": 16,
+      "impressions": 356,
+      "ctr": 0.0449438202247191,
+      "position": 6.935393258426966
+    },
+    {
+      "device": "DESKTOP",
+      "clicks": 1,
+      "impressions": 85,
+      "ctr": 0.011764705882352941,
+      "position": 5.776470588235294
+    },
+    {
+      "device": "TABLET",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    }
+  ],
+  "countries": [
+    {
+      "country": "jpn",
+      "clicks": 17,
+      "impressions": 413
+    },
+    {
+      "country": "jor",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "country": "nga",
+      "clicks": 0,
+      "impressions": 4
+    },
+    {
+      "country": "twn",
+      "clicks": 0,
+      "impressions": 1
+    },
+    {
+      "country": "usa",
+      "clicks": 0,
+      "impressions": 23
+    }
+  ],
+  "totals": {
+    "clicks": 7,
+    "impressions": 234,
+    "kw_count": 25
+  }
+}
