@@ -7,6 +7,46 @@
 
 ---
 
+## P0 (最優先) Google Ads API統合基盤 実装（NOYUTO構築完了→バナナ実装フェーズ）
+
+### 0-A. Developer Token リセット → Notion機密DB保管（承認到着前に即実施可能）
+
+**経緯**: 現行Token `HMxHQc89ZKJ9IWJ_t222LQ` がチャット内で露出 → セキュリティ観点で即リセット必須
+**手順**:
+1. Google Ads UI → MCC (709-306-3546) → 管理者 → API Center
+2. Developer Token欄「トークンをリセット」クリック
+3. 新Token発行 → **即Notion機密DB（2要素認証必須）保管**
+4. 保管スキーマ: MCC ID / Developer Token / OAuth Googleアカ / 配下アカウント / 発行日 / リセット履歴 / アクセスレベル / 権限
+
+### 0-B. Google Cloud プロジェクト作成 + OAuth 2.0
+
+1. Cloud プロジェクト新規作成（案: `vonds-ads-api`）
+2. Google Ads API を有効化
+3. OAuth同意画面: **Internal** が望ましい
+4. OAuth 2.0 Client ID / Client Secret 発行（.envに・.gitignore必須）
+5. Refresh Token取得フロー構築（初回手動認証→以降自動更新）
+
+### 0-C. Python 3.11 + google-ads SDK v24 ベース実装
+
+- 想定APIコール量: 約500/日（上限15,000の3.3%）
+- メソッド:
+  - `GoogleAdsService.SearchStream` (GAQL Read)
+  - `CustomerService.ListAccessibleCustomers`
+  - `CampaignService.GetCampaign`
+  - `KeywordPlanIdeaService`
+  - `CampaignBudgetService.MutateCampaignBudgets` (Write・承認フロー経由)
+  - `AdGroupCriterionService.MutateAdGroupCriteria` (Write・同上)
+  - `RecommendationService.ApplyRecommendation`
+
+### 0-D. 4/23 (木) 13:00 Kayoko Ando氏 MTG 準備
+
+- 質問項目準備: Basic Access承認状況・適格性確認代理店書類要件・Standard Access昇格条件・Performance Max BP・業界ベンチマーク
+- バナナ出席 or KIRYU出席（NOYUTO判断）
+
+詳細仕様: `memory/project_vonds_ads_mcc.md`
+
+---
+
 ## P0（CSV到着前にできること）
 
 ### 1. ストレッチゼロ×本気ストレッチ 除外KW実装チェック

@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-17 13:00 / 更新者: KIRYU（バナナ更新を統合）
+最終更新: 2026-04-17 21:50 / 更新者: KIRYU
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -19,13 +19,16 @@
 | 5 | 絆JOB SEO | **Phase2完了（meta/canonical/OGP/記事8本）** | NOYUTO | GSCで6URL手動インデックス登録（15分） | [session-logs/2026-04-15_1140_kizuna-seo-phase2.md](session-logs/2026-04-15_1140_kizuna-seo-phase2.md) |
 | 6 | 絆バニラ最適化 | **6/7ページ更新完了** | NOYUTO | 画像素材提供→空き枠追加 / 口コミ返信手動投稿 | [session-logs/2026-04-15_1840_vanilla-optimize.md](session-logs/2026-04-15_1840_vanilla-optimize.md) |
 | 7 | 自動投稿パイプライン統合運用（dto/vanilla/ガールズヘブン/絆JOB） | **サム担当固定（2026-04-17）** | サム | cron棚卸し・認証切れ検知統一・画像プール可視化 | [state/sam-automation.md](state/sam-automation.md) |
+| 8 | VONDS広告運用MCC・Google Ads API統合基盤 | **NOYUTO構築完了(4/17)・Basic Access申請中** | バナナ | Token即リセット→Notion機密DB保管→GCP→OAuth実装 | [memory/project_vonds_ads_mcc.md](../.claude/projects/-home-ozawakiryu0902-projects-vonds/memory/project_vonds_ads_mcc.md) |
+| 9 | @rina_xxxfree 凍結事故復旧 | **rina凍結(2026-04-17)** | KIRYU | Appeal+60件→絆JOBブログ転用+新アカウント1週間ルール | [tasks/rina-ban-recovery.md](tasks/rina-ban-recovery.md) |
 
 ## 観測中
 
 | # | プロジェクト | 状態 | 次の確認 | 詳細 |
 |---|-------------|------|---------|------|
 | 7 | ILゲーム v5 | 本番稼働中（Netlify） | Firestoreログ100件で月次レビュー | [state/il-game.md](state/il-game.md) |
-| 8 | 本気ストレッチ | スマホ修正完了・メール未テスト・**Google広告CVタグ実装待ち** | メール実機テスト送信 / CVタグ実装 | [state/majistretch.md](state/majistretch.md) |
+| 8 | 本気ストレッチ | スマホ修正完了・メール未テスト・**Google広告CVタグ実装待ち**・適格性確認プログラム進行中 | メール実機テスト送信 / CVタグ実装 / 代理店書類 / 中込氏クライアント書類待ち | [state/majistretch.md](state/majistretch.md) |
+| 10 | 4/23(木)13:00 Kayoko Ando氏MTG | Google Ads API Basic Access審査期間 | NOYUTO+KIRYU | 質問項目準備・前日リマインダー | [memory/project_vonds_ads_mcc.md](../.claude/projects/-home-ozawakiryu0902-projects-vonds/memory/project_vonds_ads_mcc.md) |
 
 ## 保留
 
