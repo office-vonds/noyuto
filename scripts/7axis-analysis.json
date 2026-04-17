@@ -1,0 +1,2138 @@
+{
+  "generatedAt": "2026-04-17T14:03:34.189Z",
+  "totalEntries": 40,
+  "summaryAll": {
+    "postsAnalyzed": 29,
+    "avgBodyLen": 211,
+    "avgImageCount": 1.7,
+    "axis": {
+      "location": {
+        "自宅/部屋": 1,
+        "ホテル": 1,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 2,
+        "部屋着": 1,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 30,
+        "次回予告": 44,
+        "甘え": 0,
+        "誘惑": 2,
+        "報告": 32
+      },
+      "seduction": 12,
+      "reality": 15,
+      "cta": {
+        "hasSchedule": 6,
+        "hasPhone": 0,
+        "hasUrl": 1,
+        "hasDate": 2
+      }
+    },
+    "ctaRatio": {
+      "hasSchedule": 20.7,
+      "hasPhone": 0,
+      "hasUrl": 3.4,
+      "hasDate": 6.9
+    }
+  },
+  "summaryTop20": {
+    "postsAnalyzed": 20,
+    "avgBodyLen": 186,
+    "avgImageCount": 1.9,
+    "axis": {
+      "location": {
+        "自宅/部屋": 1,
+        "ホテル": 1,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 1,
+        "部屋着": 1,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 12,
+        "次回予告": 27,
+        "甘え": 0,
+        "誘惑": 1,
+        "報告": 24
+      },
+      "seduction": 2,
+      "reality": 10,
+      "cta": {
+        "hasSchedule": 4,
+        "hasPhone": 0,
+        "hasUrl": 1,
+        "hasDate": 2
+      }
+    },
+    "ctaRatio": {
+      "hasSchedule": 20,
+      "hasPhone": 0,
+      "hasUrl": 5,
+      "hasDate": 10
+    }
+  },
+  "topPhrases": [
+    {
+      "phrase": "よろしくお願いし",
+      "count": 5
+    },
+    {
+      "phrase": "ありがとうござい",
+      "count": 4
+    },
+    {
+      "phrase": "お待ちしてます",
+      "count": 4
+    },
+    {
+      "phrase": "こんばんは",
+      "count": 3
+    },
+    {
+      "phrase": "ります",
+      "count": 3
+    },
+    {
+      "phrase": "おはようございま",
+      "count": 3
+    },
+    {
+      "phrase": "お誘いお待ちして",
+      "count": 3
+    },
+    {
+      "phrase": "そして",
+      "count": 3
+    },
+    {
+      "phrase": "明日は",
+      "count": 2
+    },
+    {
+      "phrase": "それでは",
+      "count": 2
+    },
+    {
+      "phrase": "ますように",
+      "count": 2
+    },
+    {
+      "phrase": "また明日",
+      "count": 2
+    },
+    {
+      "phrase": "おやすみなさい",
+      "count": 2
+    },
+    {
+      "phrase": "いました",
+      "count": 2
+    },
+    {
+      "phrase": "・゜゜",
+      "count": 2
+    },
+    {
+      "phrase": "・゜・",
+      "count": 2
+    },
+    {
+      "phrase": "そんなやさしい気",
+      "count": 2
+    },
+    {
+      "phrase": "逢いに来てくださ",
+      "count": 2
+    },
+    {
+      "phrase": "いネッ",
+      "count": 2
+    },
+    {
+      "phrase": "時から",
+      "count": 2
+    },
+    {
+      "phrase": "時になります",
+      "count": 2
+    },
+    {
+      "phrase": "次回出勤日は",
+      "count": 2
+    },
+    {
+      "phrase": "います",
+      "count": 2
+    },
+    {
+      "phrase": "分になります",
+      "count": 2
+    },
+    {
+      "phrase": "りがとうございま",
+      "count": 2
+    },
+    {
+      "phrase": "おります",
+      "count": 2
+    },
+    {
+      "phrase": "分コース",
+      "count": 2
+    },
+    {
+      "phrase": "当たり前",
+      "count": 2
+    },
+    {
+      "phrase": "お誘いしてくれて",
+      "count": 2
+    },
+    {
+      "phrase": "楽しかったし",
+      "count": 2
+    },
+    {
+      "phrase": "奥までしたり",
+      "count": 2
+    },
+    {
+      "phrase": "たっぷり",
+      "count": 2
+    },
+    {
+      "phrase": "くれて",
+      "count": 2
+    },
+    {
+      "phrase": "りがとう",
+      "count": 2
+    },
+    {
+      "phrase": "今日も",
+      "count": 1
+    },
+    {
+      "phrase": "日お疲れ様です",
+      "count": 1
+    },
+    {
+      "phrase": "の予定もぼちぼち",
+      "count": 1
+    },
+    {
+      "phrase": "なんて考えている",
+      "count": 1
+    },
+    {
+      "phrase": "まいこです",
+      "count": 1
+    },
+    {
+      "phrase": "人混みが苦手なの",
+      "count": 1
+    }
+  ],
+  "topSeductionPhrases": [
+    {
+      "phrase": "よろしくお願いし",
+      "count": 3
+    },
+    {
+      "phrase": "そして",
+      "count": 3
+    },
+    {
+      "phrase": "ります",
+      "count": 2
+    },
+    {
+      "phrase": "お待ちしてます",
+      "count": 2
+    },
+    {
+      "phrase": "時から",
+      "count": 2
+    },
+    {
+      "phrase": "時になります",
+      "count": 2
+    },
+    {
+      "phrase": "こんばんは",
+      "count": 2
+    },
+    {
+      "phrase": "当たり前",
+      "count": 2
+    },
+    {
+      "phrase": "ありがとうござい",
+      "count": 2
+    },
+    {
+      "phrase": "お誘いしてくれて",
+      "count": 2
+    },
+    {
+      "phrase": "楽しかったし",
+      "count": 2
+    },
+    {
+      "phrase": "奥までしたり",
+      "count": 2
+    },
+    {
+      "phrase": "たっぷり",
+      "count": 2
+    },
+    {
+      "phrase": "くれて",
+      "count": 2
+    },
+    {
+      "phrase": "今日も",
+      "count": 1
+    },
+    {
+      "phrase": "日お疲れ様です",
+      "count": 1
+    },
+    {
+      "phrase": "の予定もぼちぼち",
+      "count": 1
+    },
+    {
+      "phrase": "なんて考えている",
+      "count": 1
+    },
+    {
+      "phrase": "まいこです",
+      "count": 1
+    },
+    {
+      "phrase": "人混みが苦手なの",
+      "count": 1
+    },
+    {
+      "phrase": "もホテルでこっそ",
+      "count": 1
+    },
+    {
+      "phrase": "以外はお日にち合",
+      "count": 1
+    },
+    {
+      "phrase": "わせやすいのでご",
+      "count": 1
+    },
+    {
+      "phrase": "希望のお日にちが",
+      "count": 1
+    },
+    {
+      "phrase": "ある方はトークか",
+      "count": 1
+    },
+    {
+      "phrase": "らどうぞ",
+      "count": 1
+    },
+    {
+      "phrase": "明日は",
+      "count": 1
+    },
+    {
+      "phrase": "でお邪魔いたしま",
+      "count": 1
+    },
+    {
+      "phrase": "ご予約の紳士さま",
+      "count": 1
+    },
+    {
+      "phrase": "見つけてお誘いい",
+      "count": 1
+    }
+  ],
+  "top20Posts": [
+    {
+      "castName": "れい",
+      "area": "東京",
+      "shopName": "ふうりん～風鈴～",
+      "title": "これが、こう🍑*・゜゜・*:.。..。.:*【 来週のスケジュール 】",
+      "likes": 36,
+      "bodyLen": 491,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "リサ",
+      "area": "東京",
+      "shopName": "メリハリ",
+      "title": "まだ終わらない時間",
+      "likes": 29,
+      "bodyLen": 26,
+      "seduction": 0,
+      "reality": 1
+    },
+    {
+      "castName": "すみれ",
+      "area": "東京",
+      "shopName": "鶯谷倶楽部 愛",
+      "title": "出勤しました❣️",
+      "likes": 27,
+      "bodyLen": 297,
+      "seduction": 0,
+      "reality": 2
+    },
+    {
+      "castName": "舞湖",
+      "area": "東京",
+      "shopName": "鶯谷・上野ＣＬＵＢ Ａ(クラブエー)",
+      "title": "明日🈵🙏🏻心置きなくエロエロを…",
+      "likes": 24,
+      "bodyLen": 404,
+      "seduction": 1,
+      "reality": 2
+    },
+    {
+      "castName": "新人・れな",
+      "area": "東京",
+      "shopName": "人妻花かんざし",
+      "title": "出勤しました🤗",
+      "likes": 4,
+      "bodyLen": 229,
+      "seduction": 1,
+      "reality": 0
+    },
+    {
+      "castName": "あき",
+      "area": "東京",
+      "shopName": "しゅうかつ倶楽部",
+      "title": "明後日",
+      "likes": 4,
+      "bodyLen": 83,
+      "seduction": 0,
+      "reality": 1
+    },
+    {
+      "castName": "舞香",
+      "area": "東京",
+      "shopName": "ミセスラウンジ東京",
+      "title": "華金は女子会☺",
+      "likes": 3,
+      "bodyLen": 223,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "るん★爆乳Ｉカップ×新卒18歳",
+      "area": "東京",
+      "shopName": "鶯谷Tiara～ティアラ～",
+      "title": "みてみて🔞💖",
+      "likes": 3,
+      "bodyLen": 105,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "ミサキ",
+      "area": "大阪",
+      "shopName": "Club NANA",
+      "title": "動画🎥",
+      "likes": 3,
+      "bodyLen": 245,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "桑田",
+      "area": "東京",
+      "shopName": "熟女の風俗最終章鶯谷店",
+      "title": "大変申し訳ございません🙏🙇😭",
+      "likes": 2,
+      "bodyLen": 108,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "新木",
+      "area": "東京",
+      "shopName": "あなたに逢いたくて",
+      "title": "しゅっきん！",
+      "likes": 2,
+      "bodyLen": 99,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "このは",
+      "area": "東京",
+      "shopName": "ぷにぷにプリンセス",
+      "title": "ちょい寒だねえ",
+      "likes": 2,
+      "bodyLen": 174,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "えれな★動画顔出OK",
+      "area": "大阪",
+      "shopName": "Linda&Linda",
+      "title": "可愛すぎるっ💗💗💗",
+      "likes": 2,
+      "bodyLen": 119,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "よしか",
+      "area": "東京",
+      "shopName": "人妻花かんざし",
+      "title": "静かな夜の過ごし方🍀✨",
+      "likes": 1,
+      "bodyLen": 444,
+      "seduction": 0,
+      "reality": 3
+    },
+    {
+      "castName": "あやめ",
+      "area": "東京",
+      "shopName": "僕のぽっちゃり伝説",
+      "title": "本日お休みです🙇🏻‍♀️明日から本気出します🙇🏻‍♀️",
+      "likes": 1,
+      "bodyLen": 112,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "てん★爆乳天然Gカップ降臨★",
+      "area": "東京",
+      "shopName": "鶯谷Tiara～ティアラ～",
+      "title": "ちゃぷ💦ちゃぷ💦",
+      "likes": 1,
+      "bodyLen": 34,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "影山せいら",
+      "area": "大阪",
+      "shopName": "一夜妻",
+      "title": "ありがとうございました",
+      "likes": 1,
+      "bodyLen": 131,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "ひめか",
+      "area": "大阪",
+      "shopName": "Linda&Linda",
+      "title": "金晩🌸🍻",
+      "likes": 1,
+      "bodyLen": 88,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "ことり【☆年間連続No.1☆】",
+      "area": "大阪",
+      "shopName": "素人美少女専門デリヘル ～After School～",
+      "title": "本指名様 AV撮影💕︎💕︎🧸💌",
+      "likes": 1,
+      "bodyLen": 261,
+      "seduction": 0,
+      "reality": 0
+    },
+    {
+      "castName": "目黒（めぐろ）",
+      "area": "東京",
+      "shopName": "素人妻専門店　ミセス・グランデ",
+      "title": "おつかれさま♥️",
+      "likes": 0,
+      "bodyLen": 39,
+      "seduction": 0,
+      "reality": 1
+    }
+  ],
+  "perPost": [
+    {
+      "castName": "舞湖",
+      "area": "東京",
+      "shopName": "鶯谷・上野ＣＬＵＢ Ａ(クラブエー)",
+      "title": "明日🈵🙏🏻心置きなくエロエロを…",
+      "likes": 24,
+      "bodyLen": 404,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 1,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 2,
+        "次回予告": 3,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 4
+      },
+      "seduction": 1,
+      "reality": 2,
+      "cta": {
+        "hasSchedule": true,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "米倉",
+      "area": "東京",
+      "shopName": "あなたに逢いたくて",
+      "title": "🎥写メ日記は私からのメッセージ💝",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "三好",
+      "area": "東京",
+      "shopName": "華恋人（カレント）",
+      "title": "祝　デリタウン６０件口コミありがとうございます😆💕✨",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "宮本",
+      "area": "東京",
+      "shopName": "華恋人（カレント）",
+      "title": "聞いて！！この前ね🤭💖",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "りな",
+      "area": "東京",
+      "shopName": "熟女デリヘル倶楽部",
+      "title": "一瞬の性欲で人生詰む人😱",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "よしか",
+      "area": "東京",
+      "shopName": "人妻花かんざし",
+      "title": "静かな夜の過ごし方🍀✨",
+      "likes": 1,
+      "bodyLen": 444,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 1,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 4,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 3,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "れい",
+      "area": "東京",
+      "shopName": "ふうりん～風鈴～",
+      "title": "これが、こう🍑*・゜゜・*:.。..。.:*【 来週のスケジュール 】",
+      "likes": 36,
+      "bodyLen": 491,
+      "imageCount": 2,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 3,
+        "次回予告": 3,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 10
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": true,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "新人・れな",
+      "area": "東京",
+      "shopName": "人妻花かんざし",
+      "title": "出勤しました🤗",
+      "likes": 4,
+      "bodyLen": 229,
+      "imageCount": 3,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 3,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 3
+      },
+      "seduction": 1,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": true
+      }
+    },
+    {
+      "castName": "あやめ",
+      "area": "東京",
+      "shopName": "僕のぽっちゃり伝説",
+      "title": "本日お休みです🙇🏻‍♀️明日から本気出します🙇🏻‍♀️",
+      "likes": 1,
+      "bodyLen": 112,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 2,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 1
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "てん★爆乳天然Gカップ降臨★",
+      "area": "東京",
+      "shopName": "鶯谷Tiara～ティアラ～",
+      "title": "ちゃぷ💦ちゃぷ💦",
+      "likes": 1,
+      "bodyLen": 34,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "平井(ひらい)",
+      "area": "東京",
+      "shopName": "人妻壱番館",
+      "title": "いつもありがとう💗",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "東",
+      "area": "東京",
+      "shopName": "華恋人（カレント）",
+      "title": "フェ◯の平均時間💋❤️",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "さなえ",
+      "area": "東京",
+      "shopName": "鶯谷倶楽部 愛",
+      "title": "過去動画でごめん🙏💦",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "桑田",
+      "area": "東京",
+      "shopName": "熟女の風俗最終章鶯谷店",
+      "title": "大変申し訳ございません🙏🙇😭",
+      "likes": 2,
+      "bodyLen": 108,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 1
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "小野（おの）",
+      "area": "東京",
+      "shopName": "素人妻専門店　ミセス・グランデ",
+      "title": "いつもは。。。",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "目黒（めぐろ）",
+      "area": "東京",
+      "shopName": "素人妻専門店　ミセス・グランデ",
+      "title": "おつかれさま♥️",
+      "likes": 0,
+      "bodyLen": 39,
+      "imageCount": 8,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 1,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "すみれ",
+      "area": "東京",
+      "shopName": "鶯谷倶楽部 愛",
+      "title": "出勤しました❣️",
+      "likes": 27,
+      "bodyLen": 297,
+      "imageCount": 8,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 2,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 2
+      },
+      "seduction": 0,
+      "reality": 2,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": true
+      }
+    },
+    {
+      "castName": "かりん",
+      "area": "東京",
+      "shopName": "奥鉄オクテツ東京店（デリヘル市場）",
+      "title": "本日のお礼です",
+      "likes": 0,
+      "bodyLen": 88,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 3,
+        "次回予告": 2,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 1
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "新木",
+      "area": "東京",
+      "shopName": "あなたに逢いたくて",
+      "title": "しゅっきん！",
+      "likes": 2,
+      "bodyLen": 99,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "リサ",
+      "area": "東京",
+      "shopName": "メリハリ",
+      "title": "まだ終わらない時間",
+      "likes": 29,
+      "bodyLen": 26,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 1,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "舞香",
+      "area": "東京",
+      "shopName": "ミセスラウンジ東京",
+      "title": "華金は女子会☺",
+      "likes": 3,
+      "bodyLen": 223,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "このは",
+      "area": "東京",
+      "shopName": "ぷにぷにプリンセス",
+      "title": "ちょい寒だねえ",
+      "likes": 2,
+      "bodyLen": 174,
+      "imageCount": 2,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 2,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 1
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "ゆいな",
+      "area": "東京",
+      "shopName": "しゅうかつ倶楽部",
+      "title": "こんばんは (ˊo̴̶̷̤  ̫ o̴̶̷̤ˋ)♡",
+      "likes": 0,
+      "bodyLen": 592,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 5,
+        "甘え": 0,
+        "誘惑": 1,
+        "報告": 1
+      },
+      "seduction": 1,
+      "reality": 4,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "るん★爆乳Ｉカップ×新卒18歳",
+      "area": "東京",
+      "shopName": "鶯谷Tiara～ティアラ～",
+      "title": "みてみて🔞💖",
+      "likes": 3,
+      "bodyLen": 105,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": true,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "まりん★S級キス魔な妹系美少女",
+      "area": "東京",
+      "shopName": "鶯谷Tiara～ティアラ～",
+      "title": "🔞どこが好き？",
+      "likes": 0,
+      "bodyLen": 120,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 2,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": true,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "美咲",
+      "area": "東京",
+      "shopName": "ぎんねこ",
+      "title": "エロエロ下着❤️❤️",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "体験入店 るる",
+      "area": "東京",
+      "shopName": "ノーブル園",
+      "title": "💌 21:00頃 80分のお兄様へ",
+      "likes": 0,
+      "bodyLen": 849,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 12,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 5,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": true,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "美雪",
+      "area": "東京",
+      "shopName": "鶯谷人妻城",
+      "title": "私に沼ってね♡",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "えみ",
+      "area": "東京",
+      "shopName": "熟女の風俗最終章池袋店",
+      "title": "おやすみマッスルーーーー",
+      "likes": 0,
+      "bodyLen": 45,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 1,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "あき",
+      "area": "東京",
+      "shopName": "しゅうかつ倶楽部",
+      "title": "明後日",
+      "likes": 4,
+      "bodyLen": 83,
+      "imageCount": 2,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 1
+      },
+      "seduction": 0,
+      "reality": 1,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "えれな★動画顔出OK",
+      "area": "大阪",
+      "shopName": "Linda&Linda",
+      "title": "可愛すぎるっ💗💗💗",
+      "likes": 2,
+      "bodyLen": 119,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 1,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 1,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "ミサキ",
+      "area": "大阪",
+      "shopName": "Club NANA",
+      "title": "動画🎥",
+      "likes": 3,
+      "bodyLen": 245,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 2,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": true,
+        "hasPhone": false,
+        "hasUrl": true,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "影山せいら",
+      "area": "大阪",
+      "shopName": "一夜妻",
+      "title": "ありがとうございました",
+      "likes": 1,
+      "bodyLen": 131,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 2,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "ひめか",
+      "area": "大阪",
+      "shopName": "Linda&Linda",
+      "title": "金晩🌸🍻",
+      "likes": 1,
+      "bodyLen": 88,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 2,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 1
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "まいか★動画顔出OK",
+      "area": "大阪",
+      "shopName": "Linda&Linda",
+      "title": "参考に…♡♡",
+      "likes": 0,
+      "bodyLen": 145,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 1,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 1,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "あやみ",
+      "area": "大阪",
+      "shopName": "一夜妻",
+      "title": "恥ずかしい……",
+      "likes": null,
+      "bodyLen": 0,
+      "imageCount": 0,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "ことり【☆年間連続No.1☆】",
+      "area": "大阪",
+      "shopName": "素人美少女専門デリヘル ～After School～",
+      "title": "本指名様 AV撮影💕︎💕︎🧸💌",
+      "likes": 1,
+      "bodyLen": 261,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 1,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 2,
+        "次回予告": 1,
+        "甘え": 0,
+        "誘惑": 1,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "☆奇跡のアイリス☆",
+      "area": "大阪",
+      "shopName": "KISEKI",
+      "title": "全部無加工ノマカメ写真♥️",
+      "likes": 0,
+      "bodyLen": 17,
+      "imageCount": 2,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 0,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "ひなみ",
+      "area": "大阪",
+      "shopName": "Linda&Linda",
+      "title": "次は明日💖",
+      "likes": 0,
+      "bodyLen": 75,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 0,
+        "次回予告": 3,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 0
+      },
+      "seduction": 0,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    },
+    {
+      "castName": "篠崎れいな",
+      "area": "大阪",
+      "shopName": "一夜妻",
+      "title": "明日出勤❣️✨",
+      "likes": 0,
+      "bodyLen": 486,
+      "imageCount": 1,
+      "location": {
+        "自宅/部屋": 0,
+        "ホテル": 0,
+        "浴室": 0,
+        "外出": 0,
+        "鏡越し": 0
+      },
+      "outfit": {
+        "下着": 0,
+        "トップレス": 0,
+        "水着/ビキニ": 0,
+        "コスプレ": 0,
+        "部屋着": 0,
+        "シースルー": 0
+      },
+      "content": {
+        "お礼": 2,
+        "次回予告": 5,
+        "甘え": 0,
+        "誘惑": 0,
+        "報告": 6
+      },
+      "seduction": 2,
+      "reality": 0,
+      "cta": {
+        "hasSchedule": false,
+        "hasPhone": false,
+        "hasUrl": false,
+        "hasDate": false
+      }
+    }
+  ]
+}
