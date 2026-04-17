@@ -16,6 +16,23 @@ NOYUTOがA-TRUCK担当者へ送付完了。返信受領待ち。
 
 ---
 
+### 🔥 A-0.5. X Cookie 両アカウント再取得（1分×2 = 2分・最優先）
+
+**着手条件**: Chrome で X.com にログイン済み・WSL Ubuntu が開ける
+**所要**: 2分（rina 30秒 + unryuto_ai 30秒 + コマンド実行）
+**詳細手順**: `tasks/noyuto-cookie-setup.md`
+
+これを実行すれば **rina 55本 + unryuto_ai 6本 = 計61本の投稿ストック** が即再開。
+現在両方とも401で完全停止中。これを叩かないと稼働率ゼロ。
+
+手順サマリ:
+1. Chrome → x.com → @rina_xxxfree ログイン状態 → F12 → Cookies → auth_token と ct0 コピー
+2. WSL で `cd ~/projects/vonds && node rina/x-cookie-post.js --setup` 実行・貼り付け
+3. 同様に @unryuto_ai → `node unryuto/x-posts/x-cookie-post.js --setup`
+4. KIRYUに「Cookie両方入れた」と一言
+
+---
+
 ### A-1. ストレッチゼロ Google広告CSV 7本DL
 
 **着手条件**: 会社PC・Google広告ログイン済み
