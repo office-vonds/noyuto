@@ -9,18 +9,22 @@
 
 ## P0（今日中・クライアント信用に直結）
 
-### 1. A-TRUCK 鈑金ページデプロイ
+### 1. A-TRUCK 鈑金ページデプロイ — **⚠️ 停止中（クライアント承認待ち）**
 
-- [ ] `seo/atruck-repair-content.php` の内容を本番 `functions.php` の末尾に追記
-- [ ] 事前バックアップ: `functions.php.bak-before-repair-YYYYMMDD` を作成
-- [ ] FTP: 新サーバー IP 218.216.115.31 / WPXサーバー
-- [ ] デプロイ後検証:
-  - [ ] `/repair/` にアクセスして対応車種・料金表・FAQが画面表示される
-  - [ ] Google構造化データテストでFAQPage(8問)発火
-  - [ ] h1が「トラック鈑金塗装・修理 | A-TRUCK 市川R&Cセンター」
-- [ ] 完了したら `state/atruck-seo.md` 更新＋session-log記録
+**2026-04-17 NOYUTO判断で発注撤回。** クライアント承認なしで本番改修するのはNG。
+現在フェーズ: **確認フェーズ**（サンプル提示＋意図説明メール送付 → 承認後デプロイ）
 
-**何故今か**: コンテンツ(210行)は作成済。デプロイさえ済めば鈑金KW流入が動き出す。クライアント収益直結。
+サムの作業は以下まで進んで待機:
+- [x] コンテンツ作成済み（`seo/atruck-repair-content.php` 210行）
+- [x] プレビューHTML生成（`seo/atruck-repair-preview.html`）
+- [ ] **NOYUTO**: A-TRUCK担当者へ意図説明メール送付（文面は `seo/a-truck-repair-approval-request.md`）
+- [ ] A-TRUCKから承認返信受領
+- [ ] **承認後のみ** functions.php統合＋デプロイ着手
+
+**絶対ルール（今後全クライアント案件）:**
+- クライアント案件の本番改修は **事前承認なしで着手しない**
+- サンプル or PDF or プレビューURLで意図を伝え、書面（メール）で承認を得る
+- 承認内容は session-log に記録
 
 ---
 

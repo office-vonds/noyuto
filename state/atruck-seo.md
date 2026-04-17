@@ -20,9 +20,13 @@
 
 ## 未実施（別途対応）
 
-- GTM3重読込の統合（コンテナID確認後） → `tasks/sam-queue.md` #2
-- header.phpのハードコード`<title>`削除 → `tasks/sam-queue.md` #3
-- ~~鈑金塗装ページのコンテンツ拡充~~ **コンテンツは seo/atruck-repair-content.php に作成済（210行・3000字超）。functions.php統合＋デプロイのみ残** → `tasks/sam-queue.md` #1
+- GTM3重読込の統合（コンテナID確認後） → `tasks/sam-queue.md` #2（**同様にクライアント事前承認が必要か要検討**）
+- header.phpのハードコード`<title>`削除 → `tasks/sam-queue.md` #3（同上）
+- 鈑金塗装ページのコンテンツ拡充 → **⚠️ 確認フェーズ**
+  - コンテンツ作成済: `seo/atruck-repair-content.php`（210行・約3,200字）
+  - プレビューHTML: `seo/atruck-repair-preview.html`
+  - 承認依頼メール文面: `seo/a-truck-repair-approval-request.md`
+  - **次のアクション**: NOYUTOがA-TRUCK担当者にメール送付 → 承認受領後 `tasks/sam-queue.md` P0#1 を再発注
 
 ## GTM調査結果（2026-04-15 KIRYU調査）
 
