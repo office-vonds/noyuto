@@ -110,6 +110,17 @@
 
 ---
 
+### C-1.5. UNRYUTO ブランド定義ドラフト 赤入れ（30分で決着できる4問）
+
+**着手条件**: ブラウザでMarkdown読めればOK
+**所要**: 30分
+**置き場**: `unryuto/docs/brand-definition-draft.md`
+
+NOYUTO確認事項セクションの Q1〜Q4 にYES/NO + 補足記入するだけ。
+これがあれば新AIデザインツールリリース当日に `skills/creative-production/SKILL.md` ＋ UNRYUTO試走が即走れる。
+
+---
+
 ### C-2. UNRYUTO X Cookie方式セットアップ
 
 **着手条件**: PC・X.comログイン

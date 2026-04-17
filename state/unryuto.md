@@ -30,7 +30,15 @@
 - 買い切り: マニュアル ¥29,800〜¥49,800
 - 月額: メンバーシップ ¥9,800〜¥19,800
 
+## 試走1号機化計画（2026-04-17追記）
+
+新AIデザインツール（Opus 4.7世代）の試走をUNRYUTOで実行予定。
+- **ブランド定義ドラフト**: `unryuto/docs/brand-definition-draft.md`（KIRYU作成・NOYUTO承認待ち）
+- NOYUTO確認4問に回答が入れば即走り出せる状態
+- 承認後: `skills/creative-production/SKILL.md` 新設 → 試走 → 営業素材化
+
 ## 関連
 
 - SKILL.md: .claude/skills/ai-biz-package/SKILL.md
 - session-logs/2026-04-13_0300_unryuto-phase0-build.md
+- unryuto/docs/brand-definition-draft.md（ブランド定義ドラフト）
