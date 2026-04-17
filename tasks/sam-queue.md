@@ -1,6 +1,6 @@
 # サム作業キュー
 
-最終更新: 2026-04-17 12:30 / 発注者: KIRYU
+最終更新: 2026-04-17 13:40 / 発注者: バナナ（本気ST GTM整理を追加）
 
 > サムが即起動して上から順に片付ける作業キュー。
 > 完了したら `[x]` に変更、`state/*.md` も同時更新。
@@ -8,6 +8,30 @@
 ---
 
 ## P0（今日中・クライアント信用に直結）
+
+### 0. 本気ストレッチ GTM整理・CVタグ実装 — **新規・NOYUTO承認済み**
+
+**指示書（確定版・このまま実行）**: [`majistretch/tasks/gtm_cleanup_20260417_final.md`](../majistretch/tasks/gtm_cleanup_20260417_final.md)
+
+コンテナ: `GTM-K32XLKXH`
+
+作業内容（4項目）:
+- [ ] ① 旧タグ2本を一時停止
+  - `Google 広告経由でのTELタップ`（2026/04/02・TEL二重計上原因）
+  - `コンバージョン リンカー`（旧・2026/04/02）
+- [ ] ② トリガー「予約ボタン_トリガー」修正
+  - 誤: `Click URL 含む https://airr...`（発火ゼロ）
+  - 正: リンクのみ / `Click URL 含む #reservation` ＋ `{{data-gtm-click}} 含む cta-`（AND）
+- [ ] ③ 新規タグ「Google広告_メールタップ」追加
+  - CV ID `18057524680` / ラベル `FpUuCN7tzp0cEMjrv6JD` / 値¥500 / JPY
+  - トリガー新規「メールタップ_トリガー」: リンクのみ・`Click URL 含む mailto:`
+- [ ] ④ プレビューで4CV単発発火確認 → Publish → `majistretch/gtm_container_majistretch.json` 差し替えcommit
+
+**前提確認（NOYUTO承認済み 2026-04-17）**: 予約フローは自社`reservation.php` → `/lp/thanks.html` 完結。Airリザーブ外部遷移ではない。
+
+**越権注意**: CV設計・タグ整理方針はバナナ決定・NOYUTO承認済。サムは実装のみ。
+
+---
 
 ### 1. A-TRUCK 鈑金ページデプロイ — **⚠️ 停止中（クライアント承認待ち）**
 
