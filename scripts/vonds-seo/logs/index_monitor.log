@@ -98,3 +98,10 @@
 2026-04-17 10:04:29,657 [INFO] === 結果: 7/18 インデックス済み ===
 2026-04-17 10:04:29,657 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/, https://vonds.co.jp/column/website-no-traffic-fix/
 2026-04-17 10:04:29,658 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
+2026-04-18 11:01:31,460 [INFO] === インデックス状態チェック開始: 19URL ===
+2026-04-18 11:01:39,026 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-15 https://vonds.co.jp/
+2026-04-18 11:01:47,067 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
+2026-04-18 11:01:54,977 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
+2026-04-18 11:02:02,866 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ads/
+2026-04-18 11:02:10,611 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ai/
+2026-04-18 11:02:18,238 [INFO]   [NG] NEUTRAL Duplicate, Google chose different canonical than user crawl=2026-04-11 https://vonds.co.jp/company/

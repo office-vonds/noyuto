@@ -124,12 +124,12 @@ def gsc_snapshot():
     return '\n'.join(lines)
 
 def task_queues():
+    import re, glob
     lines = ['## 4. 各エージェント作業キュー']
     for agent, path in [
         ('サム',     'tasks/sam-queue.md'),
         ('バナナ',   'tasks/banana-queue.md'),
         ('KIRYU',    'tasks/kiryu-queue.md'),
-        ('NOYUTO',   'tasks/noyuto-1min-actions.md'),
     ]:
         p = PROJECT / path
         if not p.exists():
@@ -139,6 +139,35 @@ def task_queues():
         undone = content.count('[ ]')
         done = content.count('[x]')
         lines.append(f'  - {agent}: 未着手 {undone} / 完了 {done}')
+
+    # NOYUTOキューは tasks/noyuto-*.md 複数ファイルに分散
+    noyuto_undone = 0
+    noyuto_done = 0
+    noyuto_top = []
+    for f in sorted(glob.glob(str(PROJECT / 'tasks/noyuto-*.md'))):
+        name = Path(f).name
+        content = Path(f).read_text(encoding='utf-8')
+        if name == 'noyuto-1min-actions.md':
+            for m in re.finditer(r'^###\s+(.+?)$', content, re.MULTILINE):
+                line = m.group(1).strip()
+                if not re.search(r'^(~~)?\s*🔥?\s*[A-C]-[\d\.]+', line):
+                    continue
+                if '~~' in line or '✅完了' in line or '✅' in line:
+                    noyuto_done += 1
+                else:
+                    noyuto_undone += 1
+                    noyuto_top.append(line[:72])
+        else:
+            head = content[:400]
+            if '✅ 完了' in head or '✅完了' in head or 'ステータス: 完了' in head:
+                noyuto_done += 1
+            else:
+                noyuto_undone += 1
+                m = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
+                noyuto_top.append((m.group(1) if m else name)[:72])
+    lines.append(f'  - NOYUTO: 未着手 {noyuto_undone} / 完了 {noyuto_done}')
+    for t in noyuto_top[:8]:
+        lines.append(f'     • {t}')
     return '\n'.join(lines)
 
 def alerts():
