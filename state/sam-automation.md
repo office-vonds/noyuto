@@ -40,6 +40,15 @@
 - ガールズヘブン: `reference_girlsheaven.md`
 - 絆JOB: `reference_kizunajob_server.md`
 
+## 素材原本の所在（git外・PUBLIC漏洩禁止）
+
+- **絆求人素材一式**: `~/vonds-assets/kizuna-recruit-source/`（167ファイル / 190MB）
+  - 原本: `C:\Users\ozawa\vonds-assets\kizuna-recruit-source\`（NOYUTO2023ノートPC）
+  - 由来: `G:\マイドライブ\絆関連\求人\`（Google Drive）
+  - 2026-04-18 サム配置 / 実店舗名・実キャスト名・.psd .ai 原本含むためPUBLIC絶対禁止
+  - 運用: 必要分のみ加工・匿名化後に `scripts/images/kizuna/` へ（別途コミット可）
+  - 詳細: `session-logs/2026-04-18_1620_kizuna-recruit-assets.md`
+
 ## 直近タスク（2026-04-17時点）
 
 - [ ] 各系統の cron 実行状況を棚卸し（どれが生きててどれが死んでるか）
