@@ -10,12 +10,25 @@
         width: 1920px;
         height: 1080px;
         overflow: hidden;
-        background: #05060c;
-        font-family: "Noto Sans JP", sans-serif;
+        background: #000;
+        font-family: "Noto Serif JP", serif;
         color: #fff;
       }
 
-      /* --- Scenes: absolute stacked layers --- */
+      /* === シネマスコープ黒帯（2.35:1風）=== */
+      .letterbox {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 140px;
+        background: #000;
+        z-index: 30;
+        pointer-events: none;
+      }
+      #lb-top    { top: 0; }
+      #lb-bottom { bottom: 0; }
+
+      /* === Scene container === */
       .scene {
         position: absolute;
         inset: 0;
@@ -25,107 +38,103 @@
 
       .bg-image {
         position: absolute;
-        inset: -5%;
-        width: 110%;
-        height: 110%;
+        inset: -8%;
+        width: 116%;
+        height: 116%;
         background-size: cover;
         background-position: center center;
-        filter: brightness(0.55) saturate(1.05);
+        /* シネマティック・グレーディング：シアンオレンジ・コントラスト強化 */
+        filter:
+          brightness(0.50)
+          saturate(0.88)
+          contrast(1.15)
+          sepia(0.08)
+          hue-rotate(-8deg);
       }
 
-      /* Vignette over every scene */
+      /* Vignette + overlay */
       .scene::after {
         content: "";
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 50% 50%, transparent 35%, rgba(0,0,0,0.70) 100%),
-          linear-gradient(180deg, rgba(5,6,12,0.35) 0%, transparent 25%, transparent 75%, rgba(5,6,12,0.55) 100%);
+          radial-gradient(ellipse 90% 70% at 50% 50%, transparent 30%, rgba(0,0,0,0.75) 100%),
+          linear-gradient(180deg, rgba(0,0,0,0.45) 0%, transparent 30%, transparent 70%, rgba(0,0,0,0.65) 100%);
         pointer-events: none;
       }
 
-      /* Grain overlay */
+      /* Film grain */
       .scene::before {
         content: "";
         position: absolute;
         inset: 0;
-        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.82  0 0 0 0 0.69  0 0 0 0 0.22  0 0 0 0.08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-        opacity: 0.18;
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+        opacity: 0.14;
         mix-blend-mode: overlay;
         pointer-events: none;
       }
 
       /* Scene backgrounds */
-      #s1 .bg-image { background-image: url("../../assets/photos/office-meeting.jpg"); }
+      #s1 .bg-image { background-image: url("../../assets/photos/city-skyline.jpg"); }
       #s2 .bg-image { background-image: url("../../assets/photos/laptop-person.jpg"); }
-      #s3 .bg-image { background-image: url("../../assets/photos/handshake-business.jpg"); }
-      #s4 .bg-image { background-image: url("../../assets/photos/analytics-dashboard.jpg"); }
-      #s5 .bg-image { background-image: url("../../assets/photos/city-skyline.jpg"); }
+      #s3 .bg-image { background-image: url("../../assets/photos/analytics-dashboard.jpg"); }
+      #s4 .bg-image { background-image: url("../../assets/photos/handshake-business.jpg"); }
+      #s5 .bg-image { background-image: url("../../assets/photos/office-meeting.jpg"); }
 
-      /* Cinematic gold frame */
-      .gold-bar {
+      /* === テキスト配置：左寄せ縦ライン === */
+      .cine-text {
         position: absolute;
-        left: 6%;
-        right: 6%;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, #d4af37 20%, #f3d98a 50%, #d4af37 80%, transparent);
-        opacity: 0;
-        z-index: 20;
-      }
-      #gold-top { top: 6%; }
-      #gold-bottom { bottom: 6%; }
-
-      .corner {
-        position: absolute;
-        width: 40px; height: 40px;
-        border-color: #d4af37;
-        opacity: 0;
-        z-index: 20;
-      }
-      #ct-tl { top: 8%; left: 8%; border-top: 1px solid; border-left: 1px solid; }
-      #ct-tr { top: 8%; right: 8%; border-top: 1px solid; border-right: 1px solid; }
-      #ct-bl { bottom: 8%; left: 8%; border-bottom: 1px solid; border-left: 1px solid; }
-      #ct-br { bottom: 8%; right: 8%; border-bottom: 1px solid; border-right: 1px solid; }
-
-      /* Text layers (in front of scene) */
-      .text-wrap {
-        position: absolute;
-        left: 10%;
-        right: 10%;
-        bottom: 22%;
+        left: 12%;
+        bottom: 240px;
         z-index: 10;
+        border-left: 1px solid rgba(212, 175, 55, 0.0);
+        padding-left: 32px;
+      }
+      .cine-text .vline {
+        position: absolute;
+        left: 0;
+        top: 10%;
+        bottom: 10%;
+        width: 1px;
+        background: linear-gradient(180deg, transparent 0%, #d4af37 30%, #d4af37 70%, transparent 100%);
+        transform: scaleY(0);
+        transform-origin: top center;
+        opacity: 0;
       }
       .eyebrow {
-        font-size: 22px;
-        letter-spacing: 0.52em;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.45em;
         color: #d4af37;
-        opacity: 0;
-        margin-bottom: 18px;
         text-transform: uppercase;
+        opacity: 0;
+        margin-bottom: 24px;
+        font-weight: 400;
       }
       .headline {
-        font-size: 76px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        color: transparent;
-        background: linear-gradient(180deg, #ffffff 0%, #f4f0e0 60%, #d4af37 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
+        font-family: "Noto Serif JP", serif;
+        font-size: 84px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        color: #fdfbf4;
         opacity: 0;
-        line-height: 1.2;
-        max-width: 1400px;
+        line-height: 1.35;
+        max-width: 1200px;
+        text-shadow: 0 2px 20px rgba(0,0,0,0.5);
       }
       .sub {
-        font-size: 28px;
+        font-family: "Noto Serif JP", serif;
+        font-size: 26px;
         font-weight: 300;
-        color: #e8e4d4;
+        color: #d8d4c4;
         letter-spacing: 0.14em;
         opacity: 0;
-        margin-top: 22px;
-        max-width: 1200px;
+        margin-top: 28px;
+        max-width: 1100px;
+        line-height: 1.8;
       }
 
-      /* Center hero (scene 1 + 6) */
+      /* === Final brand card === */
       .center-hero {
         position: absolute;
         inset: 0;
@@ -136,50 +145,61 @@
         z-index: 10;
         text-align: center;
       }
-      .mono {
-        font-size: 220px;
-        font-weight: 900;
-        letter-spacing: 0.2em;
-        color: transparent;
-        background: linear-gradient(180deg, #fff9e6 0%, #f3d98a 45%, #d4af37 60%, #8a6e1f 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
-        opacity: 0;
-        filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.45));
-        text-indent: 0.2em;
-      }
       .brand-title {
-        font-size: 90px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        color: transparent;
-        background: linear-gradient(180deg, #ffffff 0%, #f4f0e0 55%, #d4af37 100%);
-        -webkit-background-clip: text;
-        background-clip: text;
+        font-family: "Noto Serif JP", serif;
+        font-size: 92px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        color: #fdfbf4;
         opacity: 0;
-        margin-top: 20px;
       }
       .brand-divider {
         width: 0;
         height: 1px;
-        background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        background: linear-gradient(90deg, transparent, #d4af37 50%, transparent);
         opacity: 0;
-        margin: 28px 0 24px;
+        margin: 34px 0 28px;
       }
       .brand-tagline {
-        font-size: 38px;
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
         font-weight: 300;
-        letter-spacing: 0.36em;
-        color: #e8e4d4;
-        opacity: 0;
-      }
-      .brand-cta {
-        font-size: 30px;
-        font-weight: 400;
-        letter-spacing: 0.22em;
+        letter-spacing: 0.56em;
         color: #d4af37;
         opacity: 0;
-        margin-top: 32px;
+        text-transform: uppercase;
+      }
+      .brand-cta {
+        font-family: "Noto Serif JP", serif;
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: 0.28em;
+        color: #e8e4d4;
+        opacity: 0;
+        margin-top: 38px;
+      }
+
+      /* === Black transition layer === */
+      #black-transition {
+        position: absolute;
+        inset: 0;
+        background: #000;
+        opacity: 0;
+        z-index: 25;
+        pointer-events: none;
+      }
+
+      /* === Light leak overlay === */
+      .light-leak {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 85% 20%, rgba(212, 175, 55, 0.22) 0%, transparent 30%),
+          radial-gradient(circle at 15% 85%, rgba(74, 102, 150, 0.18) 0%, transparent 40%);
+        mix-blend-mode: screen;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 15;
       }
     </style>
   </head>
@@ -188,122 +208,135 @@
       id="root"
       data-composition-id="main"
       data-start="0"
-      data-duration="15"
+      data-duration="20"
       data-width="1920"
       data-height="1080"
     >
-      <!-- Scene 1: Opening (office meeting, 0-3.2s) -->
-      <div id="s1" class="scene clip" data-start="0" data-duration="3.2" data-track-index="1">
+      <!-- Scene 1: Opening — 街の夜景 + 詩的タイトル (0-4s) -->
+      <div id="s1" class="scene clip" data-start="0" data-duration="4.2" data-track-index="1">
         <div class="bg-image"></div>
-        <div class="center-hero">
-          <div id="mono1" class="mono">V</div>
+        <div class="light-leak clip" data-start="0.5" data-duration="3.5" data-track-index="16"></div>
+        <div class="cine-text">
+          <div class="vline"></div>
+          <div id="e1" class="eyebrow">Office VONDS</div>
+          <div id="h1" class="headline">一つの広告が、<br>一つの事業の未来になる。</div>
         </div>
       </div>
 
-      <!-- Scene 2: Service 1 (laptop person, 3.0-6.5s) -->
-      <div id="s2" class="scene clip" data-start="3.0" data-duration="3.5" data-track-index="2">
+      <!-- Scene 2: 深夜のPC — 挑戦 (4-8s) -->
+      <div id="s2" class="scene clip" data-start="4.0" data-duration="4.2" data-track-index="2">
         <div class="bg-image"></div>
-        <div class="text-wrap">
-          <div id="e2" class="eyebrow">Service 01</div>
-          <div id="h2" class="headline">Google 広告運用代行</div>
-          <div id="sub2" class="sub">業種特化のCVR最適化 — 検索・ディスプレイ・GDN・YouTube統合運用</div>
+        <div class="cine-text">
+          <div class="vline"></div>
+          <div id="e2" class="eyebrow">Chapter 01 — Challenge</div>
+          <div id="h2" class="headline">数字と、<br>向き合い続ける。</div>
+          <div id="sub2" class="sub">クライアントの事業を、<br>一人の経営者の想いとして背負う。</div>
         </div>
       </div>
 
-      <!-- Scene 3: Service 2 (handshake, 6.3-9.5s) -->
-      <div id="s3" class="scene clip" data-start="6.3" data-duration="3.2" data-track-index="3">
+      <!-- Scene 3: 分析画面 — 再現性 (8-12s) -->
+      <div id="s3" class="scene clip" data-start="8.0" data-duration="4.2" data-track-index="3">
         <div class="bg-image"></div>
-        <div class="text-wrap">
-          <div id="e3" class="eyebrow">Service 02</div>
-          <div id="h3" class="headline">LP 制作 ・ Web サイト構築</div>
-          <div id="sub3" class="sub">成果直結のデザイン × 業界最速の実装体制</div>
+        <div class="cine-text">
+          <div class="vline"></div>
+          <div id="e3" class="eyebrow">Chapter 02 — Precision</div>
+          <div id="h3" class="headline">再現性を、<br>設計する。</div>
+          <div id="sub3" class="sub">GA4 × GSC × Google 広告。<br>三層の計測で、成果を偶然にしない。</div>
         </div>
       </div>
 
-      <!-- Scene 4: Service 3 (analytics, 9.3-12.2s) -->
-      <div id="s4" class="scene clip" data-start="9.3" data-duration="2.9" data-track-index="4">
+      <!-- Scene 4: 握手 — 信頼 (12-16s) -->
+      <div id="s4" class="scene clip" data-start="12.0" data-duration="4.2" data-track-index="4">
         <div class="bg-image"></div>
-        <div class="text-wrap">
-          <div id="e4" class="eyebrow">Proof</div>
-          <div id="h4" class="headline">数字で語る成果</div>
-          <div id="sub4" class="sub">GA4 × GSC × Google広告 — 3層計測で再現性のあるグロースを設計</div>
+        <div class="cine-text">
+          <div class="vline"></div>
+          <div id="e4" class="eyebrow">Chapter 03 — Trust</div>
+          <div id="h4" class="headline">信頼を、<br>通貨に変える。</div>
+          <div id="sub4" class="sub">広告運用代行 × LP 制作。<br>一社一社と、長く伴走する。</div>
         </div>
       </div>
 
-      <!-- Scene 5: Brand closer (city skyline, 12.0-15s) -->
-      <div id="s5" class="scene clip" data-start="12.0" data-duration="3.0" data-track-index="5">
+      <!-- Scene 5: Brand closer (16-20s) -->
+      <div id="s5" class="scene clip" data-start="16.0" data-duration="4.0" data-track-index="5">
         <div class="bg-image"></div>
+        <div class="light-leak clip" data-start="16.5" data-duration="3.5" data-track-index="17"></div>
         <div class="center-hero">
           <div id="brand-title" class="brand-title">株式会社オフィスVONDS</div>
           <div id="brand-divider" class="brand-divider"></div>
-          <div id="brand-tagline" class="brand-tagline">Google 広告運用代行 × LP 制作</div>
-          <div id="brand-cta" class="brand-cta">クライアントのCV最大化を設計する</div>
+          <div id="brand-tagline" class="brand-tagline">Design Your Growth</div>
+          <div id="brand-cta" class="brand-cta">クライアントのCVを、設計する。</div>
         </div>
       </div>
 
-      <!-- Cinematic overlay (持続表示) -->
-      <div id="gold-top" class="gold-bar clip" data-start="0.3" data-duration="14.7" data-track-index="10"></div>
-      <div id="gold-bottom" class="gold-bar clip" data-start="0.3" data-duration="14.7" data-track-index="11"></div>
-      <div id="ct-tl" class="corner clip" data-start="0.6" data-duration="14.4" data-track-index="12"></div>
-      <div id="ct-tr" class="corner clip" data-start="0.6" data-duration="14.4" data-track-index="13"></div>
-      <div id="ct-bl" class="corner clip" data-start="0.6" data-duration="14.4" data-track-index="14"></div>
-      <div id="ct-br" class="corner clip" data-start="0.6" data-duration="14.4" data-track-index="15"></div>
+      <!-- Letterbox (シネマスコープ風・固定) -->
+      <div id="lb-top" class="letterbox clip" data-start="0" data-duration="20" data-track-index="20"></div>
+      <div id="lb-bottom" class="letterbox clip" data-start="0" data-duration="20" data-track-index="21"></div>
+
+      <!-- Black transition layer -->
+      <div id="black-transition" class="clip" data-start="0" data-duration="20" data-track-index="22"></div>
     </div>
 
     <script>
       window.__timelines = window.__timelines || {};
       const tl = gsap.timeline({ paused: true });
 
-      // ===== Overlay: gold frame & corners (持続表示) =====
-      tl.to(["#gold-top", "#gold-bottom"], { opacity: 1, duration: 1.4, ease: "power3.out", stagger: 0.1 }, 0.3);
-      tl.to([".corner"], { opacity: 0.7, duration: 0.8, ease: "power2.out", stagger: 0.08 }, 0.6);
+      // シーン切替関数
+      function sceneIn(sceneSel, textBundle, startAt, dur) {
+        // Scene fade in
+        tl.to(sceneSel, { opacity: 1, duration: 0.9, ease: "power2.out" }, startAt);
+        // Ken Burns: 極スロー（全編 dur 使って 1.12 → 1.00 へ）
+        tl.fromTo(`${sceneSel} .bg-image`,
+          { scale: 1.12 },
+          { scale: 1.0, duration: dur, ease: "none" },
+          startAt
+        );
+        // vline expand (縦ライン)
+        tl.to(`${sceneSel} .vline`, { scaleY: 1, opacity: 1, duration: 1.0, ease: "power3.out" }, startAt + 0.35);
+        // eyebrow fade
+        tl.fromTo(textBundle.e,
+          { y: 10 },
+          { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
+          startAt + 0.6
+        );
+        // headline fade-up
+        tl.fromTo(textBundle.h,
+          { y: 22 },
+          { y: 0, opacity: 1, duration: 1.2, ease: "power3.out" },
+          startAt + 0.85
+        );
+        // sub fade (if exists)
+        if (textBundle.sub) {
+          tl.fromTo(textBundle.sub,
+            { y: 14 },
+            { y: 0, opacity: 1, duration: 1.1, ease: "power2.out" },
+            startAt + 1.35
+          );
+        }
+        // Black fade out (映画的遷移)
+        tl.to("#black-transition", { opacity: 1, duration: 0.35, ease: "power2.in" }, startAt + dur - 0.5);
+        tl.to(sceneSel, { opacity: 0, duration: 0.01 }, startAt + dur - 0.15);
+        tl.to("#black-transition", { opacity: 0, duration: 0.4, ease: "power2.out" }, startAt + dur - 0.15);
+      }
 
-      // ===== Scene 1: Opening (0-3.2s) =====
-      // Fade in
-      tl.to("#s1", { opacity: 1, duration: 0.8, ease: "power2.out" }, 0);
-      // Ken Burns: zoom in subtle
-      tl.fromTo("#s1 .bg-image", { scale: 1.0 }, { scale: 1.15, duration: 3.2, ease: "none" }, 0);
-      // Mono "V" fade + scale up
-      tl.fromTo("#mono1", { scale: 0.88, y: 10 }, { scale: 1, y: 0, opacity: 1, duration: 1.3, ease: "power3.out" }, 0.6);
-      // Mono fade out
-      tl.to("#mono1", { opacity: 0, scale: 1.08, duration: 0.8, ease: "power2.in" }, 2.4);
-      // Scene 1 cross-fade out
-      tl.to("#s1", { opacity: 0, duration: 0.8, ease: "power2.in" }, 2.6);
+      // Scene 1
+      sceneIn("#s1", { e: "#e1", h: "#h1" }, 0, 4.2);
+      // Scene 2
+      sceneIn("#s2", { e: "#e2", h: "#h2", sub: "#sub2" }, 4.0, 4.2);
+      // Scene 3
+      sceneIn("#s3", { e: "#e3", h: "#h3", sub: "#sub3" }, 8.0, 4.2);
+      // Scene 4
+      sceneIn("#s4", { e: "#e4", h: "#h4", sub: "#sub4" }, 12.0, 4.2);
 
-      // ===== Scene 2: Service 01 (3.0-6.5s) =====
-      tl.to("#s2", { opacity: 1, duration: 0.8, ease: "power2.out" }, 3.0);
-      tl.fromTo("#s2 .bg-image", { scale: 1.12, x: 30 }, { scale: 1.0, x: 0, duration: 3.5, ease: "none" }, 3.0);
-      tl.fromTo("#e2", { y: 14 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 3.6);
-      tl.fromTo("#h2", { y: 22 }, { y: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, 3.8);
-      tl.fromTo("#sub2", { y: 14 }, { y: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, 4.3);
-      tl.to("#s2", { opacity: 0, duration: 0.8, ease: "power2.in" }, 5.7);
+      // Scene 5 — Brand closer (手動制御、最後は黒フェードなし)
+      tl.to("#s5", { opacity: 1, duration: 0.9, ease: "power2.out" }, 16.0);
+      tl.fromTo("#s5 .bg-image", { scale: 1.10 }, { scale: 1.0, duration: 4.0, ease: "none" }, 16.0);
+      tl.fromTo("#brand-title", { y: 24 }, { y: 0, opacity: 1, duration: 1.3, ease: "power3.out" }, 16.6);
+      tl.to("#brand-divider", { width: 560, opacity: 1, duration: 1.0, ease: "power3.out" }, 17.4);
+      tl.fromTo("#brand-tagline", { y: 14 }, { y: 0, opacity: 1, duration: 1.0, ease: "power2.out" }, 17.8);
+      tl.fromTo("#brand-cta", { y: 14 }, { y: 0, opacity: 1, duration: 1.1, ease: "power2.out" }, 18.3);
 
-      // ===== Scene 3: Service 02 (6.3-9.5s) =====
-      tl.to("#s3", { opacity: 1, duration: 0.8, ease: "power2.out" }, 6.3);
-      tl.fromTo("#s3 .bg-image", { scale: 1.12, x: -30 }, { scale: 1.0, x: 0, duration: 3.2, ease: "none" }, 6.3);
-      tl.fromTo("#e3", { y: 14 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 6.9);
-      tl.fromTo("#h3", { y: 22 }, { y: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, 7.1);
-      tl.fromTo("#sub3", { y: 14 }, { y: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, 7.5);
-      tl.to("#s3", { opacity: 0, duration: 0.8, ease: "power2.in" }, 8.7);
-
-      // ===== Scene 4: Proof (9.3-12.2s) =====
-      tl.to("#s4", { opacity: 1, duration: 0.8, ease: "power2.out" }, 9.3);
-      tl.fromTo("#s4 .bg-image", { scale: 1.12, y: 20 }, { scale: 1.0, y: 0, duration: 2.9, ease: "none" }, 9.3);
-      tl.fromTo("#e4", { y: 14 }, { y: 0, opacity: 1, duration: 0.7, ease: "power2.out" }, 9.9);
-      tl.fromTo("#h4", { y: 22 }, { y: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, 10.1);
-      tl.fromTo("#sub4", { y: 14 }, { y: 0, opacity: 1, duration: 0.9, ease: "power2.out" }, 10.5);
-      tl.to("#s4", { opacity: 0, duration: 0.8, ease: "power2.in" }, 11.4);
-
-      // ===== Scene 5: Brand closer (12.0-15s) =====
-      tl.to("#s5", { opacity: 1, duration: 0.8, ease: "power2.out" }, 12.0);
-      tl.fromTo("#s5 .bg-image", { scale: 1.08 }, { scale: 1.0, duration: 3.0, ease: "none" }, 12.0);
-      tl.fromTo("#brand-title", { y: 24 }, { y: 0, opacity: 1, duration: 1.1, ease: "power3.out" }, 12.4);
-      tl.to("#brand-divider", { width: 520, opacity: 1, duration: 0.9, ease: "power3.out" }, 13.1);
-      tl.fromTo("#brand-tagline", { y: 14 }, { y: 0, opacity: 1, duration: 1.0, ease: "power3.out" }, 13.4);
-      tl.fromTo("#brand-cta", { y: 12 }, { y: 0, opacity: 1, duration: 1.0, ease: "power2.out" }, 13.9);
-
-      // Final: overlay fade out
-      tl.to(["#gold-top", "#gold-bottom", ".corner"], { opacity: 0, duration: 0.8, ease: "power2.in" }, 14.3);
+      // Light leaks fade in
+      tl.to(".light-leak", { opacity: 1, duration: 2.0, ease: "sine.inOut" }, 0.5);
 
       window.__timelines["main"] = tl;
     </script>
