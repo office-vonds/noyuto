@@ -12,3 +12,7 @@ node_modules/
 .hyperframes-cache/
 dist/
 out/
+
+# Puppeteer/Chrome headless プロファイル（レンダごとにUUID生成される一時ディレクトリ）
+# 2026-04-18 クラッシュ対応：auto-save hookが拾ってコミット混入するのを防ぐ
+work-*/

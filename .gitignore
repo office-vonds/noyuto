@@ -52,3 +52,7 @@ unryuto/x-posts/.env
 scripts/dto-variations/
 scripts/dto-pipeline-state.json
 scripts/dto-hash-db.json
+
+# Puppeteer/Chrome headless profiles（ツール横断の保険）
+# 2026-04-18 クラッシュ対応：video-production/.gitignore の二重化
+**/work-*/

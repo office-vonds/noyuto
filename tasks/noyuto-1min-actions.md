@@ -135,6 +135,39 @@ NOYUTOがA-TRUCK担当者へ送付完了。返信受領待ち。
 
 ---
 
+### A-5. A-TRUCK GTM統合 承認依頼メール送付（1分）
+
+**着手条件**: Gmail ログイン済み
+**所要**: 1分（文面コピペ→送信）
+**文面**: `seo/a-truck-gtm-consolidation-approval-email.md` （KIRYU作成済み・そのまま送付可）
+
+3つのGTMコンテナ統合・UA削除・CV重複修正・GA4新規発行 の承認依頼。
+費用追加なし・月次運用保守内で実施。
+
+手順:
+1. `seo/a-truck-gtm-consolidation-approval-email.md` を開く
+2. 「本文」セクションの `---` から `---` までをコピー
+3. Gmail で新規メール → 宛先: A-TRUCK担当者 / 件名: 「【オフィスVONDS】GTM計測基盤の整理統合に関するご提案」 / 本文貼付 → 送信
+4. KIRYUに「A-TRUCK GTM統合メール送付完了」と一言
+
+---
+
+### A-6. A-TRUCK 3 GTMコンテナ SA 読み取り権限付与（30秒×3 = 90秒）
+
+**着手条件**: GTM管理画面ログイン
+**所要**: 90秒
+**目的**: A-5承認到着前に KIRYU がメインコンテナ判定を先回り完了させる
+
+3つのコンテナ: `GTM-5X6GWL4` / `GTM-PG3FF87` / `GTM-5PNW7CC3` それぞれに:
+1. 管理 → ユーザー管理 → ユーザー追加
+2. メール: `ga4-mcp@potent-impulse-165116.iam.gserviceaccount.com`
+3. 権限: **読み取り**（公開権限は不要）
+4. 追加
+
+3コンテナ完了で KIRYU に「A-TRUCK GTM SA追加完了」と一言 → API監査30分で Phase 1-B 完了。
+
+---
+
 ### A-4. VONDS SEO 8URL 手動インデックス登録（STATE.md #4 — 観測2週間後）
 
 **着手条件**: GSC vonds.co.jp プロパティログイン
