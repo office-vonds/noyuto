@@ -1,0 +1,14 @@
+# HyperFrames binary outputs — 動画バイナリは git 管理外
+*.mp4
+*.mov
+*.webm
+*.gif
+
+# Node
+node_modules/
+.npm-cache/
+
+# HyperFrames render cache
+.hyperframes-cache/
+dist/
+out/
