@@ -84,10 +84,17 @@
 
 ## 次のアクション（残タスク）
 
-1. GTM3重読込の統合（コンテナID確認後）
-2. header.phpのハードコード`<title>`削除（AIOSEOに委任）
-3. 鈑金塗装ページのコンテンツ拡充（要コンテンツ作成）
-4. Google構造化データテストツールで検証 → LocalBusinessスキーマ発火確認
+1. **Phase次施策(title/h1強化) 承認依頼メール送付** — NOYUTO作業（2026-04-19 KIRYU作成）
+   - 文面: `seo/a-truck-seo-phase2-approval-email.md`
+   - 対象: `/rental/list/3t_wide_long_loader/` `/rental/list/` `/rental/` 3URL
+   - 想定効果: 月130-300クリック増
+2. **GTM3重読込統合（拡充版指示書完成）** — 2026-04-19 KIRYU実装指示書レベルまで拡充
+   - 設計: `seo/atruck-gtm-consolidation-plan.md`
+   - 承認メール: `seo/a-truck-gtm-consolidation-approval-email.md`
+   - NOYUTO A-6実施 → バナナ自動監査 → メインコンテナ判定 → 承認メール送付 → サム実装
+3. header.phpのハードコード`<title>`削除（AIOSEOに委任）— GTM統合と合わせて実施
+4. 鈑金塗装ページのコンテンツ拡充 — **承認待ち**（2026-04-17 NOYUTO送付済み）
+5. Google構造化データテストツールで検証（デプロイ後）— LocalBusinessスキーマ発火確認
 
 ## 旧サーバー情報（使えなくなった可能性あり）
 

@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-19 01:30 / 更新者: KIRYU（ストレッチゼロLP SakuDesign確定反映）
+最終更新: 2026-04-19 01:30 / 更新者: KIRYU（ストレッチゼロLP）+ KIRYU自律セッション（A-TRUCK/4-23MTG準備）
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -11,7 +11,7 @@
 
 | # | プロジェクト | 状態 | ボール | 次のアクション | 詳細 |
 |---|-------------|------|--------|---------------|------|
-| 1 | A-TRUCK SEO | **鈑金コンテンツ作成済(210行)/デプロイ待ち** | サム | GTM統合/title修正/鈑金デプロイ → [tasks/sam-queue.md](tasks/sam-queue.md) | [state/atruck-seo.md](state/atruck-seo.md) |
+| 1 | A-TRUCK SEO | **鈑金承認待ち+Phase次施策承認メール完成(4/19)+GTM統合指示書拡充済(4/19)** | NOYUTO→サム | NOYUTO:Phase次施策メール送付/GTM A-6(SA付与)/承認受領後サム即実装 → [tasks/sam-queue.md](tasks/sam-queue.md) | [state/atruck-seo.md](state/atruck-seo.md) |
 | 2 | VONDS広告監査 | CSV未取得 | NOYUTO | ストレッチゼロCSV 7本DL（会社PC）→ バナナへ引継ぎ | [state/vonds-ads-audit.md](state/vonds-ads-audit.md) |
 | 2b | SANKEN Google広告（買取/ストレッチ×2 + A-TRUCK） | **バナナ担当固定** / ストレッチゼロKW追加11本＋除外11本作成済 / 本気ST CVタグ指示書作成済 | NOYUTO→サム | NOYUTO:KW投入＋CVアクション4本作成→サム:GTMタグ実装 | [state/sanken-ads.md](state/sanken-ads.md) |
 | 3 | UNRYUTO Phase 0 | サイト構築済・外部連携待ち | NOYUTO | DNS確認 / Stripe開設 / X API鍵発行 | [state/unryuto.md](state/unryuto.md) |
@@ -29,7 +29,7 @@
 |---|-------------|------|---------|------|
 | 7 | ILゲーム v5 | 本番稼働中（Netlify）・**IL2025理論で教育資料刷新(4/17)** | Firestoreログ100件で月次レビュー / 刷新済み資料のオーナー営業活用 | [state/il-game.md](state/il-game.md) |
 | 8 | 本気ストレッチ | スマホ修正完了・メール未テスト・**Google広告CVタグ実装待ち**・適格性確認プログラム進行中 | メール実機テスト送信 / CVタグ実装 / 代理店書類 / 中込氏クライアント書類待ち | [state/majistretch.md](state/majistretch.md) |
-| 10 | 4/23(木)13:00 Kayoko Ando氏MTG | Google Ads API Basic Access審査期間 | NOYUTO+KIRYU | 質問項目準備・前日リマインダー | [memory/project_vonds_ads_mcc.md](../.claude/projects/-home-ozawakiryu0902-projects-vonds/memory/project_vonds_ads_mcc.md) |
+| 10 | 4/23(木)13:00 Kayoko Ando氏MTG | **質問項目完成版作成済(4/19)・30分進行シナリオ完備** | NOYUTO+KIRYU | 4/22までに Token リセット + Basic Access確認 / 4/22 20:00 KIRYU前日リマインダー | [scripts/vonds-ads-api/mtg_0423_notes.md](scripts/vonds-ads-api/mtg_0423_notes.md) |
 
 ## 保留
 
