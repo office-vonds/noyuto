@@ -4,7 +4,7 @@
 #   [ -f ~/projects/vonds/scripts/shell/vc-alias.sh ] && source ~/projects/vonds/scripts/shell/vc-alias.sh
 # → source ~/.bashrc または新しいターミナルで `vc` が使える
 
-alias vc="cd ~/projects/vonds && git pull && claude --dangerously-skip-permissions"
+alias vc="cd ~/projects/vonds && git pull --autostash && claude --dangerously-skip-permissions"
 alias vcexit="cd ~/projects/vonds && git add -A && git commit -m 'auto-save '\"\$(date +%Y%m%d-%H%M%S)\"' --no-edit 2>/dev/null; git push origin main"
 
 # Claude Code がインストールされていない場合のヒント
