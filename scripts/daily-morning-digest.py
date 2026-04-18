@@ -166,8 +166,10 @@ def task_queues():
                 m = re.search(r'^#\s+(.+)$', content, re.MULTILINE)
                 noyuto_top.append((m.group(1) if m else name)[:72])
     lines.append(f'  - NOYUTO: 未着手 {noyuto_undone} / 完了 {noyuto_done}')
-    for t in noyuto_top[:8]:
+    for t in noyuto_top[:15]:
         lines.append(f'     • {t}')
+    if len(noyuto_top) > 15:
+        lines.append(f'     ... 他 {len(noyuto_top) - 15}件 (tasks/noyuto-*.md参照)')
     return '\n'.join(lines)
 
 def alerts():
