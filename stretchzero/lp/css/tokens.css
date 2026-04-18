@@ -1,0 +1,43 @@
+:root{
+  /* === Brand / Accent === */
+  --sz-orange:#FF8C00;
+  --sz-orange-600:#E67E00;
+  --sz-orange-100:#FFF5E6;
+
+  /* === Dark / Light surfaces === */
+  --sz-dark-1:#0f0f0f;
+  --sz-dark-2:#1a1a1a;
+  --sz-dark-3:#141414;
+  --sz-bg-light:#FFF5E6;
+
+  /* === Text === */
+  --sz-white:#ffffff;
+  --sz-ink-1:#1a1a1a;
+  --sz-ink-2:#333333;
+  --sz-ink-mute:#999999;
+  --sz-ink-ng:#787878;
+
+  /* === Overlay === */
+  --sz-overlay:rgba(0,0,0,0.35);
+
+  /* === Typography === */
+  --sz-font-jp:"Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  --sz-font-en:"Roboto", "Noto Sans JP", sans-serif;
+
+  --sz-label-size:11px;
+  --sz-label-tracking:.18em;
+
+  /* === Layout === */
+  --sz-sp-max:375px;
+  --sz-pc-max:1280px;
+  --sz-pad-x-sp:20px;
+  --sz-pad-x-pc:40px;
+  --sz-radius-sm:8px;
+  --sz-radius-md:14px;
+  --sz-radius-lg:22px;
+  --sz-shadow-soft:0 10px 30px rgba(0,0,0,.12);
+  --sz-shadow-pop:0 14px 40px rgba(255,140,0,.28);
+
+  /* === Transitions === */
+  --sz-ease:cubic-bezier(.22,.61,.36,1);
+}

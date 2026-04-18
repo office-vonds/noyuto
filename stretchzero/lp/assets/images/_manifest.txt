@@ -1,0 +1,25 @@
+# ストレッチゼロLP 画像素材マニフェスト
+# 取得元: stretchzero.jp 本番サイト
+
+## FV/宣材
+fv-bg.jpg          https://stretchzero.jp/wp-content/uploads/2026/02/260205-1790-scaled.jpg
+sen-01.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1351-scaled.jpg
+sen-02.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1901-scaled.jpg
+sen-03.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1102-scaled.jpg
+sen-04.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1623-scaled.jpg
+sen-05.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1238-scaled.jpg
+sen-06.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1218-1-scaled.jpg
+sen-07.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-0231-scaled.jpg
+sen-08.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-0038-scaled.jpg
+sen-09.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1762-1-scaled.jpg
+sen-10.jpg         https://stretchzero.jp/wp-content/uploads/2026/02/260205-1514-scaled.jpg
+
+## 店舗
+shop-kofu.jpg            https://stretchzero.jp/wp-content/uploads/2024/10/201535.jpg
+shop-kai-hibikigaoka.jpg https://stretchzero.jp/wp-content/uploads/2024/12/206336.jpg
+shop-minami-alps.jpg     https://stretchzero.jp/wp-content/uploads/2025/08/221681.jpg
+shop-nirasaki.jpg        https://stretchzero.jp/wp-content/uploads/2025/08/TOP③-scaled.jpg
+
+## ロゴ
+logo.png         https://stretchzero.jp/wp-content/uploads/2025/10/StretchZERO_WideVerB_OL-scaled.png
+# logo-white.png → Figma納品から取得予定

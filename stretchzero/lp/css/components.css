@@ -1,0 +1,163 @@
+/* ========================================
+   Stretch ZERO LP Components (skeleton)
+   Figmaデザイン適用後に差分を詰める
+======================================== */
+
+/* --- Buttons / CTA --- */
+.sz-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:16px 24px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:15px;
+  transition:transform .25s var(--sz-ease),box-shadow .25s var(--sz-ease),background .25s var(--sz-ease);
+  will-change:transform;
+}
+.sz-btn--primary{
+  background:var(--sz-orange);
+  color:var(--sz-white);
+  box-shadow:var(--sz-shadow-pop);
+}
+.sz-btn--primary:hover{
+  background:var(--sz-orange-600);
+  transform:translateY(-1px);
+}
+.sz-btn--ghost{
+  background:transparent;
+  color:var(--sz-white);
+  border:1.5px solid rgba(255,255,255,.6);
+}
+.sz-btn--dark{
+  background:var(--sz-dark-2);
+  color:var(--sz-white);
+}
+.sz-btn--tel .sz-btn__num{font-size:20px;letter-spacing:.04em}
+
+/* --- Badge --- */
+.sz-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 12px;
+  background:var(--sz-orange);
+  color:var(--sz-white);
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* --- Cards --- */
+.sz-card{
+  background:var(--sz-dark-2);
+  border-radius:var(--sz-radius-md);
+  padding:24px;
+  color:var(--sz-white);
+}
+.sz-card--light{
+  background:var(--sz-white);
+  color:var(--sz-ink-2);
+  box-shadow:var(--sz-shadow-soft);
+}
+
+/* --- Checklist / Symptom --- */
+.sz-check{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:14px 16px;
+  background:var(--sz-dark-3);
+  border-radius:var(--sz-radius-sm);
+  border:1px solid rgba(255,255,255,.06);
+  color:var(--sz-white);
+}
+.sz-check__dot{
+  flex-shrink:0;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:var(--sz-orange);
+  display:inline-block;
+}
+
+/* --- NG/OK compare --- */
+.sz-compare{display:grid;gap:16px}
+.sz-compare__ng{
+  background:#2a2a2a;border-left:3px solid var(--sz-ink-ng);padding:18px;border-radius:var(--sz-radius-sm);
+}
+.sz-compare__ok{
+  background:linear-gradient(180deg,#ff8c00 0%,#e67e00 100%);
+  color:var(--sz-white);padding:18px;border-radius:var(--sz-radius-sm);
+}
+
+/* --- FAQ --- */
+.sz-faq__item{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sz-faq__q{
+  width:100%;
+  text-align:left;
+  padding:18px 40px 18px 0;
+  color:var(--sz-white);
+  font-weight:700;
+  position:relative;
+}
+.sz-faq__q::after{
+  content:"+";
+  position:absolute;right:4px;top:50%;transform:translateY(-50%);
+  color:var(--sz-orange);font-size:20px;transition:transform .3s var(--sz-ease);
+}
+.sz-faq__item[aria-expanded="true"] .sz-faq__q::after{transform:translateY(-50%) rotate(45deg)}
+.sz-faq__a{
+  max-height:0;overflow:hidden;transition:max-height .4s var(--sz-ease);
+  color:var(--sz-ink-mute);
+}
+.sz-faq__item[aria-expanded="true"] .sz-faq__a{max-height:600px;padding-bottom:18px}
+
+/* --- Sticky CTA bar (SP only) --- */
+.sz-sticky{
+  position:fixed;left:0;right:0;bottom:0;
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:rgba(0,0,0,.9);
+  padding:10px;
+  z-index:90;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+.sz-sticky .sz-btn{width:100%;padding:14px 12px;font-size:14px}
+@media (min-width:768px){.sz-sticky{display:none}}
+
+/* --- Modal --- */
+.sz-modal{
+  position:fixed;inset:0;
+  background:rgba(0,0,0,.75);
+  display:none;
+  align-items:center;justify-content:center;
+  padding:20px;
+  z-index:100;
+}
+.sz-modal[aria-hidden="false"]{display:flex}
+.sz-modal__panel{
+  background:var(--sz-white);color:var(--sz-ink-1);
+  border-radius:var(--sz-radius-md);
+  width:100%;max-width:480px;max-height:92vh;overflow:auto;
+  padding:28px;
+}
+.sz-modal__close{
+  float:right;font-size:24px;line-height:1;color:var(--sz-ink-mute);
+}
+
+/* --- Timeline (Road Map) --- */
+.sz-timeline{position:relative;padding-left:28px}
+.sz-timeline::before{
+  content:"";position:absolute;left:10px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(180deg,var(--sz-orange),rgba(255,140,0,.2));
+}
+.sz-timeline__item{position:relative;padding-bottom:28px}
+.sz-timeline__item::before{
+  content:"";position:absolute;left:-24px;top:4px;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--sz-orange);
+  box-shadow:0 0 0 4px rgba(255,140,0,.22);
+}

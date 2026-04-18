@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-17 12:45 / 更新者: バナナ（API基盤整備）
+最終更新: 2026-04-18 22:42 / 更新者: KIRYU（ストレッチゼロLP実装着手）
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -21,6 +21,7 @@
 | 7 | 自動投稿パイプライン統合運用（dto/vanilla/ガールズヘブン/絆JOB） | **サム担当固定（2026-04-17）** | サム | cron棚卸し・認証切れ検知統一・画像プール可視化 | [state/sam-automation.md](state/sam-automation.md) |
 | 8 | VONDS広告運用MCC・Google Ads API統合基盤 | **API実装雛形整備完了(4/17 12:45)・Basic Access申請中** | NOYUTO | Token即リセット→GCP OAuth発行→`~/credentials/google-ads.yaml`配置→auth_setup.py実行 | [state/sanken-ads.md](state/sanken-ads.md) + `scripts/vonds-ads-api/` |
 | 9 | @rina_xxxfree 凍結事故復旧 | **Appeal提出完了(4/17)・返答待ち / ブログ記事化cron稼働中** | X審査(3-14日) | 返答受領後判断 / cron毎朝10:00継続 | [tasks/rina-ban-recovery.md](tasks/rina-ban-recovery.md) |
+| 10 | ストレッチゼロ広告LP実装(stretchzero.jp/lp/) | **実装着手(4/18 22:42)・SakuDesign Figma受領・全19セクション** | KIRYU | Figma取得→HTML/CSS構築→functions.phpルーティング→GTM/CV実装 | [state/stretchzero-lp.md](state/stretchzero-lp.md) |
 
 ## 観測中
 
