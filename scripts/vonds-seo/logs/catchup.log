@@ -416,3 +416,9 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 2026-04-18 11:03:58,452 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/, https://vonds.co.jp/column/web-marketing-methods/
 2026-04-18 11:03:58,466 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
 2026-04-18 11:03:58 [CATCHUP] インデックスモニタリング完了。
+2026-04-19 10:00:01 [CATCHUP] 本日の記事未生成。生成開始。
+2026-04-19 10:00:01,322 [INFO] ============================================================
+2026-04-19 10:00:01,323 [INFO] VONDS SEO記事自動投稿 開始
+2026-04-19 10:00:01,323 [INFO] ============================================================
+2026-04-19 10:00:01,325 [INFO] 選択キーワード: コンテンツマーケティング 始め方 (slug: content-marketing-start)
+2026-04-19 10:00:01,326 [INFO] claude --print 実行 (試行1/3): コンテンツマーケティング 始め方
