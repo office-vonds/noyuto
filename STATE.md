@@ -1,6 +1,6 @@
 # STATE.md — プロジェクト現在地（単一の真実）
 
-最終更新: 2026-04-19 01:30 / 更新者: KIRYU（ストレッチゼロLP）+ KIRYU自律セッション（A-TRUCK/4-23MTG準備）
+最終更新: 2026-04-19 02:25 / 更新者: KIRYU（ストレッチゼロLPアニメ追加+監修者カード刷新）
 
 > 起動時にこのファイルだけ読めば全体像がわかる。
 > 詳細は各 `state/*.md` を参照。完了済みはここに載せない。
@@ -21,7 +21,7 @@
 | 7 | 自動投稿パイプライン統合運用（dto/vanilla/ガールズヘブン/絆JOB） | **サム担当固定（2026-04-17）** | サム | cron棚卸し・認証切れ検知統一・画像プール可視化 | [state/sam-automation.md](state/sam-automation.md) |
 | 8 | VONDS広告運用MCC・Google Ads API統合基盤 | **API実装雛形整備完了(4/17 12:45)・Basic Access申請中** | NOYUTO | Token即リセット→GCP OAuth発行→`~/credentials/google-ads.yaml`配置→auth_setup.py実行 | [state/sanken-ads.md](state/sanken-ads.md) + `scripts/vonds-ads-api/` |
 | 9 | @rina_xxxfree 凍結事故復旧 | **Appeal提出完了(4/17)・返答待ち / ブログ記事化cron稼働中** | X審査(3-14日) | 返答受領後判断 / cron毎朝10:00継続 | [tasks/rina-ban-recovery.md](tasks/rina-ban-recovery.md) |
-| 10 | ストレッチゼロ広告LP実装(stretchzero.jp/lp/) | **SakuDesign確定コピー全反映完了(4/19 01:30)・4店舗TEL個別化済・プレビュー稼働中** | NOYUTO | プレビューで承認 → PC版詳細/岸先生写真/Before&After写真/FC加盟ページ/中込社長承認→WPXデプロイ | [state/stretchzero-lp.md](state/stretchzero-lp.md) |
+| 10 | ストレッチゼロ広告LP実装(stretchzero.jp/lp/) | **アニメーション全面追加+監修者カード刷新完了(4/19 02:25・87c2065)・data-sz-reveal 63箇所+ケンバーンズ+カウントアップ+返金シール回転** | NOYUTO | プレビュー確認 → 岸先生実写入手(中込経由) → PC版/FC/サンクス → 中込承認→WPXデプロイ | [state/stretchzero-lp.md](state/stretchzero-lp.md) |
 | 11 | noyuto X/NOTE戦略運用 | **🚨X pendingストック0本(次回空振り)・NOTE未投稿・Tweet ID unknownバグ(debug log追加済)** | KIRYU+サム | X新スレッド5-7本即補充・NOTE cron手動発火テスト・Gmail App Password再発行でdigest送信復旧 | [state/noyuto-media.md](state/noyuto-media.md) |
 
 ## 観測中
