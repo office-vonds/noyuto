@@ -1,6 +1,6 @@
 {
-  "checked_at": "2026-04-18T11:03:58.465273+09:00",
-  "total": 19,
+  "checked_at": "2026-04-19T10:04:01.378057+09:00",
+  "total": 20,
   "indexed": 8,
   "not_indexed": [
     "https://vonds.co.jp/company/",
@@ -13,7 +13,8 @@
     "https://vonds.co.jp/column/website-cost-guide/",
     "https://vonds.co.jp/column/lp-design-tips/",
     "https://vonds.co.jp/column/website-renewal-timing/",
-    "https://vonds.co.jp/column/web-marketing-methods/"
+    "https://vonds.co.jp/column/web-marketing-methods/",
+    "https://vonds.co.jp/column/content-marketing-start/"
   ],
   "results": [
     {
@@ -97,7 +98,7 @@
     {
       "url": "https://vonds.co.jp/column/local-seo-strategy/",
       "verdict": "NEUTRAL",
-      "coverage": "Discovered - currently not indexed",
+      "coverage": "URL is unknown to Google",
       "crawl": "NEVER"
     },
     {
@@ -109,7 +110,7 @@
     {
       "url": "https://vonds.co.jp/column/lp-design-tips/",
       "verdict": "NEUTRAL",
-      "coverage": "URL is unknown to Google",
+      "coverage": "Discovered - currently not indexed",
       "crawl": "NEVER"
     },
     {
@@ -126,6 +127,12 @@
     },
     {
       "url": "https://vonds.co.jp/column/web-marketing-methods/",
+      "verdict": "NEUTRAL",
+      "coverage": "Discovered - currently not indexed",
+      "crawl": "NEVER"
+    },
+    {
+      "url": "https://vonds.co.jp/column/content-marketing-start/",
       "verdict": "NEUTRAL",
       "coverage": "URL is unknown to Google",
       "crawl": "NEVER"

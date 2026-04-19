@@ -121,3 +121,27 @@
 2026-04-18 11:03:58,452 [INFO] === 結果: 8/19 インデックス済み ===
 2026-04-18 11:03:58,452 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/, https://vonds.co.jp/column/web-marketing-methods/
 2026-04-18 11:03:58,466 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
+2026-04-19 10:01:31,063 [INFO] === インデックス状態チェック開始: 20URL ===
+2026-04-19 10:01:38,432 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-15 https://vonds.co.jp/
+2026-04-19 10:01:46,159 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
+2026-04-19 10:01:53,902 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
+2026-04-19 10:02:01,624 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ads/
+2026-04-19 10:02:09,343 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ai/
+2026-04-19 10:02:16,832 [INFO]   [NG] NEUTRAL Duplicate, Google chose different canonical than user crawl=2026-04-11 https://vonds.co.jp/company/
+2026-04-19 10:02:24,264 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/
+2026-04-19 10:02:31,548 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/seo-howto-guide/
+2026-04-19 10:02:39,309 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/yamanashi-seo/
+2026-04-19 10:02:46,753 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/what-is-seo/
+2026-04-19 10:02:54,233 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/web-design-guide/
+2026-04-19 10:03:01,701 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/google-ads-guide/
+2026-04-19 10:03:08,984 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/ai-business-guide/
+2026-04-19 10:03:16,276 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/local-seo-strategy/
+2026-04-19 10:03:23,806 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/website-cost-guide/
+2026-04-19 10:03:31,104 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/lp-design-tips/
+2026-04-19 10:03:38,366 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/website-renewal-timing/
+2026-04-19 10:03:45,821 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-17 https://vonds.co.jp/column/website-no-traffic-fix/
+2026-04-19 10:03:53,379 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/web-marketing-methods/
+2026-04-19 10:04:00,876 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/content-marketing-start/
+2026-04-19 10:04:01,377 [INFO] === 結果: 8/20 インデックス済み ===
+2026-04-19 10:04:01,377 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/, https://vonds.co.jp/column/web-marketing-methods/, https://vonds.co.jp/column/content-marketing-start/
+2026-04-19 10:04:01,378 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json

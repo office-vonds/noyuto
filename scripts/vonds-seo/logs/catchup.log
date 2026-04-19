@@ -422,3 +422,91 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 2026-04-19 10:00:01,323 [INFO] ============================================================
 2026-04-19 10:00:01,325 [INFO] 選択キーワード: コンテンツマーケティング 始め方 (slug: content-marketing-start)
 2026-04-19 10:00:01,326 [INFO] claude --print 実行 (試行1/3): コンテンツマーケティング 始め方
+2026-04-19 10:01:29,377 [INFO] 記事生成完了: 4026文字
+2026-04-19 10:01:29,380 [INFO] 品質チェック: 83点 (合格) issues=2
+2026-04-19 10:01:29,380 [INFO]   - 文字数不足: 4026文字（最低4500文字）
+2026-04-19 10:01:29,380 [INFO]   - 強調(strong)不足: 1個（最低5個）
+2026-04-19 10:01:29,380 [INFO] 品質スコア: 83点 (合格)
+2026-04-19 10:01:29,380 [INFO] 品質基準クリア（83点）
+2026-04-19 10:01:29,382 [INFO] 記事HTML保存: /home/ozawakiryu0902/projects/vonds/column/content-marketing-start/index.html
+2026-04-19 10:01:29,386 [INFO] state.json更新完了
+2026-04-19 10:01:29,387 [INFO] コラム一覧ページ更新: /home/ozawakiryu0902/projects/vonds/column/index.html (13記事)
+2026-04-19 10:01:29,410 [INFO] ============================================================
+2026-04-19 10:01:29,410 [INFO] 副産物生成 開始
+2026-04-19 10:01:29,410 [INFO] ============================================================
+2026-04-19 10:01:29,410 [INFO] sitemap.xml更新: 22URL
+2026-04-19 10:01:29,411 [INFO] robots.txt更新
+2026-04-19 10:01:29,411 [INFO] X投稿素材生成: 3パターン → sns_content-marketing-start.json
+2026-04-19 10:01:29,413 [WARNING] 副産物生成スキップ: look-behind requires fixed-width pattern
+2026-04-19 10:01:29,523 [INFO] git commit完了: SEOコラム自動投稿: content-marketing-start
+2026-04-19 10:01:30,874 [INFO] git push完了 (main)
+2026-04-19 10:01:30,874 [INFO] ============================================================
+2026-04-19 10:01:30,874 [INFO] 投稿完了: コンテンツマーケティングの始め方｜初心者でも成果を出す5ステップ
+2026-04-19 10:01:30,874 [INFO] URL: https://vonds.co.jp/column/content-marketing-start/
+2026-04-19 10:01:30,874 [INFO] 文字数: 4026文字
+2026-04-19 10:01:30,874 [INFO] ============================================================
+2026-04-19 10:01:30,881 [INFO] 学習分析を実行中...
+2026-04-19 10:01:30,882 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,882 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-19 10:01:30,882 [INFO] [91点] 【2026年最新】SEO対策の正しいやり方｜初心者でもわかる完全ガイド
+2026-04-19 10:01:30,884 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-19 10:01:30,884 [INFO] [100点] 山梨県でSEO対策を依頼するなら｜地域密着型SEOの強みと選び方
+2026-04-19 10:01:30,886 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-19 10:01:30,886 [INFO] [100点] SEOとは？わかりやすく基本を解説｜なぜ検索上位が重要なのか
+2026-04-19 10:01:30,888 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,888 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-19 10:01:30,888 [INFO] [91点] ホームページ制作で失敗しない｜中小企業が知るべき発注・運用の全知識
+2026-04-19 10:01:30,890 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,890 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-19 10:01:30,890 [INFO] [91点] Google広告の始め方｜中小企業が少額予算で成果を出すための実践ガイド
+2026-04-19 10:01:30,891 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,891 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-19 10:01:30,891 [INFO] [91点] 中小企業のAI活用｜業務効率化から売上アップまで実践事例で解説
+2026-04-19 10:01:30,894 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,894 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-19 10:01:30,894 [INFO] [91点] ローカルSEO完全攻略｜Googleマップで上位表示を獲得する方法
+2026-04-19 10:01:30,895 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,895 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-19 10:01:30,896 [INFO] [91点] ホームページ制作の費用相場｜目的別の料金目安と賢い依頼方法
+2026-04-19 10:01:30,898 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,898 [INFO]   - h2見出し過多: 9個（上限8個）
+2026-04-19 10:01:30,898 [INFO] [91点] 成果が出るLP制作のコツ｜コンバージョン率を上げる設計の基本
+2026-04-19 10:01:30,900 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-19 10:01:30,900 [INFO] [100点] ホームページリニューアルの最適なタイミングと進め方｜失敗しないポイント
+2026-04-19 10:01:30,901 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-19 10:01:30,902 [INFO] [100点] ホームページで集客できない原因と解決策｜見直すべき7つのポイント
+2026-04-19 10:01:30,903 [INFO] 品質チェック: 100点 (合格) issues=0
+2026-04-19 10:01:30,903 [INFO] [100点] WEB集客の方法を完全解説｜中小企業が成果を出す7つの戦略
+2026-04-19 10:01:30,905 [INFO] 品質チェック: 91点 (合格) issues=1
+2026-04-19 10:01:30,905 [INFO]   - 強調(strong)不足: 1個（最低5個）
+2026-04-19 10:01:30,905 [INFO] [91点] コンテンツマーケティングの始め方｜初心者でも成果を出す5ステップ
+2026-04-19 10:01:30,905 [INFO] 勝ちパターン更新: 13件
+2026-04-19 10:01:30,905 [INFO] 平均スコア: 94.5点 (13記事)
+2026-04-19 10:01:30,906 [INFO] learned_patterns.json更新完了
+2026-04-19 10:01:30,906 [INFO] 学習パターン更新完了 → 次回の記事生成に反映されます
+2026-04-19 10:01:30 [CATCHUP] 記事生成完了。インデックスモニタリング開始。
+2026-04-19 10:01:31,063 [INFO] === インデックス状態チェック開始: 20URL ===
+2026-04-19 10:01:38,432 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-15 https://vonds.co.jp/
+2026-04-19 10:01:46,159 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/seo/
+2026-04-19 10:01:53,902 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/web/
+2026-04-19 10:02:01,624 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ads/
+2026-04-19 10:02:09,343 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/works/ai/
+2026-04-19 10:02:16,832 [INFO]   [NG] NEUTRAL Duplicate, Google chose different canonical than user crawl=2026-04-11 https://vonds.co.jp/company/
+2026-04-19 10:02:24,264 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/
+2026-04-19 10:02:31,548 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/seo-howto-guide/
+2026-04-19 10:02:39,309 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-11 https://vonds.co.jp/column/yamanashi-seo/
+2026-04-19 10:02:46,753 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/what-is-seo/
+2026-04-19 10:02:54,233 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/web-design-guide/
+2026-04-19 10:03:01,701 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/google-ads-guide/
+2026-04-19 10:03:08,984 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/ai-business-guide/
+2026-04-19 10:03:16,276 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/local-seo-strategy/
+2026-04-19 10:03:23,806 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/website-cost-guide/
+2026-04-19 10:03:31,104 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/lp-design-tips/
+2026-04-19 10:03:38,366 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/website-renewal-timing/
+2026-04-19 10:03:45,821 [INFO]   [OK] PASS    Submitted and indexed                    crawl=2026-04-17 https://vonds.co.jp/column/website-no-traffic-fix/
+2026-04-19 10:03:53,379 [INFO]   [NG] NEUTRAL Discovered - currently not indexed       crawl=NEVER https://vonds.co.jp/column/web-marketing-methods/
+2026-04-19 10:04:00,876 [INFO]   [NG] NEUTRAL URL is unknown to Google                 crawl=NEVER https://vonds.co.jp/column/content-marketing-start/
+2026-04-19 10:04:01,377 [INFO] === 結果: 8/20 インデックス済み ===
+2026-04-19 10:04:01,377 [WARNING] 未インデックス: https://vonds.co.jp/company/, https://vonds.co.jp/column/seo-howto-guide/, https://vonds.co.jp/column/what-is-seo/, https://vonds.co.jp/column/web-design-guide/, https://vonds.co.jp/column/google-ads-guide/, https://vonds.co.jp/column/ai-business-guide/, https://vonds.co.jp/column/local-seo-strategy/, https://vonds.co.jp/column/website-cost-guide/, https://vonds.co.jp/column/lp-design-tips/, https://vonds.co.jp/column/website-renewal-timing/, https://vonds.co.jp/column/web-marketing-methods/, https://vonds.co.jp/column/content-marketing-start/
+2026-04-19 10:04:01,378 [INFO] 結果保存: /home/ozawakiryu0902/projects/vonds/data/gsc/index_status_latest.json
+2026-04-19 10:04:01 [CATCHUP] インデックスモニタリング完了。
