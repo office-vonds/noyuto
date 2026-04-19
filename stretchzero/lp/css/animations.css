@@ -1,0 +1,272 @@
+/* ========================================
+   Stretch ZERO LP — Motion / Animations
+   - IntersectionObserverでreveal（data-sz-reveal）
+   - FVケンバーンズ・返金シール回転・85%バッジパルス
+   - prefers-reduced-motion で全無効化
+======================================== */
+
+/* ---------- Reveal base ---------- */
+[data-sz-reveal]{
+  opacity:0;
+  transform:translate3d(0, 24px, 0);
+  transition:opacity .9s var(--sz-ease), transform .9s var(--sz-ease);
+  will-change:opacity, transform;
+}
+[data-sz-reveal="left"]{transform:translate3d(-28px,0,0)}
+[data-sz-reveal="right"]{transform:translate3d(28px,0,0)}
+[data-sz-reveal="scale"]{transform:scale(.94);opacity:0}
+[data-sz-reveal="fade"]{transform:none}
+
+[data-sz-reveal].is-in{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+}
+
+/* Stagger children inside same container */
+[data-sz-reveal-group].is-in > *{
+  animation:szRevealChild .9s var(--sz-ease) both;
+}
+[data-sz-reveal-group].is-in > *:nth-child(1){animation-delay:.05s}
+[data-sz-reveal-group].is-in > *:nth-child(2){animation-delay:.18s}
+[data-sz-reveal-group].is-in > *:nth-child(3){animation-delay:.31s}
+[data-sz-reveal-group].is-in > *:nth-child(4){animation-delay:.44s}
+[data-sz-reveal-group].is-in > *:nth-child(5){animation-delay:.57s}
+[data-sz-reveal-group].is-in > *:nth-child(6){animation-delay:.70s}
+
+@keyframes szRevealChild{
+  0%{opacity:0;transform:translate3d(0,18px,0)}
+  100%{opacity:1;transform:translate3d(0,0,0)}
+}
+
+/* ---------- FV: Ken Burns + text intro ---------- */
+.sz-fv__slide{
+  transform:scale(1.08);
+  transition:opacity 1.2s var(--sz-ease), transform 9s linear;
+}
+.sz-fv__slide.is-active{
+  transform:scale(1);
+}
+.sz-fv__inner > *{
+  opacity:0;
+  animation:szFvIntro .9s var(--sz-ease) forwards;
+}
+.sz-fv__inner > *:nth-child(1){animation-delay:.25s}
+.sz-fv__inner > *:nth-child(2){animation-delay:.40s}
+.sz-fv__inner > *:nth-child(3){animation-delay:.55s}
+.sz-fv__inner > *:nth-child(4){animation-delay:.68s}
+.sz-fv__inner > *:nth-child(5){animation-delay:.80s}
+.sz-fv__inner > *:nth-child(6){animation-delay:.92s}
+@keyframes szFvIntro{
+  0%{opacity:0;transform:translate3d(0,22px,0)}
+  100%{opacity:1;transform:translate3d(0,0,0)}
+}
+
+/* ---------- Badges / Dots on buttons ---------- */
+.sz-btn--primary{position:relative;overflow:hidden;isolation:isolate}
+.sz-btn--primary::before{
+  content:"";position:absolute;inset:-2px;z-index:-1;
+  background:linear-gradient(120deg,transparent 25%, rgba(255,255,255,.45) 50%, transparent 75%);
+  transform:translateX(-120%);
+  transition:transform .9s var(--sz-ease);
+}
+.sz-btn--primary:hover::before{transform:translateX(120%)}
+
+.sz-btn:active{transform:translateY(1px) scale(.98)}
+
+/* Sticky CTA 初回スライドイン */
+.sz-sticky{
+  transform:translateY(110%);
+  animation:szStickyIn .7s var(--sz-ease) 1s forwards;
+}
+@keyframes szStickyIn{
+  0%{transform:translateY(110%)}
+  100%{transform:translateY(0)}
+}
+
+/* 追従Web予約ボタンの“呼吸” */
+.sz-sticky .sz-btn--primary{
+  animation:szPulsePrimary 2.4s var(--sz-ease) infinite;
+}
+@keyframes szPulsePrimary{
+  0%,100%{box-shadow:0 0 0 0 rgba(255,140,0,.5)}
+  50%{box-shadow:0 0 0 10px rgba(255,140,0,0)}
+}
+
+/* ---------- 返金シール: 回転 & シャイン ---------- */
+.sz-guarantee__seal{
+  animation:szSealSpin 24s linear infinite, szSealBounce 4s var(--sz-ease) infinite;
+  position:relative;
+}
+.sz-guarantee__seal::after{
+  content:"";position:absolute;inset:8%;border-radius:50%;
+  background:conic-gradient(from 0deg, transparent 0 70%, rgba(255,255,255,.55) 78%, transparent 86%);
+  mix-blend-mode:overlay;pointer-events:none;
+  animation:szSealShine 6s linear infinite;
+}
+@keyframes szSealSpin{
+  0%{transform:rotate(-6deg)}
+  100%{transform:rotate(354deg)}
+}
+@keyframes szSealBounce{
+  0%,100%{scale:1}
+  50%{scale:1.04}
+}
+@keyframes szSealShine{
+  0%{opacity:.0}
+  40%{opacity:.55}
+  100%{opacity:0}
+}
+
+/* ---------- 85%継続バッジ: パルス ---------- */
+.sz-roadmap__stat{
+  position:relative;overflow:hidden;
+}
+.sz-roadmap__stat::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%, rgba(255,255,255,.2) 50%, transparent 70%);
+  transform:translateX(-100%);
+  animation:szStatShine 4s var(--sz-ease) 1.5s infinite;
+}
+@keyframes szStatShine{
+  0%{transform:translateX(-100%)}
+  60%{transform:translateX(120%)}
+  100%{transform:translateX(120%)}
+}
+.sz-roadmap__stat-main strong{
+  display:inline-block;
+  animation:szNumberPop .7s var(--sz-ease) both;
+}
+.sz-roadmap__stat.is-in .sz-roadmap__stat-main strong{
+  animation-delay:.35s;
+}
+@keyframes szNumberPop{
+  0%{opacity:0;transform:scale(.6) translateY(6px)}
+  60%{opacity:1;transform:scale(1.15) translateY(-2px)}
+  100%{opacity:1;transform:scale(1) translateY(0)}
+}
+
+/* ---------- PRICE ヒーローカード hover + 入場 ---------- */
+.sz-price__hero{transition:transform .4s var(--sz-ease), box-shadow .4s var(--sz-ease)}
+.sz-price__hero:hover{transform:translateY(-4px);box-shadow:0 24px 48px rgba(0,0,0,.14)}
+.sz-price__hero-amount strong{
+  display:inline-block;
+  background:linear-gradient(180deg,#ff8c00 0%,#ff6a00 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.sz-price__course{transition:transform .3s var(--sz-ease), border-color .3s var(--sz-ease)}
+.sz-price__course:hover{transform:translateY(-2px);border-color:rgba(255,140,0,.4)}
+
+/* ---------- Reason number 数字 ---------- */
+.sz-reason__num{
+  background:linear-gradient(180deg,#ff8c00 0%,#ff5e00 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  transition:transform .4s var(--sz-ease);
+}
+.sz-reason:hover .sz-reason__num{transform:scale(1.05) translateY(-2px)}
+
+/* ---------- Reason image parallax zoom ---------- */
+.sz-reason__img,.sz-flow__img,.sz-area__img{
+  transition:transform 1.2s var(--sz-ease);
+}
+.sz-reason:hover .sz-reason__img,
+.sz-flow__item:hover .sz-flow__img,
+.sz-area__card:hover .sz-area__img{transform:scale(1.05)}
+
+/* ---------- Flow step バッジ bounce ---------- */
+.sz-flow__item.is-in .sz-flow__step{
+  animation:szStepBounce .7s var(--sz-ease) .25s both;
+}
+@keyframes szStepBounce{
+  0%{opacity:0;transform:translateY(-12px) scale(.8)}
+  60%{opacity:1;transform:translateY(3px) scale(1.05)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* ---------- Check item tick draw ---------- */
+.sz-check,.sz-compare__list li,.sz-fv__check li{
+  position:relative;
+}
+[data-sz-reveal-group].is-in .sz-ic-check{
+  animation:szTickPop .45s var(--sz-ease) both;
+}
+@keyframes szTickPop{
+  0%{opacity:0;transform:scale(.4)}
+  70%{opacity:1;transform:scale(1.2)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+/* ---------- FAQ q/a smoother ---------- */
+.sz-faq__a{
+  transition:max-height .5s var(--sz-ease), padding-bottom .5s var(--sz-ease), opacity .3s var(--sz-ease);
+  opacity:.5;
+}
+.sz-faq__item[aria-expanded="true"] .sz-faq__a{opacity:1}
+
+/* ---------- Modal slide/fade ---------- */
+.sz-modal{opacity:0;transition:opacity .3s var(--sz-ease)}
+.sz-modal[aria-hidden="false"]{opacity:1}
+.sz-modal__panel{
+  transform:translateY(100%);opacity:0;
+  transition:transform .45s var(--sz-ease), opacity .3s var(--sz-ease);
+}
+.sz-modal[aria-hidden="false"] .sz-modal__panel{transform:translateY(0);opacity:1}
+@media (min-width:768px){
+  .sz-modal__panel{transform:translateY(30px) scale(.96)}
+  .sz-modal[aria-hidden="false"] .sz-modal__panel{transform:translateY(0) scale(1)}
+}
+
+/* ---------- Sim VS バッジの呼吸 ---------- */
+.sz-sim__vs{
+  animation:szVsPulse 2.8s var(--sz-ease) infinite;
+}
+@keyframes szVsPulse{
+  0%,100%{transform:scale(1);text-shadow:0 0 0 rgba(255,140,0,0)}
+  50%{transform:scale(1.08);text-shadow:0 0 12px rgba(255,140,0,.7)}
+}
+
+/* ---------- Supervisor badge float ---------- */
+.sz-supervisor__badge{
+  animation:szBadgeFloat 4s var(--sz-ease) infinite;
+}
+@keyframes szBadgeFloat{
+  0%,100%{transform:rotate(-8deg) translateY(0)}
+  50%{transform:rotate(-8deg) translateY(-6px)}
+}
+.sz-supervisor__avatar svg{
+  transition:transform .6s var(--sz-ease);
+}
+.sz-supervisor__card:hover .sz-supervisor__avatar svg{transform:scale(1.04)}
+
+/* ---------- Final CTA の glow ---------- */
+.sz-final{position:relative;overflow:hidden}
+.sz-final::before{
+  content:"";position:absolute;inset:-40% -10%;
+  background:radial-gradient(circle at 50% 50%, rgba(255,255,255,.3) 0%, transparent 60%);
+  animation:szFinalGlow 8s ease-in-out infinite;pointer-events:none;
+}
+@keyframes szFinalGlow{
+  0%,100%{transform:translate(-10%,0)}
+  50%{transform:translate(10%,0)}
+}
+
+/* ---------- Header hamburger icon morph ---------- */
+.sz-header__ham[aria-expanded="true"] span:nth-child(1){transform:translateY(11px) rotate(45deg)}
+.sz-header__ham[aria-expanded="true"] span:nth-child(2){opacity:0}
+.sz-header__ham[aria-expanded="true"] span:nth-child(3){transform:translateY(-12px) rotate(-45deg)}
+.sz-header__ham span{transition:transform .35s var(--sz-ease), opacity .2s var(--sz-ease);transform-origin:center}
+
+/* ---------- Smooth scroll for anchor jump ---------- */
+html{scroll-behavior:smooth}
+
+/* ---------- Reduced motion: turn everything off ---------- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.001s !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001s !important;
+  }
+  [data-sz-reveal]{opacity:1 !important;transform:none !important}
+  .sz-fv__slide{transform:none !important}
+  .sz-guarantee__seal{animation:none !important;transform:rotate(-6deg) !important}
+  .sz-sticky{transform:none !important;animation:none !important}
+}
