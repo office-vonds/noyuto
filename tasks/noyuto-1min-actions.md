@@ -10,24 +10,6 @@
 
 ## 🔥 最優先（今日中に1件でも解除するとKIRYU自律性が跳ね上がる）
 
-### 🔥 A-0.4. Gmail App Password 再発行（1分）— **新規・2026-04-19**
-
-**止まっている物**: 朝のダイジェストGmail送信・KIRYU自律送信の全て
-**原因**: `~/credentials/gmail-app-password.txt` の現パスワード (`gyoe...`) がSMTP認証失敗 (535 BadCredentials)
-**影響**: 毎朝7時のダイジェスト・障害通知・成果報告が一切届かない
-
-**NOYUTOの1分手順**:
-1. https://myaccount.google.com/apppasswords にログイン（office.vonds@gmail.com）
-2. アプリ名: `VONDS KIRYU SMTP` で新規発行
-3. 16文字のパスワード（スペース区切り表示されるがスペース抜きで保存）をコピー
-4. WSL端末で: `echo -n '新パスワード' > ~/credentials/gmail-app-password.txt`
-5. 動作確認: `echo "test" | python3 ~/projects/vonds/scripts/send-gmail.py --subject "test" --to office.vonds@gmail.com`
-6. OKが出たらKIRYUに「Gmail復旧」と一言
-
-**前提**: 2段階認証が有効になっている（App Password発行に必須）
-
----
-
 ### 🔥 A-0.5. X Cookie 両アカウント再取得（1分×2 = 2分）
 
 rina 55本 + unryuto_ai 6本のストック凍結を解除する。詳細 `tasks/noyuto-cookie-setup.md`
