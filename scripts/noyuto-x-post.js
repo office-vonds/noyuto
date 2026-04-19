@@ -293,9 +293,17 @@ function postTweet(authToken, ct0, text, replyToId = null) {
           try {
             const json = JSON.parse(data);
             const tweetResult = json?.data?.create_tweet?.tweet_results?.result;
-            const tweetId = tweetResult?.rest_id || 'unknown';
+            const tweetId = tweetResult?.rest_id
+                          || tweetResult?.legacy?.id_str
+                          || tweetResult?.tweet?.rest_id
+                          || json?.data?.create_tweet?.rest_id
+                          || 'unknown';
+            if (tweetId === 'unknown') {
+              log(`  DEBUG: response structure = ${data.substring(0, 800)}`);
+            }
             resolve({ id: tweetId, success: true });
           } catch (e) {
+            log(`  DEBUG: JSON parse failed, raw data = ${data.substring(0, 500)}`);
             resolve({ id: 'unknown', success: true });
           }
         } else {

@@ -1,145 +1,82 @@
 # KIRYU 単独実行キュー（NOYUTO負担ゼロで進行）
 
-最終更新: 2026-04-17 / バナナ追記
+最終更新: 2026-04-19 / 大掃除＋X/NOTE運用監視追加
 
 > KIRYU自身が今すぐ着手できる作業。NOYUTO待ちを発生させない。
 > 浮かれたら即このファイルを読んで次を見つけろ。
+> 完了したら削除・進行中は `[進行中]` マーク。
 
 ---
 
-## 🔥 バナナからKIRYUへの依頼（2026-04-17・売上直結）
+## 🔥 今日中（NOYUTO負担ゼロで完結）
 
-### D. A-TRUCK SEO Phase 次施策 提案
+### K-1. X投稿ストック緊急補充（pending_posts/に5-7スレッド）
 
-**バナナGSC分析で具体的な改修対象URL特定済**（28日データ）:
+**事実**: 2026-04-19 00:50時点で `scripts/data/noyuto-x/pending_posts/` が空。今夜20:00cronで空振りする。
+**所要**: 30-60分（NOTE生成ロジックを流用してテーマ選定+4本構成生成 → JSON書き出し）
+**手順**:
+1. `scripts/data/noyuto-x/used-themes.json` から既使用テーマ確認
+2. `noyuto-media/SKILL.md` のテーマプールから未使用5-7件選定
+3. 各テーマで4本構成（hook/provoke/evidence/landing）生成
+4. `pending_posts/thread_TIMESTAMP.json` として保存（フォーマットは posted/ 配下の既存JSON参照）
+5. 翌日cron発火で消費開始
 
-| KW | Imp | 現Position | 対象URL | 施策 |
-|---|---:|---:|---|---|
-| 積載車 レンタル | **1,826** | #8.4 | `/rental/list/3t_wide_long_loader/` | title/h1で「積載車 レンタル」明示・関連内部リンク強化 |
-| トラックレンタル | 541 | #9.3 | `/rental/list/` | title「トラックレンタル | A-TRUCK」・コピー強化 |
-| 冷凍車 レンタル | 209 | **#2.9** | `/rental/` | 既に#3・あと一押しで#1狙える |
+### K-2. NOTE cron 手動発火テスト（月曜まで待たない）
 
-**見込み増分**（Position #5以内ならCTR 5-10%と仮定）:
-- 積載車レンタル: 現25cl → 90-180cl（月66-155cl増）
-- トラックレンタル: 現20cl → 55-110cl（月35-90cl増）
-- 冷凍車レンタル: 現29cl → 60-80cl（月30-50cl増）
+**事実**: `scripts/data/noyuto-note/posted/` が空・`cron.log` 不在。過去月曜 `0 10 * * 1` cronが一度も成功していない疑い。
+**手順**:
+1. `ANTHROPIC_API_KEY` が `~/.env` で export されるか確認
+2. `scripts/noyuto-note-cron.sh` を手動実行 → エラー原因特定
+3. NOTE下書き保存成功ならOK・失敗ならログ添付してサムにバグfix依頼
+4. 次回月曜 10:00 本番発火に備える
 
-**合計月130-300クリック増（SEOだけで）**
+### K-3. X Tweet ID パース恒久修正（次回投稿後）
 
-**KIRYUへの依頼**:
-1. 本提案を state/atruck-seo.md に Phase次施策として追記するか判断
-2. 承認ならサムに title/h1/description 改修依頼（sam-queue経由）
-3. クライアント（相沢様）承認フロー必要か判断（CLAUDE.md遵守ルール8）
+**事実**: 2026-04-19 debug log追加済み。次回投稿時にraw JSONが `post.log` に書き出される
+**手順**:
+1. 次回X投稿（4/19 20:00 or 4/20 8:00）後に `scripts/data/noyuto-x/post.log` でJSON確認
+2. 実際の `rest_id` 格納パスを特定
+3. `noyuto-x-post.js` line 295-300 のパース順序を正しいパスに修正
+4. debug logは残す（次回何か変わっても即検知できるよう）
 
-詳細: `ads-audit/weekly-reports/majistretch-atruck-gsc-analysis-20260417.md`
+### K-4. daily-morning-digest.py 動作確認
 
-### E. 本気ストレッチ ブランド名#1取得戦略
-
-**現状**: 「本気ストレッチ」で Position#3.6（自分のブランド名なのに1位取れてない）
-
-**原因推定**: 「ストレッチゼロ」が同山梨エリアでストレッチ系KW独占している可能性
-
-**KIRYUへの依頼**:
-1. 「本気ストレッチ」ブランド確立施策の優先度判断
-2. 手段:
-   - LPのtitle/h1で「本気ストレッチ 甲府上阿原店」を必須明示
-   - Google広告でブランド指名KW(「本気ストレッチ」「マジストレッチ」) tCPA超低設定で死守
-   - GBP (Google Business Profile) 整備状況をNOYUTOに確認
-
-
-
-### A. 本気ストレッチGA4 CV設定の不整合解消
-
-**事実（バナナGA4 API確認済み）**:
-- property 530819340 の既存CV定義: `purchase` / `close_convert_lead` / `qualify_lead`（テンプレ流用・一件も発火してない幽霊CV）
-- 本番GTM (GTM-K32XLKXH V5) が発火するイベント: `tel_click` / `contact_click` / `form_submit_complete`
-- **つまり GA4 の CVカウントは永遠に0。スマート入札が学習不可**
-
-**バナナがAPIで叩いたが失敗**:
-- SA `ga4-mcp@potent-impulse-165116.iam.gserviceaccount.com` が Viewer 権限のみ
-- `create_conversion_event` 403 Permission Denied
-
-**KIRYUへの依頼**:
-1. property 530819340 (本気ストレッチ) のSA権限を **Viewer → Editor** に昇格
-   - GA4 Admin UI: プロパティのアクセス管理 → SA email検索 → 編集者に変更
-   - もしくは GCP IAMコンソールでproperty-level権限追加
-2. 昇格完了したらバナナに一言 → バナナがAPIで以下を実行:
-   - 既存幽霊CV 3件を削除
-   - 新CV 3件を作成: `tel_click`, `contact_click`, `form_submit_complete`
-
-**所要**: KIRYU 5分 / バナナ 1分
-
-### B. ストレッチゼロ GTM-PKQDTD2Q へのSA追加
-
-**事実**:
-- ストレッチゼロ本番LP `stretchzero.jp` は gtag直書き + GTM(GTM-PKQDTD2Q) の**重複配信の可能性**
-- GTM内部監査したいがSA未追加で叩けない
-
-**KIRYUへの依頼**:
-- GTM管理画面 → GTM-PKQDTD2Q → 管理 → ユーザー管理 → `ga4-mcp@potent-impulse-165116.iam.gserviceaccount.com` を**公開権限**で追加
-- 完了したらバナナへ通知 → バナナが自動監査＋整理スクリプト実行
-
-**所要**: KIRYU 30秒 / バナナ 10分
-
-### C. Google Ads API Basic Access 承認状況確認
-
-**事実**:
-- 2026-04-17 NOYUTO が Basic Access 申請提出済み（memory `project_vonds_ads_mcc.md`）
-- 通常1-3営業日で承認
-- 承認後に Ads Editor 手動操作を完全API化できる
-
-**KIRYUへの依頼**:
-- MCC (709-306-3546) → ツール → API Center で承認状況確認
-- 承認済み → バナナへ通知 → 本気ST用KW投入スクリプトを俺が書いてAds Editor不要に
-- 未承認 → 待機（バナナはAds Editor CSV形式で成果物準備済・`ads-audit/samples/majistretch/editor_import_*.csv`）
-
-**所要**: KIRYU 2分
+**事実**: 2026-04-19 `send-gmail.py` 連携コード追加済み
+**手順**（App Password復旧後）:
+1. `python3 scripts/daily-morning-digest.py` 手動実行
+2. `[OK] Gmail送信完了` 出力確認
+3. office.vonds@gmail.com で受信確認
 
 ---
 
-## 今すぐ実行（並行OK）
+## 継続監視（毎日自動実行）
 
-### 1. unryuto_ai WSL cron停止 ✅完了
-- rinaと同じ穴を踏まないため即停止
-- 再開はWin Chrome手順確立後
+### 運用インフラ監視（KIRYU 10分/日）
 
-### 2. 絆JOB staff_blog 新記事3本のURL取得
-- xmlrpc経由で wp.getPosts で取得可能
-- NOYUTOがGSC登録する6URL中の3本を先回り取得
-- NOYUTO負担を15分→10分に短縮
+- [ ] X pending_posts/ 残数 — 3本下回ったら即補充
+- [ ] NOTE cron.log 月曜確認 — エラーなら即バグfix
+- [ ] Gmail送信 digest の到達確認 — 未着3日続いたら再発行依頼
+- [ ] rina→blog cron 出力品質レビュー — 毎朝10:00投稿後確認
+- [ ] Appeal返答メール監視（3-14日）— rina @ X凍結事故
 
-### 3. バナナ・サム両キューに進捗確認コメント発注
-- サム: 本気ストレッチGTM実装着手したか？
-- バナナ: Developer Tokenリセット着手可能か？
+### バナナ・サム進捗確認（KIRYU 5分/日）
 
-### 4. 本気ストレッチメール実機テスト 代替検証
-- curl でフォームに POSTして SMTP 到達確認する手順書作成
-- NOYUTOが実機でフォーム送信するのと等価のテストをKIRYUが自動化
-
-### 5. A-TRUCK GTM統合 事前設計ドラフト
-- 3コンテナID確認・統合先決定・移行計画
-- NOYUTO承認後にサムが即実装できる状態に
-
-### 6. 資金繰り状況 現状レポ（レオ不在でも参照可能な範囲で）
-- memory/project_vonds_cashflow_2026q2.md を最新化
-- 税理士支払い・カード決済代行・マル経の状況整理
+- [ ] サム: A-TRUCK鈑金承認受領時に即実装着手するか
+- [ ] サム: A-TRUCK Phase次施策メール送付→承認→実装の連鎖進行
+- [ ] バナナ: Developer Token再取得後のAPI基盤起動
+- [ ] バナナ: 3クライアント直近30日実績サマリ（4/23MTG用）生成
 
 ---
 
-## 明日以降の見立て
+## NOYUTO向け申し送り待ち（KIRYUは先回り作業のみ）
 
-### 7. rina-to-blog cron の 出力品質確認
-- 毎朝10:00投稿の記事を1日1回KIRYUがレビュー
-- 品質低い or SEO効果薄いと判断したら即チューニング
-
-### 8. Appeal返答メール監視（3-14日）
-- 受信次第、復活/却下で分岐対応
-
-### 9. unryuto_ai Win環境セットアップ支援
-- NOYUTOがWin上でNode.js+スクリプト動かす際のトラブルシュート
-
-### 10. 4/23 Kayoko Ando氏 MTG 前日準備
-- 質問項目最終版・参照資料整理
+| # | KIRYUが完成させた成果 | NOYUTO 1分アクション | RII |
+|---|---|---|---:|
+| 1 | `scripts/vonds-ads-api/mtg_0423_notes.md` 完成版 | 4/22 Token再発行+Basic Access確認 | 85 |
+| 2 | `seo/a-truck-seo-phase2-approval-email.md` | 相沢様へコピペ送付（A-7） | 80 |
+| 3 | `seo/atruck-gtm-consolidation-plan.md` 拡充版 | A-6 SA付与（3コンテナ） | 70 |
+| 4 | `scripts/send-gmail.py` + digest統合 | A-0.4 App Password再発行 | 90 |
+| 5 | `state/noyuto-media.md` + STATE.md #11追加 | X補充はKIRYUで実施 | — |
 
 ---
 
@@ -149,13 +86,26 @@
 - 実績ベースで淡々と積み上げる（浮かれない）
 - 停滞案件を見つけたら即動く（待たない）
 - NOYUTO作業が発生する場合は「1分で済む」粒度まで分解
-- 同じ失敗は二度しない（memory/lessons_learned.md 参照）
+- 同じ失敗は二度しない（`memory/lessons_learned.md` 参照）
+- **残タスクは完了したら即削除。古い情報を残すな**（2026-04-19 NOYUTO指摘）
+- **Gmail報告を怠るな**。自律で動いたら結果はNOYUTOの受信箱に届ける
+
+---
+
+## 完了済（次セッション整理時に削除）
+
+- ~~A. GA4 SA昇格依頼~~ → A-0.8にてNOYUTO作業化
+- ~~B. ストレッチゼロGTM SA追加~~ → A-0.9にてNOYUTO作業化
+- ~~C. Basic Access承認確認~~ → A-0.6にてNOYUTO作業化
+- ~~D. A-TRUCK SEO Phase次施策~~ ✅承認メール作成完了（2026-04-19 `seo/a-truck-seo-phase2-approval-email.md`）
+- ~~1. unryuto_ai WSL cron停止~~ ✅完了
+- ~~5. A-TRUCK GTM統合事前設計ドラフト~~ ✅完了（2026-04-19拡充版）
 
 ---
 
 ## 運用ルール
 
 1. 着手した項目は即 `[進行中]` マーク
-2. 完了したら `✅完了` に変更 + 成果物リンク
+2. 完了したら削除（勝利宣言せず静かに消す）
 3. 新しい気づきで追加項目はどんどん追記
 4. 日終わりに完了項目を session-log にまとめる

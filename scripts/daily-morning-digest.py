@@ -221,5 +221,25 @@ def main():
     # 出力
     print(out)
 
+    # Gmail送信（App Password有効時のみ・失敗しても本体処理は継続）
+    try:
+        sys.path.insert(0, str(PROJECT / 'scripts'))
+        # ハイフン名モジュールは importlib 経由
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            'send_gmail', PROJECT / 'scripts/send-gmail.py'
+        )
+        send_gmail_mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(send_gmail_mod)
+        send_gmail_mod.send_mail(
+            subject=f'[VONDS] 朝のダイジェスト {JST.strftime("%Y-%m-%d")}',
+            body=out,
+            to='office.vonds@gmail.com',
+            sender_name='VONDS KIRYU',
+        )
+        print('\n[OK] Gmail送信完了 → office.vonds@gmail.com', file=sys.stderr)
+    except Exception as e:
+        print(f'\n[WARN] Gmail送信スキップ: {e}', file=sys.stderr)
+
 if __name__ == '__main__':
     main()
